@@ -20,18 +20,6 @@ app.use("/hashtags", hashtagsRouter);
 app.use("/likes", likesRouter);
 app.use("/comments", commentsRouter);
 
-app.get("/", (req, res) => {
-  res.json({
-    random: "this is a GET"
-  });
-});
-
-app.post("/", (req, res) => {
-  res.json({
-    random: "this is a POST"
-  });
-});
-
 app.listen(port, () => {
   console.log("App is listening on port", port);
 });
