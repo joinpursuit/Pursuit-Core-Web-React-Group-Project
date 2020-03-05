@@ -50,6 +50,7 @@ CREATE TABLE likes
 CREATE TABLE hashtags
 (
     id SERIAL PRIMARY KEY,
+    owner_id INT REFERENCES users(id) ON DELETE CASCADE,
     post_id INT REFERENCES posts(id) ON DELETE CASCADE,
     body VARCHAR
 );
@@ -71,38 +72,55 @@ VALUES
     (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/oculus.jpg⁩', 'Oculus NYC'),
     (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/snowboarding.jpg⁩', 'Shredddin'),
     (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/wild_west.jpg⁩', 'Take me back to the wild west'),
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/yuki_waterfall.jpg⁩', 'Hiking with my Yuki');
+    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/yuki_waterfall.jpg⁩', 'Hiking with my Yuki'),
+    (2, 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'Posted up on the stage'),
+    (2, 'bpersonal_app/backend/images(uploads)/canned_images/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool');
 INSERT INTO comments
     (author_id, post_id, content)
 VALUES
-    (1, 1, 'Damn bro had to comment on my own picture..sad face');
+    (1, 1, 'Damn bro had to comment on my own picture..sad face'),
+    (2, 2, 'Hey, nice post');
 
 INSERT INTO likes
     (liker_id, post_id)
 VALUES
     (1, 1),
-    (1, 2);
+    (1, 2),
+    (2, 1),
+    (2, 2);
 
 INSERT INTO hashtags
-    (post_id, body)
+    (owner_id, post_id, body)
 VALUES
-    (1, 'saltflats'),
-    (1, 'utah'),
-    (1, 'adventure'),
-    (2, 'graduation'),
-    (2, 'album'),
-    (3, 'doge'),
-    (3, 'shiba'),
-    (3, 'shibacam'),
-    (4, 'oculus'),
-    (5, 'snowboarding'),
-    (5, 'shredding'),
-    (6, 'desert'),
-    (6, 'canyons'),
-    (6, 'adventure'),
-    (7, 'waterfall'),
-    (7, 'shiba'),
-    (7, 'doge'),
-    (7, 'shibacam'),
-    (7, 'adventure');
+    (1, 1, 'saltflats'),
+    (1, 1, 'utah'),
+    (1, 1, 'adventure'),
+    (1, 2, 'graduation'),
+    (1, 2, 'album'),
+    (1, 3, 'doge'),
+    (1, 3, 'shiba'),
+    (1, 3, 'shibacam'),
+    (1, 4, 'oculus'),
+    (1, 5, 'snowboarding'),
+    (1, 5, 'shredding'),
+    (1, 6, 'desert'),
+    (1, 6, 'canyons'),
+    (1, 6, 'adventure'),
+    (1, 7, 'waterfall'),
+    (1, 7, 'shiba'),
+    (1, 7, 'doge'),
+    (1, 7, 'shibacam'),
+    (1, 7, 'adventure'),
+    (2, 1, 'posted'),
+    (2, 1, 'up'),
+    (2, 1, 'on'),
+    (2, 1, 'the'),
+    (2, 1, 'block'),
+    (2, 2, 'still'),
+    (2, 2, 'posted'),
+    (2, 2, 'on'),
+    (2, 2, 'the'),
+    (2, 2, 'block');
+
+
 
