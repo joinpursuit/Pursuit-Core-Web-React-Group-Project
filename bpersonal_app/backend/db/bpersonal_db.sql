@@ -76,6 +76,7 @@ VALUES
     (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/yuki_waterfall.jpg⁩', 'Hiking with my Yuki'),
     (3, 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'Posted up on the stage'),
     (3, 'bpersonal_app/backend/images(uploads)/canned_images/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool');
+
 INSERT INTO comments
     (author_id, post_id, content)
 VALUES
