@@ -60,7 +60,8 @@ INSERT INTO users
     (username, password, full_name, email_address, profile_pic_url, bio)
 VALUES
     ('kwong', 'imag123', 'Kevin Wong', 'kevinwong@pursuit.org', '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/flats1.jpg⁩', 'I''m kevin and this is my short bio'),
-    ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', '/Users/pursuit/Desktop/unit4/Pursuit-Core-Web-React-Group-Project/bpersonal_app/backend/images(uploads)/bbrown_images/IMG_9504.jpg', 'This is brandons bio')
+    ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', '/Users/pursuit/Desktop/unit4/Pursuit-Core-Web-React-Group-Project/bpersonal_app/backend/images(uploads)/bbrown_images/IMG_9504.jpg', 'This is brandons bio'),
+    ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'This is canned breads bio')
 
 
 INSERT INTO posts
@@ -73,21 +74,21 @@ VALUES
     (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/snowboarding.jpg⁩', 'Shredddin'),
     (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/wild_west.jpg⁩', 'Take me back to the wild west'),
     (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/yuki_waterfall.jpg⁩', 'Hiking with my Yuki'),
-    (2, 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'Posted up on the stage'),
-    (2, 'bpersonal_app/backend/images(uploads)/canned_images/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool');
+    (3, 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'Posted up on the stage'),
+    (3, 'bpersonal_app/backend/images(uploads)/canned_images/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool');
 INSERT INTO comments
     (author_id, post_id, content)
 VALUES
     (1, 1, 'Damn bro had to comment on my own picture..sad face'),
-    (2, 2, 'Hey, nice post');
+    (3, 2, 'Hey, nice post');
 
 INSERT INTO likes
     (liker_id, post_id)
 VALUES
     (1, 1),
     (1, 2),
-    (2, 1),
-    (2, 2);
+    (3, 1),
+    (3, 2);
 
 INSERT INTO hashtags
     (owner_id, post_id, body)
@@ -111,16 +112,16 @@ VALUES
     (1, 7, 'doge'),
     (1, 7, 'shibacam'),
     (1, 7, 'adventure'),
-    (2, 1, 'posted'),
-    (2, 1, 'up'),
-    (2, 1, 'on'),
-    (2, 1, 'the'),
-    (2, 1, 'block'),
-    (2, 2, 'still'),
-    (2, 2, 'posted'),
-    (2, 2, 'on'),
-    (2, 2, 'the'),
-    (2, 2, 'block');
+    (3, 1, 'posted'),
+    (3, 1, 'up'),
+    (3, 1, 'on'),
+    (3, 1, 'the'),
+    (3, 1, 'block'),
+    (3, 2, 'still'),
+    (3, 2, 'posted'),
+    (3, 2, 'on'),
+    (3, 2, 'the'),
+    (3, 2, 'block');
 
 
 
