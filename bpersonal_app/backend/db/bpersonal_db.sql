@@ -60,8 +60,7 @@ INSERT INTO users
     (username, password, full_name, email_address, profile_pic_url, bio)
 VALUES
     ('kwong', 'imag123', 'Kevin Wong', 'kevinwong@pursuit.org', '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/flats1.jpg⁩', 'I''m kevin and this is my short bio'),
-    ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', 'bpersonal_app/backend/images(uploads)/canned_images/67073509_2801980889831365_53915729489035264_n.jpg', 'I cant believe they have it - Canned bread!' )
-    
+    ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', '/Users/pursuit/Desktop/unit4/Pursuit-Core-Web-React-Group-Project/bpersonal_app/backend/images(uploads)/bbrown_images/IMG_9504.jpg', 'This is brandons bio')
 
 
 INSERT INTO posts
