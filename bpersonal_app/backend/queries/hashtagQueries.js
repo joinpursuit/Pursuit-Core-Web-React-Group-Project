@@ -48,10 +48,11 @@ const deleteHashtagOnSinglePost = async (req, res, next) => {
       status: "Success",
       message: "Deleted hashtag from post_id",
       body: {
+        id: req.params.id,
         post_id: req.params.post_id,
         result: await db.one(
-          "DELETE FROM hashtags WHERE post_id=$1 RETURNING *",
-          req.params.post_id
+          "DELETE FROM hashtags WHERE owner_id=$1 AND post_id=$2 AND id=$3 RETURNING *",
+          [req.params.owner_id, req.params.post_id, req.params.id]
         )
       }
     });
