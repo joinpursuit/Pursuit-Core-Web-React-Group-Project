@@ -4,7 +4,7 @@ const {
   getLikesForSinglePost,
   addSingleLike,
   deleteSingleLike
-} = require("../queries/postQueries");
+} = require("../queries/likesQueries");
 
 likes.get("/post/:post_id", getLikesForSinglePost);
 likes.post("/post/:post_id/:liker_id", addSingleLike);
