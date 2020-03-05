@@ -39,10 +39,17 @@ const getSingleUserById = async (req, res, next) => {
 
 const insertSingleUser = async (req, res, next) => {
   try {
-    let { username, password, bio, propicURL } = req.body;
+    let {
+      username,
+      password,
+      full_name,
+      email_address,
+      profile_pic_url,
+      bio
+    } = req.body;
     let user = await db.one(
-      "INSERT INTO users (username, password, bio, propicURL) VALUES ($1, $2, $3, $4) RETURNING *",
-      [username, password, bio, propicURL]
+      "INSERT INTO users (username, password, full_name, email_address, profile_pic_url, bio) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+      [username, password, full_name, email_address, profile_pic_url, bio]
     );
     res.status(200).json({
       status: "Success",
