@@ -42,7 +42,7 @@ const editSingleComment = async (req, res, next) => {
     let { post_id, author_id } = req.params;
     let { content } = req.body;
     let edited_comment = await db.one(
-      `UPDATE comments SET content = '${content}' WHERE (post_id = $1 AND author_id = $2)`,
+      `UPDATE comments SET content = '${content}' WHERE (post_id = $1 AND author_id = $2) RETURNING *`,
       [post_id, author_id]
     );
     res.status(200).json({
