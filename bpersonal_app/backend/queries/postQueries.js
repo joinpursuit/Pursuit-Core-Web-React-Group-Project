@@ -7,7 +7,7 @@ const getAllPosts = async (req, res, next) => {
       message: "Got all Posts",
       body: {
         posts: await db.any(
-          "SELECT posts.id, poster_id, username, imgurl, description, time_stamp  FROM posts INNER JOIN users ON posts.poster_id = users.id ORDER BY posts.id DESC"
+          "SELECT owner_id, post_image_url, body  FROM posts INNER JOIN users ON posts.owner_id = users.id ORDER BY posts.id DESC"
         )
       }
     });
@@ -33,10 +33,10 @@ const getSinglePost = async (req, res, next) => {
 
 const insertSinglePost = async (req, res, next) => {
   try {
-    let { poster_id, imgURL, description } = req.body;
+    let { owner_id, post_image_url, body } = req.body;
     let single_post = await db.one(
-      "INSERT INTO posts (poster_id, imgURL, description) VALUES ($1, $2, $3) RETURNING *",
-      [poster_id, imgURL, description]
+      "INSERT INTO posts (owner_id, post_image_url, body) VALUES ($1, $2, $3) RETURNING *",
+      [owner_id, post_image_url, body]
     );
     res.status(200).json({
       status: "Success",
@@ -50,12 +50,9 @@ const insertSinglePost = async (req, res, next) => {
 
 const updateSinglePost = async (req, res, next) => {
   try {
-    let { poster_id, imgURL, description } = req.body;
+    let {} = req.body;
     let { id } = req.params;
-    let single_post = await db.one(
-      "UPDATE posts SET poster_id = $1, imgURL = $2, description = $3 WHERE id = $4 RETURNING *",
-      [poster_id, imgURL, description, id]
-    );
+    let single_post = await db.one("UPDATE posts SET  RETURNING *", []);
     res.status(200).json({
       status: "Success",
       message: "Updated a single post",
