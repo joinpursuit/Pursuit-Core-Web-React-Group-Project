@@ -59,21 +59,21 @@ CREATE TABLE hashtags
 INSERT INTO users
     (username, password, full_name, email_address, profile_pic_url, bio)
 VALUES
-    ('kwong', 'imag123', 'Kevin Wong', 'kevinwong@pursuit.org', '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/flats1.jpg⁩', 'I''m kevin and this is my short bio'),
-    ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', '/Users/pursuit/Desktop/unit4/Pursuit-Core-Web-React-Group-Project/bpersonal_app/backend/images(uploads)/bbrown_images/IMG_9504.jpg', 'This is brandons bio'),
+    ('kwong', 'imag123', 'Kevin Wong', 'kevinwong@pursuit.org', '‎⁨bpersonal_app/backend/images(uploads)/kwongs_images/flats1.jpg⁩', 'I''m kevin and this is my short bio'),
+    ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', 'bpersonal_app/backend/images(uploads)/bbrown_images/IMG_9504.jpg', 'This is brandons bio'),
     ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'This is canned breads bio');
 
 
 INSERT INTO posts
     (owner_id, post_image_url, body)
 VALUES
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/flats2.jpg⁩', 'Saltflats... made me feel tiny'),
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/graduation.jpg⁩', 'Blood, sweat, and tears. Graduation'),
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/yuki_scratch.jpg⁩', 'Yuki enjoying her walk'),
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/oculus.jpg⁩', 'Oculus NYC'),
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/snowboarding.jpg⁩', 'Shredddin'),
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/wild_west.jpg⁩', 'Take me back to the wild west'),
-    (1, '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/kwongs_images/yuki_waterfall.jpg⁩', 'Hiking with my Yuki'),
+    (1, '‎⁨bpersonal_app/backend/images(uploads)/kwongs_images/flats2.jpg⁩', 'Saltflats... made me feel tiny'),
+    (1, 'bpersonal_app/backend/images(uploads)/kwongs_images/graduation.jpg', 'Blood, sweat, and tears. Graduation'),
+    (1, '‎⁨bpersonal_app/backend/images(uploads)/kwongs_images/yuki_scratch.jpg⁩', 'Yuki enjoying her walk'),
+    (1, '‎⁨bpersonal_app/backend/images(uploads)/kwongs_images/oculus.jpg', 'Oculus NYC'),
+    (1, '‎⁨bpersonal_app/backend/images(uploads)/kwongs_images/snowboarding.jpg', 'Shredddin'),
+    (1, '‎⁨bpersonal_app/backend/images(uploads)/kwongs_images/wild_west.jpg⁩', 'Take me back to the wild west'),
+    (1, '‎⁨bpersonal_app/backend/images(uploads)/kwongs_images/yuki_waterfall.jpg⁩', 'Hiking with my Yuki'),
     (3, 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'Posted up on the stage'),
     (3, 'bpersonal_app/backend/images(uploads)/canned_images/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool');
 
