@@ -50,9 +50,12 @@ const insertSinglePost = async (req, res, next) => {
 
 const updateSinglePost = async (req, res, next) => {
   try {
-    let {} = req.body;
+    let { owner_id, post_image_url, body } = req.body;
     let { id } = req.params;
-    let single_post = await db.one("UPDATE posts SET  RETURNING *", []);
+    let single_post = await db.one(
+      "UPDATE posts SET owner_id=$1, post_image_url=$2, body=$3 WHERE id = $4 RETURNING *",
+      [owner_id, post_image_url, body, id]
+    );
     res.status(200).json({
       status: "Success",
       message: "Updated a single post",
