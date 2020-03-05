@@ -61,7 +61,7 @@ INSERT INTO users
 VALUES
     ('kwong', 'imag123', 'Kevin Wong', 'kevinwong@pursuit.org', '‎⁨iCloud Drive⁩/⁨Desktop⁩/⁨Pursuit⁩/⁨Projects⁩/⁨Pursuit-Core-Web-React-Group-Project⁩/⁨bpersonal_app⁩/⁨backend⁩/⁨images(uploads)/flats1.jpg⁩', 'I''m kevin and this is my short bio'),
     ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', '/Users/pursuit/Desktop/unit4/Pursuit-Core-Web-React-Group-Project/bpersonal_app/backend/images(uploads)/bbrown_images/IMG_9504.jpg', 'This is brandons bio'),
-    ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'This is canned breads bio')
+    ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', 'bpersonal_app/backend/images(uploads)/canned_images/83265522_3243496319013151_2072753519152070656_o.jpg', 'This is canned breads bio');
 
 
 INSERT INTO posts
