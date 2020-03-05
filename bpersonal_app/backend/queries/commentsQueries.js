@@ -46,7 +46,7 @@ const editSingleComment = async (req, res, next) => {
       [post_id, author_id]
     );
     res.status(200).json({
-      status: "Succes",
+      status: "Success",
       message: "You have edited a single comment",
       body: {
         edited_comment
@@ -85,7 +85,7 @@ const deleteAllComments = async (req, res, next) => {
     );
     res.status(200).json({
       status: "Success",
-      message: "You have deleted a single comment",
+      message: "You have deleted all comments by user: " + author_id,
       body: {
         deleted_comment
       }
