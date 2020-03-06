@@ -22,6 +22,10 @@ const SignInForm = () => {
         type="submit"
         value="Sign In"
         />
+        <input
+        type="submit"
+        value="Sign up"
+        />
       </label>
     </form>
   )
