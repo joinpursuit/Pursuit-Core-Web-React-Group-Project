@@ -61,4 +61,22 @@ const postTag = async (req, res, next) => {
   }
 }
 
-module.exports = {getAllTags, getTagsByName, postTag}
+const deleteTag = async (req, res, next) => {
+  try{
+    let {id} = req.params
+    let tag = await db.one("DELETE FROM tags WHERE id = $1 RETURNING *", id)
+    res.status(200).json({
+      status: "success",
+      message: "The tag has been deleted.",
+      payload: tag
+    })
+  } catch(err){
+    res.status(404).json({
+      status: "error",
+      message: "That tag has already been deleted",
+      payload: null
+    })
+  }
+}
+
+module.exports = {getAllTags, getTagsByName, postTag, deleteTag}
