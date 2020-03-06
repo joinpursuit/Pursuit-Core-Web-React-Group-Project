@@ -158,7 +158,7 @@ router.get('/post/:postId/:reactorId', async (request, response) => {
 
 router.post('/add/post/:postId', async (request, response) => {
     const postId = request.params.postId;
-    const { password, reactorId, emojiType } = request.body;
+    const { password} = request.body;
     const validPostId = isValidId(postId);
     const validReactorId = isValidId(reactorId);
 
@@ -171,7 +171,7 @@ router.post('/add/post/:postId', async (request, response) => {
         })
     } else {
         try {
-            const userAllowed = await isUserAllowed(response, reactorId, password)
+            const userAllowed = await isUserAllowed(response, password)
             if (!userAllowed) {
                 response.status(401)
                     response.json({
@@ -181,7 +181,7 @@ router.post('/add/post/:postId', async (request, response) => {
                     })
             } else {
                 try {
-                    const addReactionToSpecificPost = await addReactionToPost(postId, reactorId, emojiType);
+                    const addReactionToSpecificPost = await addReactionToPost(postId);
                     response.status(201)
                     response.json({
                         status: 'success',
