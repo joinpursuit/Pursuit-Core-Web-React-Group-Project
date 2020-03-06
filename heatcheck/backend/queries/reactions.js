@@ -38,19 +38,19 @@ const getOneReactionByPostId = async (postId) => {
             SELECT *
             FROM reactions
             WHERE post_id = $1`
-        return await db.one(requestQuery, [postId, postId])
+        return await db.one(requestQuery, [postId])
     } catch (err) {
         throw err
     }
 }
 
-const addReactionToPost = async (postId, postId, emojiType) => {
+const addReactionToPost = async (postId) => {
     try {
         const requestQuery = `
             INSERT INTO reactions
-                (post_id, reactor_id, emoji_type)
+                (post_id)
             VALUES
-                ($1, $2, $3)
+                ($1)
             RETURNING *`
         return await db.one(requestQuery, [postId])
     } catch (err) {
@@ -64,7 +64,6 @@ const deleteReaction = async (reactionId, postId) => {
         const requestQuery = `
         DELETE FROM reactions
         WHERE id = $1
-        AND reactor_id = $2 
         RETURNING *`
         return await db.one(requestQuery, [reactionId, postId])
     } catch (err) {
