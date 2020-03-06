@@ -10,17 +10,17 @@ const {
   deleteUser
 } = require("../../queries/users/usersQueries");
 
-users.get("/users", getAllUsers);
+users.get("/", getAllUsers);
 
 users.get("/:id", getUserByid);
 
-users.get("users/:email", getUserByEmail);
+users.get("/:email", getUserByEmail);
 
-users.get("users/:id/posts", getPostByUser);
+users.get("/:id/posts", getPostByUser);
 
-users.patch("users/:id", updateUser);
+users.patch("/:id", updateUser);
 
-users.post("/users", createNewUser);
+users.post("/", createNewUser);
 
-users.delete("users/:id", deleteUser);
+users.delete("/:id", deleteUser);
 module.exports = users;

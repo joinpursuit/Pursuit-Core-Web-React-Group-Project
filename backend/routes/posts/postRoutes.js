@@ -9,12 +9,12 @@ const {
   deletePost
 } = require("../../queries/posts/postQueries");
 
-posts.get("/posts", getAllPosts);
-posts.get("/posts/:id", getPostById);
-posts.get("posts/:id/:tag", getTagOfPost);
-posts.get("posts/tags/:tagName", getPostByTag);
-posts.get("posts/:id/pictures", getPicturesOfPost);
-posts.post("posts", createPost);
-posts.delete("posts/:id", deletePost);
+posts.get("/", getAllPosts);
+posts.get("/:id", getPostById);
+posts.get("/:id/:tag", getTagOfPost);
+posts.get("/tags/:tagName", getPostByTag);
+posts.get("/:id/pictures", getPicturesOfPost);
+posts.post("/", createPost);
+posts.delete("/:id", deletePost);
 
 module.exports = posts;
