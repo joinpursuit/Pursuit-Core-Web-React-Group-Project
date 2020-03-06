@@ -4,7 +4,7 @@ const {
   newpost,
   editPost,
   deletePost
-} = require("../../queries/posts/posts.js");
+} = require("../../backend/queries/posts.js");
 
 posts.get("/", getposts); //get all posts
 posts.get("/:userId", getpost); //Get single user's post

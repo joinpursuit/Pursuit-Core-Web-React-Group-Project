@@ -5,9 +5,8 @@ const getposts = async (req, res, next) => {
     );
 
     res.status(200).json({
-      posts,
       status: "success",
-      message: "selected all posts"
+      message: posts
     });
   } catch (error) {
     next(error);
@@ -21,9 +20,8 @@ const getpost = async (req, res, next) => {
       [req.params.userId]
     );
     res.status(200).json({
-      post,
       status: "success",
-      message: "selected post"
+      message: post
     });
   } catch (error) {
     next(error);
@@ -50,9 +48,8 @@ const editPost = async (req, res, next) => {
       `UPDATE posts SET body = '${req.body.description}' WHERE id=${req.params.id} RETURNING *`
     );
     res.status(200).json({
-      editedPost,
       status: "success",
-      message: "post edited "
+      message: editedPost
     });
   } catch (error) {
     next(error);
@@ -65,9 +62,8 @@ const deletePost = async (req, res, next) => {
       `DELETE FROM posts WHERE id = ${req.params.id} RETURNING *`
     );
     res.status(200).json({
-      deletedPost,
       status: "success",
-      message: "post deleted "
+      message: deletedPost
     });
   } catch (error) {
     next(error);
