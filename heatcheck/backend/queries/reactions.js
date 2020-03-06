@@ -1,15 +1,29 @@
 const db = require('../db/index.js');
 
+const getAllReactionsByUserId = async (userId) => {
+    try{
+        const requestQuery = `
+            SELECT reactions.id AS reaction_id
+                ,user_id
+                ,post_id
+                ,reaction
+            FROM reactions JOIN users ON (user_id = user.id)
+            WHERE user_id = $1
+            ORDER BY user.id ASC`
+        return await db.any(requestQuery, userId)
+    }catch(err) {
+        throw err
+    }
+}
+
 const getAllReactionsByPostId = async (postId) => {
     try {
         const requestQuery = `
             SELECT reactions.id AS reaction_id
-                , emoji_type
-                , reactor_id
-                , username
+                , user_id
                 , post_id
-                , reactions.time_created
-            FROM reactions JOIN users ON (reactor_id = users.id)
+                , reaction
+            FROM reactions JOIN users ON (postid = users.id)
             WHERE post_id = $1
             ORDER BY reactions.id ASC`
         return await db.any(requestQuery, postId)
@@ -18,20 +32,19 @@ const getAllReactionsByPostId = async (postId) => {
     }
 }
 
-const getOneReactionByPostId = async (postId, reactorId) => {
+const getOneReactionByPostId = async (postId) => {
     try {
         const requestQuery = `
             SELECT *
             FROM reactions
-            WHERE post_id = $1
-            AND reactor_id = $2`
-        return await db.one(requestQuery, [postId, reactorId])
+            WHERE post_id = $1`
+        return await db.one(requestQuery, [postId, postId])
     } catch (err) {
         throw err
     }
 }
 
-const addReactionToPost = async (postId, reactorId, emojiType) => {
+const addReactionToPost = async (postId, postId, emojiType) => {
     try {
         const requestQuery = `
             INSERT INTO reactions
@@ -39,32 +52,30 @@ const addReactionToPost = async (postId, reactorId, emojiType) => {
             VALUES
                 ($1, $2, $3)
             RETURNING *`
-        return await db.one(requestQuery, [postId, reactorId, emojiType])
+        return await db.one(requestQuery, [postId])
     } catch (err) {
         throw err
     }
 }
 
 
-const deleteReaction = async (reactionId, reactorId) => {
+const deleteReaction = async (reactionId, postId) => {
     try {
         const requestQuery = `
         DELETE FROM reactions
         WHERE id = $1
         AND reactor_id = $2 
         RETURNING *`
-        return await db.one(requestQuery, [reactionId, reactorId])
+        return await db.one(requestQuery, [reactionId, postId])
     } catch (err) {
         throw err
     }
 }
 
 module.exports = {
+    getAllReactionsByUserId,
     getAllReactionsByPostId,
-    getAllReactionsByCommentId,
-    getOneReactionByCommentId,
     getOneReactionByPostId,
     addReactionToPost,
-    addReactionToComment,
     deleteReaction
 }

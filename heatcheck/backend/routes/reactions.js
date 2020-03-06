@@ -8,8 +8,6 @@ const {
     deleteReaction
 } = require('../queries/reactions.js');
 
-const { authenticateUser } = require('../queries/authentication')
-
 const handleError = (response, err) => {
     if (err.message === "No data returned from the query.") {
         response.status(404)
@@ -72,7 +70,19 @@ router.get('/users/all/:userId', async (request, response) => {
     }else{
         try{
             const allReactionsByUserId = await allReactionsByUserId
-
+            if(allReactionsByUserId.length) {
+                response.json({
+                    status: 'success',
+                    message: 'Successfully retrieved all reactions for one user',
+                    payload: allReactionsByUserId,
+                })
+            }else {
+                response.json({
+                    status: 'success',
+                    message: 'No reactions returned',
+                    payload: [],
+                })
+            }
         }catch (err) {
             handleError(response, err)
         }
