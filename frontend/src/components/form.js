@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const Form = () => {
+const SignInForm = () => {
   const [email, setEmail] = useState("")
 
   const handleSubmit = (e) => {
@@ -18,9 +18,13 @@ const Form = () => {
         placeholder="Enter Your Email"
         value={email}
         />
+        <input
+        type="submit"
+        value="Sign In"
+        />
       </label>
     </form>
   )
 }
-export default Form;
+export default SignInForm;
  
