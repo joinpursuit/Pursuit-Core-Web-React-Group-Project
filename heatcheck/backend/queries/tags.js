@@ -43,4 +43,22 @@ const getTagsByName = async (req, res, next) => {
   }
 }
 
-module.exports = {getAllTags, getTagsByName}
+const postTag = async (req, res, next) => {
+  try{
+    let info = req.body
+    let tag = await db.one("INSERT INTO tags (post_id, user_id, tag) VALUES (${post_id}, ${user_id}, ${tag}) RETURNING *", info)
+    res.status(200).json({
+      status: "success",
+      message: "Created new tag.",
+      payload: tag
+    })
+  } catch(err){
+    res.status(500).json({
+      status: "error",
+      message: "Unable to create new tag",
+      payload: null
+    })
+  }
+}
+
+module.exports = {getAllTags, getTagsByName, postTag}
