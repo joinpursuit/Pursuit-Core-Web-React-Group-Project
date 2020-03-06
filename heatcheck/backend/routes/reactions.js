@@ -41,19 +41,6 @@ const isValidId = (id) => {
     return false
 }
 
-const isUserAllowed = async (response, id, password) => {
-    try {
-        return await authenticateUser(id, password)
-    } catch (err) {
-        console.log(err)
-        if (err.message === "No data returned from the query.") {
-            return false
-        } else {
-            handleError(response, err)
-        }
-    }
-}
-
 //GET ALL REATIONS BY USER ID
 
 router.get('/users/all/:userId', async (request, response) => {

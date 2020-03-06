@@ -7,7 +7,7 @@ const getAllReactionsByUserId = async (userId) => {
                 ,user_id
                 ,post_id
                 ,reaction
-            FROM reactions JOIN users ON (user_id = user.id)
+            FROM reactions JOIN users ON (user_id = users.id)
             WHERE user_id = $1
             ORDER BY user.id ASC`
         return await db.any(requestQuery, userId)
@@ -20,12 +20,12 @@ const getAllReactionsByPostId = async (postId) => {
     try {
         const requestQuery = `
             SELECT reactions.id AS reaction_id
-                , user_id
-                , post_id
-                , reaction
-            FROM reactions JOIN users ON (postid = users.id)
-            WHERE post_id = $1
-            ORDER BY reactions.id ASC`
+                ,user_id
+                ,post_id
+                ,reaction
+            FROM reactions JOIN users ON (user_id = users.id)
+            WHERE user_id = $1
+            ORDER BY users.id ASC`
         return await db.any(requestQuery, postId)
     } catch (err) {
         throw err
