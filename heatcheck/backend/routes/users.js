@@ -6,7 +6,7 @@ const {
   logInUser,
   addUser,
   deleteUser
-} = require("../../backend/queries/users.js");
+} = require("../../backend/queries/posts.js");
 
 users.get("/", getAllUsers);
 
