@@ -10,7 +10,11 @@ const getAllComments = async (req, res, next) => {
             message: "all comments for post"
         })
     } catch (error) {
-        next (error)
+        res.json({
+            "status": "error",
+            "message": "data not found",
+            "payload": null
+    })
     }
 }
 
@@ -18,13 +22,18 @@ const addSingleComment =  async (req, res, next) => {
     try {
         let { post_id } = req.params
         let { user_id, body } = req.body
-        await db.none("INSERT INTO comments (user_id, post_id, body) VALUES ($1, $2, $3)", [user_id, post_id, body])
+        let comments = await db.one("INSERT INTO comments (user_id, post_id, body) VALUES ($1, $2, $3) RETURNING *", [user_id, post_id, body])
         res.status(200).json({
+            comments,
             status: "success",
             message: "added a single comment"
         })
     } catch (error) {
-        next (error)  
+        res.json({
+            "status": "error",
+            "message": "unable to add comment",
+            "payload": null
+    })
     }
 }
 
@@ -38,7 +47,11 @@ const editSingleComment = async (req, res, next) => {
           message: "updated a comment"
       }) 
     } catch (error) {
-        next (error)  
+        res.json({
+            "status": "error",
+            "message": "unable to edit comment",
+            "payload": null
+    })  
     }
 }
 
@@ -51,7 +64,11 @@ const deleteComment = async (req, res, next) => {
             message: "deleted a comment"
         })
     } catch (error) {
-        next (error)        
+        res.json({
+            "status": "error",
+            "message": "comment not deleted",
+            "payload": null
+    })        
     }
 }
 
