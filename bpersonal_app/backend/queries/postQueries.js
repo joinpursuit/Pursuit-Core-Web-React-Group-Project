@@ -16,6 +16,21 @@ const getAllPosts = async (req, res, next) => {
   }
 };
 
+const getAllPostsBySingleUser = async (req, res, next) => {
+  try {
+    res.status(200).json({
+      status: "Success",
+      message: "Got all posts by user id: " + req.params.owner_id,
+      body: {
+        posts: await db.any(
+          "SELECT owner_id, post_image_url, body FROM posts INNER JOIN users ON posts.owner_id = users.id WHERE posts.owner_id = $1 ORDER BY posts.id DESC",
+          req.params.owner_id
+        )
+      }
+    });
+  } catch (error) {}
+};
+
 const getSinglePost = async (req, res, next) => {
   try {
     let { id } = req.params;
@@ -87,6 +102,7 @@ const deletePost = async (req, res, next) => {
 
 module.exports = {
   getAllPosts,
+  getAllPostsBySingleUser,
   getSinglePost,
   insertSinglePost,
   updateSinglePost,

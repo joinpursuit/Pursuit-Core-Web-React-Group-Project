@@ -2,6 +2,7 @@ const posts = require("express").Router();
 
 const {
   getAllPosts,
+  getAllPostsBySingleUser,
   getSinglePost,
   insertSinglePost,
   updateSinglePost,
@@ -9,6 +10,7 @@ const {
 } = require("../queries/postQueries");
 
 posts.get("/", getAllPosts);
+posts.get("/ownerID/:owner_id", getAllPostsBySingleUser);
 posts.get("/:id", getSinglePost);
 posts.post("/", insertSinglePost);
 posts.patch("/:id", updateSinglePost);
