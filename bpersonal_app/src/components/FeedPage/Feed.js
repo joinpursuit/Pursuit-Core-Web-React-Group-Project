@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Feed() {
-    return <div className="App">Hello</div>;
-  }
-  
-  export default Feed;
+  const [] = useState();
+
+  return <div className="Feed"></div>;
+}
+
+export default Feed;
