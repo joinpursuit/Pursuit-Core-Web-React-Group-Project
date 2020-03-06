@@ -7,6 +7,6 @@ const {
 
 pictures.get("/", getAllPics);
 pictures.post("/", addPic);
-pictures.delete("/:id", deletePic);
+pictures.delete("/:id", deletePics);
 
 module.exports = pictures;
