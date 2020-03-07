@@ -5,39 +5,40 @@ const SignUpForm = () => {
   const email = useInput("");
   const typeOfArt = useInput("");
   const bio = useInput("");
-  const favoriteArtiste = useInput("");
+  const favoriteArtist = useInput("");
 
-  const handleSigUpSubmit = e => {
+  const handleSignUpSubmit = e => {
     e.preventDefault();
   };
 
   return (
     <div>
-      <form onSubmit={handleSigUpSubmit}>
+      <form onSubmit={handleSignUpSubmit} className="signUpForm">
         <label>
           Email :
-          <input type="text" placeholder="Enter Your Email" {...email} />
+          <input type="text" placeholder="Enter Your Email" {...email} className="signUpEmail"/>
         </label>
         <label>
           Genre :
-          <input type="text" placeholder="Enter Genre" {...typeOfArt} />
+          <input type="text" placeholder="Enter Genre" {...typeOfArt} className="textInput signUpGenre"/>
         </label>
         <label>
           Bio :
-          <input type="text" placeholder="Enter Your Bio" {...bio} />
+          <input type="text" placeholder="Enter Your Bio" {...bio} className="textInput signUpBio"/>
         </label>
         <label>
           Favorite Artist :
           <input
             type="text"
             placeholder="Enter Your Favorite Artist"
-            {...favoriteArtiste}
+            className="textInput signUpFavArtist"
+            {...favoriteArtist}
           />
         </label>
 
-        <input type="Submit" value="Sign Up" />
+        <input type="Submit" value="Sign Up" className="button signUpSubmit"/>
       </form>
-      <input type="button" value="Log In" />
+      <input type="button" value="Log In" className="button signUpSwitch"/>
     </div>
   );
 };
