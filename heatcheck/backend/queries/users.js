@@ -27,10 +27,11 @@ const getUserByid = async (req, res, next) => {
 };
 
 const logInUser = async (req, res, next) => {
+  console.log(req.body)
   try {
+    let info = req.body
     let user = await dataBase.one(
-      `SELECT * FROM users WHERE email = '${req.body.email}' AND password = '${req.body.password}'`
-    );
+      "SELECT * FROM users WHERE email = ${email} AND password = ${password}", info);
     res.status(200).json({ user });
   } catch (err) {
     next(err);
