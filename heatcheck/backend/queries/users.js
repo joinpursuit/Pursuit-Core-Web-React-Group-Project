@@ -57,10 +57,11 @@ const addUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
   try {
-    await dataBase.none("DELETE from users WHERE id = $1", [req.params.id]);
+    let user = await dataBase.one("DELETE from users WHERE id = $1 RETURNING *", [req.params.id]);
     res.status(200).json({
       status: "ok",
-      message: "User Has Been Deleted"
+      message: "User Has Been Deleted",
+      payload: user
     });
   } catch (err) {
     next(err);
