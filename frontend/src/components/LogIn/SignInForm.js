@@ -11,14 +11,15 @@ const SignInForm = ({ handleSubmit }) => {
           e.preventDefault();
           handleSubmit(e);
         }}
+        className="signInForm"
       >
         <label>
           Email :
-          <input type="text" placeholder="Enter Your Email" {...email} />
-          <input type="submit" value="Sign In" />
+          <input type="text" placeholder="Enter Your Email" {...email} className="textInput signInEmail"/>
         </label>
+        <input type="submit" value="Sign In" className="button signInSubmit"/>
       </form>
-      <input type="button" value="Sign up" />
+      <input type="button" value="Sign up" className="button signInSwitch"/>
     </div>
   );
 };
