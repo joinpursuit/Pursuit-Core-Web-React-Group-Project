@@ -1,7 +1,7 @@
 import React from 'react'
 import handleSignUpForm from './handleSignUpForm'
 
-function loginForm () {
+function LoginForm () {
     return (
         <form className="loginform">
             <input placeholder= "Email"></input>
@@ -12,4 +12,4 @@ function loginForm () {
     )
 }
 
-export default loginForm
+export default LoginForm

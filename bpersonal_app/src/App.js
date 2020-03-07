@@ -9,9 +9,9 @@ import { Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Login />
       <NavBar />
       <Switch>
+      <Login />
         <Route path={"/feedpage"}>
           <Feed />
         </Route>
