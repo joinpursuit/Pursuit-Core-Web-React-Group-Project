@@ -1,4 +1,4 @@
-const db = require("../db/index.js");
+const db = require("../db/index");
 
 const getLikesForSinglePost = async (req, res, next) => {
   try {

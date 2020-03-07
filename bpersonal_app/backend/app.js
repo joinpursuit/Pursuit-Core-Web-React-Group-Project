@@ -4,6 +4,11 @@ const cors = require("cors");
 const app = express();
 const port = 3001;
 
+// upload image
+const multer = require("multer");
+const path = require("path");
+app.use(express.static(path.resolve(__dirname, "./public")));
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
