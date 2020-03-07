@@ -1,64 +1,44 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { useInput } from "../../util/customHooks";
 
 const SignUpForm = () => {
-  const[email, setEmail] = useState("")
-  const[typeOfArt, setTypeOfArt] = useState("")
-  const[bio, setBio] = useState("")
-  const[favoriteArtiste, setFavoriteArtiste] = useState("")
-  
-  const handleSigUpSubmit =(e) => {
+  const email = useInput("");
+  const typeOfArt = useInput("");
+  const bio = useInput("");
+  const favoriteArtiste = useInput("");
+
+  const handleSigUpSubmit = e => {
     e.preventDefault();
-  }
-  console.log(email)
-  console.log(bio)
-  console.log(typeOfArt)
-  console.log(favoriteArtiste)
-  
- 
-  return(
-    <form onSubmit={handleSigUpSubmit}>
-      <label>
-        email :
-        <input
-        onChange={(e)=> setEmail(e.target.value)}
-        type="text"
-        placeholder="Enter Your Email"
-        value={email}
-        />
+  };
 
-        <input
-        onChange={(e)=> setTypeOfArt(e.target.value)}
-        type="text"
-        placeholder="Enter Type Of Art"
-        value={typeOfArt}
-        />
+  return (
+    <div>
+      <form onSubmit={handleSigUpSubmit}>
+        <label>
+          Email :
+          <input type="text" placeholder="Enter Your Email" {...email} />
+        </label>
+        <label>
+          Genre :
+          <input type="text" placeholder="Enter Genre" {...typeOfArt} />
+        </label>
+        <label>
+          Bio :
+          <input type="text" placeholder="Enter Your Bio" {...bio} />
+        </label>
+        <label>
+          Favorite Artist :
+          <input
+            type="text"
+            placeholder="Enter Your Favorite Artist"
+            {...favoriteArtiste}
+          />
+        </label>
 
-        <input
-        onChange={(e)=> setBio(e.target.value)}
-        type="text"
-        placeholder="Enter Your Bio"
-        value={bio}
-        />
-
-        <input
-        onChange={(e)=> setFavoriteArtiste(e.target.value)}
-        type="text"
-        placeholder="Enter Your Favorite Artiste"
-        value={favoriteArtiste}
-        />
-
-        <input
-        type="Submit"
-        value="Sign Up"
-        />
-
-        <input
-        type="Submit"
-        value="Log In"
-        />
-
-      </label>
-    </form>
-  )
-}
-export default SignUpForm
+        <input type="Submit" value="Sign Up" />
+      </form>
+      <input type="button" value="Log In" />
+    </div>
+  );
+};
+export default SignUpForm;
