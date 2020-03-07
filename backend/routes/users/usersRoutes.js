@@ -1,10 +1,10 @@
 const users = require("express").Router();
 const {
   getAllUsers,
-  getUserByid,
-  getUserByEmail,
+  getUserById,
+  logIn,
   getPostByUser,
-  getPostByUser,
+
   updateUser,
   createNewUser,
   deleteUser
@@ -12,11 +12,11 @@ const {
 
 users.get("/", getAllUsers);
 
-users.get("/:id", getUserByid);
+users.get("/:id", getUserById);
 
-users.get("/:email", getUserByEmail);
+users.post("/login", logIn);
 
-users.get("/:id/posts", getPostByUser);
+// users.get("/:id/posts", getPostByUser);
 
 users.patch("/:id", updateUser);
 

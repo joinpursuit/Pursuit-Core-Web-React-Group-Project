@@ -18,6 +18,12 @@ app.use("/api/posts", postsRouter);
 app.use("/api/tags", tagsRouter);
 app.use("/api/pictures", picturesRouter);
 
+app.use("*", (req, res, next, error) => {
+  res.json({
+    error
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server Is Running On Port:${port}`);
 });
