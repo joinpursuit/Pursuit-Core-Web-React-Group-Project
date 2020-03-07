@@ -1,9 +1,22 @@
 import React, { useState } from "react";
+// import DisplayUserInfo from "../UniversalComponents/DisplayUserInfo";
+import DisplayFeed from "./DisplayFeed";
+import CreatePostForm from "./CreatePostForm";
 
 function Feed() {
-  const [] = useState();
+  const [userID, setUserID] = useState("");
 
-  return <div className="Feed"></div>;
+  const handleSessionStorageUserID = () => {
+    setUserID(sessionStorage.userID);
+  };
+
+  return (
+    <div className="Feed">
+      {/* <DisplayUserInfo /> */}
+      <DisplayFeed handleSessionStorageUserID={handleSessionStorageUserID} />
+      <CreatePostForm handleSessionStorageUserID={handleSessionStorageUserID} />
+    </div>
+  );
 }
 
 export default Feed;
