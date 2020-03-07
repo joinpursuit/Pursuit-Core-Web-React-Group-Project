@@ -3,7 +3,7 @@ import signUpForm from './signUpForm'
 
 function handleSignUpForm() {
     return(
-        <signUpForm/>
+        {signUpForm}
     )
 }
 
