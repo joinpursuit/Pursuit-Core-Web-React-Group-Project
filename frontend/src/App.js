@@ -1,6 +1,7 @@
 import React from 'react';
-import Form from "./components/form"
-import SignUpForm from "./components/signUp"
+import SignInForm from "./components/LogIn/SignInForm"
+import SignUpForm from "./components/LogIn/SignUpForm"
+import Home from "./components/Home/Home"
 
 import './App.css';
 
@@ -8,8 +9,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Form/>
+      <SignInForm/>
       <SignUpForm/>
+      <Home/>
     </div>
   );
 }
