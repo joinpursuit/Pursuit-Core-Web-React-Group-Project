@@ -9,7 +9,7 @@ const SignInForm = ({ handleLogIn }) => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          handleLogIn(e);
+          handleLogIn(email.value);
         }}
         className="signInForm"
       >
