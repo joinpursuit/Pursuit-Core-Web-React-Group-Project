@@ -10,7 +10,7 @@ const {
 
 users.get("/", getAllUsers);
 
-users.post("/login", logInUser);
+users.get("/login", logInUser);
 
 users.get("/:id", getUserByid);
 

@@ -19,7 +19,7 @@ CREATE TABLE users
     email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
     phone_number BIGINT UNIQUE NOT NULL,
-    profile_pic VARCHAR NOT NULL
+    profile_pic VARCHAR NOT NULL DEFAULT ''
 );
 
 -- Create Post Table
@@ -62,8 +62,8 @@ CREATE TABLE reactions
 CREATE TABLE tags
 (
     id SERIAL PRIMARY KEY,
-    post_id INT REFERENCES posts(id),
-    user_id INT REFERENCES users(id),
+    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
     tag VARCHAR NOT NULL
 );
 
