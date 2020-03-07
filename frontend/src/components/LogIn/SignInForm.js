@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
 
-const SignInForm = ({ handleSubmit }) => {
+const SignInForm = ({ handleLogIn }) => {
   const email = useInput("");
 
   return (
@@ -9,7 +9,7 @@ const SignInForm = ({ handleSubmit }) => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          handleSubmit(e);
+          handleLogIn(e);
         }}
         className="signInForm"
       >
