@@ -19,7 +19,7 @@ CREATE TABLE users
     email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
     phone_number BIGINT UNIQUE NOT NULL,
-    profile_pic VARCHAR NOT NULL
+    profile_pic VARCHAR NOT NULL DEFAULT ''
 );
 
 -- Create Post Table
