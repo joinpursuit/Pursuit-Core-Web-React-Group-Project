@@ -39,8 +39,9 @@ const addSingleComment =  async (req, res, next) => {
 
 const editSingleComment = async (req, res, next) => {
     try {
-        let { post_id, user_id } = req.params
-        let comment = await db.one("UPDATE comments SET body = $1 WHERE (post_id = $2 AND user_id = $3) RETURNING *", [ req.body.body, post_id, user_id])
+        let {id} = req.params
+        let {body} = req.body
+        let comment = await db.one("UPDATE comments SET body = $1 WHERE id = $2 RETURNING *", [body, id])
       res.status(200).json({
           comment,
           status: "success",
