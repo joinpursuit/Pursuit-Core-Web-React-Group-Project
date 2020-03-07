@@ -27,10 +27,11 @@ const getUserByid = async (req, res, next) => {
 };
 
 const logInUser = async (req, res, next) => {
+  console.log(req.body)
   try {
+    let info = req.body
     let user = await dataBase.one(
-      `SELECT * FROM users WHERE email = '${req.body.email}' AND password = '${req.body.password}'`
-    );
+      "SELECT * FROM users WHERE email = ${email} AND password = ${password}", info);
     res.status(200).json({ user });
   } catch (err) {
     next(err);
@@ -56,10 +57,11 @@ const addUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
   try {
-    await dataBase.none("DELETE from users WHERE id = $1", [req.params.id]);
+    let user = await dataBase.one("DELETE from users WHERE id = $1 RETURNING *", [req.params.id]);
     res.status(200).json({
       status: "ok",
-      message: "User Has Been Deleted"
+      message: "User Has Been Deleted",
+      payload: user
     });
   } catch (err) {
     next(err);

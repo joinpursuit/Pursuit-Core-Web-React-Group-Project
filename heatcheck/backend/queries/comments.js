@@ -4,11 +4,19 @@ const getAllComments = async (req, res, next) => {
     try {
         let { post_id } = req.params
         let comments = await db.any("SELECT * FROM comments WHERE post_id = $1", post_id)
-        res.status(200).json({
-            comments,
-            status: "success",
-            message: "all comments for post"
-        })
+        if (comments.length > 0){
+            res.status(200).json({
+                status: "success",
+                message: "all comments for post",
+                payload: comments
+            })
+        } else {
+            res.status(404).json({
+                status: "error",
+                message: "There are no comments on this post.",
+                payload: null
+            })
+        }
     } catch (error) {
         res.json({
             "status": "error",
@@ -39,8 +47,9 @@ const addSingleComment =  async (req, res, next) => {
 
 const editSingleComment = async (req, res, next) => {
     try {
-        let { post_id, user_id } = req.params
-        let comment = await db.one("UPDATE comments SET body = $1 WHERE (post_id = $2 AND user_id = $3) RETURNING *", [ req.body.body, post_id, user_id])
+        let {id} = req.params
+        let {body} = req.body
+        let comment = await db.one("UPDATE comments SET body = $1 WHERE id = $2 RETURNING *", [body, id])
       res.status(200).json({
           comment,
           status: "success",
@@ -57,11 +66,12 @@ const editSingleComment = async (req, res, next) => {
 
 const deleteComment = async (req, res, next) => {
     try {
-        let { post_id, user_id } = req.params
-        await db.one("DELETE FROM comments WHERE (post_id = $1 AND user_id = $2) RETURNING *",[post_id, user_id])
+        let {id} = req.params
+        let comment = await db.one("DELETE FROM comments WHERE id = $1 RETURNING *", id)
         res.status(200).json({
             status: "success",
-            message: "deleted a comment"
+            message: "deleted a comment",
+            payload: comment
         })
     } catch (error) {
         res.json({
