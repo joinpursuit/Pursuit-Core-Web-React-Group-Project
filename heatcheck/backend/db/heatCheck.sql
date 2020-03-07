@@ -80,7 +80,7 @@ VALUES
 INSERT INTO posts
     (user_id, image, brand, description, release_date, colorway)
 VALUES
-    (1, 'https://blog.finishline.com/wp-content/uploads/2019/03/Candy-Cane-1.png', 'nike', 'I"m ready for santa', '2001', 'red'),
+    (1, 'https://blog.finishline.com/wp-content/uploads/2019/03/Candy-Cane-1.png', 'nike', 'I''m ready for santa', '2001', 'red'),
     (2, 'https://stockx.imgix.net/adidas-Yeezy-Boost-350-V2-Cloud-White-Product.jpg', 'adidas', 'Chick-fil-a, what she order', '1994', 'white'),
     (3, 'https://i.redd.it/esnnznuench21.jpg', 'tims', 'What you know about tim bits?', '1987', 'red'),
     (4, 'https://i.imgur.com/cOTe35I.jpg', 'crocs', 'you croc my world', '2018', 'black');

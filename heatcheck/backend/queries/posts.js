@@ -34,12 +34,12 @@ const getpost = async (req, res, next) => {
 
 const newpost = async (req, res, next) => {
   try {
-    await db.none(
-      `INSERT INTO posts (user_id, image, brand, description, release_date, colorway) VALUES ('${req.body.user_id}','${req.body.image}','${req.body.brand}',${req.body.description},${req.body.release_date},${req.body.colorway} )`
-    );
+    let info = req.body
+    let post = await db.one("INSERT INTO posts (user_id, image, brand, description, release_date, colorway) VALUES (${user_id}, ${image}, ${brand}, ${description}, ${release_date}, ${colorway}) RETURNING *", info)
     res.status(200).json({
       status: "success",
-      message: "post created "
+      message: "post created ",
+      payload: post
     });
   } catch (error) {
     next(error);
@@ -49,7 +49,7 @@ const newpost = async (req, res, next) => {
 const editPost = async (req, res, next) => {
   try {
     let editedPost = await db.any(
-      `UPDATE posts SET body = '${req.body.description}' WHERE id=${req.params.id} RETURNING *`
+      `UPDATE posts SET description = '${req.body.description}' WHERE id=${req.params.id} RETURNING *`
     );
     res.status(200).json({
       status: "success",
