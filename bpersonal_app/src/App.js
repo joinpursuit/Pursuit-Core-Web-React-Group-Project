@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Login from "./components/LoginPage/Login";
 import NavBar from "./components/NavBar";
-import DisplayProfile from './components/ProfilePage/DisplayProfile'
+import Profile from "./components/ProfilePage/Profile"
 import Feed from "./components/FeedPage/Feed";
 import { Route, Switch } from "react-router-dom";
 
@@ -16,7 +16,7 @@ function App() {
           <Feed />
         </Route>
         <Route path={"/profilepage"}>
-        <DisplayProfile />
+        <Profile />
         </Route>
       </Switch>
     </div>
