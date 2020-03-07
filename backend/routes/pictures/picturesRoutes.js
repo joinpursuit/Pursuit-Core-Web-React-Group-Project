@@ -5,8 +5,8 @@ const {
   deletePic
 } = require("../../queries/pictures/picturesQueries");
 
-// pictures.get("/", getAllPics);
-// pictures.post("/", addPic);
-// pictures.delete("/:id", deletePics);
+pictures.get("/", getAllPics);
+pictures.post("/", addPic);
+pictures.delete("/:id", deletePics);
 
 module.exports = pictures;
