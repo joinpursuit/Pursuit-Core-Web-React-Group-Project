@@ -1,80 +1,80 @@
-const db = require('../db/index.js');
+const dataBase = require("../db/index.js")
 
-const getAllReactionsByUserId = async (userId) => {
-    try{
-        const requestQuery = `
-            SELECT reactions.id AS reaction_id
-                ,user_id
-                ,post_id
-                ,reaction
-            FROM reactions JOIN users ON (user_id = users.id)
-            WHERE user_id = $1
-            ORDER BY user.id ASC`
-        return await db.any(requestQuery, userId)
-    }catch(err) {
-        throw err
-    }
-}
-
-const getAllReactionsByPostId = async (postId) => {
+const getReactions = async (req, res, next) => {
     try {
-        const requestQuery = `
-            SELECT reactions.id AS reaction_id
-                ,user_id
-                ,post_id
-                ,reaction
-            FROM reactions JOIN users ON (user_id = users.id)
-            WHERE user_id = $1
-            ORDER BY users.id ASC`
-        return await db.any(requestQuery, postId)
-    } catch (err) {
-        throw err
+      let reactions = await dataBase.any(
+        "SELECT reactions.user_id, reactions.post_id, reactions.reaction FROM reactions LEFT JOIN users ON reactions.user_id = reactions.id;"
+      );
+  
+      res.status(200).json({
+        status: "success",
+        message: "selected all reactions",
+        payload: reactions
+      });
+    } catch (error) {
+      next(error);
     }
-}
-
-const getOneReactionByPostId = async (postId) => {
+  };
+  
+  const getSingleReaction = async (req, res, next) => {
     try {
-        const requestQuery = `
-            SELECT *
-            FROM reactions
-            WHERE post_id = $1`
-        return await db.one(requestQuery, [postId])
-    } catch (err) {
-        throw err
+      let reaction = await dataBase.any(
+        "SELECT reactions.id,reactions.user_id, reactions.post_id, reactions.reaction FROM reactions LEFT JOIN users ON reactions.user_id = users.id WHERE user_id=$1",
+        [req.params.userId]
+      );
+      res.status(200).json({
+        status: "success",
+        message: `select reactions from ${req.params.userId}`,
+        payload: reaction
+      });
+    } catch (error) {
+      next(error);
     }
-}
-
-const addReactionToPost = async (postId) => {
+  };
+  
+  const newReaction = async (req, res, next) => {
+    try {   
+      let info = req.body   
+      let reaction = await dataBase.one("INSERT INTO reactions (user_id, post_id, reaction) VALUES (${user_id}, ${post_id}, ${reaction}) RETURNING *", info)
+      res.status(200).json({
+        status: "success",
+        message: "Reaction created",
+        payload: reaction
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+  
+  const editReaction = async (req, res, next) => {
     try {
-        const requestQuery = `
-            INSERT INTO reactions
-                (post_id)
-            VALUES
-                ($1)
-            RETURNING *`
-        return await db.one(requestQuery, [postId])
-    } catch (err) {
-        throw err
+      let editedReaction = await dataBase.any(
+        `UPDATE reactions SET reaction = '${req.body.reaction}' WHERE id=${req.params.id} RETURNING *`
+      );
+      res.status(200).json({
+        status: "success",
+        message: "post edited",
+        payload: editedReaction
+      });
+    } catch (error) {
+      next(error);
     }
-}
-
-
-const deleteReaction = async (reactionId, postId) => {
+  };
+  
+  const deleteReaction = async (req, res, next) => {
     try {
-        const requestQuery = `
-        DELETE FROM reactions
-        WHERE id = $1
-        RETURNING *`
-        return await db.one(requestQuery, [reactionId, postId])
-    } catch (err) {
-        throw err
+      let deletedReaction = await dataBase.any(
+        `DELETE FROM reactions WHERE id = ${req.params.id} RETURNING *`
+      );
+      res.status(200).json({
+        status: "success",
+        message: "reaction deleted",
+        payload: deletedReaction
+      });
+    } catch (error) {
+      next(error);
     }
-}
-
-module.exports = {
-    getAllReactionsByUserId,
-    getAllReactionsByPostId,
-    getOneReactionByPostId,
-    addReactionToPost,
-    deleteReaction
-}
+  };
+  
+  module.exports = { getReactions, getSingleReaction, newReaction, editReaction, deleteReaction };
+  
