@@ -6,7 +6,8 @@ const getposts = async (req, res, next) => {
 
     res.status(200).json({
       status: "success",
-      message: posts
+      message: "selected all posts",
+      payload: posts
     });
   } catch (error) {
     next(error);
@@ -21,7 +22,8 @@ const getpost = async (req, res, next) => {
     );
     res.status(200).json({
       status: "success",
-      message: post
+      message: `select posts from ${req.params.userId}`,
+      payload: post
     });
   } catch (error) {
     next(error);
@@ -49,7 +51,8 @@ const editPost = async (req, res, next) => {
     );
     res.status(200).json({
       status: "success",
-      message: editedPost
+      message: "post edited",
+      payload: editedPost
     });
   } catch (error) {
     next(error);
@@ -63,7 +66,8 @@ const deletePost = async (req, res, next) => {
     );
     res.status(200).json({
       status: "success",
-      message: deletedPost
+      message: "post deleted",
+      payload: deletedPost
     });
   } catch (error) {
     next(error);
