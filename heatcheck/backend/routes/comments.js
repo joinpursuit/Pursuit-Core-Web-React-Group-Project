@@ -7,6 +7,6 @@ comments.post("/:post_id", addSingleComment);
 
 comments.patch("/:id", editSingleComment);
 
-comments.delete("/:post_id/:user_id", deleteComment);
+comments.delete("/:id", deleteComment);
 
 module.exports = comments;
