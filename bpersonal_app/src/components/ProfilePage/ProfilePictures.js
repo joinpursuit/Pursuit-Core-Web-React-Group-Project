@@ -9,13 +9,11 @@ const ProfilePictures = () => {
   const fetchImgs = async (url) => {
     try {
       let res = await axios.get(url) 
+      debugger
       const { posts } = res.data.body
       setImgs(posts.map(post => {
         let postImg = post.post_image_url
-        debugger
         return postImg
-        // let postImg = post.post_image_url
-        // setImgs(postImg)
       }))
       
     } catch (error) {
@@ -26,7 +24,8 @@ const ProfilePictures = () => {
   useEffect(() => {
     fetchImgs("http://localhost:3001/posts/ownerID/1")
 }, [])
-debugger
+
+
   return (
     <div>
     {Imgs}
