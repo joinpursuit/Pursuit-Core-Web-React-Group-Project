@@ -32,7 +32,8 @@ CREATE TABLE posts
     brand VARCHAR NOT NULL,
     description VARCHAR NOT NULL,
     release_date VARCHAR NOT NULL,
-    colorway VARCHAR NOT NULL
+    colorway VARCHAR NOT NULL,
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP 
 );
 
 -- CREATE COMMENTS TABLE
@@ -42,7 +43,8 @@ CREATE TABLE comments
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-    body VARCHAR NOT NULL
+    body VARCHAR NOT NULL,
+    time_stamp timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CREATE REACTIONS TABLE

@@ -1,3 +1,4 @@
+const posts = require('express').Router();
 const {
   getposts,
   getpost,
