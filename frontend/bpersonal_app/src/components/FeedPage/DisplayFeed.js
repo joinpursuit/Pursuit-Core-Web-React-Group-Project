@@ -32,6 +32,7 @@ const DisplayFeed = () => {
   });
 
   return <div className="postsContainer">{showPosts}</div>;
+
 };
 
 export default DisplayFeed;
