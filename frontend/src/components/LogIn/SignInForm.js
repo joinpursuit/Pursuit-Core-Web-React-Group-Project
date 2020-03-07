@@ -1,34 +1,24 @@
 import React, { useState } from "react";
+import { useInput } from "../../util/customHooks";
 
 const SignInForm = () => {
-  const [email, setEmail] = useState("")
-
-  const handleSubmit = (e) => {
+  const email = useInput("");
+  const handleSubmit = e => {
     e.preventDefault();
-  }
-  console.log(email)
-  
-  return(
-    <form onSubmit={handleSubmit}>
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
       <label>
-        email : 
-        <input 
-        onChange={(e)=> setEmail(e.target.value)}
-        type="text" 
-        placeholder="Enter Your Email"
-        value={email}
-        />
-        <input
-        type="submit"
-        value="Sign In"
-        />
-        <input
-        type="submit"
-        value="Sign up"
-        />
+        Email :
+        <input type="text" placeholder="Enter Your Email" {...email} />
+        <input type="submit" value="Sign In" />
       </label>
     </form>
-  )
-}
+        <input type="button" value="Sign up" />
+    </div>
+    
+  );
+};
 export default SignInForm;
- 
