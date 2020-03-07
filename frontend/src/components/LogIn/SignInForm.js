@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
+import { Link } from "react-router-dom"
 
 const SignInForm = ({ handleLogIn }) => {
   const email = useInput("");
@@ -9,7 +10,7 @@ const SignInForm = ({ handleLogIn }) => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          handleLogIn(e);
+          handleLogIn(email.value);
         }}
         className="signInForm"
       >
@@ -19,7 +20,10 @@ const SignInForm = ({ handleLogIn }) => {
         </label>
         <input type="submit" value="Sign In" className="button signInSubmit"/>
       </form>
+      <Link to="/signup">
       <input type="button" value="Sign up" className="button signInSwitch"/>
+      </Link>
+      
     </div>
   );
 };
