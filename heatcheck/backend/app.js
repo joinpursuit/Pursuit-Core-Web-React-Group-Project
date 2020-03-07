@@ -8,7 +8,7 @@ const usersRouter = require("./routes/users.js")
 const reactionsRouter = require('./routes/reactions.js')
 const tagsRouter = require("./routes/tags.js")
 
-const port = 3000;
+const port = 3001;
 
 const app = express();
 app.use(cors());
