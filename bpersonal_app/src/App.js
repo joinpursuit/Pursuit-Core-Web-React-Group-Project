@@ -11,7 +11,12 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
-      <Login />
+        <Route path={"/login"}>
+          <Login />
+        </Route>
+        <Route path={"/signup"}>
+
+        </Route>
         <Route path={"/feedpage"}>
           <Feed />
         </Route>

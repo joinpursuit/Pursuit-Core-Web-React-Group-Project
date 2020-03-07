@@ -1,6 +1,6 @@
 import React from 'react'
 
-function signUpForm() {
+function SignUpForm() {
     return (
         <form className= "signupform">
             <input placeholder="Username"></input>
@@ -13,4 +13,4 @@ function signUpForm() {
     )
 }
 
-export default signUpForm;
+export default SignUpForm;
