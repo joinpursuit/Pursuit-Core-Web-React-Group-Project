@@ -1,7 +1,9 @@
+const dataBase = require("../db/index.js")
+
 const getReactions = async (req, res, next) => {
     try {
       let reactions = await dataBase.any(
-        "SELECT reactions.id, reactions.user_id, reactions.post_id, reactions.reaction FROM reactions LEFT JOIN users ON reactions.user_id = reactions.id;"
+        "SELECT reactions.user_id, reactions.post_id, reactions.reaction FROM reactions LEFT JOIN users ON reactions.user_id = reactions.id;"
       );
   
       res.status(200).json({

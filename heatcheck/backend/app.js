@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
 const postRouter = require('./routes/post')
 const commentRouter = require('./routes/comments')
 const usersRouter = require("./routes/users.js")
-const reactionsRouter = require('./routes/reactions')
+const reactionsRouter = require('./routes/reactions.js')
 const tagsRouter = require("./routes/tags.js")
 
 const port = 3000;
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use("/posts", postRouter)
 app.use("/comments", commentRouter)
 app.use("/users", usersRouter);
-app.use("/reaction", reactionsRouter)
+app.use("/reactions", reactionsRouter)
 app.use("/tags", tagsRouter)
 
 app.listen(port, () => {
