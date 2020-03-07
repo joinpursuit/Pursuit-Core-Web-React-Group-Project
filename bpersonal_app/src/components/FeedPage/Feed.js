@@ -13,8 +13,9 @@ function Feed() {
   return (
     <div className="Feed">
       {/* <DisplayUserInfo /> */}
-      <DisplayFeed handleSessionStorageUserID={handleSessionStorageUserID} />
       <CreatePostForm handleSessionStorageUserID={handleSessionStorageUserID} />
+      <br></br>
+      <DisplayFeed handleSessionStorageUserID={handleSessionStorageUserID} />
     </div>
   );
 }
