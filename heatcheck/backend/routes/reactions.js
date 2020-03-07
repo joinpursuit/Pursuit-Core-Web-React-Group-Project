@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const reactions = express.Router();
 const {
     getAllReactionsByPostId,
     getOneReactionByPostId,
@@ -38,7 +38,7 @@ const isValidId = (id) => {
     return false
 }
 //GET ALL REATIONS BY USER ID
-router.get('/users/all/:userId', async (request, response) => {
+reactions.get('/users/all/:userId', async (request, response) => {
     const userId = request.params.userId;
     const validId = isValidId(userId);
     if (!validId) {
@@ -70,7 +70,7 @@ router.get('/users/all/:userId', async (request, response) => {
     }
 })
 // GET ALL REACTIONS BY POST ID
-router.get('/post/all/:postId', async (request, response) => {
+reactions.get('/post/all/:postId', async (request, response) => {
     const postId = request.params.postId;
     const validId = isValidId(postId);
     if (!validId) {
@@ -102,7 +102,7 @@ router.get('/post/all/:postId', async (request, response) => {
     }
 })
 // GET SINGLE REACTION BY POST ID
-router.get('/post/:postId/:reactorId', async (request, response) => {
+reactions.get('/post/:postId/:reactorId', async (request, response) => {
     const postId = request.params.postId;
     const reactorId = request.params.reactorId;
     const validPostId = isValidId(postId);
@@ -128,7 +128,7 @@ router.get('/post/:postId/:reactorId', async (request, response) => {
     }
 })
 // ADD A REACTION TO A SPECIFIC POST
-router.post('/add/post/:postId', async (request, response) => {
+reactions.post('/add/post/:postId', async (request, response) => {
     const postId = request.params.postId;
     const { password} = request.body;
     const validPostId = isValidId(postId);
@@ -169,7 +169,7 @@ router.post('/add/post/:postId', async (request, response) => {
     }
 })
 // DELETE A REACTION
-router.patch('/delete/:reactionId', async (request, response) => {
+reactions.patch('/delete/:reactionId', async (request, response) => {
     const reactionId = request.params.reactionId;
     const reactorId = request.body.reactorId;
     const password = request.body.password;
@@ -209,4 +209,4 @@ router.patch('/delete/:reactionId', async (request, response) => {
         }
     }
 })
-module.exports = router
+module.exports = reactions
