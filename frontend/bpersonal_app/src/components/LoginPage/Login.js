@@ -1,8 +1,7 @@
 import React from "react";
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
-import {Switch} from 'react-router-dom'
-
+import { Route, Switch } from "react-router-dom";
 
 function Login() {
     return (
@@ -11,7 +10,6 @@ function Login() {
                 <LoginForm/>
                 <SignUpForm/>
             </Switch>
-
         </div>
     )
   }
