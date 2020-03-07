@@ -4,11 +4,19 @@ const getAllComments = async (req, res, next) => {
     try {
         let { post_id } = req.params
         let comments = await db.any("SELECT * FROM comments WHERE post_id = $1", post_id)
-        res.status(200).json({
-            comments,
-            status: "success",
-            message: "all comments for post"
-        })
+        if (comments.length > 0){
+            res.status(200).json({
+                status: "success",
+                message: "all comments for post",
+                payload: comments
+            })
+        } else {
+            res.status(404).json({
+                status: "error",
+                message: "There are no comments on this post.",
+                payload: null
+            })
+        }
     } catch (error) {
         res.json({
             "status": "error",
