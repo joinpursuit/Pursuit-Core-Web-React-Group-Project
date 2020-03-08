@@ -10,14 +10,9 @@ import "./App.css";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  
-  const handleLogIn = email => {
-    if (email) {
-      //input database email check here
-      setLoggedIn(true);
-    } else {
-      //input handling error here
-    }
+
+  const handleLogIn = (email) => {
+
   };
 
   const handleSignUp = (user) => {
