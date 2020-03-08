@@ -32,16 +32,15 @@ const getUserById = async (req, res, next) => {
 
 const logIn = async (req, res, next) => {
   try {
-    let email = await db.any(
-      `SELECT * FROM users WHERE email = '${req.body.email}'`
-    );
+    let email = await db.one(
+      `SELECT * FROM users WHERE email=$1`, req.body.email);
     res.status(200).json({
       status: "ok",
-      email,
+      user: email,
       message: "user retrived by email"
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
