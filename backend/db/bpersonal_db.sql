@@ -92,7 +92,6 @@ VALUES
 INSERT INTO hashtags
     (owner_id, post_id, body)
 VALUES
-
     (1, 1, 'graduation'),
     (1, 1, 'ye'),
     (1, 1, 'album'),

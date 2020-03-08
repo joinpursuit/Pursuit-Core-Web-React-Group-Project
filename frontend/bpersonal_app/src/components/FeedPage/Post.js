@@ -1,8 +1,11 @@
 import React from "react";
+import Comments from "./Comments";
+import Hashtags from "./Hashtags";
 
 const Post = ({
+  id,
   profile_pic_url,
-  full_name,
+  username,
   timestamp,
   post_image_url,
   body
@@ -10,9 +13,9 @@ const Post = ({
   timestamp = new Date();
   const date = timestamp.toDateString();
   return (
-    <div>
+    <div className="postContainer">
       <h1>
-        {full_name} posted on {date}
+        {username} posted on {date}
         <br></br>
         <img
           src={profile_pic_url}
@@ -26,6 +29,12 @@ const Post = ({
         style={{ width: "400", height: "500px" }}
       ></img>
       <p>{body}</p>
+      <div className="comments">
+        <Comments id={id} />
+      </div>
+      <div className="hashtag">
+        <Hashtags />
+      </div>
     </div>
   );
 };
