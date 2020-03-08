@@ -6,7 +6,7 @@ import '../../css/SignIn.css';
 
 const SignInForm = ({ handleLogIn }) => {
   const email = useInput("");
-
+// Make Inputs required
   return (
     <div className="signInFormDiv">
       <div>

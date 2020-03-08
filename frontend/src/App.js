@@ -18,6 +18,10 @@ function App() {
     }
   };
 
+  const handleSignUp = (user) => {
+    const { full_name, email, username, website, profile_pic, bio, favorite_artist, genre} = user;
+  }
+
   if (loggedIn) {
     return (
       <div className="App">

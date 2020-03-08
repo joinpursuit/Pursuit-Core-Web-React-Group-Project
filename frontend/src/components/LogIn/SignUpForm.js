@@ -4,17 +4,21 @@ import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
 import "../../css/SignUp.css";
 
 const SignUpForm = () => {
+  const firstName = useInput("");
+  const lastName = useInput("");
   const email = useInput("");
-  const typeOfArt = useInput("");
+  const username = useInput("");
+  const website = useInput("");
+  const profilePic = useInput("");
   const bio = useInput("");
   const favoriteArtist = useInput("");
+  const typeOfArt = useInput("");
 
   const handleSignUpSubmit = e => {
     e.preventDefault();
   };
-
+// Make Inputs required
   return (
-    <>
       <div className="signUpFormDiv">
         <div>
           <img src={OurCanvasLogoSplat} alt="" />
@@ -27,31 +31,53 @@ const SignUpForm = () => {
           </h5>
 
           <label>
-            Email : 
-            <input type="text" placeholder="Enter Your Email" {...email} className="signUpEmail"/>
+            First Name : 
+            <input type="text" placeholder="Enter Your First Name" {...firstName} required className="textInput signUpFirst" />
           </label>
+
           <label>
-            Genre : 
-            <input type="text" placeholder="Enter Genre" {...typeOfArt} className="textInput signUpGenre"/>
+            Last Name : 
+            <input type="text" placeholder="Enter Your Last Name" {...lastName} required className="textInput signUpLast" />
           </label>
+
+          <label>
+            Email : 
+            <input type="text" placeholder="Enter Your Email" {...email} required className="signUpEmail"/>
+          </label>
+
+          <label>
+            Username : 
+            <input type="text" placeholder="Enter Your Username" {...username} required className="textInput signUpUser" />
+          </label>
+          
+          <label>
+            Website : (Optional)
+            <input type="text" placeholder="Enter Website" {...website} className="textInput signUpWebsite"/>
+          </label>
+
           <label>
             Bio : 
-            <input type="text" placeholder="Enter Your Bio" {...bio} className="textInput signUpBio"/>
+            <input type="text" placeholder="Enter Your Bio" maxlength={50} required {...bio} className="textInput signUpBio"/>
           </label>
+
           <label>
             Favorite Artist : 
-            <input type="text" placeholder="Enter Your Favorite Artist" className="textInput signUpFavArtist" {...favoriteArtist}/>
+            <input type="text" placeholder="Enter Your Favorite Artist" required className="textInput signUpFavArtist" {...favoriteArtist}/>
+          </label>
+
+          <label>
+            Genre : 
+            <input type="text" placeholder="Enter Genre" {...typeOfArt} required className="textInput signUpGenre"/>
           </label>
 
           <input type="Submit" value="Sign Up" className="button signUpSubmit"/>
         </form>
-        
+
         <div className="already">
           <h6>Already have an account?</h6>
           <input type="button" value="Log In" className="button signUpSwitch" />
         </div>
       </div>
-    </>
   );
 };
 export default SignUpForm;

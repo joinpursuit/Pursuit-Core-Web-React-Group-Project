@@ -1,28 +1,32 @@
 .signUpFormDiv {
-  margin: 50px;
+  margin-right: 50px;
   margin-left: 10%;
-  /* margin-top: 50px; */
+  margin-top: 30px;
   display: flex;
   flex-flow: row;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* text-align: center; */
   text-align: start;
 }
+
 input {
   display: flex;
   flex-flow: wrap;
   padding-left: 15px;
-  margin-top: 10px;
-  /* padding-top: 10px; */
+  margin-top: 5px;
 }
+
+label {
+  margin-top: 10px;
+}
+
 form {
-  margin-top: 75px;
+  margin-top: 40px;
   margin-left: 20px;
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
   width: 400px;
-  height: 500px;
+  height: fit-content;
   border: 2px rgba(253, 80, 221, 0.575);
   border-style: inset;
   padding-left: 25px;
@@ -35,6 +39,7 @@ h5 {
   display: flex;
   flex-flow: column;
   font-weight: bolder;
+  margin-top: 10px;
 }
 
 .signUpFavArtist {
@@ -42,11 +47,7 @@ h5 {
 }
 
 .signUpBio {
-  display: flex;
-  text-align: center;
-  /* flex-direction: initial; */
   width: 300px;
-  height: 150px;
 }
 
 img {
@@ -56,19 +57,20 @@ img {
 }
 
 .button {
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100px;
   justify-content: center;
 }
 
 .signUpSwitch {
-  /* padding: 10px; */
   margin-left: 10px;
-  /* margin-top: -255px; */
+  border-color: rgba(253, 80, 221, 0.575);
+  border-radius: 25px;
+  box-shadow: 3px 3px 0px 0px rgba(5, 216, 244, 0.281);
 }
 
 .already {
-  /* display: flex;
-  flex-flow: wrap; */
   margin-left: 50px;
 }
 
