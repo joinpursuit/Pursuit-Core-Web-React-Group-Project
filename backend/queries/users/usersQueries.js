@@ -1,5 +1,26 @@
 const db = require("../../database/index");
 
+const isUserExisting = async (req, res, next) => {
+  const getId = req.params.id;
+  const postId = req.body.poster_id;
+  const id = getId ? getId : postId;
+  console.log(id);
+  try {
+    if(!id) {
+      throw {status: 400, error: "No ID given."}
+    } else {
+      let user = await db.one("SELECT * FROM users WHERE id=$1", id);
+      next();
+    }
+  } catch (error) {
+    if(error.received === 0) {
+      res.status(404).json({status: 404, error: `User ID: ${id} doesn't exist`})
+    } else {
+      next(error);
+    }
+  }
+}
+
 const getAllUsers = async (req, res, next) => {
   try {
     let users = await db.any("SELECT * FROM users");
@@ -109,5 +130,6 @@ module.exports = {
   logIn,
   updateUser,
   createNewUser,
-  deleteUser
+  deleteUser,
+  isUserExisting
 };
