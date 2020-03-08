@@ -1,0 +1,39 @@
+.userInfo {
+    padding-top: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.profilePic {
+    border: 1px solid black;
+    width: 50%;
+    align-self: center;
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    padding-left: 10px;
+}
+
+.userDetail, .bio {
+    margin-top: 20px;
+}
+
+.bioBody {
+    margin-left: 25px;
+}
+
+p, .bioHeader {
+    font-size: 24px;
+}
+
+span, .bioHeader {
+    font-weight: bold;
+}

@@ -1,0 +1,10 @@
+.profileContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    column-gap: 45px;
+}
+
+.postFeed {
+    border: 1px solid black;
+}
