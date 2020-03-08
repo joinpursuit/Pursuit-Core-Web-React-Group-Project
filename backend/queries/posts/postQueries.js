@@ -1,5 +1,25 @@
 const db = require("../../database/index");
 
+const isPostExisting = async (req, res, next) => {
+  const getId = req.params.id;
+  const postId = req.body.post_id;
+  const id = getId ? getId : postId;
+  try {
+    if(!id) {
+      next();
+    } else {
+      let post = await db.one("SELECT * FROM posts WHERE id=$1", id);
+      next();
+    }
+  } catch (error) {
+    if(error.received === 0) {
+      res.status(404).json({status: 404, error: `Post ID: ${id} doesn't exist`})
+    } else {
+      next(error);
+    }
+  }
+}
+
 const getAllPosts = async (req, res, next) => {
   try {
     let posts = await db.any("SELECT * FROM posts");
@@ -55,5 +75,6 @@ module.exports = {
   getAllPosts,
   getPostById,
   createPost,
-  deletePost
+  deletePost,
+  isPostExisting
 };
