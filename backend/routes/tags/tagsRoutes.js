@@ -8,5 +8,6 @@ const {
 tags.get("/", getAllTags);
 tags.post("/", createTag);
 tags.delete("/:id", deleteTag);
+// tags.get("/tags/:tagName", getPostByTag);
 
 module.exports = tags;

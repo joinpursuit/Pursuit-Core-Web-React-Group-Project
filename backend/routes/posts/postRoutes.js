@@ -1,19 +1,18 @@
 const posts = require("express").Router();
+const postPicturesRouter = require("./postPictures/postPicturesRoutes");
+const postTagsRouter = require("./postTags/postTagsRoutes");
+
 const {
   getAllPosts,
   getPostById,
-  // getTagOfPost,
-  // getPostByTag,
-  // getPicturesOfPost,
   createPost,
   deletePost
 } = require("../../queries/posts/postQueries");
 
 posts.get("/", getAllPosts);
 posts.get("/:id", getPostById);
-// posts.get("/:id/:tag", getTagOfPost);
-// posts.get("/tags/:tagName", getPostByTag);
-// posts.get("/:id/pictures", getPicturesOfPost);
+posts.use("/:id/tags", postTagsRouter);
+posts.use("/:id/pictures", postPicturesRouter);
 posts.post("/", createPost);
 posts.delete("/:id", deletePost);
 

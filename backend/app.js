@@ -18,10 +18,12 @@ app.use("/api/posts", postsRouter);
 app.use("/api/tags", tagsRouter);
 app.use("/api/pictures", picturesRouter);
 
-app.use("*", (req, res, next, error) => {
-  res.json({
-    error
-  });
+app.use((error, req, res, next) => {
+  if (error.status) {
+    res.status(error.status).json(error);
+  } else {
+    res.json(error);
+  }
 });
 
 app.listen(port, () => {

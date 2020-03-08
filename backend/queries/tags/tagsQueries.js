@@ -15,8 +15,8 @@ const getAllTags = async (req, res, next) => {
 
 const createTag = async (req, res, next) => {
   try {
-    await db.none(`INSERT INTO tags (poster_id,tag)
-    Values(${req.body.poster_id},${req.body.tag}`);
+    await db.none(`INSERT INTO tags (post_id,tag)
+    Values('${req.body.post_id}','${req.body.tag}')`);
     res.status(200).json({
       status: "ok",
       message: "new tag created"

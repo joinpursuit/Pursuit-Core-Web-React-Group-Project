@@ -15,20 +15,24 @@ const getAllUsers = async (req, res, next) => {
 
 const getUserById = async (req, res, next) => {
   try {
-    let user = await db.one("SELECT * FROM users WHERE id=$1", req.params.id);
-    res.status(200).json({
-      status: "ok",
-      user,
-      message: "user retrieved"
-    });
+    let user = await db.any("SELECT * FROM users WHERE id=$1", req.params.id);
+    if (user.length) {
+      res.status(200).json({
+        status: "ok",
+        user,
+        message: "user retrieved"
+      });
+    } else {
+      throw { status: 404, error: "user doesn't exist" };
+    }
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
 const logIn = async (req, res, next) => {
   try {
-    let email = await db.one(
+    let email = await db.any(
       `SELECT * FROM users WHERE email = '${req.body.email}'`
     );
     res.status(200).json({
@@ -40,16 +44,6 @@ const logIn = async (req, res, next) => {
     console.log(error);
   }
 };
-//  const getPostByUser = async (req, res, next) => {
-//     try {
-//         let posts = await db.one(
-
-//         )
-
-//     } catch (error) {
-//         console.log(err)
-//     }
-//  }
 
 const updateUser = async (req, res, next) => {
   try {
@@ -65,14 +59,13 @@ const updateUser = async (req, res, next) => {
     if (dbResponse.length) {
       res.status(200).json({
         status: "ok",
-
         message: "user updated"
       });
     } else {
       throw { status: 404, error: "user doesnt exist" };
     }
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
@@ -95,10 +88,7 @@ const createNewUser = async (req, res, next) => {
       success: "pass"
     });
   } catch (error) {
-    // Handling error to make our frontend more reactive
-    console.log("users_username_key" === error.constraint);
     console.log(error);
-    // next(error);
   }
 };
 

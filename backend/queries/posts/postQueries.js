@@ -2,7 +2,7 @@ const db = require("../../database/index");
 
 const getAllPosts = async (req, res, next) => {
   try {
-    let posts = await db.one("SELECT * FROM posts");
+    let posts = await db.any("SELECT * FROM posts");
     res.status(200).json({
       status: "success",
       posts,
@@ -54,9 +54,6 @@ const deletePost = async (req, res, next) => {
 module.exports = {
   getAllPosts,
   getPostById,
-  //   getTagOfPost,
-  //   getPostByTag,
-  //   getPicturesOfPost,
   createPost,
   deletePost
 };
