@@ -23,9 +23,10 @@ const ProfilePictures = () => {
   }, [])
   
   const showImages = images.map((img, i) => {
+    
     console.log(img)
     return (
-      <DisplayFeedImages img={img} key={i}/>
+      <DisplayFeedImages img={img.post_image_url} key={i}/>
       )
     })
     // debugger
