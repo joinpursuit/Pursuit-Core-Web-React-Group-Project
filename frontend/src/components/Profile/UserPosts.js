@@ -3,7 +3,7 @@ import Post from '../General/Post';
 
 const UserPosts = () => {
     return (
-        <div classname="postFeed">
+        <div className="postFeed">
             User Posts
         </div>
     )
