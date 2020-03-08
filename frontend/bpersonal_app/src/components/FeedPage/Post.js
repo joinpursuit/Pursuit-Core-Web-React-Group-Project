@@ -1,7 +1,6 @@
 import React from "react";
 
 const Post = ({ owner_id, post_image_url, body }) => {
-  debugger;
   return (
     <div>
       Owner_id: {owner_id}
