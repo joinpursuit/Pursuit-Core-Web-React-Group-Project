@@ -2,7 +2,7 @@ import React from "react";
 import handleSignUpForm from "./handleSignUpForm";
 import { Link } from "react-router-dom";
 
-function LoginForm() {
+const LoginForm = () => {
   return (
     <form className="loginform">
       <input placeholder="Email"></input>
@@ -13,6 +13,6 @@ function LoginForm() {
       </Link>
     </form>
   );
-}
+};
 
 export default LoginForm;

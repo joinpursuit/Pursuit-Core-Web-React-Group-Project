@@ -1,10 +1,8 @@
-import React from 'react'
-import signUpForm from './SignUpForm'
+import React from "react";
+import SignUpForm from "./SignUpForm";
 
-function handleSignUpForm() {
-    return(
-        {signUpForm}
-    )
-}
+const HandleSignUpForm = () => {
+  return { signUpForm };
+};
 
-export default handleSignUpForm;
+export default HandleSignUpForm;
