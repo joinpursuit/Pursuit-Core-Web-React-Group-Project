@@ -1,5 +1,5 @@
 import React from "react";
-
+import Comments from "./comment";
 const styles = {
   img: {
     height: "200px",
@@ -16,7 +16,7 @@ const styles = {
   "#user": {
     display: "flex"
   },
-  "#post": {
+  ".post": {
     border: "2px solid",
     borderRadius: "12px",
     width: "500px",
@@ -30,30 +30,51 @@ const Post = ({
   userName,
   brand,
   description,
-  release
+  release,
+  postID,
+  comments,
+  commentersID
 }) => {
-  return (
-    //post
-    <div style={styles["#post"]}>
-      <div id="user" style={styles["#user"]}>
-        <img src={profilepic} id="profilepic" style={styles["#profilepic"]} />{" "}
-        <p id="userName" style={styles["#userName"]}>
-          {userName}
-        </p>
-      </div>
-      <img src={shoeImg} alt={""} style={styles.img} />
-      {/* reactions */}
-      <p>🔥❄️4</p>
+  const displayPost = () => {
+    return (
+      <>
+        <div className="post" id={postID} style={styles[".post"]}>
+          <div>
+            <img
+              src={profilepic}
+              id="profilepic"
+              style={styles["#profilepic"]}
+            />
+            <p id="userName" style={styles["#userName"]}>
+              {userName}
+            </p>
+          </div>
 
-      <p>
-        Brand: {brand} Release: {release}
-      </p>
-      <p>
-        {userName}:{description}
-      </p>
-      {/* comments */}
-      {/* <Comments{}/> */}
-    </div>
+          <img src={shoeImg} alt={""} style={styles.img} />
+          <p>🔥❄️4</p>
+
+          <p>
+            Brand: {brand} Release: {release}
+          </p>
+          <p>
+            {userName}:{description}
+          </p>
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <>
+      {displayPost({
+        shoeImg,
+        profilepic,
+        userName,
+        brand,
+        description,
+        release
+      })}
+    </>
   );
 };
 

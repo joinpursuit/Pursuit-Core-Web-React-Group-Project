@@ -25,6 +25,7 @@ const Posts = () => {
   let allpost = allposts.map(post => {
     return (
       <Post
+        postID={post.id}
         userName={post.user_name["0"]}
         shoeImg={post.image}
         key={post.id}
@@ -32,8 +33,8 @@ const Posts = () => {
         description={post.description}
         release={post.release_date}
         comments={post.comments}
+        commenterID={post.commenter}
         profilepic={post.profilepic["0"]}
-        commenter={post.commenter["0"]}
         reaction={post.reactor["0"]}
       />
     );
