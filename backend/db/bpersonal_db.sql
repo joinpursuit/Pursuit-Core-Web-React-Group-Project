@@ -61,8 +61,8 @@ INSERT INTO users
 VALUES
     ('kwong', 'imag123', 'Kevin Wong', 'kevinwong@pursuit.org', 'uploads/saltflats.JPG', 'I''m kevin and this is my short bio'),
     ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', '/uploads/IMG_9504.jpg', 'This is brandons bio'),
-    ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', '/uploads/83265522_3243496319013151_2072753519152070656_o.jpg', 'This is canned breads bio');
-
+    ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', '/uploads/83265522_3243496319013151_2072753519152070656_o.jpg', 'This is canned breads bio'),
+    ('Prodigos', 'wil12324', 'Wilghen Santos', 'faustosantos@pursuit.org', 'uploads/wilSantos.jpg', 'Welcome !!!!' );
 
 INSERT INTO posts
     (owner_id, post_image_url, body)
