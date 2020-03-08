@@ -7,7 +7,7 @@ const getAllPosts = async (req, res, next) => {
       message: "Got all Posts",
       body: {
         posts: await db.any(
-          "SELECT owner_id, post_image_url, body  FROM posts INNER JOIN users ON posts.owner_id = users.id ORDER BY posts.id DESC"
+          "SELECT posts.id, owner_id, post_image_url, body, timestamp, username, full_name, profile_pic_url   FROM posts INNER JOIN users ON posts.owner_id = users.id ORDER BY posts.id DESC"
         )
       }
     });
