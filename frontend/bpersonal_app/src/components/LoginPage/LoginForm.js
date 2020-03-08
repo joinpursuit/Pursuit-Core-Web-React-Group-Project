@@ -1,5 +1,4 @@
 import React from "react";
-import HandleSignUpForm from "./HandleSignUpForm";
 import { Link } from "react-router-dom";
 
 const LoginForm = () => {
