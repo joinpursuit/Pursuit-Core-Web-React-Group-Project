@@ -9,8 +9,8 @@ const DisplayFeed = () => {
   const fetchAllPosts = async url => {
     try {
       let res = await axios.get(url);
-      debugger;
-      setAllPosts(res.data.body.posts);
+      const { posts } = res.data.body;
+      setAllPosts(posts);
     } catch (error) {
       console.log(error);
     }
@@ -24,7 +24,9 @@ const DisplayFeed = () => {
     return (
       <Post
         key={i}
-        owner_id={post.owner_id}
+        profile_pic_url={post.profile_pic_url}
+        full_name={post.full_name}
+        timestamp={post.timestamp}
         post_image_url={post.post_image_url}
         body={post.body}
       />
@@ -32,7 +34,6 @@ const DisplayFeed = () => {
   });
 
   return <div className="postsContainer">{showPosts}</div>;
-
 };
 
 export default DisplayFeed;

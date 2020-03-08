@@ -1,10 +1,26 @@
 import React from "react";
 
-const Post = ({ owner_id, post_image_url, body }) => {
+const Post = ({
+  profile_pic_url,
+  full_name,
+  timestamp,
+  post_image_url,
+  body
+}) => {
+  timestamp = new Date();
+  const date = timestamp.toDateString();
   return (
     <div>
-      Owner_id: {owner_id}
-      <img src={post_image_url} alt={""}></img>
+      <h1>
+        {full_name} posted on {date}
+        <br></br>
+        <img
+          src={profile_pic_url}
+          alt=""
+          style={{ width: "100px", height: "100px", borderRadius: "100%" }}
+        ></img>
+      </h1>
+      <img src={post_image_url} alt=""></img>
       <p>{body}</p>
     </div>
   );

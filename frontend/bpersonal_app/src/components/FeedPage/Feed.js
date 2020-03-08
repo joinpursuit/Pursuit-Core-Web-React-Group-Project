@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import DisplayFeed from "./DisplayFeed";
 import CreatePostForm from "./CreatePostForm";
 
-function Feed() {
+const Feed = () => {
   const [userID, setUserID] = useState("");
 
   const handleSessionStorageUserID = () => {
@@ -18,6 +18,6 @@ function Feed() {
       <DisplayFeed handleSessionStorageUserID={handleSessionStorageUserID} />
     </div>
   );
-}
+};
 
 export default Feed;
