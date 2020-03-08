@@ -13,9 +13,7 @@ function App() {
         <Route path={"/login"}>
           <Login />
         </Route>
-        <Route path={"/signup"}>
-
-        </Route>
+        <Route path={"/signup"}></Route>
         <Route path={"/feedpage"}>
           <Feed />
         </Route>
