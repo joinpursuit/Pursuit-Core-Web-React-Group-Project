@@ -2,7 +2,7 @@ import React from "react";
 import SignUpForm from "./SignUpForm";
 
 const HandleSignUpForm = () => {
-  return { signUpForm };
+  return { SignUpForm };
 };
 
 export default HandleSignUpForm;
