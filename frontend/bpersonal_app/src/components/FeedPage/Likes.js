@@ -19,7 +19,11 @@ const Likes = ({ id }) => {
     fetchLikes(`/likes/post/${id}`);
   });
 
-  return <>Likes: {likes.length}</>;
+  return (
+    <>
+      Likes: <strong>{likes.length}</strong>
+    </>
+  );
 };
 
 export default Likes;
