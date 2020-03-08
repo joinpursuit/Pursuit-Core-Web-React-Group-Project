@@ -76,7 +76,7 @@ const SignUpForm = ({handleSignUp}) => {
             <input type="text" placeholder="Enter Genre" {...typeOfArt} required className="textInput signUpGenre"/>
           </label>
 
-          <input type="Submit" value="Sign Up" className="button signUpSubmit"/>
+          <button type="Submit" className="button signUpSubmit">Sign Up</button>
         </form>
 
         <div className="signInSwitchContainer">

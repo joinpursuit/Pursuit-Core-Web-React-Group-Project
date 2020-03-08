@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
 import '../../css/SignIn.css';
 
-const SignInForm = ({ handleLogIn }) => {
+const SignInForm = ({ handleLogIn, error }) => {
   const email = useInput("");
 // Make Inputs required
   return (
@@ -25,6 +25,8 @@ const SignInForm = ({ handleLogIn }) => {
           <input type="email" placeholder="Enter Your Email" required {...email} className="textInput signInEmail"/>
         </label>
         <input type="submit" value="Sign In" className="button signInSubmit"/>
+
+        {error ? <p className="error">Hello</p> : null}
       </form>
 
       <div className="signInSwitchContainer">

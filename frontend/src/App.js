@@ -10,9 +10,24 @@ import "./App.css";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState();
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
-  const handleLogIn = (email) => {
-    setLoggedIn(true);
+  const handleLogIn = async (email) => {
+    try {
+      let res = await axios.post("/api/users/login", {email});
+      if(res.data.user) {
+        setError(false);
+        setUser(res.data.user);
+        setLoggedIn(true);
+      } else {
+        setError(true);
+      }
+    } catch(error) {
+      setError(true);
+    }
+
   };
 
   const handleSignUp = (user) => {
@@ -29,10 +44,10 @@ function App() {
           <Redirect exact from="/login" to="/" />
           <Redirect exact from="/signup" to="/" />
           <Route path="/profile">
-            <Profile />
+            <Profile user={user} error={error}/>
           </Route>
           <Route exact path="/">
-            <Home />
+            <Home user={user} error={error}/>
           </Route>
         </Switch>
       </div>
@@ -43,10 +58,10 @@ function App() {
         <Redirect exact from="/" to="/login" />
         <Redirect exact from="/profile" to="/login" />
         <Route path={"/login"}>
-          <SignInForm handleLogIn={handleLogIn} />
+          <SignInForm handleLogIn={handleLogIn} error={error}/>
         </Route>
         <Route path={"/signup"}>
-          <SignUpForm handleSignUp={handleSignUp}/>
+          <SignUpForm handleSignUp={handleSignUp} error={error}/>
         </Route>
       </Switch>
     );
