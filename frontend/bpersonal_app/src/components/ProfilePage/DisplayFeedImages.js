@@ -6,11 +6,10 @@ const styles = {
         width:'200px'
     }
 }
-
 const DisplayFeedImages = ({img}) => {
     return (
         <div className={"feedImgs"}>
-            <img src={img} alt={""}/>
+            <img src={img.post_image_url} alt={" "} style={styles}/>
         </div>
     )
 }

@@ -4,17 +4,14 @@ import axios from 'axios'
 
 const ProfilePictures = () => {
   // const [ userId, setUserID ] = useState("")
-  const [ Imgs, setImgs ] = useState([])
+  const [ images, setImgs ] = useState([])
 
   const fetchImgs = async (url) => {
     try {
       let res = await axios.get(url) 
-      debugger
       const { posts } = res.data.body
-      setImgs(posts.map(post => {
-        let postImg = post.post_image_url
-        return postImg
-      }))
+      // debugger
+      setImgs(posts)
       
     } catch (error) {
       setImgs([])    
@@ -22,13 +19,20 @@ const ProfilePictures = () => {
   }
   
   useEffect(() => {
-    fetchImgs("http://localhost:3001/posts/ownerID/1")
-}, [])
-
-
-  return (
-    <div>
-    {Imgs}
+    fetchImgs("http://localhost:3001/posts/ownerID/3")
+  }, [])
+  
+  const showImages = images.map((img, i) => {
+    console.log(img)
+    return (
+      <DisplayFeedImages img={img} key={i}/>
+      )
+    })
+    // debugger
+    
+    return (
+      <div>
+    {showImages}
     </div>
   )
 }
