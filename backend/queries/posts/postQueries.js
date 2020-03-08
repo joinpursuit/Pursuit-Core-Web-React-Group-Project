@@ -23,13 +23,17 @@ const isPostExisting = async (req, res, next) => {
 const getAllPosts = async (req, res, next) => {
   try {
     let posts = await db.any("SELECT * FROM posts");
-    res.status(200).json({
-      status: "success",
-      posts,
-      message: "all posts"
-    });
+    if(posts.length) {
+      res.status(200).json({
+        status: "success",
+        posts,
+        message: "all posts"
+      });
+    } else {
+      throw { status: 404, error: "No posts found." }
+    }
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
