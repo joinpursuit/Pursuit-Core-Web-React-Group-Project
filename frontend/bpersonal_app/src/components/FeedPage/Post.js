@@ -20,7 +20,11 @@ const Post = ({
           style={{ width: "100px", height: "100px", borderRadius: "100%" }}
         ></img>
       </h1>
-      <img src={post_image_url} alt=""></img>
+      <img
+        src={post_image_url}
+        alt=""
+        style={{ width: "400", height: "500px" }}
+      ></img>
       <p>{body}</p>
     </div>
   );
