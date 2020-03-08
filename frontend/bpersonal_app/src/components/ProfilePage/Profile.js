@@ -4,7 +4,7 @@ import DisplayUserInfo from '../UniversalComponents/DisplayUserInfo'
 
 function Profile() {
     return <div className="profile">
-    <DisplayUserInfo/>
+    <DisplayUserInfo />
     <ProfilePictures/>
     </div>
 }
