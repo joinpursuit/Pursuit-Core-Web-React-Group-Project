@@ -71,7 +71,9 @@ VALUES
     (1, '/uploads/graduation.jpg', 'Blood, sweat, and tears. Graduation'),
     (3, '/uploads/83265522_3243496319013151_2072753519152070656_o.jpg', 'Posted up on the stage'),
     (1, 'https://pbs.twimg.com/profile_images/1007667023495745536/tsFzVI8-_400x400.jpg', 'Adventure in the canyons'),
-    (3, '/uploads/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool');
+    (3, '/uploads/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool'),
+    (1, 'https://lh3.googleusercontent.com/XdSWUBNsp402t2Dadx2baxh1XgUOAg2Xu14cmtHCMGcaFcoawccYkztY0PtIZUbgy8BuHVWi7tlwg-QQodXj1vggTsgdzu54iKI-oBe3n2lAVItGiKcq1FD6iE63ZltOLsHNFtV5u2Y180asVwPTfS-SJfpmDP2za9OvfGtTOteywNwoCcbGztaaK9volwTkSM6XZLzUgjbhX6RMJ50nl1ZANTbFLH-nf20GW-9rmpEPSvVr9m31reZxQFwqAfNh932Y_SWrgsov8M7ny9o67whRqpwpJxlsuSSs_jlteCCJq-iILVX1elbZ6tFtoFqvEpL2SUZSVE9IRW049An7TgKFzszeKjyfoCx-e3wSChFmSXbQ_AeRaTtiIY0fFIvAotpZxsirZ6A7-tmcSAm-NJzpooeB6Mdj0Pw2Nc6oBIjALu25SQ-FuKCajK0KtvUwwEK63OzTvxNZaUoZdI3kNUHUp1O09Iqq0OHStWayhjlggY-MsNsiLhQS5c5wLqPQqVAAlRuw_aBL1VDww18PfqpJVn2luQM-qs6IzBxbNH7KKACBdrQai0ksHGG4LzDDP81elIwT4KB1Wgba81OgIiOxikMxdkL-P1v-7nhPpvhqz5UUXe-hROV3vdf3eAxHhJCJJxd4_2qtM-Xih45Yoc-xP6tzSRxRci_tn_rS6PSqoT1zy3lDxuM=w720-h1280-no', 'Cingular, raising the bar.'),
+    (1, 'https://lh3.googleusercontent.com/FbAWcBwCt6E0oFqqWU8aRUyeJm0mQTjmxf2qctKmfiQ1nNxRKHYK3KXE3n00ms8N7Hj893-p3XBEr7CmBlf68e91lWK3VFxR00laO5aJ_m8Ga2bF9LdmIl71b_rcHchIZeijyqttc0kqEksfxzvrkbB2qcTg0TPxyQIzCodBgNpErlsFbtGDGMV1WouF73dS2013V-NUi_cx22aq6RgggiL-cztxHwgxjnwYWaiuZM3KfHD2xyK4CoVrEMuYHpUO-QEDiWJlKT9vCdmiMhkVk9_45KlLTmXPfcKWpI1QLOpcqulX-WITG_n42zwhRcEK8tvu7UlPIV0jeIqJH0fxiIhE1ui_Lk8foRonr7sTAJc96VIMLHclXZYGImLzY3Iowp3WJXx1OZFbBRdnZ4FKaeuVW97D6jydvWhMU9am1nzkoR61J1LxwenW5GFk6ff9O7CYd8BmeWTqL5PmM0-15tWKBNrolLqThLtPLC_3nKw3pzmGjwCvavy57O4MV9ZGzDHRKCDwwhyHq_lNpLCihkgMlR_C5kPTTNBkG9xsDe36vRE8SV7BKjgMgqWe0tNt2CycQ3BhWd0qF9sJA59znLZBmYrhkp8spi8Vh3KL5WEeHCnwg9tLl0DIzb3TOvq_vVYnX8gPMVxKGRbrNPCrCgckvXC4ISrC_kSZPXlkeDo6ARwQ7JH9S78=w808-h1436-no', 'This is my doge');
 
 INSERT INTO comments
     (author_id, post_id, content)
@@ -97,6 +99,11 @@ VALUES
     (1, 3, 'adventures'),
     (1, 3, 'desert'),
     (1, 3, 'canyons'),
+    (1, 5, 'cabin'),
+    (1, 5, 'mountains'),
+    (1, 6, 'shibainu'),
+    (1, 6, 'memedog'),
+    (1, 6, 'doge'),
     (3, 2, 'posted'),
     (3, 2, 'up'),
     (3, 2, 'on'),
