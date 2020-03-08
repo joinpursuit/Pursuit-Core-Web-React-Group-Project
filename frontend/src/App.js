@@ -12,7 +12,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogIn = (email) => {
-
+    setLoggedIn(true);
   };
 
   const handleSignUp = (user) => {
