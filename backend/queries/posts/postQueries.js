@@ -27,7 +27,7 @@ const getAllPosts = async (req, res, next) => {
       res.status(200).json({
         status: "success",
         posts,
-        message: "all posts"
+        message: "Retrieved all posts"
       });
     } else {
       throw { status: 404, error: "No posts found." }
@@ -44,7 +44,7 @@ const getPostById = async (req, res, next) => {
     res.status(200).json({
       status: "success",
       posts,
-      message: "all posts for user"
+      message: "Retrieved Post"
     });
   } catch (error) {
     next(error);
@@ -59,7 +59,7 @@ const createPost = async (req, res, next) => {
     res.status(200).json({
       status: "ok",
       post,
-      message: "new post created"
+      message: "Created post"
     });
   } catch (error) {
     next(error);
@@ -68,13 +68,15 @@ const createPost = async (req, res, next) => {
 
 const deletePost = async (req, res, next) => {
   try {
-    await db.any(`DELETE FROM posts WHERE id = ${req.params.id}`);
+    const { id } = req.params;
+    let post = await db.one(`DELETE FROM posts WHERE id=$1 RETURNING *`, id);
     res.status(200).json({
       status: "ok",
-      message: "user deleted"
+      post,
+      message: "Deleted post"
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
