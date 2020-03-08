@@ -9,10 +9,7 @@ const ProfilePictures = () => {
   const fetchImgs = async (url) => {
     try {
       let res = await axios.get(url) 
-<<<<<<< HEAD
       // debugger
-=======
->>>>>>> 747260b956d108e55ee20239973a80f8419ecb64
       const { posts } = res.data.body
       // debugger
       setImgs(posts)
