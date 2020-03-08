@@ -31,49 +31,44 @@ const Post = ({
   brand,
   description,
   release,
-  postID,
-  comments,
-  commentersID
+  postID
 }) => {
   const displayPost = () => {
     return (
       <>
-        <div className="post" id={postID} style={styles[".post"]}>
-          <div>
-            <img
-              src={profilepic}
-              id="profilepic"
-              style={styles["#profilepic"]}
-            />
-            <p id="userName" style={styles["#userName"]}>
-              {userName}
-            </p>
-          </div>
-
-          <img src={shoeImg} alt={""} style={styles.img} />
-          <p>🔥❄️4</p>
-
-          <p>
-            Brand: {brand} Release: {release}
-          </p>
-          <p>
-            {userName}:{description}
+        <div>
+          <img src={profilepic} id="profilepic" style={styles["#profilepic"]} />
+          <p id="userName" style={styles["#userName"]}>
+            {userName}
           </p>
         </div>
+
+        <img src={shoeImg} alt={""} style={styles.img} />
+        <p>🔥❄️4</p>
+
+        <p>
+          Brand: {brand} Release: {release}
+        </p>
+        <p>
+          {userName}:{description}
+        </p>
       </>
     );
   };
 
   return (
     <>
-      {displayPost({
-        shoeImg,
-        profilepic,
-        userName,
-        brand,
-        description,
-        release
-      })}
+      <div className="post" id={postID} style={styles[".post"]}>
+        {displayPost({
+          shoeImg,
+          profilepic,
+          userName,
+          brand,
+          description,
+          release
+        })}
+        <Comments postID={postID} />
+      </div>
     </>
   );
 };
