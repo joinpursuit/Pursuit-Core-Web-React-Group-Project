@@ -74,6 +74,7 @@ const Post = ({
         description,
         release
       })}
+      <Comments />
     </>
   );
 };
