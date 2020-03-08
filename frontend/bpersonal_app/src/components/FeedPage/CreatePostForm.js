@@ -15,17 +15,15 @@ const CreatePostForm = () => {
     e.preventDefault();
     const formData = new FormData();
 
-    formData.append("myImage", this.state.file);
+    formData.append("imageUpload", this.state.file);
     const config = {
       headers: {
         "content-type": "multipart/form-data"
       }
     };
-    // console.log(formData , config)
     axios
       .post("/uploadphoto", formData, config)
       .then(response => {
-        // debugger
         alert("The file is successfully uploaded");
       })
       .catch(error => {});
