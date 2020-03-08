@@ -1,6 +1,7 @@
 import React from 'react';
 import feedpage from './components/Feedpage/feedPage'
 import HomePage from './components/HomePage/homePage'
+import Login from "./components/HomePage/login"
 import {Route, Switch} from 'react-router-dom'
 
 
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       
      <HomePage/>
+     <Login/>
      <feedpage/>
 
     </div>
