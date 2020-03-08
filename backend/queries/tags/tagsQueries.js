@@ -34,7 +34,7 @@ const deleteTag = async (req, res, next) => {
       message: "tag deleted"
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
