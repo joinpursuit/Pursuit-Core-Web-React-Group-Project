@@ -4,7 +4,6 @@ const isUserExisting = async (req, res, next) => {
   const getId = req.params.id;
   const postId = req.body.poster_id;
   const id = getId ? getId : postId;
-  console.log(id);
   try {
     if(!id) {
       throw {status: 400, error: "No ID given."}
