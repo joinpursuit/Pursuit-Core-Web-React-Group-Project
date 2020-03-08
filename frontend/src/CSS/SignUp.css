@@ -3,12 +3,13 @@
   margin-left: 10%;
   margin-top: 30px;
   display: flex;
-  flex-flow: row;
+  flex-direction: row;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: start;
+  justify-content: space-evenly;
 }
 
-input {
+input[type="text"], input[type="email"] {
   display: flex;
   flex-flow: wrap;
   padding-left: 15px;
@@ -23,7 +24,7 @@ form {
   margin-top: 40px;
   margin-left: 20px;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   justify-content: space-evenly;
   width: 400px;
   height: fit-content;
@@ -35,10 +36,18 @@ form {
   box-shadow: 8px 8px 2px 1px rgba(5, 216, 244, 0.281);
 }
 
-h5 {
+.signUpForm, .signInSwitchContainer {
+  align-self: center;
+}
+
+.signInSwitchContainer {
   display: flex;
-  flex-flow: column;
-  font-weight: bolder;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+h5 {
+  font-weight: bold;
   margin-top: 10px;
 }
 
@@ -54,29 +63,6 @@ img {
   margin-right: 50px;
   height: 550px;
   width: 550px;
-}
-
-.button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100px;
-  justify-content: center;
-}
-
-.signUpSwitch {
-  margin-left: 10px;
-  border-color: rgba(253, 80, 221, 0.575);
-  border-radius: 25px;
-  box-shadow: 3px 3px 0px 0px rgba(5, 216, 244, 0.281);
-}
-
-.already {
-  margin-left: 50px;
-}
-
-h6 {
-  padding: 5px;
-  height: fit-content;
 }
 
 @media only screen and (max-width: 950px) {

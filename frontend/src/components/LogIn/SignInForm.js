@@ -22,15 +22,18 @@ const SignInForm = ({ handleLogIn }) => {
       >
         <label>
           Email :
-          <input type="text" placeholder="Enter Your Email" {...email} className="textInput signInEmail"/>
+          <input type="email" placeholder="Enter Your Email" required {...email} className="textInput signInEmail"/>
         </label>
         <input type="submit" value="Sign In" className="button signInSubmit"/>
       </form>
 
       <div className="signInSwitchContainer">
-        <Link to="/signup">
-          <input type="button" value="Sign up" className="button signInSwitch"/>
-        </Link>
+        <h6>
+          Don't have an account yet?
+          <Link to="/signUp" className="aTagWithDecoration">
+            <h6 className="signInSwitch">Sign up to connect with artists near you</h6>
+          </Link>
+        </h6>
       </div>
     </div>
   );

@@ -1,0 +1,30 @@
+.signInFormDiv {
+    margin-right: 50px;
+    margin-left: 10%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: start;
+    justify-content: space-evenly;
+}
+
+.signInForm, .signInSwitchContainer {
+    align-self: center;
+}
+
+.aTagWithDecoration {
+    text-decoration: underline;
+    color: rgba(253, 80, 221, 0.842);
+}
+
+.aTagWithDecoration:hover {
+    border: none;
+    background: none;
+    color: rgba(5, 216, 244, 0.842);
+}
+
+.signInSwitch {
+    font-size: 14px;
+    margin: 0px;
+}

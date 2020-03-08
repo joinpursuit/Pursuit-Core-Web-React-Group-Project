@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useInput } from "../../util/customHooks";
 import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
 import "../../css/SignUp.css";
@@ -46,7 +47,7 @@ const SignUpForm = ({handleSignUp}) => {
           </label>
 
           <label>
-            Email : 
+            Email:
             <input type="email" placeholder="Enter Your Email" {...email} required className="signUpEmail"/>
           </label>
 
@@ -78,9 +79,11 @@ const SignUpForm = ({handleSignUp}) => {
           <input type="Submit" value="Sign Up" className="button signUpSubmit"/>
         </form>
 
-        <div className="already">
+        <div className="signInSwitchContainer">
           <h6>Already have an account?</h6>
-          <input type="button" value="Log In" className="button signUpSwitch" />
+          <Link to="/login"> 
+            <input type="button" value="Log In" className="button signUpSwitch" />
+          </Link>
         </div>
       </div>
   );
