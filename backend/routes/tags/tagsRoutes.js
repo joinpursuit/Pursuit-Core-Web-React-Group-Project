@@ -1,4 +1,5 @@
 const tags = require("express").Router();
+const postTagsRouter = require("./postTags/postTagsRoutes");
 const {
   getAllTags,
   createTag,
@@ -8,6 +9,7 @@ const {
 tags.get("/", getAllTags);
 tags.post("/", createTag);
 tags.delete("/:id", deleteTag);
-// tags.get("/tags/:tagName", getPostByTag);
+
+tags.use("/:tagName/posts", postTagsRouter);
 
 module.exports = tags;
