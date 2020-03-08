@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserInfo from './UserInfo';
 import UserPosts from './UserPosts';
-import './../../Profile.css';
+import './../../css/Profile.css';
 
 const Profile = () => {
   const user = {

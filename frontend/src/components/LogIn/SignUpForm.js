@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
-import OurCanvasLogoSplat from "../../Images/OurCanvasLogoSplat.jpg";
-import "../../CSS/signIn.css";
+import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
+import "../../css/SignUp.css";
 // import OurCanvasBackground from "../../Images/OurCanvasBackground.jpg"
 
 const SignUpForm = () => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../../Navbar.css';
+import '../../css/Navbar.css';
 
 const Navbar = ({setLoggedIn}) => {
     return (
