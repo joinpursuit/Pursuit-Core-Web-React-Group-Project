@@ -7,7 +7,6 @@ const Comments = ({ id }) => {
   const fetchComments = async url => {
     try {
       let res = await axios.get(url);
-      debugger;
       const { comments } = res.data.body;
       setComments(comments);
     } catch (error) {
