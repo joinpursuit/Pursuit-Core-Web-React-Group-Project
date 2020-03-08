@@ -1,6 +1,6 @@
 import React from "react";
 
-function SignUpForm() {
+const SignUpForm = () => {
   return (
     <form className="signupform">
       <input placeholder="Username"></input>
@@ -11,6 +11,6 @@ function SignUpForm() {
       <button>Sign Up</button>
     </form>
   );
-}
+};
 
 export default SignUpForm;
