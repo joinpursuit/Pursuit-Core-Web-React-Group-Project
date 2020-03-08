@@ -1,17 +1,10 @@
-//feedpage 
+//feedpage
 
-
-
-
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class feedPage extends Component {
   render() {
-    return (
-      <div>
-        
-      </div>
-    );
+    return <div></div>;
   }
 }
 
