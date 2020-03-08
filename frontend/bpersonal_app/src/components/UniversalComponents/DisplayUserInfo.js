@@ -16,12 +16,12 @@ const DisplayUserInfo = () => {
         }
     }
     useEffect(() => {
-        fetchData("/:id");
+        fetchData("users/1");
     }, [])
 
     return (
         <section id="displayUser">
-
+        
         </section>
     )
 
