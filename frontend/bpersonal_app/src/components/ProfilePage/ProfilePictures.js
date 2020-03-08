@@ -32,7 +32,7 @@ const ProfilePictures = () => {
     // debugger
     
     return (
-      <div>
+      <div className="newsFeed">
     {showImages}
     </div>
   )
