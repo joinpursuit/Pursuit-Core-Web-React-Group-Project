@@ -1,9 +1,9 @@
 import React from "react";
-import LoginForm from "./components/LoginPage/LoginForm";
+import LoginPage from "./components/LoginPage/LoginPage";
 import NavBar from "./components/NavBar";
 import Profile from "./components/ProfilePage/Profile"
 import Feed from "./components/FeedPage/Feed";
-import SignUpForm from "./components/LoginPage/SignUpForm"
+// import SignUpForm from "./components/LoginPage/SignUpForm"
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -12,10 +12,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path={"/login"}>
-          <LoginForm/>
-        </Route>
-        <Route path={"/signup"}>
-          <SignUpForm/>
+          <LoginPage/>
         </Route>
         <Route path={"/feedpage"}>
           <Feed />
