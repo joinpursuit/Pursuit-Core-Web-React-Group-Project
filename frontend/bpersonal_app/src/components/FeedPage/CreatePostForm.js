@@ -13,8 +13,22 @@ const CreatePostForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    let res = await axios.post("http://localhost:3000/posts/");
-    debugger;
+    const formData = new FormData();
+
+    formData.append("myImage", this.state.file);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    };
+    // console.log(formData , config)
+    axios
+      .post("/uploadphoto", formData, config)
+      .then(response => {
+        // debugger
+        alert("The file is successfully uploaded");
+      })
+      .catch(error => {});
   };
 
   return (
