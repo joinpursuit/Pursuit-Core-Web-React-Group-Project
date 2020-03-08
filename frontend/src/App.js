@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import axios from 'axios';
 import SignInForm from "./components/LogIn/SignInForm";
 import SignUpForm from "./components/LogIn/SignUpForm";
 import Home from "./components/Home/Home";
@@ -9,6 +10,7 @@ import "./App.css";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  
   const handleLogIn = email => {
     if (email) {
       //input database email check here
@@ -19,6 +21,7 @@ function App() {
   };
 
   const handleSignUp = (user) => {
+    console.log(user);
     // Pass in values into database
     setLoggedIn(true);
   }

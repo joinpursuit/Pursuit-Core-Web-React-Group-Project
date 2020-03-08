@@ -15,7 +15,11 @@ const SignUpForm = ({handleSignUp}) => {
 
   const handleSignUpSubmit = e => {
     e.preventDefault();
-    handleSignUp();
+    const full_name = firstName.value + " " + lastName.value;
+    
+    const favorite_artist = favoriteArtist.value;
+    const art_type = typeOfArt.value;
+    handleSignUp({full_name, email: email.value, username: username.value, website: website.value, bio: bio.value, favorite_artist, art_type});
   };
 
 // Make Inputs required
@@ -43,7 +47,7 @@ const SignUpForm = ({handleSignUp}) => {
 
           <label>
             Email : 
-            <input type="text" placeholder="Enter Your Email" {...email} required className="signUpEmail"/>
+            <input type="email" placeholder="Enter Your Email" {...email} required className="signUpEmail"/>
           </label>
 
           <label>
@@ -58,7 +62,7 @@ const SignUpForm = ({handleSignUp}) => {
 
           <label>
             Bio : 
-            <input type="text" placeholder="Enter Your Bio" maxlength={50} required {...bio} className="textInput signUpBio"/>
+            <input type="text" placeholder="Enter Your Bio" maxLength={50} required {...bio} className="textInput signUpBio"/>
           </label>
 
           <label>
