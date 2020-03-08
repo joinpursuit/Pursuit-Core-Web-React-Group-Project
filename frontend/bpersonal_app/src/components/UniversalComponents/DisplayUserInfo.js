@@ -1,4 +1,5 @@
-import React , {useState} from "react";
+import React , {useState, useEffect} from "react";
+import axios from "axios";
 
 
 const DisplayUserInfo = () => {
@@ -14,6 +15,16 @@ const DisplayUserInfo = () => {
             console.log(error)
         }
     }
+    useEffect(() => {
+        fetchData("/:id");
+    }, [])
+
+    return (
+        <section id="displayUser">
+
+        </section>
+    )
+
 };
 
 export default DisplayUserInfo;
