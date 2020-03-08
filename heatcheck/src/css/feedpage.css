@@ -1,1 +1,21 @@
-//feedpage css
+img {
+  height: "200px";
+  width: "200px";
+}
+#profilepic {
+  height: "20px";
+  width: "20px";
+  border-radius: "50%";
+}
+#userName {
+  width: "200px";
+}
+#user {
+  display: "flex";
+}
+.post {
+  border: "2px solid";
+  border-radius: "12px";
+  width: "500px";
+  text-align: "center";
+}
