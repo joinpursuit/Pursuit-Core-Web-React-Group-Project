@@ -10,6 +10,7 @@ const getPictureOfPost = async (req, res, next) => {
       picture,
       message: "Retrieved pictures for post"
     });
+    
   } catch (error) {
     if(error.received === 0) {
       res.status(404).json({
@@ -17,7 +18,6 @@ const getPictureOfPost = async (req, res, next) => {
         error: `Post ID: ${id} has no pictures`
       })
     }
-    console.log(error);
     next(error);
   }
 };
