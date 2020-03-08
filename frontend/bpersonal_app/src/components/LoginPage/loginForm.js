@@ -1,5 +1,5 @@
 import React from 'react'
-import handleSignUpForm from './handleSignUpForm'
+import HandleSignUp from './HandleSignUp'
 import {Link} from 'react-router-dom'
 
 function LoginForm () {
@@ -8,7 +8,7 @@ function LoginForm () {
             <input placeholder= "Email"></input>
             <input placeholder= "Password"></input>
             <button >login</button>
-            <Link to= {"/signup"}><button > Sign Up </button></Link>
+            <Link to= {"/signup"}><button onClick={HandleSignUp}> Sign Up </button></Link>
         </form>
     )
 }
