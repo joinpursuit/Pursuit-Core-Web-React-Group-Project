@@ -3,20 +3,21 @@ import { useInput } from "../../util/customHooks";
 import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
 import "../../css/SignUp.css";
 
-const SignUpForm = () => {
+const SignUpForm = ({handleSignUp}) => {
   const firstName = useInput("");
   const lastName = useInput("");
   const email = useInput("");
   const username = useInput("");
   const website = useInput("");
-  const profilePic = useInput("");
   const bio = useInput("");
   const favoriteArtist = useInput("");
   const typeOfArt = useInput("");
 
   const handleSignUpSubmit = e => {
     e.preventDefault();
+    handleSignUp();
   };
+
 // Make Inputs required
   return (
       <div className="signUpFormDiv">

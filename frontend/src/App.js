@@ -19,7 +19,8 @@ function App() {
   };
 
   const handleSignUp = (user) => {
-    const { full_name, email, username, website, profile_pic, bio, favorite_artist, genre} = user;
+    // Pass in values into database
+    setLoggedIn(true);
   }
 
   if (loggedIn) {
@@ -27,7 +28,7 @@ function App() {
       <div className="App">
         <Navbar setLoggedIn={setLoggedIn}/>
         <Switch>
-          <Redirect exact from="/login" to="/profile" />
+          <Redirect exact from="/login" to="/" />
           <Redirect exact from="/signup" to="/" />
           <Route path="/profile">
             <Profile />
@@ -47,7 +48,7 @@ function App() {
           <SignInForm handleLogIn={handleLogIn} />
         </Route>
         <Route path={"/signup"}>
-          <SignUpForm />
+          <SignUpForm handleSignUp={handleSignUp}/>
         </Route>
       </Switch>
     );
