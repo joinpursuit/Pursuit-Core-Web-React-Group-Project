@@ -24,6 +24,7 @@ const DisplayFeed = () => {
     return (
       <Post
         key={i}
+        profile_pic_url={post.profile_pic_url}
         full_name={post.full_name}
         timestamp={post.timestamp}
         post_image_url={post.post_image_url}
