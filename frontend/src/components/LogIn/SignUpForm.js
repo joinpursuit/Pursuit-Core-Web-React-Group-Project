@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
-import OurCanvasLogo from "../../Images/OurCanvasLogo.jpg";
-import "../../CSS/signIn.css"
+import OurCanvasLogoSplat from "../../Images/OurCanvasLogoSplat.jpg";
+import "../../CSS/signIn.css";
 // import OurCanvasBackground from "../../Images/OurCanvasBackground.jpg"
 
 const SignUpForm = () => {
@@ -18,11 +18,16 @@ const SignUpForm = () => {
     <>
       <div className="signUpFormDiv">
         <div>
-          <img src={OurCanvasLogo} alt="" />
+          <img src={OurCanvasLogoSplat} alt="" />
         </div>
         <form onSubmit={handleSignUpSubmit} className="signUpForm">
+          <h5>
+            Don't have an account yet?
+            <p>Sign up to connect with artists near you</p>
+          </h5>
+
           <label>
-            Email :
+            Email : 
             <input
               type="text"
               placeholder="Enter Your Email"
@@ -31,7 +36,7 @@ const SignUpForm = () => {
             />
           </label>
           <label>
-            Genre :
+            Genre : 
             <input
               type="text"
               placeholder="Enter Genre"
@@ -40,7 +45,7 @@ const SignUpForm = () => {
             />
           </label>
           <label>
-            Bio :
+            Bio : 
             <input
               type="text"
               placeholder="Enter Your Bio"
@@ -49,7 +54,7 @@ const SignUpForm = () => {
             />
           </label>
           <label>
-            Favorite Artist :
+            Favorite Artist : 
             <input
               type="text"
               placeholder="Enter Your Favorite Artist"
@@ -64,8 +69,10 @@ const SignUpForm = () => {
             className="button signUpSubmit"
           />
         </form>
-      
-        <input type="button" value="Log In" className="button signUpSwitch" />
+        <div className="already">
+          <h6>Already have an account?</h6>
+          <input type="button" value="Log In" className="button signUpSwitch" />
+        </div>
       </div>
     </>
   );
