@@ -44,7 +44,7 @@ const deletePic = async (req, res, next) => {
       message: "Picture deleted."
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
