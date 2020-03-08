@@ -44,6 +44,9 @@ const deletePic = async (req, res, next) => {
       message: "Picture deleted."
     });
   } catch (error) {
+    if(error.received === 0) {
+      res.status(404).json({status: 404, error: `Picture ID: ${req.params.id} doesn't exist`})
+    }
     next(error);
   }
 };
