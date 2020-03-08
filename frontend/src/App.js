@@ -21,14 +21,14 @@ function App() {
   if (loggedIn) {
     return (
       <div className="App">
-        <Navbar/>
+        <Navbar setLoggedIn={setLoggedIn}/>
         <Switch>
           <Redirect exact from="/login" to="/profile" />
           <Redirect exact from="/signup" to="/" />
-          <Route path={"/profile"}>
+          <Route path="/profile">
             <Profile />
           </Route>
-          <Route exact path={"/"}>
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>

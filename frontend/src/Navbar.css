@@ -1,5 +1,5 @@
 nav {
-    background: blue;
+    background: lightblue;
     width: 100%;
     position: sticky;
     top: 0;
@@ -9,13 +9,8 @@ nav {
     font-size: 24px;
 }
 
-.navLeft {
-    background: red;
-}
-
 .navRight {
     width: 50%;
-    background: yellow;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -25,4 +20,24 @@ nav {
     width: 20%;
     font-size: 16px;
     letter-spacing: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 8px;
+    /* transition:font-size 0.5s ease 0s; */
+}
+
+a:hover {
+    background: white;
+    color: darkgrey;
+    border: 1px white;
+    border-radius: 25px;
+}
+
+.active {
+    border: 1px solid black;
+    border-radius: 25px;
 }
