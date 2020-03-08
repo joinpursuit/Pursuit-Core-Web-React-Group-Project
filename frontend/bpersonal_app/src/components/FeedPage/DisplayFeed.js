@@ -10,6 +10,7 @@ const DisplayFeed = () => {
     try {
       let res = await axios.get(url);
       const { posts } = res.data.body;
+
       setAllPosts(posts);
     } catch (error) {
       console.log(error);
@@ -24,8 +25,9 @@ const DisplayFeed = () => {
     return (
       <Post
         key={i}
+        id={post.id}
         profile_pic_url={post.profile_pic_url}
-        full_name={post.full_name}
+        username={post.username}
         timestamp={post.timestamp}
         post_image_url={post.post_image_url}
         body={post.body}
