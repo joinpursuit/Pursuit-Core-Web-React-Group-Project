@@ -1,10 +1,13 @@
 import React from "react";
 import "./App.css";
+
+import LoginPage from "./components/LoginPage/LoginPage";
 import LoginForm from "./components/LoginPage/LoginForm";
 import NavBar from "./components/NavBar";
 import Profile from "./components/ProfilePage/Profile";
 import Feed from "./components/FeedPage/Feed";
 import SignUpForm from "./components/LoginPage/SignUpForm";
+
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -13,6 +16,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path={"/login"}>
+          <LoginPage/>
           <LoginForm />
         </Route>
         <Route path={"/signup"}>
