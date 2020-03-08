@@ -1,8 +1,8 @@
 import React from "react";
-import Login from "./components/LoginPage/Login";
+import LoginForm from "./components/LoginPage/LoginForm";
 import NavBar from "./components/NavBar";
+import Profile from "./components/ProfilePage/Profile"
 import Feed from "./components/FeedPage/Feed";
-import ProfilePage from "./components/ProfilePage/Profile";
 import SignUpForm from "./components/LoginPage/SignUpForm"
 import { Route, Switch } from "react-router-dom";
 
@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path={"/login"}>
-          <Login />
+          <LoginForm/>
         </Route>
         <Route path={"/signup"}>
           <SignUpForm/>
@@ -21,7 +21,7 @@ function App() {
           <Feed />
         </Route>
         <Route path={"/profilepage"}>
-          <ProfilePage />
+        <Profile />
         </Route>
       </Switch>
     </div>
