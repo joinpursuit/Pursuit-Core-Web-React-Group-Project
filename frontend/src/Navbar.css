@@ -1,0 +1,28 @@
+nav {
+    background: blue;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.navLeft {
+    background: red;
+}
+
+.navRight {
+    width: 50%;
+    background: yellow;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.search {
+    width: 20%;
+    font-size: 16px;
+    letter-spacing: 2px;
+}

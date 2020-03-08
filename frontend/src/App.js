@@ -4,6 +4,7 @@ import SignInForm from "./components/LogIn/SignInForm";
 import SignUpForm from "./components/LogIn/SignUpForm";
 import Home from "./components/Home/Home";
 import Profile from "./components/Profile/Profile";
+import Navbar from "./components/General/Navbar";
 import "./App.css";
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
   if (loggedIn) {
     return (
       <div className="App">
+        <Navbar/>
         <Switch>
-          <Redirect exact from="/login" to="/" />
+          <Redirect exact from="/login" to="/profile" />
           <Redirect exact from="/signup" to="/" />
           <Route path={"/profile"}>
             <Profile />
