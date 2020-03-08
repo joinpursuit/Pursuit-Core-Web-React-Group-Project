@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../UserInfo.css';
+import '../../css/UserInfo.css';
 
 const UserInfo = ({full_name, username, bio, website, profile_pic, favorite_artist, art_type}) => {
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import axios from 'axios';
 import SignInForm from "./components/LogIn/SignInForm";
 import SignUpForm from "./components/LogIn/SignUpForm";
 import Home from "./components/Home/Home";
@@ -9,21 +10,23 @@ import "./App.css";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const handleLogIn = email => {
-    if (email) {
-      //input database email check here
-      setLoggedIn(true);
-    } else {
-      //input handling error here
-    }
+
+  const handleLogIn = (email) => {
+    setLoggedIn(true);
   };
+
+  const handleSignUp = (user) => {
+    console.log(user);
+    // Pass in values into database
+    setLoggedIn(true);
+  }
 
   if (loggedIn) {
     return (
       <div className="App">
         <Navbar setLoggedIn={setLoggedIn}/>
         <Switch>
-          <Redirect exact from="/login" to="/profile" />
+          <Redirect exact from="/login" to="/" />
           <Redirect exact from="/signup" to="/" />
           <Route path="/profile">
             <Profile />
@@ -43,7 +46,7 @@ function App() {
           <SignInForm handleLogIn={handleLogIn} />
         </Route>
         <Route path={"/signup"}>
-          <SignUpForm />
+          <SignUpForm handleSignUp={handleSignUp}/>
         </Route>
       </Switch>
     );

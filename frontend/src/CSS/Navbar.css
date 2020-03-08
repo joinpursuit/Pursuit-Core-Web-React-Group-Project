@@ -27,7 +27,6 @@ a {
     color: black;
     font-weight: bold;
     padding: 8px;
-    /* transition:font-size 0.5s ease 0s; */
 }
 
 a:hover {

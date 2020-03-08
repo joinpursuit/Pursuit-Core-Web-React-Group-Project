@@ -1,0 +1,80 @@
+.signUpFormDiv {
+  margin-right: 50px;
+  margin-left: 10%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: start;
+  justify-content: space-evenly;
+}
+
+input[type="text"], input[type="email"] {
+  display: flex;
+  flex-flow: wrap;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+form {
+  margin-top: 40px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 400px;
+  height: fit-content;
+  border: 2px rgba(253, 80, 221, 0.575);
+  border-style: inset;
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 8px 8px 2px 1px rgba(5, 216, 244, 0.281);
+}
+
+.signUpForm, .signInSwitchContainer {
+  align-self: center;
+}
+
+.signInSwitchContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+h5 {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.signUpFavArtist {
+  width: 200px;
+}
+
+.signUpBio {
+  width: 300px;
+}
+
+img {
+  margin-right: 50px;
+  height: 550px;
+  width: 550px;
+}
+
+@media only screen and (max-width: 950px) {
+  body > div {
+    margin: 2% 2.5%;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body > div {
+    margin: 2% 2.5%;
+    width: 50%;
+  }
+}

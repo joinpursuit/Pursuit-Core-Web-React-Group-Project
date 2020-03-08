@@ -3,3 +3,20 @@
     flex-direction: column;
     font-family: sans-serif;
 }
+
+.button {
+    border-color: rgba(253, 80, 221, 0.575);
+    border-radius: 25px;
+    box-shadow: 3px 3px 0px 0px rgba(5, 216, 244, 0.281);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 5px;
+    width: 100px;
+    justify-content: center;
+  }
+  
+.button:hover {
+    box-shadow: 3px 3px 0px 0px rgba(253, 80, 221, 0.575);
+    border-color: rgba(5, 216, 244, 0.281);
+}
