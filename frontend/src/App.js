@@ -21,7 +21,7 @@ function App() {
     return (
       <div className="App">
         <Switch>
-          <Redirect exact from="/login" to="/profile" />
+          <Redirect exact from="/login" to="/" />
           <Redirect exact from="/signup" to="/" />
           <Route path={"/profile"}>
             <Profile />
