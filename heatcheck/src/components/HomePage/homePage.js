@@ -6,7 +6,6 @@ class homePage extends Component {
   render() {
     return (
       <div>
-        <Login/>
       </div>
     );
   }

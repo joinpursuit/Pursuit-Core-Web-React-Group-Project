@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 // }
 
+
+
 const signUpForm = () => {
     return(
         <form className="signUpForm">
