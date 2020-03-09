@@ -133,6 +133,7 @@ const createNewUser = async (req, res, next) => {
         status: 400,
         error: "User with that email exists"
       })
+
     } else if(error.constraint === "users_username_key") {
       res.status(400).json({
         status: 400,
@@ -144,14 +145,16 @@ const createNewUser = async (req, res, next) => {
 };
 
 const deleteUser = async (req, res, next) => {
+  const { id } = req.params;
   try {
-    await db.any(`DELETE FROM users WHERE id = ${req.params.id}`);
+    let user = await db.one(`DELETE FROM users WHERE id=$1 RETURNING *`, id);
     res.status(200).json({
       status: "ok",
-      message: "user deleted"
+      user,
+      message: "Deleted user"
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
