@@ -22,7 +22,7 @@ const isUserExisting = async (req, res, next) => {
 
 const getAllUsers = async (req, res, next) => {
   try {
-    let users = await db.any("SELECT * FROM users");
+    let users = await db.any("SELECT * FROM users ORDER BY id ASC");
     if(users.length) {
       res.status(200).json({
         status: "success",
