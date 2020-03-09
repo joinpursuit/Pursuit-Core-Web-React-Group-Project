@@ -38,15 +38,16 @@ const getTagByName = async (req, res, next) => {
 }
 
 const createTag = async (req, res, next) => {
+  const {post_id, tag} = req.body;
   try {
-    await db.none(`INSERT INTO tags (post_id,tag)
-    Values('${req.body.post_id}','${req.body.tag}')`);
+    let tags = await db.one(`INSERT INTO tags (post_id, tag) VALUES($1, $2) RETURNING *`, [post_id, tag]);
     res.status(200).json({
       status: "ok",
-      message: "new tag created"
+      tags,
+      message: "Created new tag"
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
