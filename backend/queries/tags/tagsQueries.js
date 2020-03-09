@@ -52,13 +52,21 @@ const createTag = async (req, res, next) => {
 };
 
 const deleteTag = async (req, res, next) => {
+  const { id } = req.params;
   try {
-    await db.any(`DELETE FROM tags WHERE id = ${req.params.id}`);
+    let tag = await db.one(`DELETE FROM tags WHERE id=$1 RETURNING *`, id);
     res.status(200).json({
       status: "ok",
+      tag,
       message: "tag deleted"
     });
   } catch (error) {
+    if(error.received === 0) {
+      res.status(404).json({
+        status: 404,
+        error: `Tag ID: ${id} doesn't exist`
+      })
+    }
     next(error);
   }
 };
