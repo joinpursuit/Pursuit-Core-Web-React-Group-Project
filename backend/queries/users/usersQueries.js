@@ -23,28 +23,30 @@ const isUserExisting = async (req, res, next) => {
 const getAllUsers = async (req, res, next) => {
   try {
     let users = await db.any("SELECT * FROM users");
-    res.status(200).json({
-      status: "success",
-      users,
-      message: "all users"
-    });
-  } catch (err) {
-    console.log(err);
+    if(users.length) {
+      res.status(200).json({
+        status: "success",
+        users,
+        message: "Retrieved all users"
+      });
+    } else {
+      throw { status: 404, error: "No users found"}
+    }
+
+  } catch (error) {
+    next(error);
   }
 };
 
 const getUserById = async (req, res, next) => {
+  const { id } = req.params;
   try {
-    let user = await db.any("SELECT * FROM users WHERE id=$1", req.params.id);
-    if (user.length) {
-      res.status(200).json({
-        status: "ok",
-        user,
-        message: "user retrieved"
-      });
-    } else {
-      throw { status: 404, error: "user doesn't exist" };
-    }
+    let user = await db.one("SELECT * FROM users WHERE id=$1", id);
+    res.status(200).json({
+      status: "ok",
+      user,
+      message: "user retrieved"
+    });
   } catch (error) {
     next(error);
   }
