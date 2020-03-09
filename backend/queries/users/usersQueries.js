@@ -25,7 +25,7 @@ const getAllUsers = async (req, res, next) => {
     let users = await db.any("SELECT * FROM users ORDER BY id ASC");
     if(users.length) {
       res.status(200).json({
-        status: "success",
+        status: "ok",
         users,
         message: "Retrieved all users"
       });
@@ -45,7 +45,7 @@ const getUserById = async (req, res, next) => {
     res.status(200).json({
       status: "ok",
       user,
-      message: "user retrieved"
+      message: "Retrieved user"
     });
   } catch (error) {
     next(error);
@@ -59,7 +59,7 @@ const logIn = async (req, res, next) => {
     res.status(200).json({
       status: "ok",
       user,
-      message: "user retrived by email"
+      message: "Retrieved user by email"
     });
   } catch (error) {
     if(error.received === 0) {
@@ -123,7 +123,7 @@ const createNewUser = async (req, res, next) => {
                           [full_name, email, username, bio, website, profile_pic, favorite_artist, art_type]);
 
     res.status(200).json({
-      success: "ok",
+      status: "ok",
       user,
       message: "Created new user"
     });

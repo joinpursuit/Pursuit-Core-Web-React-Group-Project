@@ -5,9 +5,9 @@ const getAllPics = async (req, res, next) => {
     let pictures = await db.any(`SELECT * FROM pictures`);
     if(pictures.length) {
       res.status(200).json({
-        status: "success",
+        status: "ok",
         pictures,
-        message: "Retrieve all pictures"
+        message: "Retrieved all pictures"
       });
     } else {
       throw {status: 404, error: "No pictures found"};
@@ -25,7 +25,7 @@ const addPic = async (req, res, next) => {
     res.status(200).json({
       status: "ok",
       pictures,
-      message: "New picture added."
+      message: "Created new picture"
     });
   } catch (error) {
     next(error);
@@ -39,7 +39,7 @@ const deletePic = async (req, res, next) => {
     res.status(200).json({
       status: "ok",
       picture,
-      message: "Picture deleted."
+      message: "Deleted picture"
     });
   } catch (error) {
     if(error.received === 0) {

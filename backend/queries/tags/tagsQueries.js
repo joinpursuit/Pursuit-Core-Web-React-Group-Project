@@ -5,7 +5,7 @@ const getAllTags = async (req, res, next) => {
     let tags = await db.any(`SELECT * FROM tags`);
     if(tags.length) {
       res.status(200).json({
-        status: "success",
+        status: "ok",
         tags,
         message: "Retrieved all tags"
       });
@@ -58,7 +58,7 @@ const deleteTag = async (req, res, next) => {
     res.status(200).json({
       status: "ok",
       tag,
-      message: "tag deleted"
+      message: "Deleted tag"
     });
   } catch (error) {
     if(error.received === 0) {

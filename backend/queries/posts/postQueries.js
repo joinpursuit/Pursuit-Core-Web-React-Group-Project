@@ -25,7 +25,7 @@ const getAllPosts = async (req, res, next) => {
     let posts = await db.any("SELECT * FROM posts ORDER BY created_at DESC");
     if(posts.length) {
       res.status(200).json({
-        status: "success",
+        status: "ok",
         posts,
         message: "Retrieved all posts"
       });
@@ -42,7 +42,7 @@ const getPostById = async (req, res, next) => {
   try {
     let posts = await db.one(`SELECT * FROM posts WHERE id = $1`, id);
     res.status(200).json({
-      status: "success",
+      status: "ok",
       posts,
       message: "Retrieved Post"
     });
