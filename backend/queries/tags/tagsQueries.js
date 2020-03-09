@@ -13,6 +13,10 @@ const getAllTags = async (req, res, next) => {
   }
 };
 
+const getTagByName = async (req, res, next) => {
+
+}
+
 const createTag = async (req, res, next) => {
   try {
     await db.none(`INSERT INTO tags (post_id,tag)
@@ -38,4 +42,4 @@ const deleteTag = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllTags, createTag, deleteTag };
+module.exports = { getAllTags, getTagByName, createTag, deleteTag };
