@@ -19,7 +19,6 @@ input[type="text"], input[type="email"] {
 label {
   margin-top: 10px;
   font-weight: bold;
-  letter-spacing: 1px;
 }
 
 form {
@@ -36,6 +35,7 @@ form {
   padding-top: 5px;
   padding-bottom: 5px;
   box-shadow: 8px 8px 2px 1px rgba(5, 216, 244, 0.281);
+  border-radius: 15px;
 }
 
 .signUpForm, .signInSwitchContainer {

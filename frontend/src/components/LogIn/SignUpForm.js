@@ -4,7 +4,7 @@ import { useInput } from "../../util/customHooks";
 import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
 import "../../css/SignUp.css";
 
-const SignUpForm = ({handleSignUp}) => {
+const SignUpForm = ({handleSignUp, error, errorText}) => {
   const firstName = useInput("");
   const lastName = useInput("");
   const email = useInput("");
@@ -36,6 +36,8 @@ const SignUpForm = ({handleSignUp}) => {
             <br/>
             Sign up to connect with artists near you!
           </h5>
+          
+          {error ? <p>{errorText}</p> : null}
 
           <label>
             First Name : 
