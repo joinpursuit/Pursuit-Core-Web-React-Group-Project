@@ -6,14 +6,18 @@ const {
   getAllPosts,
   getPostById,
   createPost,
-  deletePost
+  deletePost,
+  isPostExisting
 } = require("../../queries/posts/postQueries");
 
-posts.get("/", getAllPosts);
-posts.get("/:id", getPostById);
+const { isUserExisting } = require("../../queries/users/usersQueries");
+
 posts.use("/:id/tags", postTagsRouter);
 posts.use("/:id/pictures", postPicturesRouter);
-posts.post("/", createPost);
-posts.delete("/:id", deletePost);
+
+posts.get("/", getAllPosts);
+posts.get("/:id", isPostExisting, getPostById);
+posts.post("/", isUserExisting, createPost);
+posts.delete("/:id", isPostExisting, deletePost);
 
 module.exports = posts;

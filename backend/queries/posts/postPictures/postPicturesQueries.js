@@ -1,23 +1,23 @@
 const db = require("../../../database/index");
 
 const getPictureOfPost = async (req, res, next) => {
+  const { id } = req.params;
   try {
-    let picture = await db.one(
-      "SELECT * FROM posts LEFT JOIN pictures ON posts.id = pictures.post_id WHERE posts.id=$1",
-      req.params.id
-    );
+    let picture = await db.one("SELECT * FROM pictures WHERE post_id=$1", id);
+
     res.status(200).json({
       status: "ok",
       picture,
-      message: "picture returned"
+      message: "Retrieved pictures for post"
     });
+    
   } catch (error) {
-    if (!error.recieved) {
-      res.json({
-        status: 404
-      });
+    if(error.received === 0) {
+      res.status(404).json({
+        status: 404,
+        error: `Post ID: ${id} has no pictures`
+      })
     }
-
     next(error);
   }
 };

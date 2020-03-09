@@ -1,15 +1,16 @@
 const tags = require("express").Router();
-const postTagsRouter = require("./postTags/postTagsRoutes");
 const {
   getAllTags,
+  getTagByName,
   createTag,
   deleteTag
 } = require("../../queries/tags/tagsQueries");
 
-tags.get("/", getAllTags);
-tags.post("/", createTag);
-tags.delete("/:id", deleteTag);
+const { isPostExisting } = require("../../queries/posts/postQueries");
 
-tags.use("/:tagName/posts", postTagsRouter);
+tags.get("/", getAllTags);
+tags.get("/:tag", getTagByName);
+tags.post("/", isPostExisting, createTag);
+tags.delete("/:id", deleteTag);
 
 module.exports = tags;

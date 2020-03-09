@@ -6,20 +6,21 @@ const {
   logIn,
   updateUser,
   createNewUser,
-  deleteUser
+  deleteUser,
+  isUserExisting
 } = require("../../queries/users/usersQueries");
 
 users.use("/:id/posts", userPostsRouter);
 
 users.get("/", getAllUsers);
 
-users.get("/:id", getUserById);
+users.get("/:id", isUserExisting, getUserById);
 
 users.post("/login", logIn);
 
-users.patch("/:id", updateUser);
+users.patch("/:id", isUserExisting, updateUser);
 
 users.post("/", createNewUser);
 
-users.delete("/:id", deleteUser);
+users.delete("/:id", isUserExisting, deleteUser);
 module.exports = users;

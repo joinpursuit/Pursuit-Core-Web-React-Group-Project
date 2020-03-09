@@ -20,3 +20,10 @@
     box-shadow: 3px 3px 0px 0px rgba(253, 80, 221, 0.575);
     border-color: rgba(5, 216, 244, 0.281);
 }
+
+.error {
+    color: rgba(244, 41, 5, 0.863);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}

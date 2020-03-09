@@ -2,39 +2,51 @@ const db = require("../../database/index");
 
 const getAllPics = async (req, res, next) => {
   try {
-    let tags = await db.one(`SELECT * FROM pictures`);
-    res.status(200).json({
-      status: "success",
-      tags,
-      message: "all pics"
-    });
+    let pictures = await db.any(`SELECT * FROM pictures`);
+    if(pictures.length) {
+      res.status(200).json({
+        status: "ok",
+        pictures,
+        message: "Retrieved all pictures"
+      });
+    } else {
+      throw {status: 404, error: "No pictures found"};
+    }
+
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
 const addPic = async (req, res, next) => {
   try {
-    await db.none(`INSERT INTO pictures (post_id,picture)
-    Values(${req.body.post_id},${req.body.picture}`);
+    const { post_id, picture } = req.body;
+    let pictures = await db.one(`INSERT INTO pictures (post_id,picture) VALUES($1,$2) RETURNING *`, [post_id, picture]);
     res.status(200).json({
       status: "ok",
-      message: "new pic added"
+      pictures,
+      message: "Created new picture"
     });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
 const deletePic = async (req, res, next) => {
   try {
-    await db.any(`DELETE FROM pictures WHERE id = ${req.params.id}`);
+    const { id } = req.params;
+    let picture = await db.one(`DELETE FROM pictures WHERE id = $1 RETURNING *`, id);
     res.status(200).json({
       status: "ok",
-      message: "tag deleted"
+      picture,
+      message: "Deleted picture"
     });
   } catch (error) {
-    console.log(error);
+    if(error.received === 0) {
+      res.status(404).json({status: 404, error: `Picture ID: ${req.params.id} doesn't exist`})
+    } else {
+      next(error);
+    }
   }
 };
 

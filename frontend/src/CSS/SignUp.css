@@ -18,6 +18,8 @@ input[type="text"], input[type="email"] {
 
 label {
   margin-top: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 form {
@@ -49,6 +51,7 @@ form {
 h5 {
   font-weight: bold;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .signUpFavArtist {

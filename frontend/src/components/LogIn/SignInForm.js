@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
 import { Link } from "react-router-dom"
-import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
+import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
 import '../../css/SignIn.css';
 
-const SignInForm = ({ handleLogIn }) => {
+const SignInForm = ({ handleLogIn, error, errorText }) => {
   const email = useInput("");
 // Make Inputs required
   return (
@@ -20,6 +20,7 @@ const SignInForm = ({ handleLogIn }) => {
         }}
         className="signInForm"
       >
+      {error ? <p className="error">{errorText}</p> : null}
         <label>
           Email :
           <input type="email" placeholder="Enter Your Email" required {...email} className="textInput signInEmail"/>
@@ -31,7 +32,7 @@ const SignInForm = ({ handleLogIn }) => {
         <h6>
           Don't have an account yet?
           <Link to="/signUp" className="aTagWithDecoration">
-            <h6 className="signInSwitch">Sign up to connect with artists near you</h6>
+            <h6 className="signInSwitch">Sign up to connect with artists near you!</h6>
           </Link>
         </h6>
       </div>

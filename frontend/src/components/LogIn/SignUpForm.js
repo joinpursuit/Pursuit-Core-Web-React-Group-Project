@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useInput } from "../../util/customHooks";
-import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
+import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
 import "../../css/SignUp.css";
 
 const SignUpForm = ({handleSignUp}) => {
@@ -33,7 +33,8 @@ const SignUpForm = ({handleSignUp}) => {
         <form onSubmit={handleSignUpSubmit} className="signUpForm">
           <h5>
             Don't have an account yet?
-            <p>Sign up to connect with artists near you</p>
+            <br/>
+            Sign up to connect with artists near you!
           </h5>
 
           <label>
@@ -76,14 +77,16 @@ const SignUpForm = ({handleSignUp}) => {
             <input type="text" placeholder="Enter Genre" {...typeOfArt} required className="textInput signUpGenre"/>
           </label>
 
-          <input type="Submit" value="Sign Up" className="button signUpSubmit"/>
+          <button type="Submit" className="button signUpSubmit">Sign Up</button>
         </form>
 
         <div className="signInSwitchContainer">
-          <h6>Already have an account?</h6>
-          <Link to="/login"> 
-            <input type="button" value="Log In" className="button signUpSwitch" />
-          </Link>
+          <h6>
+            Already have an account?
+            <Link to="/login" className="aTagWithDecoration">
+              <h6 className="signInSwitch">Log back in!</h6>
+            </Link>
+          </h6>
         </div>
       </div>
   );

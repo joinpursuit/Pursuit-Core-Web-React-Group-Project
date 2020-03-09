@@ -26,6 +26,13 @@ app.use((error, req, res, next) => {
   }
 });
 
+app.get("*", (req, res, next) => {
+  res.status(404).json({
+    status: 404,
+    error: "No route found"
+  })
+})
+
 app.listen(port, () => {
   console.log(`Server Is Running On Port:${port}`);
 });
