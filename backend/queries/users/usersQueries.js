@@ -98,7 +98,7 @@ const updateUser = async (req, res, next) => {
         error: "No updates made"
       })
     }
-    
+
   } catch (error) {
     next(error);
   }
@@ -116,14 +116,30 @@ const createNewUser = async (req, res, next) => {
       favorite_artist,
       art_type
     } = req.body;
-    await db.none(`INSERT INTO users (full_name, email, username, bio, website, profile_pic, favorite_artist, art_type)
-        VALUES ('${full_name}', '${email}', '${username}', '${bio}', '${website}', '${profile_pic}', '${favorite_artist}', '${art_type}');`);
+
+    let user = await db.one(`INSERT INTO users 
+                          (full_name, email, username, bio, website, profile_pic, favorite_artist, art_type)
+                          VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`, 
+                          [full_name, email, username, bio, website, profile_pic, favorite_artist, art_type]);
 
     res.status(200).json({
-      success: "pass"
+      success: "ok",
+      user,
+      message: "Created new user"
     });
   } catch (error) {
-    console.log(error);
+    if(error.constraint === "users_email_key") {
+      res.status(400).json({
+        status: 400,
+        error: "User with that email exists"
+      })
+    } else if(error.constraint === "users_username_key") {
+      res.status(400).json({
+        status: 400,
+        error: "User with that username exists"
+      })
+    }
+    next(error);
   }
 };
 
