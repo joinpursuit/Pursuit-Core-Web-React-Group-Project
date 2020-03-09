@@ -2,14 +2,18 @@ const db = require("../../database/index");
 
 const getAllTags = async (req, res, next) => {
   try {
-    let tags = await db.one(`SELECT * FROM tags`);
-    res.status(200).json({
-      status: "success",
-      tags,
-      message: "all tags"
-    });
+    let tags = await db.any(`SELECT * FROM tags`);
+    if(tags.length) {
+      res.status(200).json({
+        status: "success",
+        tags,
+        message: "Retrieved all tags"
+      });
+    } else {
+      throw {status: 404, error: "No tags found"}
+    }
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
