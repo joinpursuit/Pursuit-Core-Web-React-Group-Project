@@ -22,7 +22,7 @@ const isPostExisting = async (req, res, next) => {
 
 const getAllPosts = async (req, res, next) => {
   try {
-    let posts = await db.any("SELECT * FROM posts ORDER BY created_at ASC");
+    let posts = await db.any("SELECT * FROM posts ORDER BY created_at DESC");
     if(posts.length) {
       res.status(200).json({
         status: "success",
