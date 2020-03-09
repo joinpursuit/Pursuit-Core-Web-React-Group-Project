@@ -75,22 +75,30 @@ const logIn = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
-    // Using db.any to manually handle our errors
-    let dbResponse = await db.any(
-      `UPDATE users
-        SET username = '${req.body.newUserName}'
-        WHERE id = '${id}' RETURNING *`
-    );
+    const { username, profile_pic } = req.body;
+    let user;
 
-    // If our db.any returns an array with length then we successfully updated. Otherwise the ID doesn't exist
-    if (dbResponse.length) {
+    if(username) {
+      user = await db.one(`UPDATE users SET username=$1 WHERE id=$2 RETURNING *`, [username, id]);
+    }
+
+    if(profile_pic) {
+      user = await db.one(`UPDATE users SET profile_pic=$1 WHERE id=$2 RETURNING *`, [profile_pic, id]);
+    }
+
+    if (user) {
       res.status(200).json({
         status: "ok",
-        message: "user updated"
+        user,
+        message: "Updated user"
       });
     } else {
-      throw { status: 404, error: "user doesnt exist" };
+      res.status(400).json({
+        status: 400,
+        error: "No updates made"
+      })
     }
+    
   } catch (error) {
     next(error);
   }
