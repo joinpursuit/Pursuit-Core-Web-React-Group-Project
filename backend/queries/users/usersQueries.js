@@ -53,15 +53,21 @@ const getUserById = async (req, res, next) => {
 };
 
 const logIn = async (req, res, next) => {
+  const { email } = req.body;
   try {
-    let email = await db.one(
-      `SELECT * FROM users WHERE email=$1`, req.body.email);
+    let user = await db.one(`SELECT * FROM users WHERE email=$1`, email);
     res.status(200).json({
       status: "ok",
-      user: email,
+      user,
       message: "user retrived by email"
     });
   } catch (error) {
+    if(error.received === 0) {
+      res.status(404).json({
+        status: 404,
+        error: `User Email: '${email}' doesn't exist`
+      })
+    }
     next(error);
   }
 };
