@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useInput } from "../../util/customHooks";
-import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.jpg";
+import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
 import "../../css/SignUp.css";
 
 const SignUpForm = ({handleSignUp}) => {

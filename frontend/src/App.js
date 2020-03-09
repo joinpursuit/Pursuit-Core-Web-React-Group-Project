@@ -55,16 +55,19 @@ function App() {
     );
   } else {
     return (
-      <Switch>
-        <Redirect exact from="/" to="/login" />
-        <Redirect exact from="/profile" to="/login" />
-        <Route path={"/login"}>
-          <SignInForm handleLogIn={handleLogIn} error={error} errorText={errorText}/>
-        </Route>
-        <Route path={"/signup"}>
-          <SignUpForm handleSignUp={handleSignUp} error={error} errorText={errorText}/>
-        </Route>
-      </Switch>
+      <div className="App">
+        <Switch>
+          <Redirect exact from="/" to="/login" />
+          <Redirect exact from="/profile" to="/login" />
+          <Route path={"/login"}>
+            <SignInForm handleLogIn={handleLogIn} error={error} errorText={errorText}/>
+          </Route>
+          <Route path={"/signup"}>
+            <SignUpForm handleSignUp={handleSignUp} error={error} errorText={errorText}/>
+          </Route>
+        </Switch>
+      </div>
+      
     );
   }
 }
