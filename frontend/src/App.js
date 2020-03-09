@@ -25,6 +25,7 @@ function App() {
         setError(true);
       }
     } catch(error) {
+      setErrorText(error.response.data.error);
       setError(true);
     }
 
@@ -44,10 +45,10 @@ function App() {
           <Redirect exact from="/login" to="/" />
           <Redirect exact from="/signup" to="/" />
           <Route path="/profile">
-            <Profile user={user} error={error}/>
+            <Profile user={user} error={error} errorText={errorText}/>
           </Route>
           <Route exact path="/">
-            <Home user={user} error={error}/>
+            <Home user={user} error={error} errorText={errorText}/>
           </Route>
         </Switch>
       </div>
@@ -58,10 +59,10 @@ function App() {
         <Redirect exact from="/" to="/login" />
         <Redirect exact from="/profile" to="/login" />
         <Route path={"/login"}>
-          <SignInForm handleLogIn={handleLogIn} error={error}/>
+          <SignInForm handleLogIn={handleLogIn} error={error} errorText={errorText}/>
         </Route>
         <Route path={"/signup"}>
-          <SignUpForm handleSignUp={handleSignUp} error={error}/>
+          <SignUpForm handleSignUp={handleSignUp} error={error} errorText={errorText}/>
         </Route>
       </Switch>
     );

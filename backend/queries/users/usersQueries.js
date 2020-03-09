@@ -65,7 +65,7 @@ const logIn = async (req, res, next) => {
     if(error.received === 0) {
       res.status(404).json({
         status: 404,
-        error: `User Email: '${email}' doesn't exist`
+        error: `Email doesn't exist`
       })
     }
     next(error);

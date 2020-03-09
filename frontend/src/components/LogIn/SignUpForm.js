@@ -33,7 +33,8 @@ const SignUpForm = ({handleSignUp}) => {
         <form onSubmit={handleSignUpSubmit} className="signUpForm">
           <h5>
             Don't have an account yet?
-            <p>Sign up to connect with artists near you</p>
+            <br/>
+            Sign up to connect with artists near you!
           </h5>
 
           <label>
@@ -80,10 +81,12 @@ const SignUpForm = ({handleSignUp}) => {
         </form>
 
         <div className="signInSwitchContainer">
-          <h6>Already have an account?</h6>
-          <Link to="/login"> 
-            <input type="button" value="Log In" className="button signUpSwitch" />
-          </Link>
+          <h6>
+            Already have an account?
+            <Link to="/login" className="aTagWithDecoration">
+              <h6 className="signInSwitch">Log back in!</h6>
+            </Link>
+          </h6>
         </div>
       </div>
   );
