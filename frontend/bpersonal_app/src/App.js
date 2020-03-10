@@ -13,7 +13,6 @@ import { Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <NavBar />
       <Switch>
       <Route path={"/results"}>
         
@@ -25,6 +24,7 @@ function App() {
         <Route path={"/signup"}>
           <SignUpForm />
         </Route>
+      <NavBar />
         <Route path={"/feedpage"}>
           <Feed />
         </Route>
