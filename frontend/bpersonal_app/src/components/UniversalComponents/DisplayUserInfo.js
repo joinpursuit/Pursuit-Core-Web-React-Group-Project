@@ -18,13 +18,13 @@ const DisplayUserInfo = () => {
     }
   };
 
-const handleClick = () => {
-    if (editBoolean){
-        // style.display of the form "block"
-    } else {
-        // style.display of the form "none"
-    }
-}
+// const handleClick = () => {
+//     if (editBoolean){
+//         // style.display of the form "block"
+//     } else {
+//         // style.display of the form "none"
+//     }
+// }
   
 
 
@@ -38,7 +38,7 @@ const handleClick = () => {
         src={user.profile_pic_url}
         style={{ width: "300px", height: "300px", borderRadius: "100%" }}
       ></img>
-      <h1> {user.full_name} </h1>
+      <h1> {user.full_name} :</h1>
       <h2>{user.username}</h2>
       <h2>{user.bio}</h2>
       <h2>{user.email}</h2>
