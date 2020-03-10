@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Post from "./Post";
 
-const DisplayFeed = () => {
-  //   const [userID, setUserID] = useState("");
+const DisplayFeed = ({ user_id }) => {
   const [allPosts, setAllPosts] = useState([]);
 
   const fetchAllPosts = async url => {
@@ -26,6 +25,7 @@ const DisplayFeed = () => {
       <Post
         key={i}
         id={post.id}
+        user_id={user_id}
         profile_pic_url={post.profile_pic_url}
         username={post.username}
         timestamp={post.timestamp}
