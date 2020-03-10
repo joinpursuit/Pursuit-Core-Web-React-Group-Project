@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Avatar from 'react-avatar'
 
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
@@ -7,7 +8,7 @@ const DisplayUserInfo = () => {
   const fetchData = async url => {
     try {
       let res = await axios.get(url);
-      debugger;
+    //   debugger;
       const { single_user } = res.data.body;
       setUser(single_user);
     } catch (error) {

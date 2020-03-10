@@ -12,6 +12,7 @@ function Profile() {
       <div className="bio_and_buttons"></div>
     </>
   );
+
 }
 
 export default Profile;
