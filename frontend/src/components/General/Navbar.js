@@ -10,10 +10,10 @@ const Navbar = ({setLoggedIn}) => {
                 <img src={OurCanvasLogoSplat} alt="logo" className="navLogo"/>
            </div>
            <div className="navRight">
-               <NavLink exact to="/">Home</NavLink>
-               <NavLink to="/profile">Profile</NavLink>
+               <NavLink exact to="/" className="navAnchor">Home</NavLink>
+               <NavLink to="/profile" className="navAnchor">Profile</NavLink>
                <input type="search" placeholder="Search By Tag" className="search"/>
-               <NavLink to="/login" onClick={() => setLoggedIn(false)}>Logout</NavLink>
+               <NavLink to="/login" onClick={() => setLoggedIn(false)} className="navAnchor">Logout</NavLink>
            </div>
         </nav>
     )

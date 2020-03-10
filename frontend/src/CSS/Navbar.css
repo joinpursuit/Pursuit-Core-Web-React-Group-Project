@@ -39,7 +39,7 @@ nav {
     letter-spacing: 2px;
 }
 
-a {
+.navAnchor {
     text-decoration: none;
     color: black;
     font-weight: bold;
@@ -58,7 +58,7 @@ a {
     font-size: 24px;
 }
 
-a:hover {
+.navAnchor:hover {
     border: 2px solid rgba(5, 216, 244, 0.281);
     box-shadow: 5px 5px 0px 0px rgba(253, 80, 221, 0.575);
 }
