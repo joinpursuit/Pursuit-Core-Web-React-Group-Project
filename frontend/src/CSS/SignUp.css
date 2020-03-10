@@ -28,7 +28,7 @@ label {
   font-weight: bold;
 }
 
-form {
+.signForms {
   margin-top: 40px;
   margin-left: 20px;
   display: flex;
@@ -47,6 +47,11 @@ form {
 
 .signUpForm, .signInSwitchContainer {
   align-self: center;
+}
+
+.signUpForm {
+  padding-top: 20px;
+  padding-bottom: 18px;
 }
 
 .signInSwitchContainer {

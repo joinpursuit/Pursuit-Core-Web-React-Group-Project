@@ -30,7 +30,7 @@ const SignUpForm = ({handleSignUp, error, errorText}) => {
           <img src={OurCanvasLogoSplat} alt="" />
         </div>
 
-        <form onSubmit={handleSignUpSubmit} className="signUpForm">
+        <form onSubmit={handleSignUpSubmit} className="signUpForm signForms">
           <h5>
             Don't have an account yet?
             <br/>
