@@ -12,7 +12,6 @@ const Posts = () => {
     try {
       let res = await axios.get(url);
       setallposts(res.data.payload);
-      debugger;
     } catch (error) {
       setallposts([]);
     }
@@ -35,7 +34,8 @@ const Posts = () => {
         comments={post.comments}
         commenterID={post.commenter}
         profilepic={post.profilepic["0"]}
-        reaction={post.reactor["0"]}
+        reaction={post.reaction}
+        reaction={post.reactor}
       />
     );
   });

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Comments from "./comment";
+import Reactions from "./reactions";
 const styles = {
   img: {
     height: "200px",
@@ -31,9 +32,14 @@ const Post = ({
   brand,
   description,
   release,
-  postID
+  postID,
+  reaction,
+  reactor
 }) => {
+  const [showComments, setshowComments] = useState(false);
+
   const displayPost = () => {
+    // let brand = brand.toUpperCase();
     return (
       <>
         <div>
@@ -44,7 +50,6 @@ const Post = ({
         </div>
 
         <img src={shoeImg} alt={""} style={styles.img} />
-        <p>🔥❄️4</p>
 
         <p>
           Brand: {brand} Release: {release}
@@ -55,7 +60,10 @@ const Post = ({
       </>
     );
   };
-
+  const showModal = e => {
+    setshowComments(true);
+  };
+  console.log(showComments);
   return (
     <>
       <div className="post" id={postID} style={styles[".post"]}>
@@ -67,7 +75,16 @@ const Post = ({
           description,
           release
         })}
+        <Reactions reaction={reaction} reaction={reactor} />
+        <button
+          onClick={e => {
+            showModal();
+          }}
+        >
+          show all comments
+        </button>
         <Comments postID={postID} />
+        <br></br>
       </div>
     </>
   );
