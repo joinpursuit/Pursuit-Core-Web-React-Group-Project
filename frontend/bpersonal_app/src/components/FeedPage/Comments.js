@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useInput, useToggleShow } from "../../util/customHooks";
 import axios from "axios";
 
 const Comments = ({ id }) => {
   const [comments, setComments] = useState([]);
+  const toggleInsertObj = useToggleShow(false);
+  const commentInputObj = useInput("");
+  const content = commentInputObj.value;
 
   const fetchComments = async url => {
     try {
@@ -15,9 +19,16 @@ const Comments = ({ id }) => {
     }
   };
 
+  const handleInsertComment = async e => {
+    e.preventDefault();
+    await axios.post(`comments/post/${id}/${sessionStorage.userID}`, {
+      content
+    });
+  };
+
   useEffect(() => {
     fetchComments(`/comments/post/${id}`);
-  }, []);
+  }, [comments]);
 
   let showComments = comments.map((comment, i) => {
     return (
@@ -27,7 +38,20 @@ const Comments = ({ id }) => {
     );
   });
 
-  return <>{showComments}</>;
+  return (
+    <>
+      <button id="insertCommentBtn" onClick={toggleInsertObj.onClick}>
+        Insert a Comment
+      </button>
+      {toggleInsertObj.showInsert ? (
+        <form name="insertCommentForm" onSubmit={handleInsertComment}>
+          <input type="text" {...commentInputObj}></input>
+          <button>Comment!</button>
+        </form>
+      ) : null}
+      <div className="comments">{showComments}</div>
+    </>
+  );
 };
 
 export default Comments;

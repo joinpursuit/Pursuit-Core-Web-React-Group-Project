@@ -10,7 +10,8 @@ const Post = ({
   username,
   timestamp,
   post_image_url,
-  body
+  body,
+  user_id
 }) => {
   timestamp = new Date();
   const date = timestamp.toDateString();
@@ -34,12 +35,12 @@ const Post = ({
           style={{ width: "400", height: "500px" }}
         ></img>
       </div>
+      <p>{body}</p>
       <div className="likes">
         <Likes id={id} />
       </div>
-      <p>{body}</p>
       <div className="hashtag">
-        <Hashtags id={id} />
+        <Hashtags id={id} user_id={user_id} />
       </div>
       <div className="comments">
         <Comments id={id} />

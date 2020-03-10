@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import DisplayUserInfo from "../UniversalComponents/DisplayUserInfo";
 import DisplayFeed from "./DisplayFeed";
 import CreatePostForm from "./CreatePostForm";
@@ -10,12 +10,16 @@ const Feed = () => {
     setUserID(sessionStorage.userID);
   };
 
+  useEffect(() => {
+    handleSessionStorageUserID();
+  }, []);
+
   return (
     <div className="Feed">
       {/* <DisplayUserInfo /> */}
-      <CreatePostForm handleSessionStorageUserID={handleSessionStorageUserID} />
+      <CreatePostForm user_id={userID} />
       <br></br>
-      <DisplayFeed handleSessionStorageUserID={handleSessionStorageUserID} />
+      <DisplayFeed user_id={userID} />
     </div>
   );
 };

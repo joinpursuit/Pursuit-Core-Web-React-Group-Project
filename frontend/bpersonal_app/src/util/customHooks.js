@@ -10,4 +10,16 @@ const useInput = initialValue => {
   return { value, onChange: handleChange };
 };
 
-export { useInput };
+const useToggleShow = initialValue => {
+  const [showInsert, setShowInsert] = useState(initialValue);
+  const showInsertForm = () => {
+    if (showInsert) {
+      setShowInsert(false);
+    } else {
+      setShowInsert(true);
+    }
+  };
+  return { showInsert, onClick: showInsertForm };
+};
+
+export { useInput, useToggleShow };
