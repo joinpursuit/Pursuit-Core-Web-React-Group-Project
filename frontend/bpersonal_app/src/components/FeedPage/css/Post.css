@@ -1,0 +1,17 @@
+.postContainer {
+  display: grid;
+  grid-area: auto;
+  margin: auto;
+  justify-content: space-evenly;
+  align-content: center;
+  border: 2px solid black;
+  background: skyblue;
+}
+
+#post_image {
+  align-self: center;
+}
+
+#profile_pic {
+  align-items: center;
+}
