@@ -7,7 +7,7 @@ const DisplayUserInfo = () => {
   const fetchData = async url => {
     try {
       let res = await axios.get(url);
-      debugger;
+      //   debugger;
       const { single_user } = res.data.body;
       setUser(single_user);
     } catch (error) {

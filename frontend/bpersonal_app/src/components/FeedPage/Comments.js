@@ -17,11 +17,7 @@ const Comments = ({ id }) => {
 
   useEffect(() => {
     fetchComments(`/comments/post/${id}`);
-<<<<<<< HEAD
-  });
-=======
   }, []);
->>>>>>> ca6dec2b33decafd7905a461a9bbb08612cd09f5
 
   let showComments = comments.map((comment, i) => {
     return (
