@@ -34,10 +34,11 @@ const SignUpForm = ({handleSignUp, error, errorText}) => {
           <h5>
             Don't have an account yet?
             <br/>
+            <br/>
             Sign up to connect with artists near you!
           </h5>
           
-          {error ? <p>{errorText}</p> : null}
+          {error ? <p className="error">{errorText}</p> : null}
 
           <label>
             First Name : 
@@ -50,7 +51,7 @@ const SignUpForm = ({handleSignUp, error, errorText}) => {
           </label>
 
           <label>
-            Email:
+            Email :
             <input type="email" placeholder="Enter Your Email" {...email} required className="signUpEmail"/>
           </label>
 

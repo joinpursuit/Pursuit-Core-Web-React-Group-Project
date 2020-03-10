@@ -1,8 +1,18 @@
 .App {
     display: flex;
     flex-direction: column;
-    font-family: sans-serif;
+    height: 100vh;
 }
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Krona One', sans-serif;
+}
+
+p, label, div, input {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 2px;
+}
+
 
 .button {
     border-color: rgba(253, 80, 221, 0.575);
