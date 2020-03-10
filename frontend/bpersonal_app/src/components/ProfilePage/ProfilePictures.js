@@ -22,12 +22,17 @@ const ProfilePictures = () => {
   }, []);
 
   const showImages = images.map((img, i) => {
-    console.log(img);
-    return <DisplayFeedImages img={img.post_image_url} key={i} />;
-  });
-  // debugger
-
-  return <div>{showImages}</div>;
-};
+    console.log(img)
+    return (
+      <DisplayFeedImages img={img.post_image_url} key={i}/>
+      )
+    })
+  
+    return (
+      <div className="newsFeed">
+    {showImages}
+    </div>
+  )
+}
 
 export default ProfilePictures;

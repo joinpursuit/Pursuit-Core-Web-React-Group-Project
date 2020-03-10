@@ -15,6 +15,9 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
+      <Route path={"/results"}>
+        
+      </Route>
         <Route path={"/login"}>
           <LoginPage/>
           <LoginForm />
