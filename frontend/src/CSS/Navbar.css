@@ -1,19 +1,20 @@
 nav {
     background-color: rgb(255, 255, 255);
     opacity: 1.0;
-    width: 100%;
+    width: 101%;
     position: sticky;
     top: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 24px;
-    border: 2px rgba(253, 80, 221, 0.575);
+    border: 2px rgb(253, 80, 221);
     border-style: inset;
     align-items: center;
     z-index: 5;
     margin-bottom: 50px;
     box-shadow: 7px 7px 0px 0px rgba(5, 216, 244, 0.281);
+    margin-left: -9px;
 }
 
 .navLogo {
@@ -29,19 +30,13 @@ nav {
     align-items: center;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-right: 60px;
 }
 
 .search {
-    width: 20%;
+    width: 40%;
     font-size: 16px;
     letter-spacing: 2px;
-}
-
-
-  
-.button:hover {
-    box-shadow: 3px 3px 0px 0px rgba(253, 80, 221, 0.575);
-    border-color: rgba(5, 216, 244, 0.281);
 }
 
 a {
@@ -59,7 +54,7 @@ a {
     width: 100px;
     justify-content: center;
     text-align: center;
-    border: 2px solid rgba(253, 80, 221, 0.575);
+    border: 2px solid rgb(253, 80, 221);
     font-size: 24px;
 }
 
