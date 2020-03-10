@@ -9,14 +9,7 @@ import UploadPost from './components/Feedpage/uploadPost'
 function App() {
   return (
     <div className="App">
-      <div></div>
-
-     <HomePage/>
-     <Login/>
-     <NavBar/>
-
-     <feedpage/>
-      {/* //<Posts /> */}
+     <UploadPost/>
     </div>
   );
 }
