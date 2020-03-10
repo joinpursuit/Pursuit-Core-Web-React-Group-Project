@@ -10,7 +10,7 @@ const {
 
 users.get("/", getAllUsers);
 users.get("/:id", getSingleUserById);
-users.post("/", insertSingleUser);
+users.post("/addUser", insertSingleUser);
 users.delete("/:id", deleteUsersById);
 users.get("/search/:username", searchUserByName);
 
