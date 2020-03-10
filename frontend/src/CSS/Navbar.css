@@ -1,5 +1,6 @@
 nav {
-    background: lightblue;
+    background-color: rgb(255, 255, 255);
+    opacity: 1.0;
     width: 100%;
     position: sticky;
     top: 0;
@@ -7,11 +8,25 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     font-size: 24px;
+    border: 2px rgba(253, 80, 221, 0.575);
+    border-style: inset;
+    align-items: center;
+    z-index: 5;
+    margin-bottom: 50px;
+    box-shadow: 7px 7px 0px 0px rgba(5, 216, 244, 0.281);
+}
+
+.navLogo {
+    height: 150px;
+    width: 150px;
+    margin-left: 90px;
+    margin-top: -12px;
 }
 
 .navRight {
     width: 50%;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-evenly;
 }
@@ -22,21 +37,37 @@ nav {
     letter-spacing: 2px;
 }
 
+
+  
+.button:hover {
+    box-shadow: 3px 3px 0px 0px rgba(253, 80, 221, 0.575);
+    border-color: rgba(5, 216, 244, 0.281);
+}
+
 a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     padding: 8px;
+    border-radius: 80px;
+    box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 15px;
+    width: 100px;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid rgba(253, 80, 221, 0.575);
+    font-size: 24px;
 }
 
 a:hover {
-    background: white;
-    color: darkgrey;
-    border: 1px white;
-    border-radius: 25px;
+    border: 2px solid rgba(5, 216, 244, 0.281);
+    box-shadow: 5px 5px 0px 0px rgba(253, 80, 221, 0.575);
 }
 
 .active {
-    border: 1px solid black;
-    border-radius: 25px;
+    color: rgb(119, 119, 119);
 }
