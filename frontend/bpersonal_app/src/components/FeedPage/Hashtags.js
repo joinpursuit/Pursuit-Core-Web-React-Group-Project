@@ -70,7 +70,10 @@ const Hashtags = ({ id }) => {
         <li key={hashtag.id} id={hashtag.id} style={{ listStyle: "none" }}>
           #{hashtag.body}
           {toggleEditBtnsObj.showInsert ? (
-            <button onClick={e => handleDeleteHashtag(hashtag.id)}>X</button>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA4klEQVQ4T2NkQAL/GRj+MzIwMCKLobPR1cAV/2Rg+A9TzI7DEGxqwAZ8RtIMM4QXzRBcahjfYNEMM0QEagg+NWAXPMNjCL7wkGJgYISHwX0shvyB6mbBYooi1HUoIX4TzZCfUI3saAaoI4UPRpRdRjLkG1QjF5IBumiBi2HAGSQDvkA18iAZYILPgGNoXvgE1ciH5gUrbF7YjyUQP0I18mMJREfkQNyJIxo/QDUK4IhLd1A0bsaTBnyhtuBTAw7ENVgMCUELLFxq4LGwDMmQKByZCZsalGicz8DwP5FAdkZXAwAmkDau+YtyUwAAAABJRU5ErkJggg=="
+              onClick={e => handleDeleteHashtag(hashtag.id)}
+            />
           ) : null}
         </li>
       );
@@ -87,9 +90,9 @@ const Hashtags = ({ id }) => {
       {ownerStatus ? (
         <>
           <button id="insertHashtagBtn" onClick={toggleInsertObj.onClick}>
-            Add a # tag?
+            Add #
           </button>
-          <button onClick={toggleEditBtnsObj.onClick}>Delete?</button>
+          <button onClick={toggleEditBtnsObj.onClick}>Delete #</button>
         </>
       ) : null}
       {toggleInsertObj.showInsert ? (
