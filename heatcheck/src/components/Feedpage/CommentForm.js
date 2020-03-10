@@ -1,25 +1,33 @@
 //comments
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { useInput } from "../../util/customHooks";
 
-const CommentForm = () => {
-  //   const [newComment, setnewComment] = useState([])
+const CommentForm = ({ postID }) => {
+  const newComment = useInput("");
 
-  //   const addcomment = async postID => {
-  //     const url = `http://localhost:3001/comments/`;
+  const handleSubmit = async e => {
+    e.preventDefault();
+    let body = newComment.value;
 
-  //     try {
-  //       let res = await axios.get(url);
-  //       setnewComment(res.data.payload);
-  //       debugger;
-  //     } catch (error) {
-  //       setnewComment([]);
-  //     }
-  //   };
+    let user_id = 1;
+    try {
+      let res = await axios.post(
+        `http://localhost:3001/comments/${e.target.id}`,
+        { body, user_id }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  console.log(newComment);
   return (
     <>
-      <input type="text" />
+      <form onSubmit={handleSubmit} id={postID}>
+        <input type="text" {...newComment} />
+        <input type="submit" value="post" id={postID} />
+      </form>
     </>
   );
 };
