@@ -29,8 +29,8 @@ const insertHashtagOnSinglePost = async (req, res, next) => {
       body: {
         post_id: req.params.post_id,
         result: await db.one(
-          "INSERT INTO hashtags (post_id, body) VALUES($1, $2) RETURNING *",
-          [req.params.post_id, req.body.body]
+          "INSERT INTO hashtags (owner_id, post_id, body) VALUES($1, $2, $3) RETURNING *",
+          [req.params.owner_id, req.params.post_id, req.body.body]
         )
       }
     });

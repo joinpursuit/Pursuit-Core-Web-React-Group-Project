@@ -3,17 +3,17 @@ import Upload from "../UniversalComponents/Upload";
 import axios from "axios";
 import { useInput } from "../../util/customHooks";
 
-const CreatePostForm = () => {
+const CreatePostForm = ({ user_id }) => {
   const captionObj = useInput("");
 
   const handleCreatePostClick = async () => {
     try {
       let res = await axios.post("/posts/");
-      debugger;
     } catch (error) {
       console.log(error);
     }
   };
+
   console.log(captionObj);
   return (
     <div className="createPost">
