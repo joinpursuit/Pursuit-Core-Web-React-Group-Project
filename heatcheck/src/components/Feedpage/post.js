@@ -61,7 +61,11 @@ const Post = ({
     );
   };
   const showModal = e => {
-    setshowComments(true);
+    if (showComments === false) {
+      setshowComments(true);
+    } else {
+      setshowComments(false);
+    }
   };
   console.log(showComments);
   return (
@@ -76,14 +80,15 @@ const Post = ({
           release
         })}
         <Reactions reaction={reaction} reaction={reactor} />
-        <button
+        <a
           onClick={e => {
             showModal();
           }}
         >
           show all comments
-        </button>
-        <Comments postID={postID} />
+        </a>
+        {showComments ? <Comments postID={postID} /> : null}
+
         <br></br>
       </div>
     </>
