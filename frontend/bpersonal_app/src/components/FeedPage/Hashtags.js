@@ -3,7 +3,6 @@ import axios from "axios";
 
 const Hashtags = ({ id }) => {
   const [hashtags, setHashtags] = useState([]);
-
   const fetchHashtags = async url => {
     try {
       let res = await axios.get(url);
@@ -17,7 +16,7 @@ const Hashtags = ({ id }) => {
 
   useEffect(() => {
     fetchHashtags(`/hashtags/post/${id}`);
-  });
+  }, []);
 
   let showHashtags = hashtags.map(hashtag => {
     return (

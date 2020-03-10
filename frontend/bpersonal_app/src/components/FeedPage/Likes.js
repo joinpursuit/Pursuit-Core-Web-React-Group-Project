@@ -17,7 +17,7 @@ const Likes = ({ id }) => {
 
   useEffect(() => {
     fetchLikes(`/likes/post/${id}`);
-  });
+  }, []);
 
   return (
     <>

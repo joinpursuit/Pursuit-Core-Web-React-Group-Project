@@ -1,43 +1,34 @@
 import React, { useState } from "react";
-import { useInput } from "../../util/customHooks";
+import Upload from "../UniversalComponents/Upload";
 import axios from "axios";
+import { useInput } from "../../util/customHooks";
 
 const CreatePostForm = () => {
-  const [file, setFile] = useState("");
-  //   const [post_image_url, setPostImageUrl] = useState("");
-  //   const [body, setBody] = useInput("");
+  const captionObj = useInput("");
 
-  const fileOnChange = e => {
-    setFile(e.target.files[0]);
+  const handleCreatePostClick = async () => {
+    try {
+      let res = await axios.post("/posts/");
+      debugger;
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const formData = new FormData();
-
-    formData.append("imageUpload", this.state.file);
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data"
-      }
-    };
-    axios
-      .post("/uploadphoto", formData, config)
-      .then(response => {
-        alert("The file is successfully uploaded");
-      })
-      .catch(error => {});
-  };
-
+  console.log(captionObj);
   return (
-    <>
+    <div className="createPost">
       <h1>Create a post</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Upload Image</label>
-        <input type="file" name="imageUpload" onChange={fileOnChange} />
-        <button type="submit">Upload</button>
-      </form>
-    </>
+      <Upload />
+      <input
+        name={"body"}
+        {...captionObj}
+        type="text"
+        placeholder="Enter a caption"
+      ></input>
+      <button type="click" onClick={handleCreatePostClick}>
+        Create post
+      </button>
+    </div>
   );
 };
 

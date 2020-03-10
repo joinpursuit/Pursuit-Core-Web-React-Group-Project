@@ -17,7 +17,7 @@ const Comments = ({ id }) => {
 
   useEffect(() => {
     fetchComments(`/comments/post/${id}`);
-  });
+  }, []);
 
   let showComments = comments.map((comment, i) => {
     return (
