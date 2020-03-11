@@ -31,10 +31,18 @@ function App() {
 
   };
 
-  const handleSignUp = (user) => {
+  const handleSignUp = async (user) => {
     console.log(user);
+    try {
+      let res = await axios.post("/api/users", user)
+      setUser(res.data.user);
+      setError(false);
+      setLoggedIn(true);
+    } catch (error) {
+      setErrorText(error.response.data.error);
+      setError(true);
+    }
     // Pass in values into database
-    setLoggedIn(true);
   }
 
   if (loggedIn) {

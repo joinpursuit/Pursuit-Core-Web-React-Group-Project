@@ -18,7 +18,7 @@ const SignInForm = ({ handleLogIn, error, errorText }) => {
           e.preventDefault();
           handleLogIn(email.value);
         }}
-        className="signInForm"
+        className="signInForm signForms"
       >
       {error ? <p className="error">{errorText}</p> : null}
         <label>
