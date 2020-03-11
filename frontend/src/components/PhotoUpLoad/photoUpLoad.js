@@ -7,12 +7,17 @@ const UploadImage = () => {
   const onSubmit = async e => {
     e.preventDefault();
     const formData = new FormData();
-    await formData.append("myImage", file);
+
+    formData.append("myImage", file);
+    formData.append("post_id", 2);
+    console.log(file);
+
     const config = {
       headers: {
         "content-type": "multipart/form-data"
       }
     };
+    let res = await axios.post("/api/pictures", formData, config);
   };
   const onChange = e => {
     setFile(e.target.files[0]);
