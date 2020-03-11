@@ -17,6 +17,9 @@ const Feed = () => {
   return (
     <div className="Feed">
       {/* <DisplayUserInfo /> */}
+      HELLO <br />
+      HELLO <br />
+      HELLO <br />
       <CreatePostForm />
       <br></br>
       <DisplayFeed />
