@@ -14,4 +14,16 @@
     border: 2px solid rgb(253, 80, 221);
     box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
     border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.postHeader {
+    display: flex;
+    font-size: 36px;
+    margin-bottom: 40px;
 }
