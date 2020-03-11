@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Post from '../General/Post';
 
-const UserPosts = ({posts}) => {
+const UserPosts = ({posts, home}) => {
     const postList = posts.map(post => {
         return <Post {...post} />
     })
     
     return (
         <div className="postFeed">
-            <h1 className="postHeader">Posts</h1>
+            <h1 className="postHeader">{home ? "News Feed" : "Posts"}</h1>
             {postList}
         </div>
     )

@@ -9,8 +9,8 @@
     border: 2px solid rgba(5, 216, 244);
     box-shadow: 5px 5px 0px 0px rgb(253, 80, 221, 0.281);
     border-radius: 25px;
-    width: 800px;
-    height: 600px;
+    width: 790px;
+    height: 730px;
 }
 
 .poster {
@@ -19,8 +19,8 @@
 }
 
 .postImage {
-    width: 350px;
-    height: 350px;
+    width: 500px;
+    height: 500px;
     object-fit: cover;
     align-self: center;
     border: 2px solid rgb(253, 80, 221);

@@ -5,7 +5,7 @@
     height: fit-content;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top: 160px;
     margin-left: 30px;
     padding: 20px;
     background-color: white;
@@ -33,6 +33,7 @@
     box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
     border-radius: 25px;
     padding: 25px;
+    font-size: 16px;
 }
 
 .userDetail, .bio {
@@ -41,10 +42,6 @@
 
 .bioBody, .userDetailValue {
     margin-left: 25px;
-}
-
-p, .bioHeader {
-    font-size: 24px;
 }
 
 span, .bioHeader {
