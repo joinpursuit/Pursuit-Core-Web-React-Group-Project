@@ -3,7 +3,7 @@
     flex-direction: column;
     height: 100vh;
     overflow: auto;
-    background-color: rgb(245, 245, 245);
+    background-image: repeating-linear-gradient(233deg, rgba(161, 131, 106, 0.507), rgba(161, 131, 106, 0.507) 1px, transparent -19px, transparent 2px);
 }
 
 h1, h2, h3, h4, h5 {

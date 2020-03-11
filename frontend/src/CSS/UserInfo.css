@@ -1,32 +1,44 @@
 .userInfo {
     padding-top: 10px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: fit-content;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    margin-left: 30px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid rgb(253, 80, 221);
+    box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
+    border-radius: 25px;
 }
 
 .profilePic {
-    border: 1px solid black;
-    width: 50%;
+    border: 2px solid rgb(253, 80, 221);
+    box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
+    border-radius: 25px;
+    width: 200px;
+    height: 200px;
     align-self: center;
+    object-fit: cover;
 }
 
 .userDetails {
     display: flex;
     flex-direction: column;
     margin-top: 25px;
-    padding-left: 10px;
+    border: 2px solid rgb(253, 80, 221);
+    box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
+    border-radius: 25px;
+    padding: 25px;
 }
 
 .userDetail, .bio {
     margin-top: 20px;
 }
 
-.bioBody {
+.bioBody, .userDetailValue {
     margin-left: 25px;
 }
 

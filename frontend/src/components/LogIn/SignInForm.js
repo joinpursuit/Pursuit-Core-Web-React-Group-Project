@@ -10,7 +10,7 @@ const SignInForm = ({ handleLogIn, error, errorText }) => {
   return (
     <div className="signInFormDiv">
       <div>
-        <img src={OurCanvasLogoSplat} alt="" />
+        <img src={OurCanvasLogoSplat} alt="" className="signInLogo"/>
       </div>
 
       <form

@@ -4,7 +4,7 @@ import Post from '../General/Post';
 const UserPosts = () => {
     return (
         <div className="postFeed">
-            User Posts
+            
         </div>
     )
 }

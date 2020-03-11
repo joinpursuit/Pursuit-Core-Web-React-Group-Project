@@ -27,7 +27,7 @@ const SignUpForm = ({handleSignUp, error, errorText}) => {
   return (
       <div className="signUpFormDiv">
         <div>
-          <img src={OurCanvasLogoSplat} alt="" />
+          <img src={OurCanvasLogoSplat} alt="" className="signInLogo"/>
         </div>
 
         <form onSubmit={handleSignUpSubmit} className="signUpForm signForms">

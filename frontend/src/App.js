@@ -45,7 +45,7 @@ function App() {
     // Pass in values into database
   }
 
-  if (loggedIn) {
+  if (!loggedIn) {
     return (
       <div className="App">
         <Navbar setLoggedIn={setLoggedIn}/>
