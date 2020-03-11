@@ -9,14 +9,31 @@ const UserInfo = ({full_name, username, bio, website, profile_pic, favorite_arti
         <div className="userInfo">
             <img src={profile_pic} alt="user" className="profilePic"/>
             <div className="userDetails">
-                <p className="userDetail"><span>Name</span>: {full_name}</p>
-                <p className="userDetail"><span>Username</span>: {username}</p>
+                <div>
+                    <p><span>Name:</span></p>
+                    <p className="userDetailValue">{full_name}</p>
+                </div>
+
+                <div className="userDetail">
+                    <p><span>Username:</span></p>
+                    <p className="userDetailValue">{username}</p>
+                </div>
+                
                 <div className="bio">
-                    <h1 className="bioHeader">Bio:</h1>
+                    <p className="bioHeader">Bio:</p>
                     <p className="bioBody">{bio}</p>
                 </div>
-                <p className="userDetail"><span>Favorite Artist</span>: {favorite_artist}</p>
-                <p className="userDetail"><span>Genre</span>: {art_type}</p>
+
+                <div className="userDetail">
+                    <p><span>Favorite Artist:</span></p>
+                    <p className="userDetailValue">{favorite_artist}</p>
+                </div>
+
+
+                <div className="userDetail">
+                    <p><span>Genre:</span></p>
+                    <p className="userDetailValue">{art_type}</p>
+                </div>
             </div>
         </div>
     )
