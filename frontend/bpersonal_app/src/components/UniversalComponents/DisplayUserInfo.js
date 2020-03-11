@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Avatar from "react-avatar";
+// import Avatar from "react-avatar";
 
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
@@ -42,9 +42,10 @@ const DisplayUserInfo = () => {
       <h2>{user.username}</h2>
       <h2>{user.bio}</h2>
       <h2>{user.email}</h2>
-      <form id="updateBio">
+      <form id="updateBio" >
           <input id="name" type="text"/>
           <input id="userName" type="text"/>
+          <input id="email" type="text"/>
           <input id="bio" type="text"/>
       </form>
       <button onClick={handleCLick}>Edit Profile</button>
