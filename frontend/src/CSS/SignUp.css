@@ -20,7 +20,7 @@ input[type="text"], input[type="email"] {
   padding-left: 15px;
   margin-top: 5px;
   width: 200px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 label {
@@ -29,7 +29,6 @@ label {
 }
 
 .signForms {
-  margin-top: 40px;
   margin-left: 20px;
   display: flex;
   flex-direction: column;
