@@ -15,7 +15,10 @@
 
 .poster {
     margin-bottom: 30px;
-    color: rgb(253, 80, 221);
+    font-family: 'Krona One', sans-serif;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: rgb(194, 55, 168);
 }
 
 .postImage {
