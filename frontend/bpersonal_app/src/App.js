@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import Profile from "./components/ProfilePage/Profile";
 import Feed from "./components/FeedPage/Feed";
 import SignUpForm from "./components/LoginPage/SignUpForm";
+import Results from "./components/ResultsPage/Results"
 
 import { Route, Switch } from "react-router-dom";
 
@@ -15,7 +16,9 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route path={"/results"}></Route>
+        <Route path={"/results"}>
+          <Results />
+        </Route>
         <Route path={"/login"}>
           <LoginPage />
           <LoginForm />
