@@ -42,6 +42,7 @@ label {
   padding-bottom: 5px;
   box-shadow: 8px 8px 2px 1px rgba(5, 216, 244, 0.281);
   border-radius: 15px;
+  background: white;
 }
 
 .signUpForm, .signInSwitchContainer {

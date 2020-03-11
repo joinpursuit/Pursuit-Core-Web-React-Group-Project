@@ -63,6 +63,22 @@ nav {
     box-shadow: 5px 5px 0px 0px rgba(253, 80, 221, 0.575);
 }
 
+.navAnchor:active {
+    position:relative;
+    top: 5px;
+    left: 5px;
+    box-shadow: 0px 0px 0px 0px;
+}
+
 .active {
-    color: rgb(119, 119, 119);
+    background-image: repeating-linear-gradient(233deg, rgba(161, 131, 106, 0.507), rgba(161, 131, 106, 0.507) 1px, transparent -19px, transparent 2px);
+    box-shadow: inset 3px 3px 0px 0px rgba(5, 176, 244, 0.575);
+    position:relative;
+    top: 5px;
+    left: 5px;
+}
+
+.active:hover {
+    box-shadow: inset 3px 3px 0px 0px rgba(253, 80, 221, 0.575);
+    border: 2px solid rgba(5, 176, 244, 0.575)
 }
