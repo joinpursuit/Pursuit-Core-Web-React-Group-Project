@@ -10,7 +10,6 @@ const ProfilePictures = () => {
     try {
       let res = await axios.get(url);
       const { posts } = res.data.body;
-      // debugger
       setImgs(posts);
     } catch (error) {
       setImgs([]);

@@ -34,10 +34,10 @@ const Post = ({
           style={{ width: "400", height: "500px" }}
         ></img>
       </div>
+      <p>{body}</p>
       <div className="likes">
         <Likes id={id} />
       </div>
-      <p>{body}</p>
       <div className="hashtag">
         <Hashtags id={id} />
       </div>

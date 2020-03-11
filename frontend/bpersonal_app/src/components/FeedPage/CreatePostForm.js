@@ -9,11 +9,11 @@ const CreatePostForm = () => {
   const handleCreatePostClick = async () => {
     try {
       let res = await axios.post("/posts/");
-      debugger;
     } catch (error) {
       console.log(error);
     }
   };
+
   console.log(captionObj);
   return (
     <div className="createPost">

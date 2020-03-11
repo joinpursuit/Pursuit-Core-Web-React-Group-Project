@@ -3,7 +3,6 @@ import axios from "axios";
 import Post from "./Post";
 
 const DisplayFeed = () => {
-  //   const [userID, setUserID] = useState("");
   const [allPosts, setAllPosts] = useState([]);
 
   const fetchAllPosts = async url => {

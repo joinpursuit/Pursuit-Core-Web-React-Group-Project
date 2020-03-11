@@ -15,16 +15,15 @@ function App() {
     <div className="App">
       <NavBar />
       <Switch>
-      <Route path={"/results"}>
-        
-      </Route>
+        <Route path={"/results"}></Route>
         <Route path={"/login"}>
-          <LoginPage/>
+          <LoginPage />
           <LoginForm />
         </Route>
         <Route path={"/signup"}>
           <SignUpForm />
         </Route>
+
         <Route path={"/feedpage"}>
           <Feed />
         </Route>
