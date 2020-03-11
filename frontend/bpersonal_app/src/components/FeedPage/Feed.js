@@ -6,20 +6,20 @@ import CreatePostForm from "./CreatePostForm";
 const Feed = () => {
   const [userID, setUserID] = useState("");
 
-  const handleSessionStorageUserID = () => {
-    setUserID(sessionStorage.userID);
-  };
+  // const handleSessionStorageUserID = () => {
+  //   setUserID(sessionStorage.userID);
+  // };
 
-  useEffect(() => {
-    handleSessionStorageUserID();
-  }, []);
+  // useEffect(() => {
+  // handleSessionStorageUserID();
+  // }, []);
 
   return (
     <div className="Feed">
       {/* <DisplayUserInfo /> */}
-      <CreatePostForm user_id={userID} />
+      <CreatePostForm />
       <br></br>
-      <DisplayFeed user_id={userID} />
+      <DisplayFeed />
     </div>
   );
 };
