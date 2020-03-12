@@ -17,43 +17,32 @@ const RightSide = (props) => {
 
 const HomePage = () => {
   const [isLoginActive, setIsLoginActive] = useState(true)
-  const [current, setCurrent] = useState()
-  const [container, setContainer] = useState()
-  const [rightSide, setRightSide] = useState()
   const active = isLoginActive ? "Sign Up" : "Login"
-  const containerRef = useRef()
+  const containerRef = useRef(null)
+  const rightSideRef = useRef(null)
+  let rightSideClass = ""
 
   const changeState = () => {
     if(isLoginActive){
-      rightSide.classList.remove("right")
-      rightSide.classList.add("left")
+      rightSideClass = "left"
     } else {
-      rightSide.classList.remove("left")
-      rightSide.classList.add("right")
+      rightSideClass = "right"
     }
     setIsLoginActive(!isLoginActive)
   }
-
+  
   useEffect(() => {
-    setRightSide("right")
+    rightSideClass = "right"
   },[])
 
   return(
     <div className="HomePage">
       <div className="login">
-        <div className="container" ref={(ref) => {
-          setContainer(ref) 
-        return container} }>
-          {isLoginActive && (<Login containerRef={(ref) => {
-            setCurrent(ref)
-            return current}}/>)}
-          {!isLoginActive && (<SignUp containerRef={(ref) => {
-            setCurrent(ref)
-            return current}}/>)}
+        <div className="container" ref={containerRef}>
+          {isLoginActive && (<Login containerRef={containerRef}/>)}
+          {!isLoginActive && (<SignUp containerRef={containerRef}/>)}
         </div>
-        <RightSide active={active} containerRef={(ref) => {
-          setRightSide(ref)
-          return rightSide}} onClick={changeState()}/>
+        <RightSide className={rightSideClass} active={active}  onClick={changeState}/>
       </div>
     </div>
   )

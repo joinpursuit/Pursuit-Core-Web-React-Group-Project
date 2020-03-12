@@ -11,8 +11,8 @@ import TrendingReactions from './components/Feedpage/treanding'
 function App() {
   return (
     <div className="App">
-    <SignUp/>
-    {/* <HomePage/> */}
+    {/* <SignUp/> */}
+    <HomePage/>
      {/* <TrendingReactions/> */}
      {/* <UploadPost/> */}
     </div>
