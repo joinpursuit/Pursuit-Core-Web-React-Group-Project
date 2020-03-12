@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Upload = () => {
+const Upload = ({ cb }) => {
   const [file, setFile] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleUploadSubmit = async e => {
+  const handleUploadSubmit = async (e, call) => {
     e.preventDefault();
     const formData = new FormData();
-
     formData.append("imageUpload", file);
     const config = {
       headers: {
@@ -19,6 +18,7 @@ const Upload = () => {
       .post("/uploadphoto", formData, config)
       .then(response => {
         alert("The file is successfully uploaded");
+        call(response.data);
       })
       .catch(error => {});
   };
@@ -50,7 +50,11 @@ const Upload = () => {
   };
 
   return (
-    <form onSubmit={handleUploadSubmit}>
+    <form
+      onSubmit={e => {
+        handleUploadSubmit(e, cb);
+      }}
+    >
       <label>Upload Image</label>
       <input type="file" name="imageUpload" onChange={fileOnChange} />
       <button type="submit">Upload</button>
