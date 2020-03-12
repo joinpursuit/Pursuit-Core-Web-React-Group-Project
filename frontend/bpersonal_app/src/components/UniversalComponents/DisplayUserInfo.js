@@ -4,25 +4,26 @@ import { useInput, useToggleShow } from "../../util/customHooks";
 
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
-  const [editBoolean, setEditBoolean] = useState(false);
-<<<<<<< HEAD
-  const editProfileInputObj = useInput("");
-=======
-  //   const editProfileInputObj = useInput("")
->>>>>>> b1b703dff5a16e628d38e5ed0f39810dcb361c24
   const toggleEditProfile = useToggleShow(false);
+  const userNameObj = useInput("")
+  const fullNameObj = useInput("")
+  const bioObj = useInput("");
+  const emailObj = useInput("");
+//   const [editBoolean, setEditBoolean] = useState(false);
+  //   const editProfileInputObj = useInput("");
+  
 
-//   const fetchData = async url => {
-//     try {
-//       let res = await axios.get(url);
-//       //   debugger;
-//       const { single_user } = res.data.body;
-//       setUser(single_user);
-//     } catch (error) {
-//       setUser({});
-//       console.log(error);
-//     }
-//   };
+  const fetchData = async url => {
+    try {
+      let res = await axios.get(url);
+      //   debugger;
+      const { single_user } = res.data.body;
+      setUser(single_user);
+    } catch (error) {
+      setUser({});
+      console.log(error);
+    }
+  };
 
   const handleUpdateProfile = async e => {
     e.preventDefault();
@@ -42,9 +43,9 @@ const DisplayUserInfo = () => {
 //   //     }
 //   // }
 
-//   useEffect(() => {
-//     fetchData("users/1");
-//   }, []);
+  useEffect(() => {
+    fetchData("users/1");
+  }, []);
 
   return (
     <section id="displayUser">
@@ -62,10 +63,10 @@ const DisplayUserInfo = () => {
 
       {toggleEditProfile.showInsert ? (
         <form id="updateBio" onSubmit={handleUpdateProfile}>
-          <input id="name" type="text" />
-          <input id="userName" type="text" />
-          <input id="email" type="text" />
-          <input id="bio" type="text" />
+          <input name={"full_name"} {...fullNameObj} type="text" />
+          <input name={"userName"} {...userNameObj} type="text" />
+          <input name={"email"} {...emailObj} type="text" />
+          <input name={"bio"} {...bioObj} type="text" />
           <button>Edit Profile</button>
         </form>
       ) : null}
