@@ -4,49 +4,55 @@ import { useInput, useToggleShow } from "../../util/customHooks";
 
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
-  const [editBoolean, setEditBoolean] = useState(false);
-  //   const editProfileInputObj = useInput("")
   const toggleEditProfile = useToggleShow(false);
+  const userNameObj = useInput("");
+  const userNameInput = userNameObj.value;
+  const fullNameObj = useInput("");
+  const bioObj = useInput("");
+  const emailObj = useInput("");
+  //   const [editBoolean, setEditBoolean] = useState(false);
+  //   const editProfileInputObj = useInput("");
 
-//   const fetchData = async url => {
-//     try {
-//       let res = await axios.get(url);
-//       //   debugger;
-//       const { single_user } = res.data.body;
-//       setUser(single_user);
-//     } catch (error) {
-//       setUser({});
-//       console.log(error);
-//     }
-//   };
+  const fetchData = async url => {
+    try {
+      let res = await axios.get(url);
+      //   debugger;
+      const { single_user } = res.data.body;
+      setUser(single_user);
+    } catch (error) {
+      setUser({});
+      console.log(error);
+    }
+  };
 
   const handleUpdateProfile = async e => {
     e.preventDefault();
     await axios.patch(`users/${sessionStorage.userID}`, {
-      // userName: username,
+      userName: userNameInput
       // name: full_name,
       // bio: bio,
       // email: email
     });
   };
 
-//   // const handleClick = () => {
-//   //     if (editBoolean){
-//   //         // style.display of the form "block"
-//   //     } else {
-//   //         // style.display of the form "none"
-//   //     }
-//   // }
+  //   // const handleClick = () => {
+  //   //     if (editBoolean){
+  //   //         // style.display of the form "block"
+  //   //     } else {
+  //   //         // style.display of the form "none"
+  //   //     }
+  //   // }
 
-//   useEffect(() => {
-//     fetchData("users/1");
-//   }, []);
+  useEffect(() => {
+    fetchData("users/1");
+  }, []);
 
   return (
     <section id="displayUser">
       <img
         src={user.profile_pic_url}
         style={{ width: "300px", height: "300px", borderRadius: "100%" }}
+        alt="profile_pic"
       ></img>
       <h1>{user.username}:</h1>
       <h2> {user.full_name}</h2>
@@ -58,10 +64,10 @@ const DisplayUserInfo = () => {
 
       {toggleEditProfile.showInsert ? (
         <form id="updateBio" onSubmit={handleUpdateProfile}>
-          <input id="name" type="text" />
-          <input id="userName" type="text" />
-          <input id="email" type="text" />
-          <input id="bio" type="text" />
+          <input name={"full_name"} {...fullNameObj} type="text" />
+          <input name={"userName"} {...userNameObj} type="text" />
+          <input name={"email"} {...emailObj} type="text" />
+          <input name={"bio"} {...bioObj} type="text" />
           <button>Edit Profile</button>
         </form>
       ) : null}

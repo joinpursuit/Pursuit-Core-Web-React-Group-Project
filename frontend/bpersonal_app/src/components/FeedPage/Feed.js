@@ -3,23 +3,31 @@ import React, { useState, useEffect } from "react";
 import DisplayFeed from "./DisplayFeed";
 import CreatePostForm from "./CreatePostForm";
 
+import axios from "axios";
+
 const Feed = () => {
-  const [userID, setUserID] = useState("");
+  const [allPosts, setAllPosts] = useState([]);
 
-  // const handleSessionStorageUserID = () => {
-  //   setUserID(sessionStorage.userID);
-  // };
+  const fetchAllPosts = async url => {
+    try {
+      let res = await axios.get(url);
+      const { posts } = res.data.body;
+      setAllPosts(posts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // useEffect(() => {
-  // handleSessionStorageUserID();
-  // }, []);
+  useEffect(() => {
+    fetchAllPosts("/posts");
+  }, []);
 
   return (
     <div className="Feed">
       {/* <DisplayUserInfo /> */}
-      <CreatePostForm />
+      <CreatePostForm fetchAllPosts={fetchAllPosts} />
       <br></br>
-      <DisplayFeed />
+      <DisplayFeed allPosts={allPosts} />
     </div>
   );
 };

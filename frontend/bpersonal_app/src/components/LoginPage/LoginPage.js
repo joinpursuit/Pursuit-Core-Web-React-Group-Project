@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
-// import SignUpForm from './SignUpForm'
-// import LoginForm from './LoginForm'
-// import UserLogin from "./UserLogin";
-import { Link } from "react-router-dom";
+import {Animated} from "react-animated-css";
+import '../../css/login.css'
 
 const LoginPage = () => {
   const [userName, setUser] = useState("")
@@ -61,24 +59,31 @@ const LoginPage = () => {
   }
     if(!isSignUpForm) {
       return (
-        <form className="loginform">
+        <Animated animationIn="fadeInRight" animationOut="fadeOutRight" animationInDuration={2500} animationOutDuration={2500} isVisible={true}>
+          <form className="loginform">
             <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)} ></input>
+            <br/>
             <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
+            <br/>
             <button value="" onClick={handleLogin}>login</button>
+            <br/>
             <button onClick={signUpForm}> Sign Up </button>
-        </form>
+          </form>
+        </Animated>
       );
     } else {
       return (
-        <form className="signupform">
-          <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)}></input>
-          <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
-          <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)}></input>
-          <input type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)}></input>
-          <input type="text" placeholder="Bio" onChange={e => setBio(e.target.value)}></input>
-          <button onClick={handleSignUp}>Sign Up</button>
-          <button onClick={signUpForm}> Log In </button>
-        </form>
+        <Animated animationIn="fadeInRight" animationOut="fadeOutRight" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
+          <form className="signupform">
+            <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)}></input>
+            <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
+            <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)}></input>
+            <input type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)}></input>
+            <input type="text" placeholder="Bio" onChange={e => setBio(e.target.value)}></input>
+            <button onClick={handleSignUp}>Sign Up</button>
+            <button onClick={signUpForm}> Log In </button>
+          </form>
+        </Animated>
       );
     }
   
