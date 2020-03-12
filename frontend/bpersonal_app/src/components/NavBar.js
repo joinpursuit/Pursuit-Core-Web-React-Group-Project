@@ -19,7 +19,7 @@ const handleSearchForm = (input) => {
           <Link to={"/results"}><button type="submit">Search</button> </Link>
       </form>
       <NavLink to={"/feedpage"}>FEED</NavLink>
-      <NavLink exact to={"/profilepage"}>
+      <NavLink to={"/profilepage"}>
         PROFILE
       </NavLink>
     </nav>
