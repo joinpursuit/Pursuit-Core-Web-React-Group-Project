@@ -12,7 +12,7 @@ const NavBar = () => {
         </Link>
       </form>
       <NavLink to={"/feedpage"}>FEED</NavLink>
-      <NavLink exact to={"/profilepage"}>
+      <NavLink to={"/profilepage"}>
         PROFILE
       </NavLink>
     </nav>

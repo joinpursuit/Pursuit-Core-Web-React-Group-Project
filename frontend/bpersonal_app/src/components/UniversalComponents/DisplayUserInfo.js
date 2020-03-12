@@ -8,17 +8,17 @@ const DisplayUserInfo = () => {
   //   const editProfileInputObj = useInput("")
   const toggleEditProfile = useToggleShow(false);
 
-  const fetchData = async url => {
-    try {
-      let res = await axios.get(url);
-      //   debugger;
-      const { single_user } = res.data.body;
-      setUser(single_user);
-    } catch (error) {
-      setUser({});
-      console.log(error);
-    }
-  };
+//   const fetchData = async url => {
+//     try {
+//       let res = await axios.get(url);
+//       //   debugger;
+//       const { single_user } = res.data.body;
+//       setUser(single_user);
+//     } catch (error) {
+//       setUser({});
+//       console.log(error);
+//     }
+//   };
 
   const handleUpdateProfile = async e => {
     e.preventDefault();
@@ -30,17 +30,17 @@ const DisplayUserInfo = () => {
     });
   };
 
-  // const handleClick = () => {
-  //     if (editBoolean){
-  //         // style.display of the form "block"
-  //     } else {
-  //         // style.display of the form "none"
-  //     }
-  // }
+//   // const handleClick = () => {
+//   //     if (editBoolean){
+//   //         // style.display of the form "block"
+//   //     } else {
+//   //         // style.display of the form "none"
+//   //     }
+//   // }
 
-  useEffect(() => {
-    fetchData("users/1");
-  }, []);
+//   useEffect(() => {
+//     fetchData("users/1");
+//   }, []);
 
   return (
     <section id="displayUser">

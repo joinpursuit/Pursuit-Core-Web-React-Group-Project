@@ -30,6 +30,10 @@ const LoginPage = () => {
       ) {
         sessionStorage.userID = body.user.id;
         setLoggedIn(true)
+        setTimeout(function() {
+          window.location.href = "/feedpage";
+          window.location.href.reload();
+        }, []);
       } else {
         console.log("Invalid login information");
       }  
@@ -55,28 +59,23 @@ const LoginPage = () => {
     }
 
   }
-  const signInUser = () => {
-    
-  }
-
     if(!isSignUpForm) {
       return (
         <form className="loginform">
-            <input placeholder="Username" onChange={e => setUser(e.target.value)} ></input>
-            <input placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
-            <button value="" onClick={handleLogin
-        }>login</button>
+            <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)} ></input>
+            <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
+            <button value="" onClick={handleLogin}>login</button>
             <button onClick={signUpForm}> Sign Up </button>
         </form>
       );
     } else {
       return (
         <form className="signupform">
-          <input placeholder="Username" onChange={e => setUser(e.target.value)}></input>
-          <input placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
-          <input placeholder="Email" onChange={e => setEmail(e.target.value)}></input>
-          <input placeholder="Full Name" onChange={e => setFullName(e.target.value)}></input>
-          <input placeholder="Bio" onChange={e => setBio(e.target.value)}></input>
+          <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)}></input>
+          <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
+          <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)}></input>
+          <input type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)}></input>
+          <input type="text" placeholder="Bio" onChange={e => setBio(e.target.value)}></input>
           <button onClick={handleSignUp}>Sign Up</button>
           <button onClick={signUpForm}> Log In </button>
         </form>
