@@ -9,7 +9,8 @@ const CreatePostForm = () => {
 
   const [path, setPath] = useState("");
 
-  const handleCreatePost = async () => {
+  const handleCreatePost = async e => {
+    e.preventDefault();
     try {
       let res = await axios.post("/posts/", {
         owner_id: sessionStorage.userID,
