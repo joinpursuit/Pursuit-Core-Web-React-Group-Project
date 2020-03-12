@@ -9,33 +9,56 @@ import Feed from "./components/FeedPage/Feed";
 import SignUpForm from "./components/LoginPage/SignUpForm";
 import Results from "./components/ResultsPage/Results"
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
+  
+  const NavBarView = () => {
+    let location = useLocation()
+    
+    if(location.pathname === "/login" || location.pathname === "/signup") {
+      return false
+    }else {
+      return true
+    }
+  }
+  const LoginView = () => {
+    let location = useLocation()
+    
+    if(location.pathname === "/" ) {
+      return true
+    }else {
+      return false
+    }
+  }
+  
+    return (
+      <div className="App">
+
+      {NavBarView() ? <NavBar/> : null}
+      {/* {LoginView() ? <LoginPage /> : null} */}
       <Switch>
-        <Route path={"/results"}>
-          <Results />
-        </Route>
         <Route path={"/login"}>
           <LoginPage />
-          <LoginForm />
         </Route>
-        <Route path={"/signup"}>
+        <Route exact to path={"/results"}>
+          <Results />
+        </Route>
+        <Route exact to path={"/signup"}>
           <SignUpForm />
         </Route>
 
-        <Route path={"/feedpage"}>
+        <Route exact to path={"/feedpage"}>
           <Feed />
         </Route>
-        <Route path={"/profilepage"}>
+        <Route exact to path={"/profilepage"}>
           <Profile />
         </Route>
       </Switch>
+
     </div>
   );
+  
 }
 
 export default App;

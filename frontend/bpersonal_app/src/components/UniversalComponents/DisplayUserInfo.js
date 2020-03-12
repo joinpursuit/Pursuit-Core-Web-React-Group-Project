@@ -5,42 +5,46 @@ import { useInput, useToggleShow } from "../../util/customHooks";
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
   const [editBoolean, setEditBoolean] = useState(false);
+<<<<<<< HEAD
   const editProfileInputObj = useInput("");
+=======
+  //   const editProfileInputObj = useInput("")
+>>>>>>> b1b703dff5a16e628d38e5ed0f39810dcb361c24
   const toggleEditProfile = useToggleShow(false);
 
-  const fetchData = async url => {
-    try {
-      let res = await axios.get(url);
-      //   debugger;
-      const { single_user } = res.data.body;
-      setUser(single_user);
-    } catch (error) {
-      setUser({});
-      console.log(error);
-    }
-  };
+//   const fetchData = async url => {
+//     try {
+//       let res = await axios.get(url);
+//       //   debugger;
+//       const { single_user } = res.data.body;
+//       setUser(single_user);
+//     } catch (error) {
+//       setUser({});
+//       console.log(error);
+//     }
+//   };
 
   const handleUpdateProfile = async e => {
     e.preventDefault();
     await axios.patch(`users/${sessionStorage.userID}`, {
-      //   userName: username,
-      //   name: full_name,
-      //   bio: bio,
-      //   email: email
+      // userName: username,
+      // name: full_name,
+      // bio: bio,
+      // email: email
     });
   };
 
-  // const handleClick = () => {
-  //     if (editBoolean){
-  //         // style.display of the form "block"
-  //     } else {
-  //         // style.display of the form "none"
-  //     }
-  // }
+//   // const handleClick = () => {
+//   //     if (editBoolean){
+//   //         // style.display of the form "block"
+//   //     } else {
+//   //         // style.display of the form "none"
+//   //     }
+//   // }
 
-  useEffect(() => {
-    fetchData("users/1");
-  }, []);
+//   useEffect(() => {
+//     fetchData("users/1");
+//   }, []);
 
   return (
     <section id="displayUser">
