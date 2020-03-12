@@ -3,7 +3,7 @@ import Upload from "../UniversalComponents/Upload";
 import axios from "axios";
 import { useInput } from "../../util/customHooks";
 
-const CreatePostForm = () => {
+const CreatePostForm = ({ fetchAllPosts }) => {
   const captionObj = useInput("");
   const captionInput = captionObj.value;
 
@@ -17,6 +17,7 @@ const CreatePostForm = () => {
         post_image_url: path,
         body: captionInput
       });
+      fetchAllPosts("/posts");
     } catch (error) {
       console.log(error);
     }
@@ -32,6 +33,7 @@ const CreatePostForm = () => {
           type="text"
           {...captionObj}
           placeholder="Enter a caption"
+          required
         ></input>
         <button type="click">Create post</button>
       </form>
