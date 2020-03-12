@@ -6,9 +6,9 @@ import "../../css/homePage.scss"
 
 const RightSide = (props) => {
   return (
-    <div className="right-side" ref={props.containerRef} onClick={props.onClick}>
+    <div className={props.classnames}ref={props.containerRef} onClick={props.onClick}>
       <div className="inner-container">
-        <div className="text">{props.active}Hi</div>
+        <div className="text">{props.active}</div>
       </div>
     </div>
   )
@@ -20,29 +20,31 @@ const HomePage = () => {
   const active = isLoginActive ? "Sign Up" : "Login"
   const containerRef = useRef(null)
   const rightSideRef = useRef(null)
-  let rightSideClass = ""
+  const [rightSideClass, setRightSideClass] = useState("right-side")
 
   const changeState = () => {
     if(isLoginActive){
-      rightSideClass = "left"
+      setRightSideClass("right-side left")
     } else {
-      rightSideClass = "right"
+      setRightSideClass("right-side right")
     }
     setIsLoginActive(!isLoginActive)
+    console.log(active)
   }
   
   useEffect(() => {
-    rightSideClass = "right"
+    setRightSideClass("right-side right")
   },[])
 
   return(
     <div className="HomePage">
       <div className="login">
         <div className="container" ref={containerRef}>
+        {console.log(rightSideClass)}
           {isLoginActive && (<Login containerRef={containerRef}/>)}
           {!isLoginActive && (<SignUp containerRef={containerRef}/>)}
         </div>
-        <RightSide className={rightSideClass} active={active}  onClick={changeState}/>
+        <RightSide classnames={rightSideClass} active={active}  onClick={changeState}/>
       </div>
     </div>
   )
