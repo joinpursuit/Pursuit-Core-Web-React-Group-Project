@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const LogoutButton = (e) => {
-    
+const LogoutButton = () => {
+    // e.preventDefault();
+    sessionStorage.removeItem("userID");
+    // sessionStorage.userID = 0
     return (
-        <button></button>
+        <Link to={"/login"}> <button>Log Out</button> </Link>
     )
 }
 

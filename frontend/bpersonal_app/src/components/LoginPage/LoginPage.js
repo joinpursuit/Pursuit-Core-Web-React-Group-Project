@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import axios from 'axios'
 import {Animated} from "react-animated-css";
 import '../../css/login.css'
-// import SignUpForm from './SignUpForm'
-// import LoginForm from './LoginForm'
-// import UserLogin from "./UserLogin";
-import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [userName, setUser] = useState("")
