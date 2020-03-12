@@ -1,11 +1,11 @@
 import React from 'react';
-import DisplayResults from './DisplayResults'
+// import SearchHashtags from './SearchHashtags'
 
-function Results(){
+const Results = () => {
     return (
         <>
             <div>
-            <DisplayResults />
+            {/* <SearchHashtags /> */}
             </div>
         </>
     )
