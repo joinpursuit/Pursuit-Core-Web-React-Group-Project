@@ -23,10 +23,10 @@ const DisplayUserInfo = () => {
   const handleUpdateProfile = async e => {
     e.preventDefault();
     await axios.patch(`users/${sessionStorage.userID}`, {
-      userName: username,
-      name: full_name,
-      bio: bio,
-      email: email
+      // userName: username,
+      // name: full_name,
+      // bio: bio,
+      // email: email
     });
   };
 
