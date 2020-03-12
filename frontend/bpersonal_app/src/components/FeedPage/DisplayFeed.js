@@ -1,25 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Post from "./Post";
 
-const DisplayFeed = () => {
-  const [allPosts, setAllPosts] = useState([]);
-
-  const fetchAllPosts = async url => {
-    try {
-      let res = await axios.get(url);
-      const { posts } = res.data.body;
-
-      setAllPosts(posts);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchAllPosts("/posts");
-  }, []);
-
+const DisplayFeed = ({ allPosts }) => {
   const showPosts = allPosts.map((post, i) => {
     return (
       <Post
