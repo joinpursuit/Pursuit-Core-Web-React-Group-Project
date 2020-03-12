@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const userRouter = require("./routes/users/usersRoutes");
 const postsRouter = require("./routes/posts/postRoutes");
 const tagsRouter = require("./routes/tags/tagsRoutes");
-const picturesRouter = require("./routes/pictures/picturesRoutes");
+
 const port = 3001;
 const path = require("path");
 
@@ -19,7 +19,6 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use("/api/users", userRouter);
 app.use("/api/posts", postsRouter);
 app.use("/api/tags", tagsRouter);
-app.use("/api/pictures", picturesRouter);
 
 app.use((error, req, res, next) => {
   if (error.status) {

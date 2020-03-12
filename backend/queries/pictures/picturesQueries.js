@@ -1,18 +1,4 @@
 const db = require("../../database/index");
-const multer = require("multer");
-const path = require("path");
-
-const storage = multer.diskStorage({
-  destination: "./public/uploads/",
-  filename: (req, file, cb) => {
-    cb(null, "IMAGE-" + Date.now() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 1000000 }
-}).single("myImage");
 
 const getAllPics = async (req, res, next) => {
   try {
@@ -26,32 +12,6 @@ const getAllPics = async (req, res, next) => {
     } else {
       throw { status: 404, error: "No pictures found" };
     }
-  } catch (error) {
-    next(error);
-  }
-};
-
-const addPic = (req, res, next) => {
-  try {
-    console.log("before upload");
-    upload(req, res, err => {
-      let picture = "/uploads/" + req.file.filename;
-      let id = req.body.post_id;
-      console.log(req.body, req.file.filename);
-      let pictures = db
-        .one(
-          `INSERT INTO pictures (post_id,picture) VALUES($1,$2) RETURNING *`,
-          [id, picture]
-        )
-        .then(done => {
-          res.status(200).json({
-            status: "ok",
-            pictures,
-            message: "Created new picture"
-          });
-        });
-    });
-    console.log("after upload", picture, id);
   } catch (error) {
     next(error);
   }

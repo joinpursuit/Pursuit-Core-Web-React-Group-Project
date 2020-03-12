@@ -3,36 +3,38 @@ const db = require("../../database/index");
 const isUserExisting = async (req, res, next) => {
   const getId = req.params.id;
   const postId = req.body.poster_id;
+
   const id = getId ? getId : postId;
   try {
-    if(!id) {
-      throw {status: 400, error: "No ID given."}
+    if (!id) {
+      throw { status: 400, error: "No ID given." };
     } else {
       let user = await db.one("SELECT * FROM users WHERE id=$1", id);
       next();
     }
   } catch (error) {
-    if(error.received === 0) {
-      res.status(404).json({status: 404, error: `User ID: ${id} doesn't exist`})
+    if (error.received === 0) {
+      res
+        .status(404)
+        .json({ status: 404, error: `User ID: ${id} doesn't exist` });
     } else {
       next(error);
     }
   }
-}
+};
 
 const getAllUsers = async (req, res, next) => {
   try {
     let users = await db.any("SELECT * FROM users ORDER BY id ASC");
-    if(users.length) {
+    if (users.length) {
       res.status(200).json({
         status: "ok",
         users,
         message: "Retrieved all users"
       });
     } else {
-      throw { status: 404, error: "No users found"}
+      throw { status: 404, error: "No users found" };
     }
-
   } catch (error) {
     next(error);
   }
@@ -62,11 +64,11 @@ const logIn = async (req, res, next) => {
       message: "Retrieved user by email"
     });
   } catch (error) {
-    if(error.received === 0) {
+    if (error.received === 0) {
       res.status(404).json({
         status: 404,
         error: `Email doesn't exist`
-      })
+      });
     }
     next(error);
   }
@@ -78,12 +80,18 @@ const updateUser = async (req, res, next) => {
     const { username, profile_pic } = req.body;
     let user;
 
-    if(username) {
-      user = await db.one(`UPDATE users SET username=$1 WHERE id=$2 RETURNING *`, [username, id]);
+    if (username) {
+      user = await db.one(
+        `UPDATE users SET username=$1 WHERE id=$2 RETURNING *`,
+        [username, id]
+      );
     }
 
-    if(profile_pic) {
-      user = await db.one(`UPDATE users SET profile_pic=$1 WHERE id=$2 RETURNING *`, [profile_pic, id]);
+    if (profile_pic) {
+      user = await db.one(
+        `UPDATE users SET profile_pic=$1 WHERE id=$2 RETURNING *`,
+        [profile_pic, id]
+      );
     }
 
     if (user) {
@@ -96,9 +104,8 @@ const updateUser = async (req, res, next) => {
       res.status(400).json({
         status: 400,
         error: "No updates made"
-      })
+      });
     }
-
   } catch (error) {
     next(error);
   }
@@ -117,10 +124,21 @@ const createNewUser = async (req, res, next) => {
       art_type
     } = req.body;
 
-    let user = await db.one(`INSERT INTO users 
+    let user = await db.one(
+      `INSERT INTO users 
                           (full_name, email, username, bio, website, profile_pic, favorite_artist, art_type)
-                          VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`, 
-                          [full_name, email, username, bio, website, profile_pic, favorite_artist, art_type]);
+                          VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+      [
+        full_name,
+        email,
+        username,
+        bio,
+        website,
+        profile_pic,
+        favorite_artist,
+        art_type
+      ]
+    );
 
     res.status(200).json({
       status: "ok",
@@ -128,17 +146,16 @@ const createNewUser = async (req, res, next) => {
       message: "Created new user"
     });
   } catch (error) {
-    if(error.constraint === "users_email_key") {
+    if (error.constraint === "users_email_key") {
       res.status(400).json({
         status: 400,
         error: "User with that email exists"
-      })
-
-    } else if(error.constraint === "users_username_key") {
+      });
+    } else if (error.constraint === "users_username_key") {
       res.status(400).json({
         status: 400,
         error: "User with that username exists"
-      })
+      });
     }
     next(error);
   }
