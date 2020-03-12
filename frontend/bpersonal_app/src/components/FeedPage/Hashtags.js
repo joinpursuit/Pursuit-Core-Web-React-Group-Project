@@ -59,7 +59,7 @@ const Hashtags = ({ id }) => {
   useEffect(() => {
     handleOwner();
     fetchHashtags(`/hashtags/post/${id}`);
-  }, [hashtags]);
+  }, [hashtags, handleOwner, id]);
 
   let showHashtags = hashtags.map(hashtag => {
     if (
@@ -73,6 +73,7 @@ const Hashtags = ({ id }) => {
             <img
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA4klEQVQ4T2NkQAL/GRj+MzIwMCKLobPR1cAV/2Rg+A9TzI7DEGxqwAZ8RtIMM4QXzRBcahjfYNEMM0QEagg+NWAXPMNjCL7wkGJgYISHwX0shvyB6mbBYooi1HUoIX4TzZCfUI3saAaoI4UPRpRdRjLkG1QjF5IBumiBi2HAGSQDvkA18iAZYILPgGNoXvgE1ciH5gUrbF7YjyUQP0I18mMJREfkQNyJIxo/QDUK4IhLd1A0bsaTBnyhtuBTAw7ENVgMCUELLFxq4LGwDMmQKByZCZsalGicz8DwP5FAdkZXAwAmkDau+YtyUwAAAABJRU5ErkJggg=="
               onClick={e => handleDeleteHashtag(hashtag.id)}
+              alt="delete"
             />
           ) : null}
         </li>
@@ -99,7 +100,10 @@ const Hashtags = ({ id }) => {
         <form onSubmit={handleInsertHashtag}>
           <input type="text" {...hashtagInputObj} required></input>
           <button type="submit">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjElEQVQ4T7WTsQ2AIBAAjy0cwVJHsHBuR9DSASzcQvMGCBCegEYbG++88I/h42Ne8pfjfhP09g+7UlgsEHix4ATkJKrAwZ0VbMCYqcgKUvgEqgtaYAmKClK4abIyxhUYmqjgYxF8LhBfKjmAWRlhFBtuYutBPqJ0lWv3wFfk7kLNJhYF7kzkrd0FL7gB894gBx/QYwgAAAAASUVORK5CYII="></img>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjElEQVQ4T7WTsQ2AIBAAjy0cwVJHsHBuR9DSASzcQvMGCBCegEYbG++88I/h42Ne8pfjfhP09g+7UlgsEHix4ATkJKrAwZ0VbMCYqcgKUvgEqgtaYAmKClK4abIyxhUYmqjgYxF8LhBfKjmAWRlhFBtuYutBPqJ0lWv3wFfk7kLNJhYF7kzkrd0FL7gB894gBx/QYwgAAAAASUVORK5CYII="
+              alt="enter"
+            ></img>
           </button>
         </form>
       ) : null}

@@ -5,13 +5,13 @@ import { useInput, useToggleShow } from "../../util/customHooks";
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
   const toggleEditProfile = useToggleShow(false);
-  const userNameObj = useInput("")
-  const fullNameObj = useInput("")
+  const userNameObj = useInput("");
+  const userNameInput = userNameObj.value;
+  const fullNameObj = useInput("");
   const bioObj = useInput("");
   const emailObj = useInput("");
-//   const [editBoolean, setEditBoolean] = useState(false);
+  //   const [editBoolean, setEditBoolean] = useState(false);
   //   const editProfileInputObj = useInput("");
-  
 
   const fetchData = async url => {
     try {
@@ -28,20 +28,20 @@ const DisplayUserInfo = () => {
   const handleUpdateProfile = async e => {
     e.preventDefault();
     await axios.patch(`users/${sessionStorage.userID}`, {
-      // userName: username,
+      userName: userNameInput
       // name: full_name,
       // bio: bio,
       // email: email
     });
   };
 
-//   // const handleClick = () => {
-//   //     if (editBoolean){
-//   //         // style.display of the form "block"
-//   //     } else {
-//   //         // style.display of the form "none"
-//   //     }
-//   // }
+  //   // const handleClick = () => {
+  //   //     if (editBoolean){
+  //   //         // style.display of the form "block"
+  //   //     } else {
+  //   //         // style.display of the form "none"
+  //   //     }
+  //   // }
 
   useEffect(() => {
     fetchData("users/1");
@@ -52,6 +52,7 @@ const DisplayUserInfo = () => {
       <img
         src={user.profile_pic_url}
         style={{ width: "300px", height: "300px", borderRadius: "100%" }}
+        alt="profile_pic"
       ></img>
       <h1>{user.username}:</h1>
       <h2> {user.full_name}</h2>

@@ -12,7 +12,7 @@ const CreatePostForm = ({ fetchAllPosts }) => {
   const handleCreatePost = async e => {
     e.preventDefault();
     try {
-      let res = await axios.post("/posts/", {
+      await axios.post("/posts/", {
         owner_id: sessionStorage.userID,
         post_image_url: path,
         body: captionInput
