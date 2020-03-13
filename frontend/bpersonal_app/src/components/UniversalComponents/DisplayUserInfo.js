@@ -38,7 +38,7 @@ const DisplayUserInfo = () => {
 
   useEffect(() => {
     fetchData(`/users/${sessionStorage.userID}`);
-  }, []);
+  }, [user]);
 
   return (
     <section id="displayUser">
@@ -71,7 +71,7 @@ const DisplayUserInfo = () => {
           />
           <input name={"email"} {...emailObj} type="text" placeholder="email" />
           <input name={"bio"} {...bioObj} type="text" placeholder="bio" />
-          <button type="submit">Edit Profile</button>
+          <button type="submit">Update</button>
         </form>
       ) : null}
     </section>
