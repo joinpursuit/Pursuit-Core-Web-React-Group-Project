@@ -8,31 +8,39 @@ export default function UploadPost() {
     const description = useInput("")
     const year = useInput("")
     const colorway = useInput("")
-    const image = useInput("")
-    const [pic, setPic] = useState("")
+    const postPic = useInput("")
+    const [image, setImage] = useState("")
     // const [loading, setLoading] = useState(false) 
 
-
-    const handleSubmit=async(e)=> {
-        e.preventDefault();
-        try{
-            await axios.post('http://localhost:3001/posts',{user_id: userId.value, image: image.value, brand: brand.value, description: description.value, release_date: year.value, colorway: colorway.value})         
-        }catch(error){
-            console.log(error);
-        }
-    }
-
-
-    const fileSelectHandle = (event) =>{
-        const pic = event.target.files[0]
-        // console.log(event.target.files[0]);
+    const fileSelectHandle = (e) => {
+        const blk = e.target.files[0]
+        console.log(blk);
         const formData = new FormData(); 
         formData.append('upload_preset','heatcheck');
-        formData.append('file', pic);
+        formData.append('file', blk);
+        // setLoading(true) 
+        axios({
+            url:'https://api.cloudinary.com/v1_1/perezsyn/image/upload',
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data: formData
+        }).then(function(res){
+            console.log(res);
+            console.log(res.data.url);
+            setImage(res.data.url)
+        }).then(function(err){
+        })
 
-        axios.post('https://api.cloudinary.com/v1_1/perezsyn/image/upload',formData)
-        .then(res => setPic(res.data.secure_url))
- 
+
+        // axios.post('https://api.cloudinary.com/v1_1/perezsyn/image/upload', formData)
+        // .then(res => setImage(res.data.secure_url))
+        // .then(setLoading(false))
+        // .catch(err => console.log(err))
+
+
+        
                 // try {
                 //     axios.post("https://api.cloudinary.com/v1_1/perezsyn/image/upload",formData)
                 //     .then(res => setPic(res.data.secure_url))
@@ -40,15 +48,27 @@ export default function UploadPost() {
                 //    console.log(error);
                     
                 // }
-        // setPic (event.target.files[0]);
+        // / setPic (e.target.files[0]);
     }
+
+
+    const handleSubmit=async(e)=> {
+        e.preventDefault();
+        try{
+            await axios.post('http://localhost:3001/posts',{user_id: userId.value, image: image, brand: brand.value, description: description.value, release_date: year.value, colorway: colorway.value})         
+        }catch(error){
+            console.log(error);
+        }
+    }
+
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type="file"onChange= {fileSelectHandle} required {...image} />
-                <br/>
+                <input type="file" name ="file" onInput={fileSelectHandle} required {...postPic}/>
+                {/* {loading ? <p>loading</p> : <img src={image}/>} */}
+                {/* <br/> */}
                 <input type ="text" placeholder= "tempUserID" required {...userId}/>
-                <select  required  {...brand}>
+                <select required  {...brand}>
                     <option value={""} disabled>Brand</option>
                     <option value={"Jordan"}>Jordan</option>
                     <option value={"Nike"}>Nike</option>
