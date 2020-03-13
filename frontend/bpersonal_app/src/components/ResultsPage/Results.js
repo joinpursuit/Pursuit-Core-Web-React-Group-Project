@@ -1,13 +1,25 @@
-import React from 'react';
-import DisplayResults from './DisplayResults'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 
-function Results(){
+const Results = ({searchInput}) => {
+    const [allHashtagPosts, setAllHashtagPosts] = useState([])
+
+    const fetchAllHashtagPosts = async (url) => {
+            try {
+              let res = await axios.get(url)
+              debugger
+            } catch (error) {
+              console.log(error)  
+            }
+    }
+
+    useEffect(() => {
+        fetchAllHashtagPosts(`/posts/${searchInput}`)
+    }, [])
     return (
-        <>
-            <div>
-            <DisplayResults />
-            </div>
-        </>
+        <div className={"displayResults"}>
+        <button>Go Back</button>
+        </div>
     )
 }
 
