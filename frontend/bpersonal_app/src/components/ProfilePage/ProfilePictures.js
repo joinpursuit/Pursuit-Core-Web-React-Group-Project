@@ -3,7 +3,6 @@ import DisplayFeedImages from "./DisplayFeedImages";
 import axios from "axios";
 
 const ProfilePictures = () => {
-  // const [ userId, setUserID ] = useState("")
   const [images, setImgs] = useState([]);
 
   const fetchImgs = async url => {
@@ -17,21 +16,15 @@ const ProfilePictures = () => {
   };
 
   useEffect(() => {
-    fetchImgs("http://localhost:3001/posts/ownerID/3");
-  }, []);
+    fetchImgs(`http://localhost:3001/posts/ownerID/${sessionStorage.userID}`);
+  }, [images]);
 
   const showImages = images.map((img, i) => {
-    console.log(img)
-    return (
-      <DisplayFeedImages img={img.post_image_url} key={i}/>
-      )
-    })
-  
-    return (
-      <div className="newsFeed">
-    {showImages}
-    </div>
-  )
-}
+    console.log(img);
+    return <DisplayFeedImages img={img.post_image_url} key={i} />;
+  });
+
+  return <div className="newsFeed">{showImages}</div>;
+};
 
 export default ProfilePictures;

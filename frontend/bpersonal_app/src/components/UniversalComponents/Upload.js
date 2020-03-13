@@ -14,13 +14,19 @@ const Upload = ({ cb }) => {
         "content-type": "multipart/form-data"
       }
     };
-    axios
-      .post("/uploadphoto", formData, config)
-      .then(response => {
-        alert("The file is successfully uploaded");
-        call(response.data);
-      })
-      .catch(error => {});
+    if (file) {
+      axios
+        .post("/uploadphoto", formData, config)
+        .then(response => {
+          alert("The file is successfully uploaded");
+          call(response.data);
+        })
+        .catch(error => {
+          alert("Could not upload... please upload valid image");
+        });
+    } else {
+      alert("Could not upload... please upload valid image");
+    }
   };
 
   const checkImageType = e => {
@@ -41,7 +47,7 @@ const Upload = ({ cb }) => {
   };
 
   const fileOnChange = e => {
-    if (checkImageType) {
+    if (checkImageType(e)) {
       setFile(e.target.files[0]);
       setErrorMessage("");
     } else {
