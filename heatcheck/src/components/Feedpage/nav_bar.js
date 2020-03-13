@@ -1,38 +1,23 @@
-import React from 'react';
-import HomePage from '../HomePage/homePage';
-import LogIn from '../HomePage/login';
-import Posts from "../Feedpage/posts";
-import { AwesomeButton, AwesomeButtonProgress, AwesomeButtonSocial} from 'react-awesome-button';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
-class NavBar extends React.Component{
-    
-
-    render() {
-        return(
-            <>
-            <nav>
-                    
-                <NavLink exact to={"/homepage"}>
-
-                            Home
-                </NavLink>
-                <br/>
-                <AwesomeButton size="small" type="progress" progressLoadingTime={2000}>Login</AwesomeButton> 
-                <NavLink exact to={"/Login"}></NavLink>
-                <br/>
-                <AwesomeButtonProgress 
-                    size={"small"} 
-                    type={"link"}
-                    releaseDelay={500}
-                    >Post
-                </AwesomeButtonProgress> 
-                <NavLink exact to={"/posts"}></NavLink>
-            </nav>
-            </>
-        )
-    }
+const Navbar = () => {
+    return (
+        <nav>
+           <div className="nav">
+                <form className={"search"}>
+                    <input placeholder={"Search"}></input>
+                    <Link to={"/searchBar"}></Link>
+                </form>
+                
+               <NavLink exact to="/" className="navAnchor">Home</NavLink>
+               <NavLink to="/comments" className="navAnchor">Comments</NavLink>
+               <NavLink to="/posts" className="navAnchor">Posts</NavLink>
+               <NavLink to="../HomePage/homePage" className="navAnchor">HomePage</NavLink>
+           </div>
+        </nav>
+    )
 }
 
-export default NavBar;
+export default Navbar;
