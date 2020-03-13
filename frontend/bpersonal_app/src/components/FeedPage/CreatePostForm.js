@@ -11,15 +11,19 @@ const CreatePostForm = ({ fetchAllPosts }) => {
 
   const handleCreatePost = async e => {
     e.preventDefault();
-    try {
-      await axios.post("/posts/", {
-        owner_id: sessionStorage.userID,
-        post_image_url: path,
-        body: captionInput
-      });
-      fetchAllPosts("/posts");
-    } catch (error) {
-      console.log(error);
+    if (path && captionInput) {
+      try {
+        await axios.post("/posts/", {
+          owner_id: sessionStorage.userID,
+          post_image_url: path,
+          body: captionInput
+        });
+        fetchAllPosts("/posts");
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Please upload a valid image and enter valid caption!");
     }
   };
 
