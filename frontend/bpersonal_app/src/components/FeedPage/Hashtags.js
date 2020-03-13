@@ -59,7 +59,7 @@ const Hashtags = ({ id }) => {
   useEffect(() => {
     handleOwner();
     fetchHashtags(`/hashtags/post/${id}`);
-  }, [hashtags, handleOwner, id]);
+  }, [hashtags, id]);
 
   let showHashtags = hashtags.map(hashtag => {
     if (

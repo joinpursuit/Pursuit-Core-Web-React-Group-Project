@@ -48,7 +48,7 @@ const insertSingleUser = async (req, res, next) => {
       bio
     } = req.body;
     console.log(req.body);
-    
+
     let user = await db.one(
       "INSERT INTO users (username, password, full_name, email_address, profile_pic_url, bio) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [username, password, full_name, email_address, profile_pic_url, bio]
@@ -114,10 +114,28 @@ const searchUserByName = async (req, res, next) => {
   }
 };
 
+const updateUserById = async (req, res, next) => {
+  const {id} = req.params;
+  const { username, full_name, bio, email_address} = req.body;
+  try {
+    let user = await db.one("UPDATE users SET username=$1, full_name=$2, bio=$3, email_address=$4 WHERE id=#5", [username, fullname, bio, email_address, id] )
+    res.status(200).json({
+      status:
+    })
+  } catch (error) {
+    res.json({
+      status: "Error",
+      message: "Couldn't update user"
+    });
+    next(error);
+  }
+};
+
 module.exports = {
   getAllUsers,
   getSingleUserById,
   insertSingleUser,
   deleteUsersById,
-  searchUserByName
+  searchUserByName,
+  updateUserById
 };
