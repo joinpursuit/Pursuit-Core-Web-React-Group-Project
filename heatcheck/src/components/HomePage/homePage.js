@@ -1,4 +1,3 @@
-//home page
 import React, { useState, useEffect, useRef} from 'react';
 import Login from "./login.js"
 import SignUp from "./signup.js"
@@ -19,7 +18,6 @@ const HomePage = () => {
   const [isLoginActive, setIsLoginActive] = useState(true)
   const active = isLoginActive ? "Sign Up" : "Login"
   const containerRef = useRef(null)
-  const rightSideRef = useRef(null)
   const [rightSideClass, setRightSideClass] = useState("right-side")
 
   const changeState = () => {
@@ -29,7 +27,6 @@ const HomePage = () => {
       setRightSideClass("right-side right")
     }
     setIsLoginActive(!isLoginActive)
-    console.log(active)
   }
   
   useEffect(() => {
@@ -40,7 +37,6 @@ const HomePage = () => {
     <div className="HomePage">
       <div className="login">
         <div className="container" ref={containerRef}>
-        {console.log(rightSideClass)}
           {isLoginActive && (<Login containerRef={containerRef}/>)}
           {!isLoginActive && (<SignUp containerRef={containerRef}/>)}
         </div>
