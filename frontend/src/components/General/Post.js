@@ -3,11 +3,9 @@ import Tag from "./Tag";
 import "../../css/Post.css";
 
 const Post = ({ poster, picture, caption, tags }) => {
-  console.log(poster);
-
-  //   let tagsList = tags.map(tag => {
-  //     return <Tag tagName={tag.tag} />;
-  //   });
+  // let tagsList = tags.map(tag => {
+  //   return <Tag tagName={tag.tag} />;
+  // });
 
   return (
     <div className="postContainer">
