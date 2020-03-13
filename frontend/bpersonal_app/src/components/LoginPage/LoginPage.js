@@ -59,7 +59,7 @@ const LoginPage = () => {
   }
     if(!isSignUpForm) {
       return (
-        <Animated animationIn="fadeInRight" animationOut="fadeOutRight" animationInDuration={2500} animationOutDuration={2500} isVisible={true}>
+        <Animated animationIn="fadeInLeft" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={2500} isVisible={true}>
           <form className="loginform">
             <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)} ></input>
             <br/>
@@ -73,7 +73,7 @@ const LoginPage = () => {
       );
     } else {
       return (
-        <Animated animationIn="fadeInRight" animationOut="fadeOutRight" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
+        <Animated animationIn="fadeInLeft" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
           <form className="signupform">
             <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)}></input>
             <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
