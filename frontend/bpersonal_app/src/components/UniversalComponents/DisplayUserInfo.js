@@ -28,24 +28,16 @@ const DisplayUserInfo = () => {
 
   const handleUpdateProfile = async e => {
     e.preventDefault();
-    await axios.patch(`users/${sessionStorage.userID}`, {
-      userName: userNameInput,
-      name: fullName, 
+    await axios.patch(`/users/${sessionStorage.userID}`, {
+      username: userNameInput,
+      full_name: fullName,
       bio: bio,
-      email: email
+      email_address: email
     });
   };
 
-  //   // const handleClick = () => {
-  //   //     if (editBoolean){
-  //   //         // style.display of the form "block"
-  //   //     } else {
-  //   //         // style.display of the form "none"
-  //   //     }
-  //   // }
-
   useEffect(() => {
-    fetchData("users/1");
+    fetchData(`/users/${sessionStorage.userID}`);
   }, []);
 
   return (
@@ -65,11 +57,21 @@ const DisplayUserInfo = () => {
 
       {toggleEditProfile.showInsert ? (
         <form id="updateBio" onSubmit={handleUpdateProfile}>
-          <input name={"full_name"} {...fullNameObj} type="text" placeholder="name"/>
-          <input name={"userName"} {...userNameObj} type="text" placeholder="username"/>
-          <input name={"email"} {...emailObj} type="text" placeholder="email"/>
-          <input name={"bio"} {...bioObj} type="text" placeholder="bio"/>
-          <button type="submit" >Edit Profile</button>
+          <input
+            name={"full_name"}
+            {...fullNameObj}
+            type="text"
+            placeholder="name"
+          />
+          <input
+            name={"userName"}
+            {...userNameObj}
+            type="text"
+            placeholder="username"
+          />
+          <input name={"email"} {...emailObj} type="text" placeholder="email" />
+          <input name={"bio"} {...bioObj} type="text" placeholder="bio" />
+          <button type="submit">Edit Profile</button>
         </form>
       ) : null}
     </section>
