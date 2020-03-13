@@ -1,70 +1,68 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useEffect } from 'react'
+
 import axios from "axios";
 
-const  UserInfo =()=> {
-        let [user,setUser] = useState([])
-        
+const SearchBar =()=> {
+    const [list, setList] = useState([])
+    const [suggestion, setSuggest] = useState([])
+    const [text, setText]=useState("")
     
-        useEffect(()=>{
-            const getUserInfo = async(url)=>{
-                try {
-                    let res= await axios.get(url)
-                    // debugger
-                    setUser(res.data.payload)
-                } catch (error) {
-                    setUser([])
-                }
-            }
-            getUserInfo(`http://localhost:3005/users/${sessionStorage.loginedUser}`)
-    
-        }, [])
-        
-        const handleStyle ={
-         heigh:"100px",
-         width:"50px"
+
+ 
+   const handleChange=(e)=>{
+        const value =e.target.value
+        let suggestion=[];
+        if(value.length>0){
+            const regex = new RegExp(`${value}`,`i`);
+            suggestion=list.sort().filter(v=>regex.test(v));
         }
-    
-        const displayUser = () =>{
-            return <div className="loggedUser" style={handleStyle}><h2>{user.username}</h2><h5>{user.email}</h5><img src={user.profilepic}></img></div> 
-        }
+        setSuggest(suggestion);
+        setText(value)
+    }
+
+    const handleSelected=(value)=>{
+        setText(value);
+        setSuggest([])
+    }
+
+    const renderSuggestion =()=>{
+        if(suggestion.length===0){
+            return null
+        }else{
             return (
-                <div>
-                {displayUser()}
-                </div>
+                <ul>
+                    {suggestion.map((item)=><li key={item} onClick={()=>handleSelected(item)}>{item}</li>)}
+                </ul>
             )
         }
+    }
+
+
+    const fetchData= async(url,setData)=>{
+        let res= await axios.get(url)
+        if(res.data.payload[0].user_name){
+            res.data.payload.map((el)=>{
+                setData(prevState=>[...prevState,el.user_name.toLowerCase()])
+            })
+        }else if (res.data.payload[0].array_agg){
+                res.data.payload.map((el)=>{
+                    setData(prevState=>[...prevState,...el.array_agg])
+                })
+        }
+    }
 
     useEffect(()=>{
-        const fetchData = async (url) =>{
-            try{
-                let res = await axios.get(url);
-                setPosts(res.data.payload)
-            }catch(error){
-                setPosts([])
-            }
-        }
-        fetchData('http://localhost:3000/posts');
+        fetchData("http://localhost:3000/users/",setList)
+        fetchData("http://localhost:3000/tags/",setList)
     }, [])
 
-
-    const postsDisplay = posts.map(post =>{
-        // console.log(post)
-    return <PostImage key={post.id} userName={post.username} profilePic={post.profilepic} filePath={post.imageurl} />
-    })
-        
-return(
+        console.log(text)
+        return (
             <div>
-                <form className="form">
-                    <input placeholder="Search"></input>
-                </form>
-                    
-                
-            <div className="userInfo split">
-                <UserInfo/>
-                {/* <ul id="hashtags"></ul> */}
+            <input value={text} type="text" onChange={handleChange}/>
+              {renderSuggestion()}
             </div>
-            <div className="feed split">
-                <div>{postsDisplay}</div>
-            </div>
-        </div>
         )
+    }
+
+export default SearchBar
