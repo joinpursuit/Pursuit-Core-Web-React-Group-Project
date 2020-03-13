@@ -115,13 +115,20 @@ const searchUserByName = async (req, res, next) => {
 };
 
 const updateUserById = async (req, res, next) => {
-  const {id} = req.params;
-  const { username, full_name, bio, email_address} = req.body;
+  const { id } = req.params;
+  const { username, full_name, bio, email_address } = req.body;
   try {
-    let user = await db.one("UPDATE users SET username=$1, full_name=$2, bio=$3, email_address=$4 WHERE id=#5", [username, fullname, bio, email_address, id] )
+    let user = await db.one(
+      "UPDATE users SET username=$1, full_name=$2, bio=$3, email_address=$4 WHERE id=$5 RETURNING *",
+      [username, full_name, bio, email_address, id]
+    );
     res.status(200).json({
-      status:
-    })
+      status: "Success",
+      message: "User with id: " + id + " has been updated",
+      body: {
+        user
+      }
+    });
   } catch (error) {
     res.json({
       status: "Error",
