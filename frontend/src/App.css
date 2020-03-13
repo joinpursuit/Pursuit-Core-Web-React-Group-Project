@@ -1,11 +1,23 @@
 .App {
     display: flex;
     flex-direction: column;
-    font-family: sans-serif;
+    height: 100vh;
+    overflow: auto;
+    background-image: repeating-linear-gradient(233deg, rgba(161, 131, 106, 0.507), rgba(161, 131, 106, 0.507) 1px, transparent -19px, transparent 2px);
 }
 
+h1, h2, h3, h4, h5 {
+    font-family: 'Krona One', sans-serif;
+}
+
+p, label, div, input {
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 2px;
+}
+
+
 .button {
-    border-color: rgba(253, 80, 221, 0.575);
+    border-color: rgb(253, 80, 221);
     border-radius: 25px;
     box-shadow: 3px 3px 0px 0px rgba(5, 216, 244, 0.281);
     margin-top: 10px;
@@ -21,9 +33,34 @@
     border-color: rgba(5, 216, 244, 0.281);
 }
 
+.button:active {
+    position:relative;
+    top: 5px;
+    left: 5px;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.button:focus {
+    outline: none;
+}
+
 .error {
     color: rgba(244, 41, 5, 0.863);
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 20px;
+}
+
+input[type="text"], input[type="search"], input[type="email"] {
+    border-color: rgb(253, 80, 221);
+    box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input[type="text"]:focus, input[type="search"]:focus, input[type="email"]:focus {
+    outline: none;
 }

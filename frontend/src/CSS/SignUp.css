@@ -1,12 +1,17 @@
 .signUpFormDiv {
   margin-right: 50px;
-  margin-left: 10%;
-  margin-top: 30px;
+  margin-left: 7%;
   display: flex;
   flex-direction: row;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: start;
+  align-items: center;
   justify-content: space-evenly;
+  height: 100%;
+}
+
+.signUpBio {
+  width: 300px;
 }
 
 input[type="text"], input[type="email"] {
@@ -14,16 +19,16 @@ input[type="text"], input[type="email"] {
   flex-flow: wrap;
   padding-left: 15px;
   margin-top: 5px;
+  width: 200px;
+  margin-bottom: 15px;
 }
 
 label {
   margin-top: 10px;
   font-weight: bold;
-  letter-spacing: 1px;
 }
 
-form {
-  margin-top: 40px;
+.signForms {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
@@ -36,10 +41,17 @@ form {
   padding-top: 5px;
   padding-bottom: 5px;
   box-shadow: 8px 8px 2px 1px rgba(5, 216, 244, 0.281);
+  border-radius: 15px;
+  background: white;
 }
 
 .signUpForm, .signInSwitchContainer {
   align-self: center;
+}
+
+.signUpForm {
+  padding-top: 20px;
+  padding-bottom: 18px;
 }
 
 .signInSwitchContainer {
@@ -49,7 +61,6 @@ form {
 }
 
 h5 {
-  font-weight: bold;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -58,11 +69,7 @@ h5 {
   width: 200px;
 }
 
-.signUpBio {
-  width: 300px;
-}
-
-img {
+.signInLogo {
   margin-right: 50px;
   height: 550px;
   width: 550px;

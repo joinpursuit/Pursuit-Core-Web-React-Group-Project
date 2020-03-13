@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
 import { Link } from "react-router-dom";
 import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
-import "../../css/SignIn.css";
+import "../../css/signIn.css";
 
 const SignInForm = ({ handleLogIn, error, errorText }) => {
   const email = useInput("");
@@ -10,7 +10,7 @@ const SignInForm = ({ handleLogIn, error, errorText }) => {
   return (
     <div className="signInFormDiv">
       <div>
-        <img src={OurCanvasLogoSplat} alt="" />
+        <img src={OurCanvasLogoSplat} alt="" className="signInLogo" />
       </div>
 
       <form
@@ -18,7 +18,7 @@ const SignInForm = ({ handleLogIn, error, errorText }) => {
           e.preventDefault();
           handleLogIn(email.value);
         }}
-        className="signInForm"
+        className="signInForm signForms"
       >
         {error ? <p className="error">{errorText}</p> : null}
         <label>

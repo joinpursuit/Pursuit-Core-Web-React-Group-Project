@@ -1,10 +1,30 @@
 .profileContainer {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 1fr;
     column-gap: 45px;
+    justify-items: space-evenly;
+    margin-left: 50px;
+    margin-right: 50px;
+    z-index: 2;
 }
 
 .postFeed {
-    border: 1px solid black;
+    background-color: white;
+    border: 2px solid rgb(253, 80, 221);
+    box-shadow: 5px 5px 0px 0px rgba(5, 216, 244, 0.281);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+    align-items: center;
+    text-align: left;
+    font-size: 24px;
+}
+
+.postHeader {
+    display: flex;
+    font-size: 36px;
+    margin-bottom: 40px;
 }

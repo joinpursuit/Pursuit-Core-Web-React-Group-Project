@@ -74,6 +74,79 @@ import UpLoadImage from "./components/PhotoUpLoad/photoUpLoad";
 // }
 
 function App() {
-  return <UpLoadImage />;
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState();
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState("");
+
+  const handleSignUp = async user => {
+    console.log(user);
+    try {
+      let res = await axios.post("/api/users", user);
+      setUser(res.data.user);
+      setError(false);
+      setLoggedIn(true);
+    } catch (error) {
+      setErrorText(error.response.data.error);
+      setError(true);
+    }
+    // Pass in values into database
+  };
+  const handleLogIn = async email => {
+    try {
+      let res = await axios.post("/api/users/login", { email });
+      if (res.data.user) {
+        setError(false);
+        setUser(res.data.user);
+        setLoggedIn(true);
+      } else {
+        setError(true);
+      }
+    } catch (error) {
+      setErrorText(error.response.data.error);
+      setError(true);
+    }
+  };
+
+  if (loggedIn) {
+    return (
+      <div className="App">
+        <Navbar setLoggedIn={setLoggedIn} />
+        <Switch>
+          <Redirect exact from="/login" to="/" />
+          <Redirect exact from="/signup" to="/" />
+          <Route path="/profile">
+            <Profile user={user} error={error} errorText={errorText} />
+          </Route>
+          <Route exact path="/">
+            <Home user={user} error={error} errorText={errorText} />
+          </Route>
+        </Switch>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <Switch>
+          <Redirect exact from="/" to="/login" />
+          <Redirect exact from="/profile" to="/login" />
+          <Route path={"/login"}>
+            <SignInForm
+              handleLogIn={handleLogIn}
+              error={error}
+              errorText={errorText}
+            />
+          </Route>
+          <Route path={"/signup"}>
+            <SignUpForm
+              handleSignUp={handleSignUp}
+              error={error}
+              errorText={errorText}
+            />
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
 }
 export default App;
