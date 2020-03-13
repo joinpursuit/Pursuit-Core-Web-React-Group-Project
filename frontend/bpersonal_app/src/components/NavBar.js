@@ -1,15 +1,22 @@
 import React from "react";
-
 import { NavLink, Link } from "react-router-dom";
+import {useInput} from '../util/customHooks'
+import axios from "axios";
 
 const NavBar = () => {
+const searchInputObj = useInput("")
+const searchInput = searchInputObj.value
+
+const handleSearchForm = (input) => {
+  
+}
+  
+
   return (
     <nav>
-      <form className={"search"}>
-        <input placeholder={"Search for hashtags here !"}></input>
-        <Link to={"/results"}>
-          <button>SEARCH ME</button>
-        </Link>
+      <form className={"search"} onSubmit={() => handleSearchForm(searchInput)}>
+        <input type="text" placeholder={"Search for hashtags here !"} {...searchInputObj}></input>
+          <Link to={"/results"}><button type="submit">Search</button> </Link>
       </form>
       <NavLink to={"/feedpage"}>FEED</NavLink>
       <NavLink to={"/profilepage"}>
