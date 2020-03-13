@@ -50,7 +50,7 @@ function App() {
 
         <Route exact to path={"/feedpage"}>
           <Feed />
-          <LogoutButton />
+          {/* <LogoutButton /> */}
         </Route>
         <Route exact to path={"/profilepage"}>
           <Profile />
