@@ -10,6 +10,7 @@ const Profile = ({ user }) => {
   useEffect(() => {
     const get = async () => {
       let res = await axios.get(`/api/users/${user.id}/posts`);
+      debugger;
 
       setPosts(res.data.posts);
     };

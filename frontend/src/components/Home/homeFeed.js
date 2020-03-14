@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Post from "../General/Post";
 
 const HomeFeedPosts = ({ posts, home }) => {
+  console.log(posts);
+
   const postList = posts.map((post, i) => {
     return (
       <Post
