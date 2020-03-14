@@ -6,13 +6,11 @@ import NavBar from "./components/NavBar";
 import Profile from "./components/ProfilePage/Profile";
 import Feed from "./components/FeedPage/Feed";
 import SignUpForm from "./components/LoginPage/SignUpForm";
-import Results from "./components/ResultsPage/Results"
-
+import Results from "./components/ResultsPage/Results";
 
 import { Route, Switch, useLocation, Redirect } from "react-router-dom";
 
 function App() {
-  
   const NavBarView = () => {
     let location = useLocation();
 
@@ -22,29 +20,19 @@ function App() {
       return true;
     }
   };
-  const LoginView = () => {
-    let location = useLocation();
-
-    if (location.pathname === "/") {
-      return true;
-    } else {
-      return false;
-    }
-  };
 
   return (
     <div className="App">
       {NavBarView() ? <NavBar /> : null}
-      {/* {LoginView() ? <LoginPage /> : null} */}
       <Switch>
         <Route exact path={"/"}>
-          <Redirect to="/login"/>
+          <Redirect to="/login" />
         </Route>
         <Route path={"/login"}>
           <LoginPage />
         </Route>
         <Route exact to path={"/results/:searchInput"}>
-          <Results/>
+          <Results />
         </Route>
         <Route exact to path={"/signup"}>
           <SignUpForm />
