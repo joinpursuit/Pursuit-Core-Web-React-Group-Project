@@ -26,11 +26,13 @@ const Comments = ({ id }) => {
     await axios.post(`comments/post/${id}/${sessionStorage.userID}`, {
       content
     });
+    fetchComments(`/comments/post/${id}`);
   };
 
   const handleDeleteComment = async comment_id => {
     try {
       await axios.delete(`comments/${comment_id}/${id}`);
+      fetchComments(`/comments/post/${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +40,7 @@ const Comments = ({ id }) => {
 
   useEffect(() => {
     fetchComments(`/comments/post/${id}`);
-  }, [comments, id]);
+  }, []);
 
   let showComments = comments.map((comment, i) => {
     if (
