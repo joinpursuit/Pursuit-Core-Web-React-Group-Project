@@ -18,14 +18,14 @@ const getAllPosts = async (req, res, next) => {
 
 const getAllPostsByHashtag = async (req, res, next) => {
   try {
-    let { hashtag } = req.params
+    const { search } = req.params
+    console.log(search)
     res.status(200).json({
       status: "Success",
-      message: "Got all posts from a Hashtag: " + hashtag,
+      message: "Got all posts by search: " + search,
       body: {
         posts: await db.any(
-          "SELECT posts.owner_id AS post_owner, post_image_url, posts.body AS post_body, TIMESTAMP, hashtags.id AS hashtag_id, hashtags.owner_id AS hashtag_owner, post_id, hashtags.body AS hashtag_body FROM posts INNER JOIN hashtags ON posts.id = hashtags.post_id WHERE hashtags.body LIKE $1",
-          hashtag
+          `SELECT posts.owner_id AS post_owner, post_image_url, posts.body AS post_body, TIMESTAMP, hashtags.id AS hashtag_id, hashtags.owner_id AS hashtag_owner, post_id, hashtags.body AS hashtag_body FROM posts INNER JOIN hashtags ON posts.id = hashtags.post_id WHERE hashtags.body LIKE $1`, ['%' + search + '%']
         )
       }
     }) 

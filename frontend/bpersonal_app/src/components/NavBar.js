@@ -4,11 +4,13 @@ import {useInput} from '../util/customHooks'
 import axios from "axios";
 
 const NavBar = () => {
+
 const searchInputObj = useInput("")
 const searchInput = searchInputObj.value
-sessionStorage.setItem('searchInput', searchInput)
 
-debugger
+const handleSearchInput = () => {
+  sessionStorage.searchInput = searchInput;
+}
 
 const LogoutButton = () => {
   const handleLogOff = () => {
@@ -20,9 +22,9 @@ const LogoutButton = () => {
 }
   return (
     <nav>
-      <form className={"search"} onSubmit={() => searchInput }>
+      <form className={"search"} onSubmit={handleSearchInput}>
         <input type="text" placeholder={"Search for hashtags here !"} {...searchInputObj}></input>
-          <Link to={"/results"}><button type="submit">Search</button> </Link>
+          <Link to={`/results/${searchInput}`}><button type="submit">Search</button> </Link>
       </form>
       <NavLink exact to={"/feedpage"}>FEED</NavLink>
       <NavLink exact to={"/profilepage"}>

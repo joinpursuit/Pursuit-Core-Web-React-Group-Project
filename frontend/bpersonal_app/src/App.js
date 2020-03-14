@@ -40,8 +40,8 @@ function App() {
         <Route path={"/login"}>
           <LoginPage />
         </Route>
-        <Route exact to path={"/results"}>
-          <Results />
+        <Route exact to path={"/results/:searchInput"}>
+          <Results/>
         </Route>
         <Route exact to path={"/signup"}>
           <SignUpForm />
