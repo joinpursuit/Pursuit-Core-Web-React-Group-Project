@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../../css/Home.css";
-import UserInfo from "../Profile/UserInfo";
-import Posts from "../Profile/UserPosts";
 import HomeFeedPosts from "../Home/homeFeed";
 import axios from "axios";
 
