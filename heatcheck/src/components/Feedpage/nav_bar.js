@@ -1,4 +1,6 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 
@@ -16,7 +18,8 @@ class NavBar extends React.Component{
             </>
         )
     }
-}
-//
 
-export default NavBar;
+}
+
+
+export default Navbar;
