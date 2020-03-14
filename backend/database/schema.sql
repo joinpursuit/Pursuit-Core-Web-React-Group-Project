@@ -4,7 +4,6 @@ CREATE DATABASE our_canvas_db;
 \c our_canvas_db;
 
 DROP TABLE IF EXISTS tags;
-DROP TABLE IF EXISTS pictures;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users;
 
@@ -26,15 +25,10 @@ CREATE TABLE posts
   id SERIAL PRIMARY KEY,
   caption TEXT,
   poster_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  picture TEXT,
   created_at TEXT NOT NULL
 );
 
-CREATE TABLE pictures
-(
-  id SERIAL PRIMARY KEY,
-  post_id INT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-  picture TEXT NOT NULL
-);
 
 CREATE TABLE tags
 (
@@ -54,6 +48,14 @@ VALUES
 
 
 INSERT INTO posts
-  (poster_id, caption,created_at)
-VALUES(3, 'YERRR', '2020-03-07T03:36:00'),
-  (2, 'YERR YERRR', '2020-03-07T03:36:00') 
+  (poster_id, caption,picture,created_at)
+VALUES(3, 'YERRR', '/uploads/IMAGE-1583972165084.ico' , '2020-03-07T03:36:00'),
+  (2, 'YERR YERRR', '/uploads/IMAGE-1583972165084.ico' , '2020-03-07T03:36:00');
+
+INSERT INTO tags
+  (post_id,tag)
+VALUES(1, '#TAG1'),
+  (2, '#TAG2'),
+  (2, '#TAG3'),
+  (1, '#TAG4'),
+  (1, '#TAG5');  

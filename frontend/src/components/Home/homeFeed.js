@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Post from "../General/Post";
 
-const UserPosts = ({ posts, home }) => {
-  console.log(posts, "yerrr");
+const HomeFeedPosts = ({ posts, home }) => {
+  console.log(posts);
 
   const postList = posts.map((post, i) => {
     return (
@@ -15,7 +15,6 @@ const UserPosts = ({ posts, home }) => {
       />
     );
   });
-
   return (
     <div className="postFeed">
       <h1 className="postHeader">{home ? "News Feed" : "Posts"}</h1>
@@ -24,4 +23,4 @@ const UserPosts = ({ posts, home }) => {
   );
 };
 
-export default UserPosts;
+export default HomeFeedPosts;

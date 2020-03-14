@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
-import '../../css/SignIn.css';
+import "../../css/signIn.css";
 
 const SignInForm = ({ handleLogIn, error, errorText }) => {
   const email = useInput("");
-// Make Inputs required
+  // Make Inputs required
   return (
     <div className="signInFormDiv">
       <div>
-        <img src={OurCanvasLogoSplat} alt="" className="signInLogo"/>
+        <img src={OurCanvasLogoSplat} alt="" className="signInLogo" />
       </div>
 
       <form
@@ -20,19 +20,27 @@ const SignInForm = ({ handleLogIn, error, errorText }) => {
         }}
         className="signInForm signForms"
       >
-      {error ? <p className="error">{errorText}</p> : null}
+        {error ? <p className="error">{errorText}</p> : null}
         <label>
           Email :
-          <input type="email" placeholder="Enter Your Email" required {...email} className="textInput signInEmail"/>
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            required
+            {...email}
+            className="textInput signInEmail"
+          />
         </label>
-        <input type="submit" value="Sign In" className="button signInSubmit"/>
+        <input type="submit" value="Sign In" className="button signInSubmit" />
       </form>
 
       <div className="signInSwitchContainer">
         <h6>
           Don't have an account yet?
           <Link to="/signUp" className="aTagWithDecoration">
-            <h6 className="signInSwitch">Sign up to connect with artists near you!</h6>
+            <h6 className="signInSwitch">
+              Sign up to connect with artists near you!
+            </h6>
           </Link>
         </h6>
       </div>

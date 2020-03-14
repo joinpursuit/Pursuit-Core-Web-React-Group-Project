@@ -1,36 +1,48 @@
 const db = require("../../database/index");
+const upload = require("./upload/upload");
 
 const isPostExisting = async (req, res, next) => {
   const getId = req.params.id;
   const postId = req.body.post_id;
   const id = getId ? getId : postId;
   try {
-    if(!id) {
+    if (!id) {
       next();
     } else {
       let post = await db.one("SELECT * FROM posts WHERE id=$1", id);
       next();
     }
   } catch (error) {
-    if(error.received === 0) {
-      res.status(404).json({status: 404, error: `Post ID: ${id} doesn't exist`})
+    if (error.received === 0) {
+      res
+        .status(404)
+        .json({ status: 404, error: `Post ID: ${id} doesn't exist` });
     } else {
       next(error);
     }
   }
-}
-
+};
 const getAllPosts = async (req, res, next) => {
   try {
-    let posts = await db.any("SELECT * FROM posts ORDER BY created_at DESC");
-    if(posts.length) {
+    let posts = await db.any(
+      `SELECT users.username , full_posts.*
+      FROM  (
+          SELECT posts.*, array_remove(ARRAY_AGG(tags.tag), NULL) AS tags
+          FROM posts
+          LEFT JOIN tags ON tags.post_id = posts.id 
+          GROUP BY posts.id
+          ORDER BY created_at DESC
+          ) AS full_posts
+       JOIN users ON users.id = full_posts.poster_id`
+    );
+    if (posts.length) {
       res.status(200).json({
         status: "ok",
         posts,
         message: "Retrieved all posts"
       });
     } else {
-      throw { status: 404, error: "No posts found." }
+      throw { status: 404, error: "No posts found." };
     }
   } catch (error) {
     next(error);
@@ -51,15 +63,25 @@ const getPostById = async (req, res, next) => {
   }
 };
 
-const createPost = async (req, res, next) => {
-  const {caption, poster_id, created_at} = req.body;
+const createPost = (req, res, next) => {
   try {
-    let post = await db.one(`INSERT INTO posts (caption, poster_id, created_at) 
-                              VALUES($1 ,$2,$3) RETURNING *`, [caption, poster_id, created_at]);
-    res.status(200).json({
-      status: "ok",
-      post,
-      message: "Created post"
+    upload(req, res, err => {
+      const { caption, poster_id, created_at } = req.body;
+      let picture = "/uploads/" + req.file.filename;
+
+      let post = db
+        .one(
+          `INSERT INTO posts (caption, poster_id,picture, created_at) 
+                              VALUES($1 ,$2,$3,$4) RETURNING *`,
+          [caption, poster_id, picture, created_at]
+        )
+        .then(done => {
+          res.status(200).json({
+            status: "ok",
+            post,
+            message: "Created post"
+          });
+        });
     });
   } catch (error) {
     next(error);

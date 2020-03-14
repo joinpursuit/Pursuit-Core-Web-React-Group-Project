@@ -1,37 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import UserInfo from './UserInfo';
-import UserPosts from './UserPosts';
-import './../../css/Profile.css';
+import React, { useState, useEffect } from "react";
+import UserInfo from "./UserInfo";
+import UserPosts from "./UserPosts";
+import "./../../css/Profile.css";
+import axios from "axios";
 
-const Profile = () => {
-  const user = {
-    full_name: "Isaiah Collazo",
-    username: "theycallme_zay",
-    bio: "Aspiring game designer, and film editor",
-    favorite_artist: "Damien Chazelle",
-    art_type: "Game Design"
-  }
+const Profile = ({ user }) => {
+  const [posts, setPosts] = useState([]);
 
-  const posts = [
-    {
-      poster: user.username,
-      picture: "https://media.nationalgeographic.org/assets/photos/380/216/1c9ab248-0c9c-413d-b0c8-ce8aec56b821.jpg",
-      caption: "The ocean is blue",
-      tags: [{tag: "Ocean"}, {tag: "Water"}]
-    },
-    {
-      poster: user.username,
-      picture: "https://media.nationalgeographic.org/assets/photos/380/216/1c9ab248-0c9c-413d-b0c8-ce8aec56b821.jpg",
-      caption: "The ocean is green",
-      tags: [{tag: "Ocean"}, {tag: "Water"}, {tag: "Green"}]
-    }
-  ]
+  useEffect(() => {
+    const get = async () => {
+      let res = await axios.get(`/api/users/${user.id}/posts`);
+      debugger;
 
-  return(
+      setPosts(res.data.posts);
+    };
+    get();
+  }, []);
+
+  return (
     <div className="profileContainer">
-      <UserInfo {...user}/>
-      <UserPosts posts={posts}/>
+      <UserInfo {...user} />
+      <UserPosts posts={posts} home={false} />
     </div>
-  )
-}
- export default Profile
+  );
+};
+export default Profile;
