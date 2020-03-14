@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react'
-
 import axios from "axios";
 
 const SearchBar =()=> {
     const [list, setList] = useState([])
-    const [suggestion, setSuggest] = useState([])
-    const [text, setText]=useState("")
+    const [suggestion, setSuggest]=useState([])
+    const [search, setSearch]=useState("")
     
-
- 
    const handleChange=(e)=>{
         const value =e.target.value
         let suggestion=[];
@@ -17,11 +14,11 @@ const SearchBar =()=> {
             suggestion=list.sort().filter(v=>regex.test(v));
         }
         setSuggest(suggestion);
-        setText(value)
+        setSearch(value)
     }
 
     const handleSelected=(value)=>{
-        setText(value);
+        setSearch(value);
         setSuggest([])
     }
 
@@ -37,31 +34,32 @@ const SearchBar =()=> {
         }
     }
 
-
     const fetchData= async(url,setData)=>{
         let res= await axios.get(url)
-        if(res.data.payload[0].user_name){
+        try {
             res.data.payload.map((el)=>{
-                setData(prevState=>[...prevState,el.user_name.toLowerCase()])
+                return setData(prevState=>[...prevState,el.tag_name])
             })
-        }else if (res.data.payload[0].array_agg){
-                res.data.payload.map((el)=>{
-                    setData(prevState=>[...prevState,...el.array_agg])
-                })
+        } catch (error) {
+            console.log(error)
         }
+    }
+    const handleSearch=(e)=>{
+        e.preventDefault() 
+        window.location="./feedPage"
+        sessionStorage.searchTerm=e.target.elements[0].value
     }
 
     useEffect(()=>{
-        fetchData("http://localhost:3000/users/",setList)
-        fetchData("http://localhost:3000/tags/",setList)
+        fetchData("http://localhost:3000/tags/all",setList)
     }, [])
 
-        console.log(text)
         return (
-            <div>
-            <input value={text} type="text" onChange={handleChange}/>
+            <form onSubmit={handleSearch}>
+            <input placeholder="Search" value={search} type="text" onChange={handleChange}/>
               {renderSuggestion()}
-            </div>
+              <button type="submit">Search</button>
+            </form>
         )
     }
 

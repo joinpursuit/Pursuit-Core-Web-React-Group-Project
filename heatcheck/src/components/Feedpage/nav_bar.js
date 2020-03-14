@@ -2,19 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = ({setLoggedIn}) => {
     return (
         <nav>
            <div className="nav">
-                <form className={"search"}>
-                    <input placeholder={"Search"}></input>
-                    <Link to={"/searchBar"}></Link>
-                </form>
-                
-               <NavLink exact to="/" className="navAnchor">Home</NavLink>
-               <NavLink to="/comments" className="navAnchor">Comments</NavLink>
-               <NavLink to="/posts" className="navAnchor">Posts</NavLink>
-               <NavLink to="../HomePage/homePage" className="navAnchor">HomePage</NavLink>
+               <NavLink to="/profile" className="navAnchor">Profile</NavLink>
+               <NavLink to="/searchBar" className="navAnchor"></NavLink>placeholder="Search" />
+               <NavLink to="/login" onClick={() => setLoggedIn(false)} className="navAnchor">Logout</NavLink>
            </div>
         </nav>
     )
