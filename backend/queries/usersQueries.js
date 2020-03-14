@@ -116,15 +116,39 @@ const searchUserByName = async (req, res, next) => {
 
 const updateUserById = async (req, res, next) => {
   const { id } = req.params;
-  const { username, full_name, bio, email_address } = req.body;
+  const { full_name, bio, email_address } = req.body;
   try {
     let user = await db.one(
-      "UPDATE users SET username=$1, full_name=$2, bio=$3, email_address=$4 WHERE id=$5 RETURNING *",
-      [username, full_name, bio, email_address, id]
+      "UPDATE users SET  full_name=$1, bio=$2, email_address=$3 WHERE id=$4 RETURNING *",
+      [full_name, bio, email_address, id]
     );
     res.status(200).json({
       status: "Success",
       message: "User with id: " + id + " has been updated",
+      body: {
+        user
+      }
+    });
+  } catch (error) {
+    res.json({
+      status: "Error",
+      message: "Couldn't update user"
+    });
+    next(error);
+  }
+};
+
+const updateUserProfilePic = async (req, res, next) => {
+  const { id } = req.params;
+  const { profile_pic_url } = req.body;
+  try {
+    let user = await db.one(
+      "UPDATE users SET profile_pic_url=$1 WHERE id=$2 RETURNING *",
+      [profile_pic_url, id]
+    );
+    res.status(200).json({
+      status: "Success",
+      message: "User's profile pic with id: " + id + " has been updated",
       body: {
         user
       }
@@ -144,5 +168,6 @@ module.exports = {
   insertSingleUser,
   deleteUsersById,
   searchUserByName,
-  updateUserById
+  updateUserById,
+  updateUserProfilePic
 };
