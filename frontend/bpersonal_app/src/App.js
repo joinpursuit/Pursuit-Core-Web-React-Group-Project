@@ -12,6 +12,7 @@ import Results from "./components/ResultsPage/Results"
 import { Route, Switch, useLocation } from "react-router-dom";
 
 function App() {
+  
   const NavBarView = () => {
     let location = useLocation();
 

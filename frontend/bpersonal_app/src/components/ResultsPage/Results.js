@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import NavBar from '../NavBar'
 import axios from 'axios'
 
 
 const Results = ({ searchInput }) => {
-  searchInput = "t"
     const [allHashtagPosts, setAllHashtagPosts] = useState([])
 
     const fetchAllHashtagPosts = async (url) => {
@@ -24,7 +23,7 @@ const Results = ({ searchInput }) => {
         <div className={"displayResults"}>
         <h2>SEARCH RESULTS</h2>
         <br></br>
-        <Link to={"/feedPage"}><button>Go Back</button></Link>
+        <button>Go Back</button>
         </div>
     )
 }

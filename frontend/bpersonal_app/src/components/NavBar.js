@@ -6,10 +6,9 @@ import axios from "axios";
 const NavBar = () => {
 const searchInputObj = useInput("")
 const searchInput = searchInputObj.value
+sessionStorage.setItem('searchInput', searchInput)
 
-const handleSearchForm = (input) => {
-
-}
+debugger
 
 const LogoutButton = () => {
   const handleLogOff = () => {
@@ -19,11 +18,9 @@ const LogoutButton = () => {
     <Link to={"/login"} > <button onClick={handleLogOff}>Log Out</button> </Link>
     )
 }
-  
-
   return (
     <nav>
-      <form className={"search"} onSubmit={() => handleSearchForm(searchInput)}>
+      <form className={"search"} onSubmit={() => searchInput }>
         <input type="text" placeholder={"Search for hashtags here !"} {...searchInputObj}></input>
           <Link to={"/results"}><button type="submit">Search</button> </Link>
       </form>

@@ -25,7 +25,7 @@ const getAllPostsByHashtag = async (req, res, next) => {
       body: {
         posts: await db.any(
           "SELECT posts.owner_id AS post_owner, post_image_url, posts.body AS post_body, TIMESTAMP, hashtags.id AS hashtag_id, hashtags.owner_id AS hashtag_owner, post_id, hashtags.body AS hashtag_body FROM posts INNER JOIN hashtags ON posts.id = hashtags.post_id WHERE hashtags.body LIKE $1",
-          [hashtag]
+          hashtag
         )
       }
     }) 
