@@ -18,7 +18,7 @@ CREATE TABLE users
     user_name VARCHAR UNIQUE NOT NULL,
     email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
-    phone_number BIGINT UNIQUE NOT NULL,
+    phone_number BIGINT NOT NULL DEFAULT 0,
     profile_pic VARCHAR NOT NULL DEFAULT ''
 );
 
