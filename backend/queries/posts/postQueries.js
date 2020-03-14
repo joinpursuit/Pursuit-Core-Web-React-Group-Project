@@ -86,25 +86,35 @@ const getPostById = async (req, res, next) => {
 
 const createPost = (req, res, next) => {
   try {
+    console.log("create post");
     upload(req, res, err => {
-      const { caption, poster_id, created_at } = req.body;
-      let picture = "/uploads/" + req.file.filename;
-
-      let post = db
-        .one(
-          `INSERT INTO posts (caption, poster_id,picture, created_at) 
-                              VALUES($1 ,$2,$3,$4) RETURNING *`,
-          [caption, poster_id, picture, created_at]
-        )
-        .then(done => {
-          res.status(200).json({
-            status: "ok",
-            post,
-            message: "Created post"
+      try {
+        console.log("upload");
+        const { caption, poster_id, created_at } = req.body;
+        let picture = "/uploads/" + req.file.filename;
+  
+        db
+          .one(
+            `INSERT INTO posts (caption, poster_id,picture, created_at) 
+                                VALUES($1 ,$2,$3,$4) RETURNING *`,
+            [caption, poster_id, picture, created_at]
+          )
+          .then(done => {
+            console.log("then");
+            res.status(200).json({
+              status: "ok",
+              post: done,
+              message: "Created post"
+            });
           });
-        });
+      } catch(err) {
+        console.log(err)
+        next(err)
+      }
+     
     });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
