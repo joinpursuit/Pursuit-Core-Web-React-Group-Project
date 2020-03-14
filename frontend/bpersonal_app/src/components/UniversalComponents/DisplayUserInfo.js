@@ -6,11 +6,9 @@ import Upload from "./Upload";
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
   const toggleEditProfile = useToggleShow(false);
-  const userNameObj = useInput("");
   const fullNameObj = useInput("");
   const bioObj = useInput("");
   const emailObj = useInput("");
-  const userNameInput = userNameObj.value;
   const fullName = fullNameObj.value;
   const bio = bioObj.value;
   const email = emailObj.value;
@@ -32,7 +30,6 @@ const DisplayUserInfo = () => {
   const handleUpdateProfile = async e => {
     e.preventDefault();
     await axios.patch(`/users/${sessionStorage.userID}`, {
-      username: userNameInput,
       full_name: fullName,
       bio: bio,
       email_address: email
@@ -90,12 +87,6 @@ const DisplayUserInfo = () => {
             {...fullNameObj}
             type="text"
             placeholder="name"
-          />
-          <input
-            name={"userName"}
-            {...userNameObj}
-            type="text"
-            placeholder="username"
           />
           <input name={"email"} {...emailObj} type="text" placeholder="email" />
           <input name={"bio"} {...bioObj} type="text" placeholder="bio" />
