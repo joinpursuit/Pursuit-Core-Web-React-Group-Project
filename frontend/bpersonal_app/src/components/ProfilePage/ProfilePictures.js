@@ -20,7 +20,6 @@ const ProfilePictures = () => {
   }, [images]);
 
   const showImages = images.map((img, i) => {
-    console.log(img);
     return <DisplayFeedImages img={img.post_image_url} key={i} />;
   });
 
