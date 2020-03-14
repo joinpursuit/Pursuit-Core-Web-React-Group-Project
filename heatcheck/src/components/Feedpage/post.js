@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Comments from "./comment";
+import Reactions from "./reactions";
 const styles = {
   img: {
     height: "200px",
@@ -32,48 +33,64 @@ const Post = ({
   description,
   release,
   postID,
-  comments,
-  commentersID
+  reaction,
+  reactor
 }) => {
+  const [showComments, setshowComments] = useState(false);
+
   const displayPost = () => {
+    // let brand = brand.toUpperCase();
     return (
       <>
-        <div className="post" id={postID} style={styles[".post"]}>
-          <div>
-            <img
-              src={profilepic}
-              id="profilepic"
-              style={styles["#profilepic"]}
-            />
-            <p id="userName" style={styles["#userName"]}>
-              {userName}
-            </p>
-          </div>
-
-          <img src={shoeImg} alt={""} style={styles.img} />
-          <p>🔥❄️4</p>
-
-          <p>
-            Brand: {brand} Release: {release}
-          </p>
-          <p>
-            {userName}:{description}
+        <div>
+          <img src={profilepic} id="profilepic" style={styles["#profilepic"]} />
+          <p id="userName" style={styles["#userName"]}>
+            {userName}
           </p>
         </div>
+
+        <img src={shoeImg} alt={""} style={styles.img} />
+
+        <p>
+          Brand: {brand} Release: {release}
+        </p>
+        <p>
+          {userName}:{description}
+        </p>
       </>
     );
   };
-
+  const showModal = e => {
+    if (showComments === false) {
+      setshowComments(true);
+    } else {
+      setshowComments(false);
+    }
+  };
+  console.log(showComments);
   return (
     <>
-      {displayPost({
-        shoeImg,
-        profilepic,
-        userName,
-        brand,
-        description,
-        release
-      })}
+      <div className="post" id={postID} style={styles[".post"]}>
+        {displayPost({
+          shoeImg,
+          profilepic,
+          userName,
+          brand,
+          description,
+          release
+        })}
+        <Reactions reaction={reaction} reaction={reactor} />
+        <a
+          onClick={e => {
+            showModal();
+          }}
+        >
+          show all comments
+        </a>
+        {showComments ? <Comments postID={postID} /> : null}
+
+        <br></br>
+      </div>
     </>
   );
 };
