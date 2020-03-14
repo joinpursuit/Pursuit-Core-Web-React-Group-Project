@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import {Animated} from "react-animated-css";
+import LeftSideLogin from './LeftSideLogin'
+import LogoImage from '../../css/cssImages/LogoImage2.PNG'
 import '../../css/login.css'
 
 const LoginPage = () => {
@@ -59,31 +61,60 @@ const LoginPage = () => {
   }
     if(!isSignUpForm) {
       return (
-        <Animated animationIn="fadeInLeft" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={2500} isVisible={true}>
-          <form className="loginform">
-            <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)} ></input>
-            <br/>
-            <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
-            <br/>
-            <button value="" onClick={handleLogin}>login</button>
-            <br/>
-            <button onClick={signUpForm}> Sign Up </button>
-          </form>
-        </Animated>
+        <div className="login-container">
+          <LeftSideLogin/>
+          <div className="rightSide">
+            <Animated animationIn="fadeInRight" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={2500} isVisible={true}>
+            <img src={LogoImage}  alt="" ></img>
+            <form className="loginform">
+              <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)} ></input>
+              <br/>
+              <br/>
+              <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
+              <br/>
+              <br/>
+              <button value="" onClick={handleLogin}>login</button>
+              <br/>
+              <br/>
+              <button onClick={signUpForm}> Sign Up </button>
+            </form>
+          </Animated>
+          </div>
+            </div>
       );
     } else {
       return (
-        <Animated animationIn="fadeInLeft" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
-          <form className="signupform">
-            <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)}></input>
-            <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
-            <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)}></input>
-            <input type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)}></input>
-            <input type="text" placeholder="Bio" onChange={e => setBio(e.target.value)}></input>
-            <button onClick={handleSignUp}>Sign Up</button>
-            <button onClick={signUpForm}> Log In </button>
-          </form>
-        </Animated>
+        <div className="login-container">
+          {/* <LoginHeader/> */}
+          {/* debugger */}
+          <LeftSideLogin/>
+          <div className="rightSide">
+            <Animated animationIn="fadeInRight" animationOut="fadeOutRight" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
+            <img src={LogoImage}  alt="" ></img>
+              <form className="signupform">
+                <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)}></input>
+                <br/>
+                <br/>
+                <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
+                <br/>
+                <br/>
+                <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)}></input>
+                <br/>
+                <br/>
+                <input type="text" placeholder="Full Name" onChange={e => setFullName(e.target.value)}></input>
+                <br/>
+                <br/>
+                <input type="text" placeholder="Bio" onChange={e => setBio(e.target.value)}></input>
+                <br/>
+                <br/>
+                <button onClick={handleSignUp}>Sign Up</button>
+                <br/>
+                <br/>
+                <button onClick={signUpForm}> Log In </button>
+              </form>
+            </Animated>
+          </div>
+         </div>
       );
     }
   
