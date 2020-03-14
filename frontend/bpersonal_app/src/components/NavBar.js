@@ -8,9 +8,8 @@ const searchInputObj = useInput("")
 const searchInput = searchInputObj.value
 
 const handleSearchForm = (input) => {
-  
+
 }
-  
 
   return (
     <nav>
