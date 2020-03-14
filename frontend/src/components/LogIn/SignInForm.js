@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useInput } from "../../util/customHooks";
 import { Link } from "react-router-dom";
 import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
-import "../../css/signIn.css";
+import "../../css/SignIn.css";
 
 const SignInForm = ({ handleLogIn, error, errorText }) => {
   const email = useInput("");
