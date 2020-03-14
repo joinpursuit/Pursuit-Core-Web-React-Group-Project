@@ -5,11 +5,12 @@ import axios from "axios";
 import LogoImage from "../../src/css/cssImages/LogoImage2.PNG"
 
 const NavBar = () => {
+
 const searchInputObj = useInput("")
 const searchInput = searchInputObj.value
 
-const handleSearchForm = (input) => {
-  
+const handleSearchInput = () => {
+  sessionStorage.searchInput = searchInput;
 }
 
 const LogoutButton = () => {
@@ -20,8 +21,6 @@ const LogoutButton = () => {
     <Link to={"/login"} > <button onClick={handleLogOff}>Log Out</button> </Link>
     )
 }
-  
-
   return (
     <>
     <header>
@@ -29,9 +28,9 @@ const LogoutButton = () => {
     </header>
     
     <nav>
-      <form className={"search"} onSubmit={() => handleSearchForm(searchInput)}>
+      <form className={"search"} onSubmit={handleSearchInput}>
         <input type="text" placeholder={"Search for hashtags here !"} {...searchInputObj}></input>
-          <Link to={"/results"}><button type="submit">Search</button> </Link>
+          <Link to={`/results/${searchInput}`}><button type="submit">Search</button> </Link>
       </form>
       <NavLink exact to={"/feedpage"}>FEED</NavLink>
       <NavLink exact to={"/profilepage"}>

@@ -12,6 +12,7 @@ import Results from "./components/ResultsPage/Results"
 import { Route, Switch, useLocation, Redirect } from "react-router-dom";
 
 function App() {
+  
   const NavBarView = () => {
     let location = useLocation();
 
@@ -42,8 +43,8 @@ function App() {
         <Route path={"/login"}>
           <LoginPage />
         </Route>
-        <Route exact to path={"/results"}>
-          <Results />
+        <Route exact to path={"/results/:searchInput"}>
+          <Results/>
         </Route>
         <Route exact to path={"/signup"}>
           <SignUpForm />

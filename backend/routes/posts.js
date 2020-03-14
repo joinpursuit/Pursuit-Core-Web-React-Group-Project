@@ -11,7 +11,7 @@ const {
 } = require("../queries/postQueries");
 
 posts.get("/", getAllPosts);
-posts.get("/:hashtag", getAllPostsByHashtag);
+posts.get("/hashtag/:search", getAllPostsByHashtag);
 posts.get("/ownerID/:owner_id", getAllPostsBySingleUser);
 posts.get("/:id", getSinglePost);
 posts.post("/", insertSinglePost);
