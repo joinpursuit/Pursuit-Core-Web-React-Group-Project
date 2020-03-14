@@ -8,6 +8,7 @@ const LeftSideLogin = () => {
 return(
     // <Animated animationIn="fadeInLeft" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
     <div className="leftSide">
+        <div className="quote">
         BOriginal
         <br/>
         <br/>
@@ -15,7 +16,7 @@ return(
         <br/>
         <br/>
         BPersonal
-            {/* <img src={LogoImage}  alt="" ></img>     */}
+        </div>
     </div>
 )
 

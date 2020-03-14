@@ -9,7 +9,7 @@ import SignUpForm from "./components/LoginPage/SignUpForm";
 import Results from "./components/ResultsPage/Results"
 
 
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation, Redirect } from "react-router-dom";
 
 function App() {
   const NavBarView = () => {
@@ -36,6 +36,9 @@ function App() {
       {NavBarView() ? <NavBar /> : null}
       {/* {LoginView() ? <LoginPage /> : null} */}
       <Switch>
+        <Route exact path={"/"}>
+          <Redirect to="/login"/>
+        </Route>
         <Route path={"/login"}>
           <LoginPage />
         </Route>
