@@ -2,15 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Post from "./post";
 
-const Posts = () => {
+const Posts = ({ url }) => {
   const [allposts, setallposts] = useState([]);
   // const didMount = useRef(false);
 
   const getAllposts = async () => {
-    const url = "http://localhost:3001/posts";
-
     try {
-      let res = await axios.get(url);
+      let res = await axios.get("http://localhost:3001/posts");
       setallposts(res.data.payload);
     } catch (error) {
       setallposts([]);

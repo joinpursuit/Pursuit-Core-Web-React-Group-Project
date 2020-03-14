@@ -13,12 +13,11 @@ import SearchBar from "./components/Feedpage/searchBar";
 function App() {
   return (
     <div className="App">
-    
       {/* <SearchBar/> */}
       {/* <Feedpage /> */}
       <HomePage/>
       {/* <TrendingReactions/> */}
-      {/* <UploadPost/> */}``
+      {/* <UploadPost/> */}
     </div>
   );
 }
