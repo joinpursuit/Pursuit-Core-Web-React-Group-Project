@@ -4,7 +4,7 @@ import "../../css/form.scss"
 
 const SignUp = (props) => {
   return(
-    <div className="base-container" ref={props.containerRef}>
+    <div className="base-container signup" ref={props.containerRef}>
       <div className="header">Sign Up</div>
       <div className="content">
         <div className="image">

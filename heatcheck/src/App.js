@@ -14,11 +14,7 @@ function App() {
   return (
     <div className="App">
 
-{/* //      <SearchBar/> */}
-
-
-    <UploadPost/>
-{/* //     <HomePage/> */}
+    <HomePage/>
      {/* <TrendingReactions/> */}
      {/* <UploadPost/> */}
 
