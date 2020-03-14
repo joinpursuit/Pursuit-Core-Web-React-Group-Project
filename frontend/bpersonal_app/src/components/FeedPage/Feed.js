@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DisplayUserInfo from "../UniversalComponents/DisplayUserInfo";
 import DisplayFeed from "./DisplayFeed";
 import CreatePostForm from "./CreatePostForm";
+import "./css/Feed.css";
 
 import axios from "axios";
 
@@ -27,10 +28,8 @@ const Feed = () => {
       <div className="displayUserContainer">
         <DisplayUserInfo />
       </div>
-      <div className="createPostFormContainer">
-        <CreatePostForm fetchAllPosts={fetchAllPosts} />
-      </div>
       <div className="displayFeed">
+        <CreatePostForm fetchAllPosts={fetchAllPosts} />
         <DisplayFeed allPosts={allPosts} />
       </div>
     </div>

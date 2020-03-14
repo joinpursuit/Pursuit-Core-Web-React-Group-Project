@@ -1,0 +1,13 @@
+.Feed {
+  display: flex;
+  flex-direction: row;
+}
+
+#displayUser {
+  display: flex;
+  flex-direction: column;
+}
+
+#profilePicture {
+  margin: 20px;
+}

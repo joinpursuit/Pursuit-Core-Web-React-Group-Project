@@ -58,43 +58,52 @@ const DisplayUserInfo = () => {
 
   return (
     <section id="displayUser">
-      <img
-        src={user.profile_pic_url}
-        style={{ width: "300px", height: "300px", borderRadius: "100%" }}
-        alt="profile_pic"
-        onClick={toggleEditPicture.onClick}
-      ></img>
-      {toggleEditPicture.showInsert ? (
-        <>
-          <br></br>
-          <Upload cb={setPath} />
-          <button id="editProfilePictureBtn" onClick={editProfilePicture}>
-            Update Profile Picture
-          </button>
-        </>
-      ) : null}
+      <div id="profilePicture">
+        <img
+          src={user.profile_pic_url}
+          style={{ width: "300px", height: "300px", borderRadius: "100%" }}
+          alt="profile_pic"
+          onClick={toggleEditPicture.onClick}
+        ></img>
+        {toggleEditPicture.showInsert ? (
+          <>
+            <br></br>
+            <Upload cb={setPath} />
+            <button id="editProfilePictureBtn" onClick={editProfilePicture}>
+              Update Profile Picture
+            </button>
+          </>
+        ) : null}
+      </div>
 
-      <h1>{user.username}</h1>
-      <h2> {user.full_name}</h2>
-      <h2>{user.bio}</h2>
-      <h2>{user.email_address}</h2>
-      <button id="editProfileButton" onClick={toggleEditProfile.onClick}>
-        Edit Profile
-      </button>
+      <div id="displayUserInfo">
+        <h1>{user.username}</h1>
+        <h2> {user.full_name}</h2>
+        <h2>{user.bio}</h2>
+        <h2>{user.email_address}</h2>
+        <button id="editProfileButton" onClick={toggleEditProfile.onClick}>
+          Edit Profile
+        </button>
 
-      {toggleEditProfile.showInsert ? (
-        <form id="updateBio" onSubmit={handleUpdateProfile}>
-          <input
-            name={"full_name"}
-            {...fullNameObj}
-            type="text"
-            placeholder="name"
-          />
-          <input name={"email"} {...emailObj} type="text" placeholder="email" />
-          <input name={"bio"} {...bioObj} type="text" placeholder="bio" />
-          <button type="submit">Update</button>
-        </form>
-      ) : null}
+        {toggleEditProfile.showInsert ? (
+          <form id="updateBio" onSubmit={handleUpdateProfile}>
+            <input
+              name={"full_name"}
+              {...fullNameObj}
+              type="text"
+              placeholder="name"
+            />
+            <input
+              name={"email"}
+              {...emailObj}
+              type="text"
+              placeholder="email"
+            />
+            <input name={"bio"} {...bioObj} type="text" placeholder="bio" />
+            <button type="submit">Update</button>
+          </form>
+        ) : null}
+      </div>
     </section>
   );
 };
