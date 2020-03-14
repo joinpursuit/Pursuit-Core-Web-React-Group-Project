@@ -22,19 +22,40 @@ const isPostExisting = async (req, res, next) => {
     }
   }
 };
+
 const getAllPosts = async (req, res, next) => {
   try {
-    let posts = await db.any(
-      `SELECT users.username , full_posts.*
-      FROM  (
-          SELECT posts.*, array_remove(ARRAY_AGG(tags.tag), NULL) AS tags
-          FROM posts
-          LEFT JOIN tags ON tags.post_id = posts.id 
-          GROUP BY posts.id
-          ORDER BY created_at DESC
-          ) AS full_posts
-       JOIN users ON users.id = full_posts.poster_id`
-    );
+    let posts;
+    let { search } = req.query;
+    console.log(req.query);
+    if(search) {
+      console.log(search);
+      posts = await db.any(
+        `SELECT users.username , full_posts.*
+        FROM  (
+            SELECT posts.*, array_remove(ARRAY_AGG(tags.tag), NULL) AS tags
+            FROM posts
+            LEFT JOIN tags ON tags.post_id = posts.id 
+            WHERE tags.tag=$1
+            GROUP BY posts.id
+            ORDER BY created_at DESC
+            ) AS full_posts
+         JOIN users ON users.id = full_posts.poster_id`, search
+      );
+    } else {
+      posts = await db.any(
+        `SELECT users.username , full_posts.*
+        FROM  (
+            SELECT posts.*, array_remove(ARRAY_AGG(tags.tag), NULL) AS tags
+            FROM posts
+            LEFT JOIN tags ON tags.post_id = posts.id 
+            GROUP BY posts.id
+            ORDER BY created_at DESC
+            ) AS full_posts
+         JOIN users ON users.id = full_posts.poster_id`
+      );
+    }
+
     if (posts.length) {
       res.status(200).json({
         status: "ok",
