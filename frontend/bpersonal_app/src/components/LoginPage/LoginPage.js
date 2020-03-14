@@ -67,8 +67,8 @@ const LoginPage = () => {
           </Animated>
           <div className="rightSide">
             <Animated animationIn="fadeInRight" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={2500} isVisible={true}>
-            <img src={LogoImage}  alt="" ></img>
-            <form className="loginform">
+            <img id="loginlogo" src={LogoImage}  alt="" ></img>
+            <form className="loginsignup">
               <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)} ></input>
               <br/>
               <br/>
@@ -90,8 +90,8 @@ const LoginPage = () => {
           <LeftSideLogin/>
           <div className="rightSide">
             <Animated animationIn="fadeInRight" animationOut="fadeOutRight" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
-            <img src={LogoImage}  alt="" ></img>
-              <form className="signupform">
+            <img className="loginlogo" src={LogoImage}  alt="" ></img>
+              <form className="loginsignup">
                 <input type="text" placeholder="Username" onChange={e => setUser(e.target.value)}></input>
                 <br/>
                 <br/>

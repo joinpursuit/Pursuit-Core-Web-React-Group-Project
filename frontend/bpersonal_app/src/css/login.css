@@ -60,12 +60,13 @@ table {
     bottom: 0;
     width: 50%;
     text-align: center;
-    text-justify: auto;
-    /* text-align: justify; */
-    /* flex: 1 auto; */
-    /* max-height: auto; */
-    /* height: 100%; */
-    /* float: left; */
+    /* text-justify: auto; */
+    
+}
+.quote {
+    position: absolute;
+    top: 25%;
+    left: 30%;
 }
 .rightSide {
     background: rgb(255,188,0);
@@ -82,14 +83,14 @@ table {
     /* align-content: space-between; */
     /* float: right; */
 }
-img {
+#loginlogo {
     height: 100px;
     position: relative;
     left: 30%;
     top: 125px;
     
 }
-form {
+.loginsignup {
     position: relative;
     left: 40%;
     top: 150px;   

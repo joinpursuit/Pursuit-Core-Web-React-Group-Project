@@ -6,51 +6,39 @@ import LogoImage from "../../src/css/cssImages/LogoImage2.PNG";
 import axios from "axios";
 
 const NavBar = () => {
-  const searchInputObj = useInput("");
-  const searchInput = searchInputObj.value;
 
-  const handleSearchForm = input => {};
+const searchInputObj = useInput("")
+const searchInput = searchInputObj.value
 
-  const LogoutButton = () => {
-    const handleLogOff = () => {
-      sessionStorage.removeItem("userID");
-    };
-    return (
-      <Link to={"/login"}>
-        {" "}
-        <button onClick={handleLogOff}>Log Out</button>{" "}
-      </Link>
-    );
-  };
+const handleSearchInput = () => {
+  sessionStorage.searchInput = searchInput;
+}
 
+const LogoutButton = () => {
+  const handleLogOff = () => {
+    sessionStorage.removeItem("userID");
+  }
+  return (
+    <Link to={"/login"} > <button onClick={handleLogOff}>Log Out</button> </Link>
+    )
+}
   return (
     <>
-      <header>
-        <img src={LogoImage} id="navImage" />
-
-        <nav>
-          <form
-            className={"search"}
-            onSubmit={() => handleSearchForm(searchInput)}
-          >
-            <input
-              type="text"
-              placeholder={"Search for hashtags here !"}
-              {...searchInputObj}
-            ></input>
-            <Link to={"/results"}>
-              <button type="submit">Search</button>{" "}
-            </Link>
-          </form>
-          <NavLink exact to={"/feedpage"}>
-            FEED
-          </NavLink>
-          <NavLink exact to={"/profilepage"}>
-            PROFILE
-          </NavLink>
-          <LogoutButton />
-        </nav>
-      </header>
+    <header>
+    <img src={LogoImage} id="navImage"/>
+    </header>
+    
+    <nav>
+      <form className={"search"} onSubmit={handleSearchInput}>
+        <input type="text" placeholder={"Search for hashtags here !"} {...searchInputObj}></input>
+          <Link to={`/results/${searchInput}`}><button type="submit">Search</button> </Link>
+      </form>
+      <NavLink exact to={"/feedpage"}>FEED</NavLink>
+      <NavLink exact to={"/profilepage"}>
+        PROFILE
+      </NavLink>
+      <LogoutButton/>
+    </nav>
     </>
   );
 };

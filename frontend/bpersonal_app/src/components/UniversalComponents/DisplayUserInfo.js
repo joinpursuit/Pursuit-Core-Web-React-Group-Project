@@ -34,6 +34,7 @@ const DisplayUserInfo = () => {
       bio: bio,
       email_address: email
     });
+    fetchData(`/users/${sessionStorage.userID}`);
   };
 
   const editProfilePicture = async () => {
@@ -42,6 +43,7 @@ const DisplayUserInfo = () => {
         await axios.patch(`/users/profile_pic/${sessionStorage.userID}`, {
           profile_pic_url: path
         });
+        fetchData(`/users/${sessionStorage.userID}`);
       } catch (error) {
         console.log(error);
       }
@@ -52,7 +54,7 @@ const DisplayUserInfo = () => {
 
   useEffect(() => {
     fetchData(`/users/${sessionStorage.userID}`);
-  }, [user]);
+  }, []);
 
   return (
     <section id="displayUser">
@@ -73,9 +75,9 @@ const DisplayUserInfo = () => {
       ) : null}
 
       <h1>{user.username}</h1>
-      <h2>{user.full_name}</h2>
+      <h2> {user.full_name}</h2>
       <h2>{user.bio}</h2>
-      <h2>{user.email}</h2>
+      <h2>{user.email_address}</h2>
       <button id="editProfileButton" onClick={toggleEditProfile.onClick}>
         Edit Profile
       </button>
