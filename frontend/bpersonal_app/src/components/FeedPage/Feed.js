@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import DisplayUserInfo from "../UniversalComponents/DisplayUserInfo";
+import DisplayUserInfo from "../UniversalComponents/DisplayUserInfo";
 import DisplayFeed from "./DisplayFeed";
 import CreatePostForm from "./CreatePostForm";
 
@@ -24,10 +24,15 @@ const Feed = () => {
 
   return (
     <div className="Feed">
-      {/* <DisplayUserInfo /> */}
-      <CreatePostForm fetchAllPosts={fetchAllPosts} />
-      <br></br>
-      <DisplayFeed allPosts={allPosts} />
+      <div className="displayUserContainer">
+        <DisplayUserInfo />
+      </div>
+      <div className="createPostFormContainer">
+        <CreatePostForm fetchAllPosts={fetchAllPosts} />
+      </div>
+      <div className="displayFeed">
+        <DisplayFeed allPosts={allPosts} />
+      </div>
     </div>
   );
 };
