@@ -18,8 +18,10 @@ const Likes = ({ id }) => {
     try {
       if (e.target.alt === "insertLike") {
         await axios.post(`/likes/post/${id}/${sessionStorage.userID}`);
+        fetchLikes(`/likes/post/${id}`);
       } else {
         await axios.delete(`/likes/${id}/${sessionStorage.userID}`);
+        fetchLikes(`/likes/post/${id}`);
       }
     } catch (error) {
       console.log(error);
@@ -28,7 +30,7 @@ const Likes = ({ id }) => {
 
   useEffect(() => {
     fetchLikes(`/likes/post/${id}`);
-  }, [likes, id]);
+  }, []);
 
   return (
     <>

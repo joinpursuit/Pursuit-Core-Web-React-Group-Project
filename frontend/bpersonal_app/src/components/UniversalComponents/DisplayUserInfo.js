@@ -72,7 +72,7 @@ const DisplayUserInfo = () => {
         </>
       ) : null}
 
-      <h1>{user.username}:</h1>
+      <h1>{user.username}</h1>
       <h2> {user.full_name}</h2>
       <h2>{user.bio}</h2>
       <h2>{user.email}</h2>
