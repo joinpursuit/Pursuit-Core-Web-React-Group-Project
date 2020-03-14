@@ -1,17 +1,25 @@
+
 import React, { useState, useEffect } from 'react';
+
 import { NavLink } from 'react-router-dom';
 
 
-const Navbar = ({setLoggedIn}) => {
-    return (
-        <nav>
-           <div className="nav">
-               <NavLink to="/profile" className="navAnchor">Profile</NavLink>
-               <NavLink to="/searchBar" className="navAnchor"></NavLink>placeholder="Search" />
-               <NavLink to="/login" onClick={() => setLoggedIn(false)} className="navAnchor">Logout</NavLink>
-           </div>
-        </nav>
-    )
+class NavBar extends React.Component{
+    
+
+    render() {
+        return(
+            <>
+            <nav>
+                <NavLink exact to={"/post"}>Make A post</NavLink>
+                <NavLink exact to={"/feedPage"}>Home Feed</NavLink>
+                <NavLink exact to={"/homePage"}>Home Page</NavLink>
+            </nav>
+            </>
+        )
+    }
+
 }
+
 
 export default Navbar;
