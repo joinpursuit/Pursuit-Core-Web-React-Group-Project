@@ -10,7 +10,8 @@ export default function UploadPost() {
     const colorway = useInput("")
     const postPic = useInput("")
     const [image, setImage] = useState("")
-    // const [loading, setLoading] = useState(false) 
+    const [loading, setLoading] = useState(false) 
+    const tag = useInput("")
 
     const fileSelectHandle = (e) => {
         const blk = e.target.files[0]
@@ -30,6 +31,7 @@ export default function UploadPost() {
             console.log(res);
             console.log(res.data.url);
             setImage(res.data.url)
+            setLoading(false)
         }).then(function(err){
         })
 
@@ -55,7 +57,7 @@ export default function UploadPost() {
     const handleSubmit=async(e)=> {
         e.preventDefault();
         try{
-            await axios.post('http://localhost:3001/posts',{user_id: userId.value, image: image, brand: brand.value, description: description.value, release_date: year.value, colorway: colorway.value})         
+            await axios.post('http://localhost:3001/posts',{user_id: userId.value, image: image, brand: brand.value, description: description.value, release_date: year.value, colorway: colorway.value})
         }catch(error){
             console.log(error);
         }
@@ -65,8 +67,8 @@ export default function UploadPost() {
         <>
             <form onSubmit={handleSubmit}>
                 <input type="file" name ="file" onInput={fileSelectHandle} required {...postPic}/>
-                {/* {loading ? <p>loading</p> : <img src={image}/>} */}
-                {/* <br/> */}
+                {loading ? <p>loading</p> : <img style={{ width: "100px", height: "100px"}}  src={image}/>}
+                <br/>
                 <input type ="text" placeholder= "tempUserID" required {...userId}/>
                 <select required  {...brand}>
                     <option value={""} disabled>Brand</option>
@@ -79,7 +81,6 @@ export default function UploadPost() {
                 <input type ="text" placeholder= "description" required {...description}/>
                 <input type ="number" min="1984" max="2020" placeholder= "year" required {...year}/>
                 <input type ="text" placeholder= "colorway" required {...colorway}/>
-                {/* <button onClick = {fileUploadHandle} required >upload</button> */}
                 <input type ="submit"/>
             </form>
             </>
