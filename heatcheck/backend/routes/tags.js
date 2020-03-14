@@ -1,7 +1,9 @@
 const tags = require("express").Router()
-const {getAllTags, getTagsByName, postTag, deleteTag} = require("../queries/tags.js")
+const {getAllTags, trendingTags, getTagsByName, postTag, deleteTag} = require("../queries/tags.js")
 
 tags.get("/", getAllTags)
+
+tags.get("/trending", trendingTags)
 
 tags.get("/:tagName", getTagsByName)
 
