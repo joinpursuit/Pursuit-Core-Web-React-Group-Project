@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios"
 import {useInput} from "../../util/customHooks.js"
-import loginIcon from "./signIn.svg"
+import loginIcon from "./media/logo.svg"
 import "../../css/form.scss"
 
 const SignUp = (props) => {
@@ -17,7 +17,15 @@ const SignUp = (props) => {
       let user_name = newUsername.value;
       let email = newEmail.value;
       let password = newPassword.value;
-      await axios.post("http://localhost:3001/users",{full_name, email, user_name, password});
+      let res = await axios.post("http://localhost:3001/users",{full_name, email, user_name, password});
+      let status = res.data.status
+      let user = res.data.payload
+
+      if(status === "success"){
+        sessionStorage.setItem("userID", user.id)
+        let session = sessionStorage.getItem("userID")
+        console.log(session)
+      }
     } catch (err) {
       console.log(err);
     }

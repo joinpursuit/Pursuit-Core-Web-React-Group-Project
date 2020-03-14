@@ -15,8 +15,8 @@ function App() {
     <div className="App">
     
       {/* <SearchBar/> */}
-      <Feedpage />
-      {/* <HomePage/> */}
+      {/* <Feedpage /> */}
+      <HomePage/>
       {/* <TrendingReactions/> */}
       {/* <UploadPost/> */}``
     </div>
