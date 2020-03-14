@@ -30,6 +30,7 @@ const Hashtags = ({ id }) => {
       await axios.post(`/hashtags/${sessionStorage.userID}/post/${id}`, {
         body
       });
+      fetchHashtags(`/hashtags/post/${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -40,6 +41,7 @@ const Hashtags = ({ id }) => {
       await axios.delete(
         `/hashtags/post/${sessionStorage.userID}/${id}/${hashtag_id}`
       );
+      fetchHashtags(`/hashtags/post/${id}`);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +61,7 @@ const Hashtags = ({ id }) => {
   useEffect(() => {
     handleOwner();
     fetchHashtags(`/hashtags/post/${id}`);
-  }, [hashtags, id]);
+  }, []);
 
   let showHashtags = hashtags.map(hashtag => {
     if (
