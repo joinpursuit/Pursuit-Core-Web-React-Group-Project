@@ -1,6 +1,14 @@
 nav {
-    /* justify-content: space-evenly; */
-    position: absolute;
-    right: 46%;
+  /* justify-content: space-evenly; */
+  position: absolute;
+  right: 46%;
 }
 
+#navImage {
+  height: 80%;
+}
+
+header {
+  display: flex;
+  flex-flow: row;
+}
