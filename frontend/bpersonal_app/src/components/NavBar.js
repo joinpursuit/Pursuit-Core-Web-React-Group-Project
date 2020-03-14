@@ -10,6 +10,15 @@ const searchInput = searchInputObj.value
 const handleSearchForm = (input) => {
   
 }
+
+const LogoutButton = () => {
+  const handleLogOff = () => {
+    sessionStorage.removeItem("userID");
+  }
+  return (
+    <Link to={"/login"} > <button onClick={handleLogOff}>Log Out</button> </Link>
+    )
+}
   
 
   return (
@@ -22,6 +31,7 @@ const handleSearchForm = (input) => {
       <NavLink to={"/profilepage"}>
         PROFILE
       </NavLink>
+      <LogoutButton/>
     </nav>
   );
 };
