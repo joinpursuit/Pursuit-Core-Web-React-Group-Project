@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import {useInput} from '../util/customHooks'
 import axios from "axios";
+import LogoImage from "../../src/css/cssImages/LogoImage2.PNG"
 
 const NavBar = () => {
 const searchInputObj = useInput("")
@@ -22,6 +23,11 @@ const LogoutButton = () => {
   
 
   return (
+    <>
+    <header>
+    <img src={LogoImage} id="navImage"/>
+    </header>
+    
     <nav>
       <form className={"search"} onSubmit={() => handleSearchForm(searchInput)}>
         <input type="text" placeholder={"Search for hashtags here !"} {...searchInputObj}></input>
@@ -33,6 +39,7 @@ const LogoutButton = () => {
       </NavLink>
       <LogoutButton/>
     </nav>
+    </>
   );
 };
 
