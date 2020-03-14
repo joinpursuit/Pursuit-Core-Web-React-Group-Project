@@ -60,7 +60,7 @@ INSERT INTO users
     (username, password, full_name, email_address, profile_pic_url, bio)
 VALUES
     ('kwong', 'imag123', 'Kevin Wong', 'kevinwong@pursuit.org', 'uploads/saltflats.JPG', 'I''m kevin and this is my short bio'),
-    ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', '/uploads/IMG_9504.jpg', 'This is brandons bio'),
+    ('bbrown', 'secret', 'Brandon Brown', 'brandonbrown@pursuit.org', 'uploads/IMG_9504.jpg', 'This is brandons bio'),
     ('cannedBread', 'gang123', 'Marvin Thompson', 'marvinthompson@pursuit.org', '/uploads/83265522_3243496319013151_2072753519152070656_o.jpg', 'This is canned breads bio'),
     ('Prodigos', 'wil12324', 'Wilghen Santos', 'faustosantos@pursuit.org', 'uploads/wilSantos.jpg', 'Welcome !!!!' );
 
@@ -68,6 +68,7 @@ INSERT INTO posts
     (owner_id, post_image_url, body)
 VALUES
     (1, '/uploads/graduation.jpg', 'Blood, sweat, and tears. Graduation'),
+    (2,'/uploads/IMG_4660.jpg', 'Drinks and links'),
     (3, '/uploads/83265522_3243496319013151_2072753519152070656_o.jpg', 'Posted up on the stage'),
     (1, '/uploads/canyons.JPG', 'Adventure in the canyons'),
     (3, '/uploads/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool'),
