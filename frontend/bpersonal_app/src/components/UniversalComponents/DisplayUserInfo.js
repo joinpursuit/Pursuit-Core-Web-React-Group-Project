@@ -22,7 +22,7 @@ const DisplayUserInfo = () => {
       setUser(single_user);
     } catch (error) {
       setUser({});
-      console.log(error);
+      // console.log(error);
     }
   };
 
