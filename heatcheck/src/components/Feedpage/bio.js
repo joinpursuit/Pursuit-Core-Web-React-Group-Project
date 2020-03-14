@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Post from "./post";
-let id = 1;
+let id = 3;
 const styles = {
   img: {
     height: "100px",
     width: "100px",
     borderRadius: "50%",
-    border: " 5px solid red"
+    border: " 5px solid red",
+    objectFit: "cover"
   }
 };
 
@@ -16,11 +17,11 @@ const Bio = () => {
   // const didMount = useRef(false);
 
   const getcurrentUser = async () => {
-    const url = `http://localhost:3001/users/1`;
+    const url = `http://localhost:3001/users/3`;
     debugger;
     try {
       let res = await axios.get(url);
-      //   let user = res.data.message;
+      let user = res.data.message;
       setcurrentUser(res.data.message);
       debugger;
     } catch (error) {
@@ -33,13 +34,13 @@ const Bio = () => {
   }, []);
 
   const userBio = () => {
-    console.log("hi" + currentUser);
+    console.log(currentUser);
     return (
-      <div>
-        <img src="https://i.imgur.com/cMy8V5j.png" style={styles["img"]}></img>
-        <p>exxxxtra_loooong</p>
-        <p>syn</p>
-        <button>Profile</button>
+      <div id="bioDiv">
+        <img src={currentUser.profile_pic} style={styles["img"]}></img>
+        <p>Username: {currentUser.user_name}</p>
+        <p>Name:{currentUser.full_name}</p>
+        <button>profile</button>
       </div>
     );
   };
