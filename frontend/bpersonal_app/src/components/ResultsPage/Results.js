@@ -7,7 +7,7 @@ const Results = ({searchInput}) => {
     const fetchAllHashtagPosts = async (url) => {
             try {
               let res = await axios.get(url)
-              debugger
+              // debugger
             } catch (error) {
               console.log(error)  
             }
