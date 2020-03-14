@@ -25,13 +25,14 @@ const Posts = () => {
     return (
       <Post
         postID={post.id}
+        user_id={post.user_id}
         userName={post.user_name["0"]}
         shoeImg={post.image}
         key={post.id}
         brand={post.brand}
         description={post.description}
         release={post.release_date}
-        comments={post.comments}
+        comments={post.comment}
         commenterID={post.commenter}
         profilepic={post.profilepic["0"]}
         reaction={post.reaction}
