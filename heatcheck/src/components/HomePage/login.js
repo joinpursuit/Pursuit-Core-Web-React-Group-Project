@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from "axios"
 import {useInput} from "../../util/customHooks.js"
-import loginIcon from "./signIn.svg"
+import loginIcon from "./media/logo.svg"
 import "../../css/form.scss"
 
 
@@ -15,7 +15,14 @@ const Login = (props) => {
       let email = newEmail.value;
       let password = newPassword.value;
       let res = await axios.post("http://localhost:3001/users/login",{email, password});
-      console.log(res.data)
+      let status = res.data.status
+      let user = res.data.payload
+
+      if(status === "success"){
+        sessionStorage.setItem("userID", user.id)
+        let session = sessionStorage.getItem("userID")
+        console.log(session)
+      }
     } catch (err) {
       console.log(err);
     }
