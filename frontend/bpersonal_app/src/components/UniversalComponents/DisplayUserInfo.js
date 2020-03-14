@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useInput, useToggleShow } from "../../util/customHooks";
+import Upload from "./Upload";
 
 const DisplayUserInfo = () => {
   const [user, setUser] = useState({});
@@ -14,10 +15,12 @@ const DisplayUserInfo = () => {
   const bio = bioObj.value;
   const email = emailObj.value;
 
+  const toggleEditPicture = useToggleShow(false);
+  const [path, setPath] = useState("");
+
   const fetchData = async url => {
     try {
       let res = await axios.get(url);
-      //   debugger;
       const { single_user } = res.data.body;
       setUser(single_user);
     } catch (error) {
@@ -36,6 +39,20 @@ const DisplayUserInfo = () => {
     });
   };
 
+  const editProfilePicture = async () => {
+    if (path) {
+      try {
+        await axios.patch(`/users/profile_pic/${sessionStorage.userID}`, {
+          profile_pic_url: path
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("Please upload a valid image before updating");
+    }
+  };
+
   useEffect(() => {
     fetchData(`/users/${sessionStorage.userID}`);
   }, [user]);
@@ -46,7 +63,18 @@ const DisplayUserInfo = () => {
         src={user.profile_pic_url}
         style={{ width: "300px", height: "300px", borderRadius: "100%" }}
         alt="profile_pic"
+        onClick={toggleEditPicture.onClick}
       ></img>
+      {toggleEditPicture.showInsert ? (
+        <>
+          <br></br>
+          <Upload cb={setPath} />
+          <button id="editProfilePictureBtn" onClick={editProfilePicture}>
+            Update Profile Picture
+          </button>
+        </>
+      ) : null}
+
       <h1>{user.username}:</h1>
       <h2> {user.full_name}</h2>
       <h2>{user.bio}</h2>
