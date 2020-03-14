@@ -27,10 +27,6 @@ const SignUp = (props) => {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" placeholder="Password" required/>
           </div>
-          <div className="form-group">
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <input type="tel" name="phoneNumber" placeholder="Phone Number" required/>
-          </div>
         </div>
       </div>
       <div className="footer">
