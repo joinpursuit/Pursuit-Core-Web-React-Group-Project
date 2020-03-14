@@ -82,7 +82,7 @@ table {
     /* align-content: space-between; */
     /* float: right; */
 }
-img {
+#loginlogo {
     height: 100px;
     position: relative;
     left: 30%;
