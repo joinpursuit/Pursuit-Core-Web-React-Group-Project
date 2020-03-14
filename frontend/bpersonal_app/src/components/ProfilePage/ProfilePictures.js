@@ -17,7 +17,7 @@ const ProfilePictures = () => {
 
   useEffect(() => {
     fetchImgs(`http://localhost:3001/posts/ownerID/${sessionStorage.userID}`);
-  }, [images]);
+  }, []);
 
   const showImages = images.map((img, i) => {
     return <DisplayFeedImages img={img.post_image_url} key={i} />;
