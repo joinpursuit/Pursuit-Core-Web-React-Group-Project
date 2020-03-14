@@ -19,7 +19,8 @@ CREATE TABLE users
     email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
     phone_number BIGINT NOT NULL DEFAULT 0,
-    profile_pic VARCHAR NOT NULL DEFAULT ''
+    profile_pic VARCHAR NOT NULL DEFAULT '',
+    bio VARCHAR NOT NULL DEFAULT ''
 );
 
 -- Create Post Table
@@ -33,6 +34,7 @@ CREATE TABLE posts
     description VARCHAR NOT NULL,
     release_date VARCHAR NOT NULL,
     colorway VARCHAR NOT NULL,
+    tag VARCHAR NOT NULL,
     time_stamp timestamp DEFAULT CURRENT_TIMESTAMP 
 );
 
@@ -59,31 +61,31 @@ CREATE TABLE reactions
 
 -- CREATE TAGS TABLE
 
-CREATE TABLE tags
-(
-    id SERIAL PRIMARY KEY,
-    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
-    user_id INT REFERENCES users(id) ON DELETE CASCADE,
-    tag VARCHAR NOT NULL
-);
+-- CREATE TABLE tags
+-- (
+--     id SERIAL PRIMARY KEY,
+--     post_id INT REFERENCES posts(id) ON DELETE CASCADE,
+--     user_id INT REFERENCES users(id) ON DELETE CASCADE,
+--     tag VARCHAR NOT NULL
+-- );
 
 -- CREATE DUMMY DATA
 
 INSERT INTO users
-    (full_name, user_name, email, password, phone_number, profile_pic)
+    (full_name, user_name, email, password, phone_number, profile_pic, bio)
 VALUES
-    ('Syn', 'exxxxtra_loooong', 'synperez@pursuit.org' , 'short_stick', 8182308004, 'https://i.imgur.com/cMy8V5j.png'),
-    ('Dug', 'dougy_fresh', 'a@email.com', 'abcd1234', 8185550123, 'https://i.imgur.com/cMy8V5j.png'),
-    ('Kelvin', 'big_socks', 'b@email.com', '1234abcd', 8181234567, 'https://image.shutterstock.com/image-photo/headshot-successful-smiling-cheerful-african-260nw-567772042.jpg'),
-    ('Jay', 'fast_and_furious', 'c@email.com', 'awal123', 1183456789, 'https://i.kym-cdn.com/entries/icons/facebook/000/016/546/hidethepainharold.jpg');
+    ('Syn', 'exxxxtra_loooong', 'synperez@pursuit.org' , 'short_stick', 8182308004, 'https://i.imgur.com/7qQqJ2c.jpg', 'I love doggos.'),
+    ('Dug', 'dougy_fresh', 'a@email.com', 'abcd1234', 8185550123, 'https://i.imgur.com/cMy8V5j.png', 'I like eggs.'),
+    ('Kelvin', 'big_socks', 'b@email.com', '1234abcd', 8181234567, 'https://image.shutterstock.com/image-photo/headshot-successful-smiling-cheerful-african-260nw-567772042.jpg', 'Cotton socks only!'),
+    ('Jay', 'fast_and_furious', 'c@email.com', 'awal123', 1183456789, 'https://i.kym-cdn.com/entries/icons/facebook/000/016/546/hidethepainharold.jpg', 'Ponyo likes ham!');
 
 INSERT INTO posts
-    (user_id, image, brand, description, release_date, colorway)
+    (user_id, image, brand, description, release_date, colorway, tag)
 VALUES
-    (1, 'https://blog.finishline.com/wp-content/uploads/2019/03/Candy-Cane-1.png', 'nike', 'I''m ready for santa', '2001', 'red'),
-    (2, 'https://stockx.imgix.net/adidas-Yeezy-Boost-350-V2-Cloud-White-Product.jpg', 'adidas', 'Chick-fil-a, what she order', '1994', 'white'),
-    (3, 'https://i.redd.it/esnnznuench21.jpg', 'tims', 'What you know about tim bits?', '1987', 'red'),
-    (4, 'https://i.imgur.com/cOTe35I.jpg', 'crocs', 'you croc my world', '2018', 'black');
+    (1, 'https://blog.finishline.com/wp-content/uploads/2019/03/Candy-Cane-1.png', 'Nike', 'I''m ready for santa', '2001', 'red', 'Nike'),
+    (2, 'https://stockx.imgix.net/adidas-Yeezy-Boost-350-V2-Cloud-White-Product.jpg', 'Adidas', 'Chick-fil-a, what she order', '1994', 'white', 'Adidas'),
+    (3, 'https://i.redd.it/esnnznuench21.jpg', 'Tims', 'What you know about tim bits?', '1987', 'red', 'Tims'),
+    (4, 'https://i.imgur.com/cOTe35I.jpg', 'Crocs', 'you croc my world', '2018', 'black', 'Crocs');
 
 INSERT INTO comments
     (user_id, post_id, body)
@@ -101,10 +103,10 @@ VALUES
     (3, 2, 'cold'),
     (4, 3, 'cold');
 
-INSERT INTO tags
-    (post_id, user_id, tag)
-VALUES
-    (1, 1, 'nike'),
-    (2, 2, 'adidas'),
-    (3, 3, 'tims'),
-    (4, 4, 'crocs');
+-- INSERT INTO tags
+--     (post_id, user_id, tag)
+-- VALUES
+--     (1, 1, 'nike'),
+--     (2, 2, 'adidas'),
+--     (3, 3, 'tims'),
+--     (4, 4, 'crocs');
