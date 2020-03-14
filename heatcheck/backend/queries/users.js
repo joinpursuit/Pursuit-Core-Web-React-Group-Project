@@ -27,7 +27,6 @@ const getUserByid = async (req, res, next) => {
 };
 
 const logInUser = async (req, res, next) => {
-  console.log(req.body)
   try {
     let info = req.body
     let user = await dataBase.one(
@@ -39,10 +38,9 @@ const logInUser = async (req, res, next) => {
 };
 
 const addUser = async (req, res, next) => {
-  console.log(req.body);
   try {
     let user = await dataBase.one(
-      "INSERT INTO users (full_name,user_name,email,password,phone_number) VALUES (${full_name},${user_name}, ${email},${password},${phone_number}) RETURNING *",
+      "INSERT INTO users (full_name,user_name,email,password) VALUES (${full_name},${user_name}, ${email},${password}) RETURNING *",
       req.body
     );
     res.status(200).json({
