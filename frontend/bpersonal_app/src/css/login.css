@@ -43,12 +43,16 @@ table {
 }
 
 
-.login-container {
+/* .login-container { */
     /* display: flex; */
-}
+    /* background: rgb(200,200,200);
+    background: linear-gradient(90deg, rgba(200,200,200,0.9598214285714286) 0%, rgba(243,249,246,1) 100%);
+} */
 .leftSide {
-    background: rgb(198,198,203);
-    background: linear-gradient(90deg, rgba(198,198,203,1) 0%, rgba(243,249,246,0.9598214285714286) 100%);
+    background: rgb(255,188,0);
+    background: linear-gradient(90deg, rgba(255,188,0,1) 0%, rgba(243,249,246,1) 100%);
+    /* background: rgb(198,198,203);
+    background: linear-gradient(90deg, rgba(198,198,203,1) 0%, rgba(243,249,246,0.9598214285714286) 100%); */
     position: absolute;
     top: 0%;
     font-size: 60px;
@@ -64,8 +68,10 @@ table {
     /* float: left; */
 }
 .rightSide {
-    background: rgb(243,249,246);
-    background: linear-gradient(90deg, rgba(243,249,246,1) 0%, rgba(243,249,246,0.9598214285714286) 100%);
+    background: rgb(255,188,0);
+    background: linear-gradient(90deg, rgba(255,188,0,1) 0%, rgba(243,249,246,1) 0%);
+    /* background: rgb(243,249,246);
+    background: linear-gradient(90deg, rgba(243,249,246,1) 0%, rgba(255,188,0,1) 100%); */
     position: absolute;
     right: 0%;
     width: 50%;
