@@ -26,15 +26,16 @@ const Results = (props) => {
         fetchAllHashtagPosts(`/posts/hashtag/${search}`)
     }, [])
 
-    const showImages = allHashtagPosts.map((img, i) => {
-      return <DisplayFeedImages img={img.post_image_url} key={i} />;
+    
+    const showPosts = allHashtagPosts.map((post, i) => {
+      return <DisplayFeedImages img={post.post_image_url} post_body={post.post_body} timestamp={post.timestamp} hashtag_body={post.hashtag_body} key={i} />;
     });
 
     return (
         <div className={"displayResults"}>
         <h2>SEARCH RESULTS</h2>
         <br></br>
-        {showImages}
+        {showPosts}
         <button>Go Back</button>
         </div>
     )
