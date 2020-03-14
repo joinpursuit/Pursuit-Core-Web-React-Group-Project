@@ -27,8 +27,8 @@ const LogoutButton = () => {
         <input type="text" placeholder={"Search for hashtags here !"} {...searchInputObj}></input>
           <Link to={"/results"}><button type="submit">Search</button> </Link>
       </form>
-      <NavLink to={"/feedpage"}>FEED</NavLink>
-      <NavLink to={"/profilepage"}>
+      <NavLink exact to={"/feedpage"}>FEED</NavLink>
+      <NavLink exact to={"/profilepage"}>
         PROFILE
       </NavLink>
       <LogoutButton/>

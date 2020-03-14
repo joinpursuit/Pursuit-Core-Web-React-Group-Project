@@ -62,7 +62,9 @@ const LoginPage = () => {
     if(!isSignUpForm) {
       return (
         <div className="login-container">
+          <Animated animationIn="fadeInLeft" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>
           <LeftSideLogin/>
+          </Animated>
           <div className="rightSide">
             <Animated animationIn="fadeInRight" animationOut="fadeOutLeft" animationInDuration={2500} animationOutDuration={2500} isVisible={true}>
             <img src={LogoImage}  alt="" ></img>
@@ -85,8 +87,6 @@ const LoginPage = () => {
     } else {
       return (
         <div className="login-container">
-          {/* <LoginHeader/> */}
-          {/* debugger */}
           <LeftSideLogin/>
           <div className="rightSide">
             <Animated animationIn="fadeInRight" animationOut="fadeOutRight" animationInDuration={2500} animationOutDuration={1400} isVisible={true}>

@@ -44,18 +44,34 @@ table {
 
 
 .login-container {
-    display: flex;
+    /* display: flex; */
 }
 .leftSide {
-    background-color: rgb(245, 245, 245);
-    flex: 1 auto;
-    max-height: auto;
+    background: rgb(198,198,203);
+    background: linear-gradient(90deg, rgba(198,198,203,1) 0%, rgba(243,249,246,0.9598214285714286) 100%);
+    position: absolute;
+    top: 0%;
     font-size: 60px;
     font-family: fantasy;
+    bottom: 0;
+    width: 50%;
+    text-align: center;
+    text-justify: auto;
+    /* text-align: justify; */
+    /* flex: 1 auto; */
+    /* max-height: auto; */
+    /* height: 100%; */
     /* float: left; */
 }
 .rightSide {
-    flex: 1 auto;
+    background: rgb(243,249,246);
+    background: linear-gradient(90deg, rgba(243,249,246,1) 0%, rgba(243,249,246,0.9598214285714286) 100%);
+    position: absolute;
+    right: 0%;
+    width: 50%;
+    top: 0%;
+    bottom: 0;
+    /* flex: 1 auto; */
     /* justify-content: space-evenly; */
     /* align-content: space-between; */
     /* float: right; */
