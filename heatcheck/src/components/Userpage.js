@@ -1,9 +1,8 @@
 import Posts from "./posts";
 import Bio from "./bio";
-import Reactions from "./reactions";
 import "../../css/feedpage.css";
 import React, { Component } from "react";
-let url = "http://localhost:3001/posts";
+let url = "http://localhost:3001/posts/:id";
 
 const FeedPage = () => {
   return (
@@ -16,7 +15,6 @@ const FeedPage = () => {
       <div class="bioContainer">
         <Bio />
       </div>
-      <Reactions />
       {/* </div> */}
       <div class="postContainer"> </div>
       <div class="footerContainer"> </div>

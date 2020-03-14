@@ -17,13 +17,12 @@ const Bio = () => {
   // const didMount = useRef(false);
 
   const getcurrentUser = async () => {
-    const url = `http://localhost:3001/users/3`;
-    debugger;
+    const url = `http://localhost:3001/users/1`;
+
     try {
       let res = await axios.get(url);
       let user = res.data.message;
       setcurrentUser(res.data.message);
-      debugger;
     } catch (error) {
       setcurrentUser([]);
     }
@@ -38,8 +37,16 @@ const Bio = () => {
     return (
       <div id="bioDiv">
         <img src={currentUser.profile_pic} style={styles["img"]}></img>
-        <p>Username: {currentUser.user_name}</p>
-        <p>Name:{currentUser.full_name}</p>
+        <p>
+          <strong>Name</strong>
+          {currentUser.full_name}
+        </p>
+        <p>
+          <strong>Username</strong> {currentUser.user_name}
+        </p>
+        <p>
+          <strong>Bio:</strong> {currentUser.bio}
+        </p>
         <button>profile</button>
       </div>
     );

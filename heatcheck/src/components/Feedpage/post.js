@@ -52,13 +52,20 @@ const Post = ({
   comments
 }) => {
   const [showComments, setshowComments] = useState(false);
-
+  const handImgClick = () => {
+    console.log(user_id);
+  };
   const displayPost = () => {
     // let brand = brand.toUpperCase();
     return (
       <>
         <div id="userPost" style={styles["#userPost"]}>
-          <img src={profilepic} id="profilepic" style={styles["#profilepic"]} />
+          <img
+            src={profilepic}
+            id="profilepic"
+            style={styles["#profilepic"]}
+            onClick={handImgClick}
+          />
           <p id="userName" style={styles["#userName"]}>
             {userName}
           </p>
