@@ -3,6 +3,7 @@
     background-position: center;
     background-size: 100% auto;
     height: 100vh;
+    background-image: image("");
 }
 
 input {
@@ -10,12 +11,4 @@ input {
     background-color: linen;
 }
 
-button{
-    width:100%;
-    color: lightslategray;
-}
 
-button.hover {
-    background-color: #E99332;
-    color: white;
-}
