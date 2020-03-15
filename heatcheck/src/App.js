@@ -3,10 +3,7 @@ import Feedpage from "./components/Feedpage/feedPage";
 import Friendpage from "./components/friendpage";
 import Userpage from "./components/Userpage";
 import HomePage from "./components/HomePage/homePage";
-import Login from "./components/HomePage/login";
-import SignUp from "./components/HomePage/signup";
-import NavBar from "./components/Feedpage/nav_bar";
-import { Route, Switch, Link, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import UploadPost from "./components/Feedpage/uploadPost";
 import SearchBar from "./components/Feedpage/searchBar";
 
@@ -15,14 +12,22 @@ import TrendingReactions from "./components/Feedpage/trending";
 function App() {
   return (
     <div className="App">
-      {/* <Feedpage path/> */}
-      {/* <SearchBar/>
-      
-      <NavBar/> */}
+      <Switch>
+    <Route exact path={"/"}>
+      <HomePage/>
+    </Route>
+    <Route path={"/feed"}>
+    <Feedpage/>
+    </Route>
+      {/* <SearchBar/> */}
+      {/* <NavBar/> */}
       {/* <Userpage />  */}
-      {/* <HomePage /> */}
-      {/* <TrendingReactions/>  */}
+      {/* <TrendingReactions/> */}
       {/* <UploadPost/> */}
+        <div>
+          404 Error
+        </div>
+      </Switch>
     </div>
   );
 }

@@ -103,10 +103,11 @@ const Post = ({
         <img src={shoeImg} alt={""} style={styles.img} />
         <br></br>
 
-        <Reactions id={postID} />
+        {/* <Reactions id={postID} /> */}
         <p id="brand" style={styles["#brand"]}>
           <strong>Brand: </strong>
           {brand}
+          <br/>
           <strong>Release:</strong> {release}
         </p>
         <p style={styles["#brand"]}>

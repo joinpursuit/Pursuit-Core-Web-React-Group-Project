@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useInput } from "../../util/customHooks.js";
-import { useHistory } from "react-router-dom";
-import loginIcon from "./media/logo.svg";
-import "../../css/form.scss";
 
-const Login = props => {
-  let history = useHistory();
-  const newEmail = useInput("");
-  const newPassword = useInput("");
-  const [loginError, setLoginError] = useState(false);
+import React, {useState} from 'react';
+import {useHistory} from "react-router-dom"
+import axios from "axios"
+import {useInput} from "../../util/customHooks.js"
+import loginIcon from "./media/logo.svg"
+import "../../css/form.scss"
 
-  const handleSubmit = async e => {
+const Login = (props) => {
+  const history = useHistory()
+  const newEmail = useInput("")
+  const newPassword = useInput("")
+  const [loginError, setLoginError] = useState(false)
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       let email = newEmail.value;
@@ -23,10 +24,10 @@ const Login = props => {
       let status = res.data.status;
       let user = res.data.payload;
 
-      if (status === "success") {
-        sessionStorage.setItem("userID", user.id);
-        let session = sessionStorage.getItem("userID");
-        history.push("/feedpage");
+
+      if(status === "success"){
+        sessionStorage.setItem("userID", user.id)
+        history.push("/feed")
       } else {
         setLoginError(true);
       }
