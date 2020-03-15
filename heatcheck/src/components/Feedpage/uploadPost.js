@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useInput } from "../../util/customHooks";
+import "../../css/uploadPost.css"
 
 export default function UploadPost() {
   const userId = useInput("");
