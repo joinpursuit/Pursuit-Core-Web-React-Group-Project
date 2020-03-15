@@ -38,7 +38,7 @@ const Bio = () => {
       <div id="bioDiv">
         <img src={currentUser.profile_pic} style={styles["img"]}></img>
         <p>
-          <strong>Name</strong>
+          <strong>Name: </strong>
           {currentUser.full_name}
         </p>
         <p>

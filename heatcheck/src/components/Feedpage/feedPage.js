@@ -31,7 +31,7 @@ const FeedPage = () => {
       <div class="headerContainer"> </div>
       {/* <div class="contentWarp"> */}
       <div class="feedContainer">
-        <Posts allposts={allposts} />
+        <Posts allposts={allposts} getAllposts={getAllposts} />
       </div>
       <div class="bioContainer">
         <Bio />

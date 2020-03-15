@@ -14,7 +14,8 @@ const styles = {
   reactionDiv: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    margin: "unset"
   }
 };
 
