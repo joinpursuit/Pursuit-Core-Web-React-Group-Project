@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import '../../css/profile.css'; 
 import DisplayFeedImages from "./DisplayFeedImages";
 import axios from "axios";
 
@@ -21,7 +20,7 @@ const ProfilePictures = () => {
   }, []);
 
   const showImages = images.map((img, i) => {
-    return <DisplayFeedImages img={img.post_image_url} key={i} />;
+    return <DisplayFeedImages img={img.post_image_url} key={i}/>;
   });
 
   return <div className="newsFeed">{showImages}</div>;
