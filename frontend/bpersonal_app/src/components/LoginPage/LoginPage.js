@@ -49,40 +49,44 @@ const LoginPage = () => {
     } else {
       signMeUp()
     }
-    const signMeUp = async () => {
-      try {
-        let res = await axios.get(`/users/search/${userName}`);
-        let { body } = res.data;
-
-        if (body) {
-          setErrorMessage("User already exists please log in")
-        } else {
-          await axios.post("/users/addUser", {
-            username: userName,
-            password: password,
-            full_name: fullName,
-            email_address: email,
-            profile_pic_url: "",
-            bio: bio
-          });
-          setErrorMessage("Thank you for signing up")
-          console.log("Thank you for creating an account");
-          setLoggedIn(true)
-          sessionStorage.userID = body.user.id;
-          setTimeout(function() {
-          window.location.href = "/feedpage";
-          window.location.href.reload();
-        }, []);
-          
-      }
-        
-    } catch (error) {
-        setErrorMessage("user doesnt exist ")
-    } 
-
-    }
     
   };
+  const signMeUp = async (e) => {
+    e.preventDefault()
+    try {
+      let res = await axios.get(`/users/search/${userName}`);
+      let { body } = res.data;
+
+      if (body) {
+        setErrorMessage("User already exists please log in")
+      } else {
+        await axios.post("/users/addUser", {
+          username: userName,
+          password: password,
+          full_name: fullName,
+          email_address: email,
+          profile_pic_url: "",
+          bio: bio
+        });
+        setErrorMessage("Thank you for signing up")
+        console.log("Thank you for creating an account");
+        console.log(body.user.id);
+        await axios.get(`/users/search/${userName}`);
+        setLoggedIn(true)
+        sessionStorage.userID = body.user.id;
+        setTimeout(function() {
+        window.location.href = "/feedpage";
+        window.location.href.reload();
+      }, []);
+        
+    }
+      
+  } catch (error) {
+      setErrorMessage("user doesnt exist ")
+  } 
+
+}
+
   if (!isSignUpForm) {
     return (
       <div className="login-container">
@@ -185,6 +189,7 @@ const LoginPage = () => {
               <br />
               <button onClick={signUpForm}> Log In </button>
             </form>
+            <h5>{errorMessage}</h5>
           </Animated>
         </div>
       </div>
