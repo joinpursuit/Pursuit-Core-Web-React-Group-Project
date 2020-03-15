@@ -93,9 +93,9 @@ const Hashtags = ({ id }) => {
       {ownerStatus ? (
         <>
           <button id="insertHashtagBtn" onClick={toggleInsertObj.onClick}>
-            Add #
+            Add #Tag
           </button>
-          <button onClick={toggleEditBtnsObj.onClick}>Delete #</button>
+          <button onClick={toggleEditBtnsObj.onClick}>Delete #Tag</button>
         </>
       ) : null}
       {toggleInsertObj.showInsert ? (

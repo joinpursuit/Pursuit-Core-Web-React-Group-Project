@@ -44,28 +44,49 @@ const LoginPage = () => {
 
   const handleSignUp = async e => {
     e.preventDefault();
-    let res = await axios.get(`/users/search/${userName}`);
-
-    let { body } = res.data;
-
-    if (
-      userName === "" ||
-      !isNaN(userName) ||
-      body.user.username === userName
-    ) {
-      console.log("This is an invalid username");
+    if (userName === "" || password === "" || fullName === "" || email === "" || bio === ""){
+      setErrorMessage("Please fill out all inputs")
     } else {
-      console.log("Thank you for creating an account");
-      await axios.post("/users/addUser", {
-        username: userName,
-        password: password,
-        full_name: fullName,
-        email_address: email,
-        profile_pic_url: "",
-        bio: bio
-      });
+      signMeUp()
     }
+    
   };
+  const signMeUp = async (e) => {
+    e.preventDefault()
+    try {
+      let res = await axios.get(`/users/search/${userName}`);
+      let { body } = res.data;
+
+      if (body) {
+        setErrorMessage("User already exists please log in")
+      } else {
+        await axios.post("/users/addUser", {
+          username: userName,
+          password: password,
+          full_name: fullName,
+          email_address: email,
+          profile_pic_url: "",
+          bio: bio
+        });
+        setErrorMessage("Thank you for signing up")
+        console.log("Thank you for creating an account");
+        console.log(body.user.id);
+        await axios.get(`/users/search/${userName}`);
+        setLoggedIn(true)
+        sessionStorage.userID = body.user.id;
+        setTimeout(function() {
+        window.location.href = "/feedpage";
+        window.location.href.reload();
+      }, []);
+        
+    }
+      
+  } catch (error) {
+      setErrorMessage("user doesnt exist ")
+  } 
+
+}
+
   if (!isSignUpForm) {
     return (
       <div className="login-container">
@@ -84,8 +105,8 @@ const LoginPage = () => {
             animationOut="fadeOutLeft"
             animationInDuration={2500}
             animationOutDuration={2500}
-            isVisible={true}
-          >
+            isVisible={true}>
+
             <img id="loginlogo" src={LogoImage} alt=""></img>
             <form className="loginsignup">
               <input
@@ -126,7 +147,7 @@ const LoginPage = () => {
             animationOutDuration={1400}
             isVisible={true}
           >
-            <img className="loginlogo" src={LogoImage} alt=""></img>
+            <img id="loginlogo" src={LogoImage} alt=""></img>
             <form className="loginsignup">
               <input
                 type="text"
@@ -168,6 +189,7 @@ const LoginPage = () => {
               <br />
               <button onClick={signUpForm}> Log In </button>
             </form>
+            <h5>{errorMessage}</h5>
           </Animated>
         </div>
       </div>

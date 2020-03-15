@@ -34,7 +34,7 @@ const NavBar = () => {
             <input
               id="searchInput"
               type="text"
-              placeholder={"Search"}
+              placeholder={"Search by Hashtags"}
               {...searchInputObj}
             ></input>
             <Link to={`/results/${searchInput}`}>
