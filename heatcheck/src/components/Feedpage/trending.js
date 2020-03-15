@@ -13,7 +13,7 @@ const TrendingReactions = () => {
                 setTrend([]);
             }
         }
-        trending("http://localhost:3001/tags/trending")
+        trending("http://localhost:3001/posts/trending")
     }, [])
 
     const trendingDisplay =  trend.map(el => {
