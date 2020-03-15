@@ -76,7 +76,11 @@ VALUES
     (3, '/uploads/62490637_2734115156617939_6992105001522823168_o.jpg', 'Posted up on this stool'),
     (1, '/uploads/cabin.JPG', 'Cingular, raising the bar.'),
     (1, '/uploads/yuki.jpg', 'This is my doge'),
-    (1, '/uploads/yuki_beach.JPG', 'This is my doge on the beach');
+    (1, '/uploads/yuki_beach.JPG', 'This is my doge on the beach'),
+    (4,'/uploads/Physical_Grafitti.jpg', '96 St. Marks Place. Led Zeppelin. If you know you know'),
+    (4,'/uploads/summer_Days.jpg', 'summer days series in the park'),
+    (4,'/uploads/bullit.jpg','call Bullit');
+
 
 INSERT INTO comments
     (author_id, post_id, content)
