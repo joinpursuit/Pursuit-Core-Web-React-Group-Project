@@ -111,7 +111,7 @@ export default function UploadPost() {
         />
         <input type="text" placeholder="colorway" required {...colorway} />
         <input type="text" placeholder="tag" required {...tag} />
-        <input type="submit" />
+        <button value="Submit" type="submit" />
       </form>
       <div>
         {loading ? (
@@ -122,4 +122,5 @@ export default function UploadPost() {
       </div>
     </div>
   );
+
 }
