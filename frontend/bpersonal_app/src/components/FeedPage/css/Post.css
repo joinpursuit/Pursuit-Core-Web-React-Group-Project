@@ -3,11 +3,12 @@
   grid-area: auto;
   margin: auto;
   justify-content: space-evenly;
-  align-content: center;
-  border: 2px solid black;
+  align-items: center;
+  border-top: 5px solid black;
 }
 
 #post_image {
+  border-radius: 5px;
   align-self: center;
 }
 
