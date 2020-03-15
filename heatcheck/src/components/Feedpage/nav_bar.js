@@ -1,8 +1,6 @@
+import React from 'react';
+import { NavLink, Route, Switch } from 'react-router-dom';
 
-import React, { useState, useEffect } from 'react';
-
-import { NavLink } from 'react-router-dom';
-//
 
 class NavBar extends React.Component{
     
@@ -11,15 +9,14 @@ class NavBar extends React.Component{
         return(
             <>
             <nav>
-                <NavLink exact to={"/post"}>Make A post</NavLink>
-                <NavLink exact to={"/feedPage"}>Home Feed</NavLink>
-                <NavLink exact to={"/homePage"}>Home Page</NavLink>
+                <NavLink exact to={"/posts"}>Posts</NavLink>
+                <NavLink exact to={"/comment-form"}>Log In</NavLink>
+                <NavLink exact to={"/homepage"}>Home</NavLink>
+                <NavLink exact to={"/upload"}>Upload</NavLink>
             </nav>
             </>
         )
     }
-
 }
 
-
-export default Navbar;
+export default NavBar;
