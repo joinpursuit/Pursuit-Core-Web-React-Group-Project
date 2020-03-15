@@ -10,9 +10,9 @@ const DisplayFeedImages = ({img, post_body, timestamp, hashtag_body}) => {
     timestamp = new Date();
     const date = timestamp.toDateString();
     return (
-        <div className={"feedImgs"}>
+        <div className="feedImgs">
             <h1>{date}</h1>
-            <img src={img} alt={" "} style={styles.img}/>
+            <img src={img} alt={" "} style={styles.img} id="post_Image"/>
             <h2>{post_body}</h2>
             <p>{hashtag_body}</p>
         </div>

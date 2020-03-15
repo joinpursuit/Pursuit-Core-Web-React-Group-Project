@@ -20,7 +20,7 @@ const ProfilePictures = () => {
   }, []);
 
   const showImages = images.map((img, i) => {
-    return <DisplayFeedImages img={img.post_image_url} key={i} />;
+    return <DisplayFeedImages img={img.post_image_url} key={i}/>;
   });
 
   return <div className="newsFeed">{showImages}</div>;

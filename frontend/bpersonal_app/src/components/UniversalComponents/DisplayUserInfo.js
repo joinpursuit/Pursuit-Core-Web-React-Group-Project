@@ -59,7 +59,7 @@ const DisplayUserInfo = () => {
   return (
     <section id="displayUser">
       <div id="profilePicture">
-        <div class="profilePictureEditContainer">
+        <div className="profilePictureEditContainer">
           <img
             id="profilePictureImg"
             src={user.profile_pic_url}
@@ -67,7 +67,7 @@ const DisplayUserInfo = () => {
             alt="profile_pic"
             onClick={toggleEditPicture.onClick}
           ></img>
-          <span class="profilePictureEditText">Edit Profile Picture</span>
+          <span className="profilePictureEditText">Edit Profile Picture</span>
         </div>
         {toggleEditPicture.showInsert ? (
           <>

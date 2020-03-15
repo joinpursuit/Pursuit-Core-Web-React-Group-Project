@@ -57,7 +57,7 @@ const Comments = ({ id }) => {
             fontSize: "18px"
           }}
         >
-          <p class="commenter">
+          <p className="commenter">
             <strong>{comment.username}</strong>
           </p>{" "}
           commented '{comment.content}'
@@ -81,7 +81,7 @@ const Comments = ({ id }) => {
             fontSize: "18px"
           }}
         >
-          <p class="commenter">
+          <p className="commenter">
             <strong>{comment.username}</strong>
           </p>{" "}
           commented '{comment.content}'

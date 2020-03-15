@@ -26,14 +26,15 @@ const NavBar = () => {
   };
   return (
     <>
-      <header>
+      <header id="headerNav">
         <img src={LogoImage} id="navImage" />
 
         <nav>
           <form className={"search"} onSubmit={handleSearchInput}>
             <input
+              id="searchInput"
               type="text"
-              placeholder={"Search for hashtags here !"}
+              placeholder={"Search by Hashtags"}
               {...searchInputObj}
             ></input>
             <Link to={`/results/${searchInput}`}>
