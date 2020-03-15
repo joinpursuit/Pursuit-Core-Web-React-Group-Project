@@ -1,6 +1,7 @@
 import Posts from "./posts";
 import Bio from "./bio";
 import "../../css/feedpage.css";
+import "../../css/uploadPost.css"
 import React, { Component } from "react";
 
 class FeedPage extends Component {
