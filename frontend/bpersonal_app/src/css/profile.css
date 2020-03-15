@@ -1,38 +1,44 @@
 .profile {
-    /* display: flex; */
-    display: flex;
-    flex-direction: row;
-    /* background-color: whitesmoke; */
-    background: rgb(255,188,0);
-    background: linear-gradient(90deg, rgba(255,188,0,1) 0%, rgba(243,249,246,1) 0%);
-    border-style: outset;
-    flex-wrap: wrap;
-    position: relative;
-    justify-content: space-around;
+  /* display: flex; */
+  display: flex;
+  flex-direction: row;
+  /* background-color: whitesmoke; */
+  background: rgb(255, 188, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 188, 0, 1) 0%,
+    rgba(243, 249, 246, 1) 0%
+  );
+  border-style: outset;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-around;
 }
 
-
-#displayUser {
-    padding-top: 8%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.profileInfo {
+  padding: 25px;
+  margin-top: 5%;
+  background: rgb(255, 188, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 188, 0, 1) 0%,
+    rgba(243, 249, 246, 1) 0%
+  );
 }
 
-#profilePicture{
-/* display: flex;
+#profilePicture {
+  /* display: flex;
 flex-direction: column; */
 }
 
-
-#displayUserInfo{
-/* display: flex;
+#displayUserInfo {
+  /* display: flex;
 flex-direction: column; */
 }
 
 #post_Image {
-    margin-bottom: 25px;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 6px 6px 6px gold;
+  margin-bottom: 25px;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 6px 6px 6px gold;
 }
