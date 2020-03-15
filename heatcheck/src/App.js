@@ -18,8 +18,8 @@ function App() {
       <Feedpage />
       <NavBar/> */}
       {/* <Userpage />  */}
-      <HomePage />
-      {/* <TrendingReactions/> */}
+      {/* <HomePage /> */}
+      <TrendingReactions/>
       {/* <UploadPost/> */}
     </div>
   );
