@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Post from "./post";
 
-const Posts = ({ allposts }) => {
+const Posts = ({ allposts, getAllposts }) => {
   // const [allposts, setallposts] = useState([]);
   // // const didMount = useRef(false);
 
@@ -16,7 +16,7 @@ const Posts = ({ allposts }) => {
   // };
 
   // useEffect(() => {
-  //   getAllposts();
+
   // }, []);
 
   let allpost = allposts.map(post => {
@@ -35,6 +35,9 @@ const Posts = ({ allposts }) => {
         profilepic={post.profilepic["0"]}
         reaction={post.reaction}
         reaction={post.reactor}
+        colorway={post.colorway}
+        tag={post.tag}
+        getAllposts={getAllposts}
       />
     );
   });

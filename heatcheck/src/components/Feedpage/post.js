@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Comments from "./comment";
 import Reactions from "./reactions";
 import axios from "axios";
+import { string } from "prop-types";
 let currentUserID = 1;
 const styles = {
   img: {
@@ -66,7 +67,10 @@ const Post = ({
   reaction,
   reactor,
   user_id,
-  comments
+  comments,
+  tag,
+  colorway,
+  getAllposts
 }) => {
   const [showComments, setshowComments] = useState(false);
   const handImgClick = () => {
@@ -102,7 +106,15 @@ const Post = ({
         <Reactions id={postID} />
         <p id="brand" style={styles["#brand"]}>
           <strong>Brand: </strong>
-          {brand} <strong>Release:</strong> {release}
+          {brand}
+          <strong>Release:</strong> {release}
+        </p>
+        <p style={styles["#brand"]}>
+          <strong>Colorway: </strong>
+          {colorway}
+        </p>
+        <p style={styles["#brand"]}>
+          <strong>tags:</strong>#{tag}
         </p>
         <p id="description" style={styles["#description"]}>
           <strong>{userName}:</strong>
@@ -124,6 +136,7 @@ const Post = ({
     let id = e.target.id;
     try {
       let res = await axios.delete(`http://localhost:3001/posts/${id}`);
+      getAllposts();
     } catch (error) {
       console.log(error);
     }
