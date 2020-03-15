@@ -5,34 +5,38 @@ import axios from "axios";
 let currentUserID = 1;
 const styles = {
   img: {
-    height: "350px",
+    height: "300px",
     width: "350px",
     // borderRadius: "5%",
-
     objectFit: "cover"
   },
 
   "#userName": {
     width: "200px",
-    textAlign: "center",
-    fontWeight: "bolder"
+    textAlign: "start",
+    fontWeight: "bolder",
+    marginTop: "unset"
   },
-  "#user": {
-    display: "flex"
+  "#userPost": {
+    display: "flex",
+    marginRight: "auto"
   },
   ".post": {
-    border: "2px solid",
+    border: "1px solid",
     borderColor: "black",
     borderRadius: "10px",
     width: "350px",
     textAlign: "center",
     marginBottom: "10px",
     backgroundColor: "#302E2E",
-    color: "grey"
+    color: "grey",
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 black"
   },
-  "#userPost": {
+  "#bannerPost": {
     display: "flex",
+    flexDirection: "row",
     alignItems: "center"
+    // backgroundColor: "pink"
   },
   "#profilepic": {
     display: "flex",
@@ -40,9 +44,14 @@ const styles = {
     height: "25px",
     width: "25px",
     borderRadius: "50%",
-    border: "2px solid",
-    borderColor: "black",
-    hover: "white"
+    border: "1px solid",
+    borderColor: "black"
+  },
+  "#brand": {
+    margin: "unset"
+  },
+  "#description": {
+    margin: "unset"
   }
 };
 
@@ -67,17 +76,20 @@ const Post = ({
     // let brand = brand.toUpperCase();
     return (
       <>
-        <div id="userPost" style={styles["#userPost"]}>
-          <img
-            src={profilepic}
-            id="profilepic"
-            style={styles["#profilepic"]}
-            onClick={handImgClick}
-          />
+        <div id="bannerPost" style={styles["#bannerPost"]}>
+          <div id="userPost" style={styles["#userPost"]}>
+            <img
+              src={profilepic}
+              id="profilepic"
+              style={styles["#profilepic"]}
+              onClick={handImgClick}
+            />
 
-          <p id="userName" style={styles["#userName"]}>
-            {userName}
-          </p>
+            <p id="userName" style={styles["#userName"]}>
+              {userName}
+            </p>
+          </div>
+
           {user_id === currentUserID ? (
             <button id={postID} onClick={handleDelete}>
               ❌
@@ -86,12 +98,15 @@ const Post = ({
         </div>
         <img src={shoeImg} alt={""} style={styles.img} />
         <br></br>
+
         <Reactions id={postID} />
-        <p>
-          Brand: {brand} Release: {release}
+        <p id="brand" style={styles["#brand"]}>
+          <strong>Brand: </strong>
+          {brand} <strong>Release:</strong> {release}
         </p>
-        <p>
-          {userName}:{description}
+        <p id="description" style={styles["#description"]}>
+          <strong>{userName}:</strong>
+          {description}
         </p>
       </>
     );
@@ -113,7 +128,6 @@ const Post = ({
       console.log(error);
     }
   };
-
   //   console.log(showComments);
   return (
     <>
@@ -125,7 +139,7 @@ const Post = ({
             showModal();
           }}
         >
-          show all {comments.length} comments
+          show all comments
         </button>
         <br></br>
         {showComments ? <Comments postID={postID} /> : null}

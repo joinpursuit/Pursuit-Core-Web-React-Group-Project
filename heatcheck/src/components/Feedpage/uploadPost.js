@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useInput } from "../../util/customHooks";
 
-export default function UploadPost() {
+export default function UploadPost({ getAllposts }) {
   const userId = useInput("");
   const brand = useInput("");
   const description = useInput("");
@@ -67,6 +67,7 @@ export default function UploadPost() {
         colorway: colorway.value,
         tag: newtag
       });
+      getAllposts();
     } catch (error) {
       console.log(error);
     }
@@ -113,13 +114,15 @@ export default function UploadPost() {
         <input type="text" placeholder="tag" required {...tag} />
         <input type="submit" />
       </form>
-      <div>
-        {loading ? (
-          <p>loading</p>
-        ) : (
-          <img style={{ width: "100px", height: "100px" }} src={image} />
-        )}
-      </div>
+      {image ? (
+        <div>
+          {loading ? (
+            <p>loading</p>
+          ) : (
+            <img style={{ width: "100px", height: "100px" }} src={image} />
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

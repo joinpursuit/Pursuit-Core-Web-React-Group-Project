@@ -1,11 +1,29 @@
-//comments
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import CommentForm from "./CommentForm";
+import { useInput } from "../../util/customHooks";
+
 let user_id = 1;
 
 const Comments = ({ postID }) => {
+  const newComment = useInput("");
   const [allPostComments, setallPostComments] = useState([]);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    let body = newComment.value;
+
+    let user_id = 1;
+    try {
+      let res = await axios.post(
+        `http://localhost:3001/comments/${e.target.id}`,
+        { body, user_id }
+      );
+      getcomments(e.target.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const getcomments = async postID => {
     let ID = postID.postID;
@@ -14,6 +32,7 @@ const Comments = ({ postID }) => {
     try {
       let res = await axios.get(url);
       setallPostComments(res.data.payload);
+      console.log(res.data.payload);
     } catch (error) {
       setallPostComments([]);
     }
@@ -67,7 +86,11 @@ const Comments = ({ postID }) => {
     <>
       <p>comments</p>
       <ul>{displaycomments()} </ul>
-      <CommentForm postID={postID} />
+      <CommentForm
+        postID={postID}
+        handleSubmit={handleSubmit}
+        newComment={newComment}
+      />
     </>
   );
 };

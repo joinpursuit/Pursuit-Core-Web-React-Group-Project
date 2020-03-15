@@ -5,7 +5,11 @@ const styles = {
     height: "25px",
     width: "25px",
     borderRadius: "50%",
-    backgroundColor: "grey"
+    backgroundColor: "grey",
+    borderColor: "black",
+    ":hover": {
+      color: "pink"
+    }
   },
   reactionDiv: {
     display: "flex",
