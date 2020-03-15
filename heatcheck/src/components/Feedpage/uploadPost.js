@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useInput } from "../../util/customHooks";
+//import "../../css/uploadPost.css"
 
 export default function UploadPost() {
     const userId = useInput("")
@@ -65,7 +66,7 @@ export default function UploadPost() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <input type="file" name ="file" onInput={fileSelectHandle} required {...postPic}/>
                 {loading ? <p>loading</p> : <img style={{ width: "100px", height: "100px"}}  src={image}/>}
                 <br/>

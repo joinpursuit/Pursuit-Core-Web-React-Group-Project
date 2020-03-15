@@ -23,7 +23,6 @@ const Bio = () => {
       let res = await axios.get(url);
       let user = res.data.message;
       setcurrentUser(res.data.message);
-      debugger;
     } catch (error) {
       setcurrentUser([]);
     }
