@@ -11,30 +11,23 @@
     justify-content: space-around;
 }
 
-.profileInfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: relative;
-    background-color: white;
-    border-style: outset;  
-}
-
 
 #displayUser {
+    padding-top: 8%;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 #profilePicture{
-display: flex;
-flex-direction: column;
+/* display: flex;
+flex-direction: column; */
 }
 
 
 #displayUserInfo{
-display: flex;
-flex-direction: column;
+/* display: flex;
+flex-direction: column; */
 }
 
 #post_Image {
