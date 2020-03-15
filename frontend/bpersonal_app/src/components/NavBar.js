@@ -34,11 +34,11 @@ const NavBar = () => {
             <input
               id="searchInput"
               type="text"
-              placeholder={"Search"}
+              placeholder={"Search by Hashtags"}
               {...searchInputObj}
             ></input>
             <Link to={`/results/${searchInput}`}>
-              <button type="submit">Search Hashtags</button>{" "}
+              <button type="submit">Search</button>{" "}
             </Link>
           </form>
           <section id="feed">

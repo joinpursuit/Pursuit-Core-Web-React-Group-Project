@@ -2,11 +2,20 @@ h1 {
   font-size: 40px;
   font-weight: bold;
   margin: 25px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 25px;
   font-style: italic;
+}
+
+p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .Feed {
@@ -138,7 +147,9 @@ h2 {
 }
 
 li {
+  font-family: Arial, Helvetica, sans-serif;
   margin: 10px;
+  margin-left: 35%;
 }
 
 .createPost {
