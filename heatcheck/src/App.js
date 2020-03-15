@@ -8,16 +8,16 @@ import { Route, Switch } from "react-router-dom";
 import UploadPost from "./components/Feedpage/uploadPost";
 import SearchBar from "./components/Feedpage/searchBar";
 
-// import TrendingReactions from './components/Feedpage/treanding'
+import TrendingReactions from './components/Feedpage/trending'
 
 function App() {
   return (
     <div className="App">
       {/* <SearchBar/> */}
       {/* <Feedpage /> */}
-      <HomePage/>
-      {/* <TrendingReactions/> */}
-      {/* <UploadPost/> */}
+      {/* <HomePage/> */}
+      <TrendingReactions/>
+      <UploadPost/>
     </div>
   );
 }

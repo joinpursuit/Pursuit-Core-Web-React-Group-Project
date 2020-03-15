@@ -9,9 +9,9 @@ export default function UploadPost() {
     const year = useInput("")
     const colorway = useInput("")
     const postPic = useInput("")
+    const tag = useInput("")
     const [image, setImage] = useState("")
     const [loading, setLoading] = useState(false) 
-    const tag = useInput("")
 
     const fileSelectHandle = (e) => {
         const blk = e.target.files[0]
@@ -57,7 +57,7 @@ export default function UploadPost() {
     const handleSubmit=async(e)=> {
         e.preventDefault();
         try{
-            await axios.post('http://localhost:3001/posts',{user_id: userId.value, image: image, brand: brand.value, description: description.value, release_date: year.value, colorway: colorway.value})
+            await axios.post('http://localhost:3001/posts',{user_id: userId.value, image: image, brand: brand.value, description: description.value, release_date: year.value, colorway: colorway.value,tag: tag.value})
         }catch(error){
             console.log(error);
         }
@@ -81,6 +81,7 @@ export default function UploadPost() {
                 <input type ="text" placeholder= "description" required {...description}/>
                 <input type ="number" min="1984" max="2020" placeholder= "year" required {...year}/>
                 <input type ="text" placeholder= "colorway" required {...colorway}/>
+                <input type ="text" placeholder= "tag" required {...tag}/>
                 <input type ="submit"/>
             </form>
             </>
