@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './src/css/banner.css';
+import Link from 'react-router-dom';
 import desktopImage from './src/css/images/LogoMakr_19YWZo.png';
 import mobileImage from './src/css/images/LogoMakr_19YWZo.png';
 
@@ -21,10 +22,12 @@ const App = () => {
     
     return (
         <div className="App" style={{backgroundImage: `url(${imageUrl})` }}>
-            <div className="App-content">
-                <h1>Pineapples</h1>
-                <p>They are good</p>
-            </div>
+            <Link exact to ={"/feedPage"}>
+                <div className="App-content">
+                    <h1>Heat Check</h1>
+                    <p>It's what's hot right now</p>
+                </div>
+            </Link>
         </div>
     );
 
