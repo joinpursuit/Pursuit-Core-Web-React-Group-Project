@@ -14,6 +14,7 @@ import TrendingReactions from "./components/Feedpage/trending";
 function App() {
   return (
     <div className="App">
+    {/* fix erroor */}
       {/* <SearchBar/>
       <Feedpage />
       <NavBar/> */}
