@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Post from "./post";
-let id = 3;
+let id = sessionStorage.getItem("userID");
 const styles = {
   img: {
     height: "100px",
@@ -17,12 +17,12 @@ const Bio = () => {
   // const didMount = useRef(false);
 
   const getcurrentUser = async () => {
-    const url = `http://localhost:3001/users/1`;
+    const url = `http://localhost:3001/users/${id}`;
 
     try {
       let res = await axios.get(url);
       let user = res.data.message;
-      setcurrentUser(res.data.message);
+      setcurrentUser(user);
     } catch (error) {
       setcurrentUser([]);
     }

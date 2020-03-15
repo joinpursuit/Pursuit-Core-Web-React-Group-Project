@@ -4,7 +4,7 @@ import { useInput } from "../../util/customHooks";
 import "../../css/uploadPost.css"
 
 export default function UploadPost({ getAllposts }) {
-  const userId = useInput("");
+  // const userId = useInput("");
   const brand = useInput("");
   const description = useInput("");
   const year = useInput("");
@@ -60,7 +60,7 @@ export default function UploadPost({ getAllposts }) {
 
     try {
       await axios.post("http://localhost:3001/posts", {
-        user_id: userId.value,
+        user_id: sessionStorage.getItem("userID"),
         image: image,
         brand: brand.value,
         description: description.value,
@@ -86,7 +86,6 @@ export default function UploadPost({ getAllposts }) {
         />
 
         <br />
-        <input type="text" placeholder="tempUserID" required {...userId} />
         <select required {...brand}>
           <option value={""} disabled>
             Brand

@@ -19,6 +19,9 @@ function App() {
     <Route path={"/feed"}>
     <Feedpage/>
     </Route>
+    <Route path={"/friend/:id"}>
+      <Friendpage/>
+    </Route>
       {/* <SearchBar/> */}
       {/* <NavBar/> */}
       {/* <Userpage />  */}

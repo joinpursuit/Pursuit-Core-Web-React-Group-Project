@@ -31,7 +31,7 @@ const FeedPage = () => {
   return (
     <div class="parent">
       <div class="headerContainer"> </div>
-      <Banner />
+      <Banner/>
       <div class="feedContainer">
         <Posts allposts={allposts} getAllposts={getAllposts} />
       </div>

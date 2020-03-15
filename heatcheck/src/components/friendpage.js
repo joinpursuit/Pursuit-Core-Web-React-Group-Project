@@ -1,17 +1,16 @@
 import Posts from "./Feedpage/posts";
 import Bio from "./Feedpage/bio";
 import Reactions from "./Feedpage/reactions";
-import TrendingReactions from "./trendingtags";
+import {useHistory} from "react-router-dom"
 // import NavBar from "./nav_bar";
 // import UploadPost from "./uploadPost";
 import Banner from "./banner";
 import "../css/feedpage.css";
 import React, { Component, useEffect, useState, useRef } from "react";
 import axios from "axios";
-let url = "http://localhost:3001/posts/1";
+let url = "http://localhost:3001/posts/2";
 // let currentUser = sessionStorage.UserID;
-
-const Friendpage = () => {
+const Friendpage = (props) => {
   const [allposts, setallposts] = useState([]);
   // const didMount = useRef(false);
 
@@ -37,7 +36,6 @@ const Friendpage = () => {
       </div>
       <div class="bioContainer">
         <Bio />
-        <TrendingReactions />
       </div>
       {/* </div> */}
       <div class="postContainer">

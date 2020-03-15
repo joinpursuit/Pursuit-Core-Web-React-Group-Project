@@ -3,7 +3,9 @@ import Comments from "./comment";
 import Reactions from "./reactions";
 import axios from "axios";
 import { string } from "prop-types";
-let currentUserID = 1;
+import {useHistory} from "react-router-dom"
+
+let currentUserID = sessionStorage.getItem("userID");
 const styles = {
   img: {
     height: "300px",
@@ -73,8 +75,10 @@ const Post = ({
   getAllposts
 }) => {
   const [showComments, setshowComments] = useState(false);
+  const history = useHistory()
   const handImgClick = () => {
-    console.log(user_id);
+    console.log(user_id)
+    history.push(`/friend/${user_id}`)
   };
   const displayPost = () => {
     // let brand = brand.toUpperCase();
