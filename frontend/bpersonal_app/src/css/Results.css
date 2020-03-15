@@ -13,7 +13,7 @@
 #showPosts {
   display: flex;
   flex-direction: row;
-  justify-items: space-around;
+  justify-items: space-evenly;
   margin: auto;
   padding: 50px;
   text-align: center;
