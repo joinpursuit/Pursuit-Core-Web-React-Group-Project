@@ -3,7 +3,7 @@ const db = require("../db/index");
 const getposts = async (req, res, next) => {
   try {
     let posts = await db.any(
-      "SELECT *,(SELECT ARRAY_AGG(users.user_name)AS user_name FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(users.profile_pic)AS profilepic FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(comments.user_id)AS commenter FROM comments WHERE posts.user_id = comments.post_id),(SELECT ARRAY_AGG(comments.id)AS commentID FROM comments WHERE posts.user_id = comments.post_id),(SELECT ARRAY_AGG(comments.body)AS comment FROM comments WHERE posts.user_id = comments.post_id),(SELECT ARRAY_AGG(comments.time_stamp)AS comment_time FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(reactions.user_id)AS reactor FROM reactions WHERE posts.id = post_id),(SELECT ARRAY_AGG(reactions.reaction)AS reaction FROM reactions WHERE posts.id = post_id),(SELECT ARRAY_AGG(tags.tag)AS hash_tag FROM Tags WHERE posts.id = post_id) FROM posts"
+      "SELECT *,(SELECT ARRAY_AGG(users.user_name)AS user_name FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(users.profile_pic)AS profilepic FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(comments.user_id)AS commenter FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(comments.id)AS commentID FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(comments.body)AS comment FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(comments.time_stamp)AS comment_time FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(reactions.user_id)AS reactor FROM reactions WHERE posts.id = post_id),(SELECT ARRAY_AGG(reactions.reaction)AS reaction FROM reactions WHERE posts.id = post_id) FROM posts ORDER BY time_stamp DESC"
     );
 
     res.status(200).json({
@@ -19,7 +19,7 @@ const getposts = async (req, res, next) => {
 const getpost = async (req, res, next) => {
   try {
     let post = await db.any(
-      "SELECT *,(SELECT ARRAY_AGG(users.user_name)AS user_name FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(users.profile_pic)AS profilepic FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(comments.user_id)AS commenter FROM comments WHERE posts.user_id = comments.post_id),(SELECT ARRAY_AGG(comments.id)AS commentID FROM comments WHERE posts.user_id = comments.post_id),(SELECT ARRAY_AGG(comments.body)AS comment FROM comments WHERE posts.user_id = comments.post_id),(SELECT ARRAY_AGG(comments.time_stamp)AS comment_time FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(reactions.user_id)AS reactor FROM reactions WHERE posts.id = post_id),(SELECT ARRAY_AGG(reactions.reaction)AS reaction FROM reactions WHERE posts.id = post_id),(SELECT ARRAY_AGG(tags.tag)AS hash_tag FROM Tags WHERE posts.id = post_id) FROM posts WHERE user_id=$1",
+      "SELECT *,(SELECT ARRAY_AGG(users.user_name)AS user_name FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(users.profile_pic)AS profilepic FROM users WHERE user_id = users.id),(SELECT ARRAY_AGG(comments.user_id)AS commenter FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(comments.id)AS commentID FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(comments.body)AS comment FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(comments.time_stamp)AS comment_time FROM comments WHERE posts.id = comments.id),(SELECT ARRAY_AGG(reactions.user_id)AS reactor FROM reactions WHERE posts.id = post_id),(SELECT ARRAY_AGG(reactions.reaction)AS reaction FROM reactions WHERE posts.id = post_id) FROM posts WHERE user_id=$1 ORDER BY time_stamp DESC",
       [req.params.userId]
     );
     res.status(200).json({
@@ -32,11 +32,47 @@ const getpost = async (req, res, next) => {
   }
 };
 
+
+const trendingtags = async (req, res, next) => {
+  try {
+    let posts = await db.any(
+      "SELECT posts.tag, COUNT(posts.tag) FROM posts GROUP BY posts.tag ORDER BY COUNT(*) DESC LIMIT 5"
+    );
+
+    res.status(200).json({
+      status: "success",
+      message: "selected all posts",
+      payload: posts
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+    
+  }
+};
+
+const getpostbytag = async (req, res, next) => {
+  try {
+    let post = await db.any(
+      "SELECT * FROM posts WHERE tag = $1 ORDER BY time_stamp DESC",
+      [req.params.tag]
+    );
+    res.status(200).json({
+      status: "success",
+      message: `select posts from ${req.params.tag}`,
+      payload: post
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
 const newpost = async (req, res, next) => {
   try {
     let info = req.body;
     let post = await db.one(
-      "INSERT INTO posts (user_id, image, brand, description, release_date, colorway) VALUES (${user_id}, ${image}, ${brand}, ${description}, ${release_date}, ${colorway}) RETURNING *",
+      "INSERT INTO posts (user_id, image, brand, description, release_date, colorway, tag) VALUES (${user_id}, ${image}, ${brand}, ${description}, ${release_date}, ${colorway},${tag}) RETURNING *",
       info
     );
     res.status(200).json({
@@ -79,4 +115,4 @@ const deletePost = async (req, res, next) => {
   }
 };
 
-module.exports = { getposts, getpost, newpost, editPost, deletePost };
+module.exports = { getposts, getpost, trendingtags, getpostbytag, newpost, editPost, deletePost };
