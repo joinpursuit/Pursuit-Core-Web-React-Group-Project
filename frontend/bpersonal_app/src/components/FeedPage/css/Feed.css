@@ -23,6 +23,8 @@ h2 {
 }
 
 #displayUser {
+  opacity: 90%;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   border: black 5px solid;
@@ -78,6 +80,8 @@ h2 {
 }
 
 .displayFeed {
+  opacity: 90%;
+  border-radius: 15px;
   border: black 5px solid;
   margin: 25px;
   background: gainsboro;
