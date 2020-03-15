@@ -1,25 +1,17 @@
-
 import React, { useState, useEffect } from 'react';
-
 import { NavLink } from 'react-router-dom';
-//
+import '../../css/NavBar.css';
 
-class NavBar extends React.Component{
-    
-
-    render() {
-        return(
-            <>
-            <nav>
-                <NavLink exact to={"/post"}>Make A post</NavLink>
-                <NavLink exact to={"/feedPage"}>Home Feed</NavLink>
-                <NavLink exact to={"/homePage"}>Home Page</NavLink>
-            </nav>
-            </>
-        )
-    }
+const Navbar = () => {
+    return (
+        <nav>
+           <div className="nav">
+               <NavLink exact to="/" className="navAnchor">Home</NavLink>
+               <NavLink to="/profile" className="navAnchor">Profile</NavLink>
+           </div>
+        </nav>
+    )
 
 }
-
 
 export default Navbar;
