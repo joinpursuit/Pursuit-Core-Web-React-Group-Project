@@ -19,12 +19,8 @@ CREATE TABLE users
     email VARCHAR UNIQUE NOT NULL,
     password VARCHAR NOT NULL,
     phone_number BIGINT NOT NULL DEFAULT 0,
-<<<<<<< HEAD
-    profile_pic VARCHAR NOT NULL DEFAULT ''
-=======
-    profile_pic VARCHAR NOT NULL DEFAULT '',
+    profile_pic VARCHAR NOT NULL DEFAULT '../../src/images/defaultUser',
     bio VARCHAR NOT NULL DEFAULT ''
->>>>>>> bfb9cb84cf9917533e01cc6a7fb070386e3196ca
 );
 
 -- Create Post Table
