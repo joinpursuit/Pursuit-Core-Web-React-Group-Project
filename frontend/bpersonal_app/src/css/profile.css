@@ -1,12 +1,11 @@
-
 .newsFeed {
-    background-color: white;
-    border-style: outset;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: relative;
-    justify-content: space-around;
+  background-color: white;
+  border-style: outset;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-around;
 }
 
 .profile {
@@ -24,27 +23,28 @@
   flex-wrap: wrap;
   position: relative;
   justify-content: space-around;
+  border-top: 2px solid black;
 }
 
 .profileInfo {
-  padding: 25px;
-  margin-top: 5%;
+  padding: 50px;
+  padding-bottom: 50px;
   background: rgb(255, 188, 0);
   background: linear-gradient(
     90deg,
     rgba(255, 188, 0, 1) 0%,
-    rgba(243, 249, 246, 1) 0%
+    rgba(243, 249, 246, 1) 100%
   );
 }
 
-#profilePicture {
-  /* display: flex;
-flex-direction: column; */
+#displayUser {
+  display: flex;
+  text-align: center;
 }
 
-#displayUserInfo {
-  /* display: flex;
-flex-direction: column; */
+#updateBio {
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 #post_Image {
@@ -52,4 +52,13 @@ flex-direction: column; */
   border: 2px solid black;
   border-radius: 20px;
   box-shadow: 6px 6px 6px gold;
+}
+
+.feedImgs {
+  background: rgb(255, 188, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 188, 0, 1) 0%,
+    rgba(243, 249, 246, 1) 0%
+  );
 }
