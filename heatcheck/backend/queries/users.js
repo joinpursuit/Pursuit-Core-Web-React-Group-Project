@@ -36,7 +36,7 @@ const logInUser = async (req, res, next) => {
       message:"User authenticated sucessfully.",
       payload: user });
   } catch (err) {
-    res.status(500).json({
+    res.status(200).json({
       status: "error",
       message: "Unable to authenticate user",
       payload:null
@@ -56,7 +56,7 @@ const addUser = async (req, res, next) => {
       status: "success"
     });
   } catch (err) {
-    res.status(500).json({
+    res.status(200).json({
       status: "error",
       message: "Unable to create user",
       payload:null

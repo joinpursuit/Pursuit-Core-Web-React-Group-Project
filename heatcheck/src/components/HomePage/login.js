@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from "axios"
 import {useInput} from "../../util/customHooks.js"
 import loginIcon from "./media/logo.svg"
@@ -8,6 +8,7 @@ import "../../css/form.scss"
 const Login = (props) => {
   const newEmail = useInput("")
   const newPassword = useInput("")
+  const [loginError, setLoginError] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +23,8 @@ const Login = (props) => {
         sessionStorage.setItem("userID", user.id)
         let session = sessionStorage.getItem("userID")
         console.log(session)
+      } else {
+        setLoginError(true)
       }
     } catch (err) {
       console.log(err);
@@ -35,6 +38,7 @@ const Login = (props) => {
           <img src={loginIcon} alt=""/>
         </div>
         <div className="form">
+          <b>{loginError ? "The email and password combination is incorrect." : null}</b>
           <div className="form-group">
             <label htmlFor="e-mail">E-mail</label>
             <input type="text" name="e-mail" placeholder="E-mail" {...newEmail} required/>
