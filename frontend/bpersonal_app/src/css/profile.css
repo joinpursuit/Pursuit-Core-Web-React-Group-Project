@@ -1,6 +1,40 @@
-.newsFeed {
-    background-color: red;
-    /* grid-row: 1/2;
-    position: absolute;
-    justify-content: space-evenly; */
+.profile {
+    /* display: flex; */
+    display: flex;
+    flex-direction: row;
+    /* background-color: whitesmoke; */
+    background: rgb(255,188,0);
+    background: linear-gradient(90deg, rgba(255,188,0,1) 0%, rgba(243,249,246,1) 0%);
+    border-style: outset;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: space-around;
 }
+
+.profileInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    background-color: white;
+    border-style: outset;  
+}
+
+
+#displayUser {
+    display: flex;
+    flex-direction: row;
+}
+
+#profilePicture{
+display: flex;
+flex-direction: column;
+}
+
+
+#displayUserInfo{
+display: flex;
+flex-direction: column;
+}
+
+

@@ -20,20 +20,24 @@ const Post = ({
         <img
           src={profile_pic_url}
           alt=""
-          style={{ width: "100px", height: "100px", borderRadius: "100%" }}
+          style={{
+            width: "100px",
+            height: "100px",
+            borderRadius: "100%",
+            borderStyle: "2px solid black"
+          }}
         ></img>
       </div>
       <h1>
         {username} posted on {date}
         <br></br>
       </h1>
-      <div id="post_image">
-        <img
-          src={post_image_url}
-          alt=""
-          style={{ width: "400", height: "500px" }}
-        ></img>
-      </div>
+      <img
+        id="post_image"
+        src={post_image_url}
+        alt=""
+        style={{ width: "400", height: "500px" }}
+      ></img>
       <p>{body}</p>
       <div className="likes">
         <Likes id={id} />
