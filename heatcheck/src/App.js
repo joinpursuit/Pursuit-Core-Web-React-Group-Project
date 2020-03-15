@@ -14,13 +14,13 @@ import TrendingReactions from "./components/Feedpage/trending";
 function App() {
   return (
     <div className="App">
-      <SearchBar/>
+      {/* <SearchBar/>
       <Feedpage />
-      <NavBar/>
-      <Userpage /> 
-      {/* <HomePage /> */}
-      <TrendingReactions/>
-      <UploadPost/>
+      <NavBar/> */}
+      {/* <Userpage />  */}
+      <HomePage />
+      {/* <TrendingReactions/> */}
+      {/* <UploadPost/> */}
     </div>
   );
 }
