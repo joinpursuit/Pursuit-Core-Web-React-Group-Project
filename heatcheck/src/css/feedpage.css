@@ -33,7 +33,7 @@
 }
 
 #bioDiv {
-  border: 2px solid;
+  border: 1px solid;
   border-color: black;
   border-radius: 10px;
   background-color: #302e2e;
@@ -41,6 +41,8 @@
   width: 175px;
   height: 275px;
   text-align: center;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 black;
 }
 
 #trending {
@@ -51,11 +53,16 @@
 }
 
 #uploadPost {
-  border: 2px solid;
+  border: 1px solid;
   border-color: black;
   border-radius: 10px;
   background-color: #302e2e;
   height: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 black;
+}
+#uploadPost input {
+  width: 110px;
 }
 /* #profilepic": {
   // display: "flex",

@@ -2,22 +2,22 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Post from "./post";
 
-const Posts = ({ url }) => {
-  const [allposts, setallposts] = useState([]);
-  // const didMount = useRef(false);
+const Posts = ({ allposts }) => {
+  // const [allposts, setallposts] = useState([]);
+  // // const didMount = useRef(false);
 
-  const getAllposts = async () => {
-    try {
-      let res = await axios.get(url);
-      setallposts(res.data.payload);
-    } catch (error) {
-      setallposts([]);
-    }
-  };
+  // const getAllposts = async () => {
+  //   try {
+  //     let res = await axios.get(url);
+  //     setallposts(res.data.payload);
+  //   } catch (error) {
+  //     setallposts([]);
+  //   }
+  // };
 
-  useEffect(() => {
-    getAllposts();
-  }, []);
+  // useEffect(() => {
+  //   getAllposts();
+  // }, []);
 
   let allpost = allposts.map(post => {
     return (
