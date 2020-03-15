@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import '../../css/profile.css'; 
 import DisplayFeedImages from "./DisplayFeedImages";
 import axios from "axios";
 

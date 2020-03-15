@@ -14,7 +14,7 @@ const DisplayFeedImages = ({img, post_body, timestamp, hashtag_body}) => {
             <h1>{date}</h1>
             <img src={img} alt={" "} style={styles.img}/>
             <h2>{post_body}</h2>
-            <p>#{hashtag_body}</p>
+            <p>{hashtag_body}</p>
         </div>
     )
 }
