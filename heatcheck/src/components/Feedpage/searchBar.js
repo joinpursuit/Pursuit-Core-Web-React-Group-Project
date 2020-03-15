@@ -51,7 +51,7 @@ const SearchBar =()=> {
     }
 
     useEffect(()=>{
-        fetchData("http://localhost:3000/tags/all",setList)
+        fetchData("http://localhost:3001/tags/all",setList)
     }, [])
 
         return (
