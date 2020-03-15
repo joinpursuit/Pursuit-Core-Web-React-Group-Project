@@ -108,10 +108,10 @@ const Post = ({
           <strong>Brand: </strong>
           {brand}
           <br/>
-          <strong>Release Date:</strong> {release}
+          <strong>Release:</strong> {release}
         </p>
         <p style={styles["#brand"]}>
-          <strong>Colorway: </strong
+          <strong>Colorway: </strong>
           {colorway}
         </p>
         <p style={styles["#brand"]}>
