@@ -2,7 +2,9 @@ import Posts from "./posts";
 import Bio from "./bio";
 import Reactions from "./reactions";
 import TrendingReactions from "./trending";
+import NavBar from "./nav_bar";
 import UploadPost from "./uploadPost";
+import Banner from "../banner";
 import "../../css/feedpage.css";
 import React, { Component, useEffect, useState, useRef } from "react";
 import axios from "axios";
@@ -29,7 +31,7 @@ const FeedPage = () => {
   return (
     <div class="parent">
       <div class="headerContainer"> </div>
-      {/* <div class="contentWarp"> */}
+      <Banner />
       <div class="feedContainer">
         <Posts allposts={allposts} getAllposts={getAllposts} />
       </div>

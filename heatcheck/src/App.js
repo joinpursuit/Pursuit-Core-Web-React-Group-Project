@@ -1,5 +1,6 @@
 import React from "react";
 import Feedpage from "./components/Feedpage/feedPage";
+import Friendpage from "./components/friendpage";
 import Userpage from "./components/Userpage";
 import HomePage from "./components/HomePage/homePage";
 import { Route, Switch } from "react-router-dom";
