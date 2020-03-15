@@ -48,8 +48,19 @@ const Comments = ({ id }) => {
       toggleEditBtnsObj.showInsert
     ) {
       return (
-        <li key={i} style={{ listStyle: "none", border: "1px solid black" }}>
-          <strong>{comment.username}</strong> commented '{comment.content}'
+        <li
+          key={i}
+          style={{
+            listStyle: "none",
+            margin: "25px",
+            fontStyle: "italic",
+            fontSize: "18px"
+          }}
+        >
+          <p class="commenter">
+            <strong>{comment.username}</strong>
+          </p>{" "}
+          commented '{comment.content}'
           {toggleEditBtnsObj.showInsert ? (
             <img
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA4klEQVQ4T2NkQAL/GRj+MzIwMCKLobPR1cAV/2Rg+A9TzI7DEGxqwAZ8RtIMM4QXzRBcahjfYNEMM0QEagg+NWAXPMNjCL7wkGJgYISHwX0shvyB6mbBYooi1HUoIX4TzZCfUI3saAaoI4UPRpRdRjLkG1QjF5IBumiBi2HAGSQDvkA18iAZYILPgGNoXvgE1ciH5gUrbF7YjyUQP0I18mMJREfkQNyJIxo/QDUK4IhLd1A0bsaTBnyhtuBTAw7ENVgMCUELLFxq4LGwDMmQKByZCZsalGicz8DwP5FAdkZXAwAmkDau+YtyUwAAAABJRU5ErkJggg=="
@@ -61,8 +72,19 @@ const Comments = ({ id }) => {
       );
     } else {
       return (
-        <li key={i} style={{ listStyle: "none", border: "1px solid black" }}>
-          <strong>{comment.username}</strong> commented '{comment.content}'
+        <li
+          key={i}
+          style={{
+            listStyle: "none",
+            margin: "25px",
+            fontStyle: "italic",
+            fontSize: "18px"
+          }}
+        >
+          <p class="commenter">
+            <strong>{comment.username}</strong>
+          </p>{" "}
+          commented '{comment.content}'
         </li>
       );
     }
