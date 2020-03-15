@@ -1,0 +1,26 @@
+.displayResults {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: rgb(255, 188, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 188, 0, 1) 0%,
+    rgba(243, 249, 246, 1) 100%
+  );
+}
+
+#showPosts {
+  display: flex;
+  flex-direction: row;
+  justify-items: space-around;
+  margin: auto;
+  padding: 50px;
+  text-align: center;
+  background: rgb(255, 188, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 188, 0, 1) 0%,
+    rgba(243, 249, 246, 1) 100%
+  );
+}

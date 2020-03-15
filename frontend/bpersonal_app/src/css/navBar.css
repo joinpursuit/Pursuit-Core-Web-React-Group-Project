@@ -17,8 +17,13 @@ header #navImage {
 
 header {
   all: initial;
-  background-color: yellow;
-  position: fixed;
+  background: rgb(255, 188, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 188, 0, 1) 0%,
+    rgba(243, 249, 246, 1) 0%
+  );
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -30,15 +35,21 @@ header {
   z-index: 1;
   justify-content: space-between;
   border: black;
+  border-bottom: 5px dotted black;
 }
 
 /* header * {
     display: inline;
 } */
 
+#a {
+  color: black;
+}
+
 #feed:hover {
-    /* margin-top: 100%; */
+  /* margin-top: 100%; */
   font-size: 10px;
+  color: yellow;
 }
 
 #profile:hover {
@@ -52,9 +63,8 @@ nav {
 }
 a {
   text-decoration: none;
-  
 }
 
 #searchInput {
-    margin-right: 20px;
+  margin-right: 20px;
 }
