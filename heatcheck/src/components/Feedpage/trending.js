@@ -19,7 +19,7 @@ const TrendingReactions = () => {
   const trendingDisplay = trend.map((el, i) => {
     return (
       <li key={i} style={{ listStyleType: "none", margin: "25px" }}>
-        {"#" + el.tag}
+        <a href= {`http://localhost:3001/posts/tag/${el.tag}`} >{"#" + el.tag}</a>
       </li>
     );
   });
