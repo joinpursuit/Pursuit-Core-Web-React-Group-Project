@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
+import {useHistory} from "react-router-dom"
 import axios from "axios"
 import {useInput} from "../../util/customHooks.js"
 import loginIcon from "./media/logo.svg"
 import "../../css/form.scss"
 
-
 const Login = (props) => {
+  const history = useHistory()
   const newEmail = useInput("")
   const newPassword = useInput("")
   const [loginError, setLoginError] = useState(false)
@@ -21,8 +22,7 @@ const Login = (props) => {
 
       if(status === "success"){
         sessionStorage.setItem("userID", user.id)
-        let session = sessionStorage.getItem("userID")
-        console.log(session)
+        history.push("/feed")
       } else {
         setLoginError(true)
       }
