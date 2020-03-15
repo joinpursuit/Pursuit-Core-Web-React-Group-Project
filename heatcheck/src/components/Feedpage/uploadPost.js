@@ -83,31 +83,6 @@ export default function UploadPost() {
           required
           {...postPic}
         />
-
-<<<<<<< HEAD
-    return (
-        <>
-            <form className="form" onSubmit={handleSubmit}>
-                <input type="file" name ="file" onInput={fileSelectHandle} required {...postPic}/>
-                {loading ? <p>loading</p> : <img style={{ width: "100px", height: "100px"}}  src={image}/>}
-                <br/>
-                <input type ="text" placeholder= "tempUserID" required {...userId}/>
-                <select required  {...brand}>
-                    <option value={""} disabled>Brand</option>
-                    <option value={"Jordan"}>Jordan</option>
-                    <option value={"Nike"}>Nike</option>
-                    <option value={"Adidas"}>Adidas</option>
-                    <option value={"Converse"}>Converse</option>
-                    <option value={"Other"}>Other</option>
-                </select>
-                <input type ="text" placeholder= "description" required {...description}/>
-                <input type ="number" min="1984" max="2020" placeholder= "year" required {...year}/>
-                <input type ="text" placeholder= "colorway" required {...colorway}/>
-                <input type ="submit"/>
-            </form>
-            </>
-    )
-=======
         <br />
         <input type="text" placeholder="tempUserID" required {...userId} />
         <select required {...brand}>
@@ -147,5 +122,4 @@ export default function UploadPost() {
       </div>
     </div>
   );
->>>>>>> 518c8ef99a7eb398282110d291ac583b86981c96
 }
