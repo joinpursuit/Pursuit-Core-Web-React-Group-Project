@@ -27,31 +27,40 @@ const getUserByid = async (req, res, next) => {
 };
 
 const logInUser = async (req, res, next) => {
-  console.log(req.body)
   try {
     let info = req.body
     let user = await dataBase.one(
       "SELECT * FROM users WHERE email = ${email} AND password = ${password}", info);
-    res.status(200).json({ user });
+    res.status(200).json({
+      status: "success",
+      message:"User authenticated sucessfully.",
+      payload: user });
   } catch (err) {
-    next(err);
+    res.status(500).json({
+      status: "error",
+      message: "Unable to authenticate user",
+      payload:null
+    })
   }
 };
 
 const addUser = async (req, res, next) => {
-  console.log(req.body);
   try {
     let user = await dataBase.one(
-      "INSERT INTO users (full_name,user_name,email,password,phone_number) VALUES (${full_name},${user_name}, ${email},${password},${phone_number}) RETURNING *",
+      "INSERT INTO users (full_name,user_name,email,password) VALUES (${full_name},${user_name}, ${email},${password}) RETURNING *",
       req.body
     );
     res.status(200).json({
-      user: user,
+      payload: user,
       message: "new user created",
       status: "success"
     });
   } catch (err) {
-    next(err);
+    res.status(500).json({
+      status: "error",
+      message: "Unable to create user",
+      payload:null
+    })
   }
 };
 

@@ -2,13 +2,11 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Post from "./post";
 
-const Posts = () => {
+const Posts = ({ url }) => {
   const [allposts, setallposts] = useState([]);
   // const didMount = useRef(false);
 
   const getAllposts = async () => {
-    const url = "http://localhost:3001/posts";
-
     try {
       let res = await axios.get(url);
       setallposts(res.data.payload);
@@ -25,13 +23,14 @@ const Posts = () => {
     return (
       <Post
         postID={post.id}
+        user_id={post.user_id}
         userName={post.user_name["0"]}
         shoeImg={post.image}
         key={post.id}
         brand={post.brand}
         description={post.description}
         release={post.release_date}
-        comments={post.comments}
+        comments={post.comment}
         commenterID={post.commenter}
         profilepic={post.profilepic["0"]}
         reaction={post.reaction}
