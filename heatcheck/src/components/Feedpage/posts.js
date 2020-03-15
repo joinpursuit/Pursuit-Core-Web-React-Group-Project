@@ -8,7 +8,7 @@ const Posts = ({ url }) => {
 
   const getAllposts = async () => {
     try {
-      let res = await axios.get("http://localhost:3001/posts");
+      let res = await axios.get(url);
       setallposts(res.data.payload);
     } catch (error) {
       setallposts([]);

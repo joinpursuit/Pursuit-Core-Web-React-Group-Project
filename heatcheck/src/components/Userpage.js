@@ -1,10 +1,10 @@
-import Posts from "./posts";
-import Bio from "./bio";
-import "../../css/feedpage.css";
+import Posts from "./Feedpage/posts";
+import Bio from "./Feedpage/bio";
+// import "../../src/css/feedPage.css";
 import React, { Component } from "react";
-let url = "http://localhost:3001/posts/:id";
+let url = "http://localhost:3001/posts/1";
 
-const FeedPage = () => {
+const Userpage = () => {
   return (
     <div class="parent">
       <div class="headerContainer"> </div>
@@ -22,4 +22,4 @@ const FeedPage = () => {
   );
 };
 
-export default FeedPage;
+export default Userpage;

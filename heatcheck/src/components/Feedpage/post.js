@@ -8,15 +8,10 @@ const styles = {
     height: "350px",
     width: "350px",
     // borderRadius: "5%",
+
     objectFit: "cover"
   },
-  "#profilepic": {
-    // display: "flex",
-    // alignSelf: "baseline",
-    height: "25px",
-    width: "25px",
-    borderRadius: "50%"
-  },
+
   "#userName": {
     width: "200px",
     textAlign: "center",
@@ -27,14 +22,27 @@ const styles = {
   },
   ".post": {
     border: "2px solid",
-    borderRadius: "12px",
+    borderColor: "black",
+    borderRadius: "10px",
     width: "350px",
     textAlign: "center",
-    marginBottom: "10px"
+    marginBottom: "10px",
+    backgroundColor: "#302E2E",
+    color: "grey"
   },
   "#userPost": {
     display: "flex",
     alignItems: "center"
+  },
+  "#profilepic": {
+    display: "flex",
+    alignSelf: "baseline",
+    height: "25px",
+    width: "25px",
+    borderRadius: "50%",
+    border: "2px solid",
+    borderColor: "black",
+    hover: "white"
   }
 };
 
@@ -66,6 +74,7 @@ const Post = ({
             style={styles["#profilepic"]}
             onClick={handImgClick}
           />
+
           <p id="userName" style={styles["#userName"]}>
             {userName}
           </p>
