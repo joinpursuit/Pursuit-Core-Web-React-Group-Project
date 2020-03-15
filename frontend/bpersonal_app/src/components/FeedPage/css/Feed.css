@@ -1,13 +1,129 @@
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 25px;
+}
+
+h2 {
+  font-size: 25px;
+  font-style: italic;
+}
+
 .Feed {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  background: rgb(255, 246, 148);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 246, 148, 1) 0%,
+    rgba(255, 241, 97, 1) 28%,
+    rgba(255, 0, 0, 1) 100%
+  );
 }
 
 #displayUser {
   display: flex;
   flex-direction: column;
+  border: black 5px solid;
+  margin: 25px;
+  top: 0;
+  height: 100%;
+  background: gainsboro;
+}
+
+#updateBio {
+  display: flex;
+  flex-direction: column;
+}
+
+.displayUserContainer {
+  text-align: center;
 }
 
 #profilePicture {
-  margin: 20px;
+  margin: 25px;
+}
+
+#profilePictureImg {
+  border: 5px solid gold;
+  position: relative;
+  display: inline-block;
+}
+
+#profilePictureImg:hover {
+  border: 5px solid skyblue;
+}
+
+.profilePictureEditContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.profilePictureEditContainer .profilePictureEditText {
+  visibility: hidden;
+  width: 120px;
+  background-color: wheat;
+  color: black;
+  opacity: 70%;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.profilePictureEditContainer:hover .profilePictureEditText {
+  visibility: visible;
+}
+
+.displayFeed {
+  border: black 5px solid;
+  margin: 25px;
+  background: gainsboro;
+  top: 0;
+  /* height: 100%; */
+  width: 1000px;
+}
+
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#profile_pic {
+  margin-top: 25px;
+}
+
+#post_image {
+  margin-bottom: 25px;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 6px 6px 6px gold;
+}
+
+.likes {
+  padding: 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.comments {
+  margin: 25px;
+}
+
+.commenter {
+  font-weight: bold;
+}
+
+li {
+  margin: 10px;
+}
+
+.createPost {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
 }

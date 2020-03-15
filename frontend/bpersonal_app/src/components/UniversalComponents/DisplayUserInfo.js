@@ -59,12 +59,16 @@ const DisplayUserInfo = () => {
   return (
     <section id="displayUser">
       <div id="profilePicture">
-        <img
-          src={user.profile_pic_url}
-          style={{ width: "300px", height: "300px", borderRadius: "100%" }}
-          alt="profile_pic"
-          onClick={toggleEditPicture.onClick}
-        ></img>
+        <div class="profilePictureEditContainer">
+          <img
+            id="profilePictureImg"
+            src={user.profile_pic_url}
+            style={{ width: "300px", height: "300px", borderRadius: "100%" }}
+            alt="profile_pic"
+            onClick={toggleEditPicture.onClick}
+          ></img>
+          <span class="profilePictureEditText">Edit Profile Picture</span>
+        </div>
         {toggleEditPicture.showInsert ? (
           <>
             <br></br>
