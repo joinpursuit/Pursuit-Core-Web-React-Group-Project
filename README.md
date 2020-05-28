@@ -1,17 +1,17 @@
-# Pursuit-Core-Web-React-Group-Project
+# Social Media Site
 
-For this project, in a group, build a Full-Stack Application with Express.js, PostgreSQL and React where users can upload and view images. 
+For this group project build a Full-Stack Application with Express.js, PostgreSQL and React where users can upload and view images. The application will function like a social media site.
 
 ## App Specifications
 
 - Users can create an account and sign in
-- Users have a profile where thery can change their display name and profile image
+- Users have a profile where they can change their display name and profile image
 - Users can post an image with a caption and/or hashtags
 - Users can view images uploaded by other users in their feed
 
 ### Screens
 
-Your app should have the functionality outlined below.  Feel free to add features, and make the UI whatever makes the most sense to your group.
+Your app should have the functionality outlined below. Feel free to add features, and make the UI whatever makes the most sense to your group.
 
 #### Login and Signup form
 
@@ -37,6 +37,7 @@ Successfully logging-in or creating an account should redirect the user to their
 - Give the user the ability to upload an image
 - The user should be able to add hashtags to their upload
 - Include a "Post" button
+
 You can do this in the feed page ala Tumblr or Reddit style or have it entirely in a separate front-end route.
 
 ### Bonus Feature ideas
@@ -58,7 +59,7 @@ You can do this in the feed page ala Tumblr or Reddit style or have it entirely 
 ## To start off
 * Assemble into your groups.
 * Review [The Groupwork Notes](./groupwork.md)
-* Get a trello board from the [template](https://trello.com/b/dYKNBTdL) and add all the team members and instructors to it. The trello usernames for instructors are alejandrofranco23, wynter21 & jungraejang.
+* Get a trello board from the [template](https://trello.com/b/dYKNBTdL) and add all the team members and instructors to it. The trello usernames for instructors are: `TBD`
 * Discuss the project and pick a name for your App.
 * Agree on roles for every team member. (add this as ticket on trello)
 * Review sample group norms and establish your own. (add this as a ticket on trello)
