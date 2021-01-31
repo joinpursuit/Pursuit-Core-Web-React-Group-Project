@@ -1,6 +1,6 @@
 import React from "react";
 import Tag from "./Tag";
-import "../../css/Post.css";
+import "../../CSS/Post.css";
 
 const Post = ({ poster, picture, caption, tags }) => {
   let tagsList = tags.map((tag, i) => {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useInput } from "../../util/customHooks";
-import OurCanvasLogoSplat from "../../images/OurCanvasLogoSplat.png";
-import "../../css/Navbar.css";
+import OurCanvasLogoSplat from "../../Images/OurCanvasLogo.jpg";
+import "../../CSS/Navbar.css";
 
 const Navbar = ({ setLoggedIn, onSearch }) => {
   let search = useInput("");
